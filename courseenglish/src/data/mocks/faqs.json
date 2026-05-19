@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "category": "General",
+        "question": "How do I apply for a course?",
+        "answer": "You can apply directly through our website by selecting your desired course and clicking 'Apply Now'. Our team will guide you through the rest."
+    },
+    {
+        "id": 2,
+        "category": "General",
+        "question": "What is the refund policy?",
+        "answer": "We offer a full refund if you cancel at least 14 days before the course start date. Please check our terms and conditions for more details."
+    },
+    {
+        "id": 3,
+        "category": "Visas",
+        "question": "Do you provide visa support?",
+        "answer": "Yes, we provide full support for student visa applications, including guidance on required documents and interview preparation."
+    },
+    {
+        "id": 4,
+        "category": "Accommodation",
+        "question": "Can you help with accommodation?",
+        "answer": "Absolutely. We have partnerships with local host families and student residences to ensure you have a comfortable place to stay."
+    }
+]

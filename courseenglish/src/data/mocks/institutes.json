@@ -1,0 +1,806 @@
+[
+    {
+        "id": 1,
+        "name": "CES School - London",
+        "location": "UK, London",
+        "rating": 4.5,
+        "reviews": 12,
+        "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇬🇧",
+        "price_per_week": 250,
+        "old_price": 280,
+        "tags": [
+            "Top Rated",
+            "10% OFF"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "EC English - New York",
+        "location": "USA, New York",
+        "rating": 4.8,
+        "reviews": 34,
+        "image": "https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇺🇸",
+        "price_per_week": 400,
+        "tags": [
+            "Top Rated"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Stafford House - Toronto",
+        "location": "Canada, Toronto",
+        "rating": 4.6,
+        "reviews": 20,
+        "image": "https://images.pexels.com/photos/3748221/pexels-photo-3748221.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇨🇦",
+        "price_per_week": 350,
+        "tags": [],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Kaplan International - Dublin",
+        "location": "Ireland, Dublin",
+        "rating": 4.7,
+        "reviews": 28,
+        "image": "https://images.pexels.com/photos/1758531/pexels-photo-1758531.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇮🇪",
+        "price_per_week": 300,
+        "old_price": 320,
+        "tags": [
+            "Special Offer"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Oxford House College",
+        "location": "Australia, Sydney",
+        "rating": 4.4,
+        "reviews": 15,
+        "image": "https://images.pexels.com/photos/219692/pexels-photo-219692.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇦🇺",
+        "price_per_week": 380,
+        "tags": [
+            "Best Value"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "LSI - Brighton",
+        "location": "UK, Brighton",
+        "rating": 4.3,
+        "reviews": 10,
+        "image": "https://images.pexels.com/photos/8359223/pexels-photo-8359223.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇬🇧",
+        "price_per_week": 280,
+        "old_price": 350,
+        "tags": [
+            "20% OFF"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Goethe-Institut",
+        "location": "Germany, Berlin",
+        "rating": 4.9,
+        "reviews": 50,
+        "image": "https://images.pexels.com/photos/1319855/pexels-photo-1319855.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇩🇪",
+        "price_per_week": 220,
+        "tags": [
+            "Top Rated"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Malaca Instituto",
+        "location": "Spain, Malaga",
+        "rating": 4.8,
+        "reviews": 42,
+        "image": "https://images.pexels.com/photos/3769138/pexels-photo-3769138.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "logo": "/ces.png",
+        "flag": "🇪🇸",
+        "price_per_week": 260,
+        "old_price": 300,
+        "tags": [
+            "15% OFF",
+            "Summer Deal"
+        ],
+        "description": "Located in a prime city center, our institute offers supportive staff, modern classrooms, and excellent student services.",
+        "accreditations": [
+            "/englisuk.png",
+            "/britishcouncil.png",
+            "/englisuk.png",
+            "/britishcouncil.png"
+        ],
+        "courses": [
+            {
+                "id": "c1",
+                "name": "General English",
+                "tag": "Best Offer",
+                "lessons": 20,
+                "hours": 15,
+                "min_age": 16,
+                "level": "A1",
+                "price": 2527,
+                "old_price": 2000
+            },
+            {
+                "id": "c2",
+                "name": "Intensive English",
+                "tag": "20% OFF",
+                "lessons": 25,
+                "hours": 20,
+                "min_age": 16,
+                "level": "A2",
+                "price": 2890,
+                "old_price": 3200
+            },
+            {
+                "id": "c3",
+                "name": "IELTS Preparation",
+                "tag": "Top Rated",
+                "lessons": 18,
+                "hours": 12,
+                "min_age": 18,
+                "level": "B1",
+                "price": 2400,
+                "old_price": 2800
+            }
+        ],
+        "accommodation": [
+            {
+                "id": "a1",
+                "name": "Host Family Stay",
+                "tag": "Best Offer",
+                "features": [
+                    "Single room",
+                    "Shared bathroom",
+                    "Half board"
+                ],
+                "price": 1297
+            },
+            {
+                "id": "a2",
+                "name": "Student Residence",
+                "tag": "20% OFF",
+                "features": [
+                    "Single room",
+                    "En-suite",
+                    "Self-catering"
+                ],
+                "price": 1650
+            }
+        ],
+        "extra_options": [
+            {
+                "id": "x1",
+                "name": "Airport Pickup",
+                "info": "Manchester International Airport",
+                "price": 1297.73
+            },
+            {
+                "id": "x2",
+                "name": "Visa Assistance",
+                "info": "Document review and support",
+                "price": 399
+            },
+            {
+                "id": "x3",
+                "name": "Medical Insurance",
+                "info": "Full coverage during stay",
+                "price": 249
+            }
+        ]
+    }
+]

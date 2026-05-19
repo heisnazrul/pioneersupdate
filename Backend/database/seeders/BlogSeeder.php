@@ -1,0 +1,107 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class BlogSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $rows = [
+            [
+                'id' => 1,
+                'title' => 'Top 10 Tips for Learning English Fast',
+                'ar_title' => 'أفضل 10 نصائح لتعلم الإنجليزية بسرعة',
+                'slug' => 'top-10-tips-for-learning-english-fast',
+                'summary' => 'Simple habits that improve your English every day.',
+                'ar_summary' => 'عادات بسيطة تُحسّن لغتك الإنجليزية يوميًا.',
+                'content' => 'Build a daily routine, practice speaking, and immerse yourself in English media.',
+                'ar_content' => 'ابنِ روتينًا يوميًا، وتدرّب على التحدث، واغمر نفسك في وسائل الإعلام الإنجليزية.',
+                'category_id' => 1,
+                'audience_scope' => 'all',
+                'featured_image' => 'blog_images/learning-tips.jpg',
+                'published_at' => now(),
+            ],
+            [
+                'id' => 2,
+                'title' => 'Why Study in the UK?',
+                'ar_title' => 'لماذا الدراسة في المملكة المتحدة؟',
+                'slug' => 'why-study-in-the-uk',
+                'summary' => 'World-class education and a vibrant student experience.',
+                'ar_summary' => 'تعليم عالمي وتجربة طلابية غنية.',
+                'content' => 'The UK offers globally ranked institutions, diverse culture, and strong career pathways.',
+                'ar_content' => 'توفر المملكة المتحدة مؤسسات عالمية، وثقافة متنوعة، ومسارات مهنية قوية.',
+                'category_id' => 2,
+                'audience_scope' => 'all',
+                'featured_image' => 'blog_images/study-uk.jpg',
+                'published_at' => now(),
+            ],
+            [
+                'id' => 3,
+                'title' => 'Mastering English Grammar: A Beginner’s Guide',
+                'ar_title' => 'إتقان قواعد الإنجليزية: دليل للمبتدئين',
+                'slug' => 'mastering-english-grammar-beginners-guide',
+                'summary' => 'Understand the essentials without overwhelm.',
+                'ar_summary' => 'افهم الأساسيات بدون تعقيد.',
+                'content' => 'Start with tenses, sentence structure, and common grammar patterns.',
+                'ar_content' => 'ابدأ بالأزمنة وبناء الجملة وأنماط القواعد الشائعة.',
+                'category_id' => 3,
+                'audience_scope' => 'all',
+                'featured_image' => 'blog_images/grammar-guide.jpg',
+                'published_at' => now(),
+            ],
+            [
+                'id' => 4,
+                'title' => 'IELTS Preparation Checklist',
+                'ar_title' => 'قائمة التحضير لاختبار IELTS',
+                'slug' => 'ielts-preparation-checklist',
+                'summary' => 'A focused plan to prepare efficiently.',
+                'ar_summary' => 'خطة مركّزة للتحضير بكفاءة.',
+                'content' => 'Review band descriptors, take mock tests, and improve writing structure.',
+                'ar_content' => 'راجع معايير الدرجات، وأدِّ اختبارات تجريبية، وحسّن بنية الكتابة.',
+                'category_id' => 4,
+                'audience_scope' => 'all',
+                'featured_image' => 'blog_images/ielts-checklist.jpg',
+                'published_at' => now(),
+            ],
+            [
+                'id' => 5,
+                'title' => 'How English Skills Boost Your Career',
+                'ar_title' => 'كيف تعزز مهارات الإنجليزية مسارك المهني',
+                'slug' => 'how-english-skills-boost-your-career',
+                'summary' => 'Communicate better and access more opportunities.',
+                'ar_summary' => 'تواصل أفضل واغتنم فرصًا أكثر.',
+                'content' => 'English proficiency improves hiring prospects and global mobility.',
+                'ar_content' => 'إتقان الإنجليزية يرفع فرص التوظيف والتنقل عالميًا.',
+                'category_id' => 5,
+                'audience_scope' => 'all',
+                'featured_image' => 'blog_images/career-growth.jpg',
+                'published_at' => now(),
+            ],
+        ];
+
+        foreach ($rows as $row) {
+            DB::table('blogs')->updateOrInsert(
+                ['id' => $row['id']],
+                [
+                    'title' => $row['title'],
+                    'ar_title' => $row['ar_title'],
+                    'slug' => $row['slug'],
+                    'summary' => $row['summary'],
+                    'ar_summary' => $row['ar_summary'],
+                    'content' => $row['content'],
+                    'ar_content' => $row['ar_content'],
+                    'category_id' => $row['category_id'],
+                    'audience_scope' => $row['audience_scope'],
+                    'featured_image' => $row['featured_image'],
+                    'published_at' => $row['published_at'],
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]
+            );
+        }
+    }
+}
+

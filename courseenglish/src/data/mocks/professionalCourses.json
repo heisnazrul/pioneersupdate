@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "title": "PMP® Certification Training",
+        "provider": "Project Mgmt Institute",
+        "subject": "Project Management",
+        "level": "Advanced",
+        "duration": "4 Days",
+        "startDate": "15 March 2025",
+        "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "PMP",
+        "discountLabel": "Group Discount"
+    },
+    {
+        "id": 2,
+        "title": "Digital Marketing Masterclass",
+        "provider": "Google Digital Garage",
+        "subject": "Marketing",
+        "level": "Intermediate",
+        "duration": "3 Weeks",
+        "startDate": "20 April 2025",
+        "image": "https://images.pexels.com/photos/905164/pexels-photo-905164.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "Cert",
+        "discountLabel": "Free Career Coaching"
+    },
+    {
+        "id": 3,
+        "title": "Data Science Bootcamp",
+        "provider": "DataCamp",
+        "subject": "Data Science",
+        "level": "Beginner to Pro",
+        "duration": "12 Weeks",
+        "startDate": "1 June 2025",
+        "image": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "Diploma",
+        "discountLabel": "20% OFF"
+    },
+    {
+        "id": 4,
+        "title": "Leadership & Management",
+        "provider": "Harvard Business",
+        "subject": "Business",
+        "level": "Executive",
+        "duration": "5 Days",
+        "startDate": "10 May 2025",
+        "image": "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "Cert",
+        "discountLabel": null
+    },
+    {
+        "id": 5,
+        "title": "Agile & Scrum Master",
+        "provider": "Scrum Alliance",
+        "subject": "Project Management",
+        "level": "Intermediate",
+        "duration": "2 Days",
+        "startDate": "12 Feb 2025",
+        "image": "https://images.pexels.com/photos/3153204/pexels-photo-3153204.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "CSM",
+        "discountLabel": "Early Bird"
+    },
+    {
+        "id": 6,
+        "title": "Graphic Design Fundamentals",
+        "provider": "Adobe Certified",
+        "subject": "Design",
+        "level": "Beginner",
+        "duration": "4 Weeks",
+        "startDate": "8 March 2025",
+        "image": "https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "ACA",
+        "discountLabel": "Student Discount"
+    },
+    {
+        "id": 7,
+        "title": "Financial Analysis Core",
+        "provider": "CFA Institute",
+        "subject": "Finance",
+        "level": "Advanced",
+        "duration": "6 Months",
+        "startDate": "1 Sept 2025",
+        "image": "https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "CFA",
+        "discountLabel": null
+    },
+    {
+        "id": 8,
+        "title": "Cybersecurity Essentials",
+        "provider": "Cisco",
+        "subject": "IT & Security",
+        "level": "Intermediate",
+        "duration": "8 Weeks",
+        "startDate": "15 July 2025",
+        "image": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "certification": "Cert",
+        "discountLabel": "10% OFF"
+    }
+]

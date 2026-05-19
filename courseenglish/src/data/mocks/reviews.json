@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Sarah Johnson",
+        "role": "IELTS Student",
+        "title": "Amazing experience!",
+        "review_text": "The teachers were incredibly supportive and the lessons were very engaging. I improved my score significantly.",
+        "rating": 5
+    },
+    {
+        "id": 2,
+        "name": "Mohammed Ali",
+        "role": "General English",
+        "title": "Great atmosphere",
+        "review_text": "I loved meeting students from all over the world. The social activities were a highlight for me.",
+        "rating": 5
+    },
+    {
+        "id": 3,
+        "name": "Elena Rodriguez",
+        "role": "Business English",
+        "title": "Very professional",
+        "review_text": "The course content was exactly what I needed for my career. Highly recommended for professionals.",
+        "rating": 4
+    },
+    {
+        "id": 4,
+        "name": "Hiroshi Tanaka",
+        "role": "Summer Camp",
+        "title": "Unforgettable summer",
+        "review_text": "My son had a wonderful time at the summer camp. He improved his English and made many new friends.",
+        "rating": 5
+    },
+    {
+        "id": 5,
+        "name": "Anna Mueller",
+        "role": "Cambridge Exam",
+        "title": "Top quality teaching",
+        "review_text": "The preparation for the Cambridge exam was thorough and effective. I passed with flying colors!",
+        "rating": 5
+    }
+]

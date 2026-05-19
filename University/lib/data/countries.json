@@ -1,0 +1,922 @@
+[
+  {
+    "id": "country_1",
+    "name": "United Kingdom",
+    "code": "GB",
+    "region": "Europe",
+    "currency": "GBP",
+    "slug": "united-kingdom",
+    "isPopular": true,
+    "popularityRank": 1,
+    "heroFeatured": true
+  },
+  {
+    "id": "country_2",
+    "name": "United States",
+    "code": "US",
+    "region": "North America",
+    "currency": "USD",
+    "slug": "united-states",
+    "isPopular": true,
+    "popularityRank": 2,
+    "heroFeatured": true
+  },
+  {
+    "id": "country_3",
+    "name": "Canada",
+    "code": "CA",
+    "region": "North America",
+    "currency": "CAD",
+    "slug": "canada",
+    "isPopular": true,
+    "popularityRank": 3,
+    "heroFeatured": true
+  },
+  {
+    "id": "country_4",
+    "name": "Australia",
+    "code": "AU",
+    "region": "Oceania",
+    "currency": "AUD",
+    "slug": "australia",
+    "isPopular": true,
+    "popularityRank": 4,
+    "heroFeatured": true
+  },
+  {
+    "id": "country_5",
+    "name": "Germany",
+    "code": "DE",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "germany",
+    "isPopular": true,
+    "popularityRank": 5,
+    "heroFeatured": true
+  },
+  {
+    "id": "country_6",
+    "name": "Ireland",
+    "code": "IE",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "ireland",
+    "isPopular": true,
+    "popularityRank": 6,
+    "heroFeatured": false
+  },
+  {
+    "id": "country_7",
+    "name": "Netherlands",
+    "code": "NL",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "netherlands",
+    "isPopular": true,
+    "popularityRank": 7,
+    "heroFeatured": false
+  },
+  {
+    "id": "country_8",
+    "name": "Sweden",
+    "code": "SE",
+    "region": "Europe",
+    "currency": "SEK",
+    "slug": "sweden",
+    "isPopular": true,
+    "popularityRank": 8,
+    "heroFeatured": false
+  },
+  {
+    "id": "country_9",
+    "name": "France",
+    "code": "FR",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "france",
+    "isPopular": true,
+    "popularityRank": 9,
+    "heroFeatured": false
+  },
+  {
+    "id": "country_10",
+    "name": "Malaysia",
+    "code": "MY",
+    "region": "Asia",
+    "currency": "MYR",
+    "slug": "malaysia",
+    "isPopular": true,
+    "popularityRank": 10,
+    "heroFeatured": false
+  },
+  {
+    "id": "country_11",
+    "name": "Japan",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan",
+    "isPopular": false
+  },
+  {
+    "id": "country_12",
+    "name": "China",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china",
+    "isPopular": false
+  },
+  {
+    "id": "country_13",
+    "name": "India",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india",
+    "isPopular": false
+  },
+  {
+    "id": "country_14",
+    "name": "Brazil",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil",
+    "isPopular": false
+  },
+  {
+    "id": "country_15",
+    "name": "South Korea",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea",
+    "isPopular": false
+  },
+  {
+    "id": "country_16",
+    "name": "New Zealand",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand",
+    "isPopular": false
+  },
+  {
+    "id": "country_17",
+    "name": "Spain",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain",
+    "isPopular": false
+  },
+  {
+    "id": "country_18",
+    "name": "Italy",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy",
+    "isPopular": false
+  },
+  {
+    "id": "country_19",
+    "name": "Japan 18",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-18",
+    "isPopular": false
+  },
+  {
+    "id": "country_20",
+    "name": "China 19",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-19",
+    "isPopular": false
+  },
+  {
+    "id": "country_21",
+    "name": "India 20",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-20",
+    "isPopular": false
+  },
+  {
+    "id": "country_22",
+    "name": "Brazil 21",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-21",
+    "isPopular": false
+  },
+  {
+    "id": "country_23",
+    "name": "South Korea 22",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-22",
+    "isPopular": false
+  },
+  {
+    "id": "country_24",
+    "name": "New Zealand 23",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-23",
+    "isPopular": false
+  },
+  {
+    "id": "country_25",
+    "name": "Spain 24",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-24",
+    "isPopular": false
+  },
+  {
+    "id": "country_26",
+    "name": "Italy 25",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-25",
+    "isPopular": false
+  },
+  {
+    "id": "country_27",
+    "name": "Japan 26",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-26",
+    "isPopular": false
+  },
+  {
+    "id": "country_28",
+    "name": "China 27",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-27",
+    "isPopular": false
+  },
+  {
+    "id": "country_29",
+    "name": "India 28",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-28",
+    "isPopular": false
+  },
+  {
+    "id": "country_30",
+    "name": "Brazil 29",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-29",
+    "isPopular": false
+  },
+  {
+    "id": "country_31",
+    "name": "South Korea 30",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-30",
+    "isPopular": false
+  },
+  {
+    "id": "country_32",
+    "name": "New Zealand 31",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-31",
+    "isPopular": false
+  },
+  {
+    "id": "country_33",
+    "name": "Spain 32",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-32",
+    "isPopular": false
+  },
+  {
+    "id": "country_34",
+    "name": "Italy 33",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-33",
+    "isPopular": false
+  },
+  {
+    "id": "country_35",
+    "name": "Japan 34",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-34",
+    "isPopular": false
+  },
+  {
+    "id": "country_36",
+    "name": "China 35",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-35",
+    "isPopular": false
+  },
+  {
+    "id": "country_37",
+    "name": "India 36",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-36",
+    "isPopular": false
+  },
+  {
+    "id": "country_38",
+    "name": "Brazil 37",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-37",
+    "isPopular": false
+  },
+  {
+    "id": "country_39",
+    "name": "South Korea 38",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-38",
+    "isPopular": false
+  },
+  {
+    "id": "country_40",
+    "name": "New Zealand 39",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-39",
+    "isPopular": false
+  },
+  {
+    "id": "country_41",
+    "name": "Spain 40",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-40",
+    "isPopular": false
+  },
+  {
+    "id": "country_42",
+    "name": "Italy 41",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-41",
+    "isPopular": false
+  },
+  {
+    "id": "country_43",
+    "name": "Japan 42",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-42",
+    "isPopular": false
+  },
+  {
+    "id": "country_44",
+    "name": "China 43",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-43",
+    "isPopular": false
+  },
+  {
+    "id": "country_45",
+    "name": "India 44",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-44",
+    "isPopular": false
+  },
+  {
+    "id": "country_46",
+    "name": "Brazil 45",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-45",
+    "isPopular": false
+  },
+  {
+    "id": "country_47",
+    "name": "South Korea 46",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-46",
+    "isPopular": false
+  },
+  {
+    "id": "country_48",
+    "name": "New Zealand 47",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-47",
+    "isPopular": false
+  },
+  {
+    "id": "country_49",
+    "name": "Spain 48",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-48",
+    "isPopular": false
+  },
+  {
+    "id": "country_50",
+    "name": "Italy 49",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-49",
+    "isPopular": false
+  },
+  {
+    "id": "country_51",
+    "name": "Japan 50",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-50",
+    "isPopular": false
+  },
+  {
+    "id": "country_52",
+    "name": "China 51",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-51",
+    "isPopular": false
+  },
+  {
+    "id": "country_53",
+    "name": "India 52",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-52",
+    "isPopular": false
+  },
+  {
+    "id": "country_54",
+    "name": "Brazil 53",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-53",
+    "isPopular": false
+  },
+  {
+    "id": "country_55",
+    "name": "South Korea 54",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-54",
+    "isPopular": false
+  },
+  {
+    "id": "country_56",
+    "name": "New Zealand 55",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-55",
+    "isPopular": false
+  },
+  {
+    "id": "country_57",
+    "name": "Spain 56",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-56",
+    "isPopular": false
+  },
+  {
+    "id": "country_58",
+    "name": "Italy 57",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-57",
+    "isPopular": false
+  },
+  {
+    "id": "country_59",
+    "name": "Japan 58",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-58",
+    "isPopular": false
+  },
+  {
+    "id": "country_60",
+    "name": "China 59",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-59",
+    "isPopular": false
+  },
+  {
+    "id": "country_61",
+    "name": "India 60",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-60",
+    "isPopular": false
+  },
+  {
+    "id": "country_62",
+    "name": "Brazil 61",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-61",
+    "isPopular": false
+  },
+  {
+    "id": "country_63",
+    "name": "South Korea 62",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-62",
+    "isPopular": false
+  },
+  {
+    "id": "country_64",
+    "name": "New Zealand 63",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-63",
+    "isPopular": false
+  },
+  {
+    "id": "country_65",
+    "name": "Spain 64",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-64",
+    "isPopular": false
+  },
+  {
+    "id": "country_66",
+    "name": "Italy 65",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-65",
+    "isPopular": false
+  },
+  {
+    "id": "country_67",
+    "name": "Japan 66",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-66",
+    "isPopular": false
+  },
+  {
+    "id": "country_68",
+    "name": "China 67",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-67",
+    "isPopular": false
+  },
+  {
+    "id": "country_69",
+    "name": "India 68",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-68",
+    "isPopular": false
+  },
+  {
+    "id": "country_70",
+    "name": "Brazil 69",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-69",
+    "isPopular": false
+  },
+  {
+    "id": "country_71",
+    "name": "South Korea 70",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-70",
+    "isPopular": false
+  },
+  {
+    "id": "country_72",
+    "name": "New Zealand 71",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-71",
+    "isPopular": false
+  },
+  {
+    "id": "country_73",
+    "name": "Spain 72",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-72",
+    "isPopular": false
+  },
+  {
+    "id": "country_74",
+    "name": "Italy 73",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-73",
+    "isPopular": false
+  },
+  {
+    "id": "country_75",
+    "name": "Japan 74",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-74",
+    "isPopular": false
+  },
+  {
+    "id": "country_76",
+    "name": "China 75",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-75",
+    "isPopular": false
+  },
+  {
+    "id": "country_77",
+    "name": "India 76",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-76",
+    "isPopular": false
+  },
+  {
+    "id": "country_78",
+    "name": "Brazil 77",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-77",
+    "isPopular": false
+  },
+  {
+    "id": "country_79",
+    "name": "South Korea 78",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-78",
+    "isPopular": false
+  },
+  {
+    "id": "country_80",
+    "name": "New Zealand 79",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-79",
+    "isPopular": false
+  },
+  {
+    "id": "country_81",
+    "name": "Spain 80",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-80",
+    "isPopular": false
+  },
+  {
+    "id": "country_82",
+    "name": "Italy 81",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-81",
+    "isPopular": false
+  },
+  {
+    "id": "country_83",
+    "name": "Japan 82",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-82",
+    "isPopular": false
+  },
+  {
+    "id": "country_84",
+    "name": "China 83",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-83",
+    "isPopular": false
+  },
+  {
+    "id": "country_85",
+    "name": "India 84",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-84",
+    "isPopular": false
+  },
+  {
+    "id": "country_86",
+    "name": "Brazil 85",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-85",
+    "isPopular": false
+  },
+  {
+    "id": "country_87",
+    "name": "South Korea 86",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-86",
+    "isPopular": false
+  },
+  {
+    "id": "country_88",
+    "name": "New Zealand 87",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-87",
+    "isPopular": false
+  },
+  {
+    "id": "country_89",
+    "name": "Spain 88",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-88",
+    "isPopular": false
+  },
+  {
+    "id": "country_90",
+    "name": "Italy 89",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-89",
+    "isPopular": false
+  },
+  {
+    "id": "country_91",
+    "name": "Japan 90",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-90",
+    "isPopular": false
+  },
+  {
+    "id": "country_92",
+    "name": "China 91",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-91",
+    "isPopular": false
+  },
+  {
+    "id": "country_93",
+    "name": "India 92",
+    "code": "IN",
+    "region": "Asia",
+    "currency": "INR",
+    "slug": "india-92",
+    "isPopular": false
+  },
+  {
+    "id": "country_94",
+    "name": "Brazil 93",
+    "code": "BR",
+    "region": "South America",
+    "currency": "BRL",
+    "slug": "brazil-93",
+    "isPopular": false
+  },
+  {
+    "id": "country_95",
+    "name": "South Korea 94",
+    "code": "KR",
+    "region": "Asia",
+    "currency": "KRW",
+    "slug": "south-korea-94",
+    "isPopular": false
+  },
+  {
+    "id": "country_96",
+    "name": "New Zealand 95",
+    "code": "NZ",
+    "region": "Oceania",
+    "currency": "NZD",
+    "slug": "new-zealand-95",
+    "isPopular": false
+  },
+  {
+    "id": "country_97",
+    "name": "Spain 96",
+    "code": "ES",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "spain-96",
+    "isPopular": false
+  },
+  {
+    "id": "country_98",
+    "name": "Italy 97",
+    "code": "IT",
+    "region": "Europe",
+    "currency": "EUR",
+    "slug": "italy-97",
+    "isPopular": false
+  },
+  {
+    "id": "country_99",
+    "name": "Japan 98",
+    "code": "JP",
+    "region": "Asia",
+    "currency": "JPY",
+    "slug": "japan-98",
+    "isPopular": false
+  },
+  {
+    "id": "country_100",
+    "name": "China 99",
+    "code": "CN",
+    "region": "Asia",
+    "currency": "CNY",
+    "slug": "china-99",
+    "isPopular": false
+  }
+]

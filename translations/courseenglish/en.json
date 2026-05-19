@@ -1,0 +1,465 @@
+{
+  "layouts": {
+    "navbar": {
+      "top_nav": {
+        "language_institutes": "Language Institutes",
+        "summer_programs": "Summer Programs",
+        "online_courses": "Online Courses",
+        "university_admissions": "University Admissions",
+        "travel_tourism": "Travel & Tourism",
+        "training_professional": "Training & Professional Courses"
+      },
+      "main_nav": {
+        "home": "Home",
+        "offers": "Offers",
+        "about_us": "About Us",
+        "contact_us": "Contact Us",
+        "articles": "Articles"
+      },
+      "actions": {
+        "my_account": "My Account",
+        "compare": "Compare",
+        "wishlist": "Wishlist",
+        "logout": "Logout",
+        "hi": "Hi, {name}",
+        "account": "Account"
+      },
+      "dropdowns": {
+        "language": {
+          "en": "English",
+          "ar": "Arabic"
+        },
+        "currency": {
+          "sar": {
+            "name": "Saudi Riyal",
+            "symbol": "SAR"
+          },
+          "gbp": {
+            "name": "British Pound",
+            "symbol": "GBP"
+          }
+        }
+      }
+    },
+    "footer": {
+      "subscribe": {
+        "heading": "Stay in the loop",
+        "placeholder": "Enter your email",
+        "button": "Subscribe"
+      },
+      "columns": {
+        "programs": "Programs",
+        "company": "Company"
+      },
+      "tagline": "CourseEnglish helps learners find the right English programs, compare options, and book with confidence.",
+      "rights": "All rights reserved © 2026",
+      "careers": "Careers",
+      "blog": "Blog",
+      "contact": "Contact",
+      "distance_learning": "Distance Learning"
+    },
+    "mobile_nav": {
+      "promo": "Our exclusive offers guarantee the best prices and services. If you find a better price or service, we’ll match it.",
+      "quick_links": {
+        "home": "Home",
+        "contact": "Contact Us",
+        "faq": "FAQ"
+      },
+      "drawer": {
+        "team": "Team",
+        "legal": {
+          "privacy": "Privacy Policy",
+          "terms": "Terms & Conditions"
+        }
+      }
+    },
+    "common": {
+      "load_more": "Load More",
+      "sort_by": "Sort by:",
+      "search": "Search",
+      "select_date": "Select start date",
+      "select_weeks": "Select weeks",
+      "select_course": "Select course type",
+      "back": "Back",
+      "confirm": "Confirm",
+      "apply": "Apply",
+      "processing": "Processing..."
+    }
+  },
+  "pages": {
+    "homepage": {
+      "hero": {
+        "offer": "Our offers are exclusive. We guarantee the best prices and services and will pay the difference if you find a better price or service.",
+        "headline": "Start your study journey now",
+        "subheadline": "Discover the best institutes and accredited programs around the world, and choose the destination that fits your goals with ease.",
+        "destination_box": {
+          "placeholder": "Enter your preferred destination",
+          "subtext": "Enter country, city, or institute",
+          "dropdowns": {
+            "country": "Popular Countries",
+            "other_countries": "Other Countries",
+            "city": "Popular Cities",
+            "other_cities": "Other Cities",
+            "institute": "Popular Institutes",
+            "other_institutes": "Other Institutes",
+            "view_all": "View All",
+            "view_all_institutes": "View All Institutes"
+          }
+        },
+        "search_button": "Search",
+        "services": {
+          "accommodation": "Accommodation",
+          "pickup": "Pickup",
+          "insurance": "Insurance"
+        }
+      },
+      "stats": {
+        "heading": "Our achievements in numbers",
+        "body": "Thanks to our trusted partners and leading educational institutions around the world, we’ve helped thousands of students achieve their dream of learning English in accredited international environments.",
+        "state_details": {
+          "students": {
+            "number": "1000+",
+            "title": "Students enrolled in accredited English programs abroad",
+            "title_mobile": "Students"
+          },
+          "partners": {
+            "number": "50+",
+            "title": "Partner universities offering accredited English study programs abroad",
+            "title_mobile": "Partners"
+          }
+        }
+      },
+      "certificates": {
+        "heading": "We are accredited by many institutions",
+        "subheading": "We are proud of our partnerships with leading English language institutes and accredited educational organizations around the world."
+      },
+      "partners_offers": {
+        "heading": "Partner institutes around the world",
+        "view_all": "View all schools"
+      },
+      "summer_programs": {
+        "heading": "Summer Programs",
+        "view_all": "View all programs"
+      },
+      "online_courses": {
+        "heading": "Online Courses",
+        "view_all": "View all courses"
+      },
+      "professional_training": {
+        "heading": "Professional Training",
+        "view_all": "View all training"
+      },
+      "reviews": {
+        "heading": "What our students say about their English courses",
+        "view_all": "View all reviews"
+      },
+      "destinations": {
+        "heading": "Best destinations to study languages"
+      },
+      "blogs": {
+        "heading": "Blogs & Latest News",
+        "view_all": "View all blogs"
+      },
+      "faq": {
+        "heading": "Questions & Answers",
+        "subheading": "We help you decide with confidence. These are the most common questions prospective students ask us.",
+        "cta": "Still have a question?",
+        "help": "We're here to help you.",
+        "see_more": "See more"
+      }
+    },
+    "offers": {
+      "hero": {
+        "badge": "Limited Time Offers",
+        "headline": "Exclusive Education Deals",
+        "subheadline": "Explore our handpicked selection of specialized courses, camps, and training programs at unbeatable prices."
+      },
+      "sections": {
+        "top_bar": {
+          "language": "Language Courses",
+          "language_view_all": "View all language courses",
+          "summer": "Summer Programs",
+          "summer_view_all": "View all summer programs",
+          "online": "Online Courses",
+          "online_view_all": "View all online courses",
+          "professional": "Professional Training",
+          "professional_view_all": "View all professional training"
+        }
+      }
+    },
+    "about_us": {
+      "title": "About Course English",
+      "intro": {
+        "heading": "We Help You Choose the Right Language Institute with Confidence",
+        "p1": "A specialized platform for showcasing and comparing accredited language institutes around the world, helping you make the right decision before booking.",
+        "p2": "We connect students and families with trusted institutes in different countries and help compare by quality, location, and cost."
+      },
+      "vision": "To lead the market by managing outstanding talent and becoming the best specialized company in our field.",
+      "mission": "A specialized platform for showing and comparing accredited language institutes globally, and helping you choose with clarity.",
+      "why": {
+        "title": "Why Us?",
+        "subtitle": "Because we believe your educational journey starts with confidence.",
+        "free_services_title": "Free Services",
+        "free_services": "Our free services include admission support and guidance to find the most suitable schools.",
+        "partnerships_title": "Partnerships",
+        "partnerships": "We partner with trusted English schools worldwide to secure better choices for your learning journey.",
+        "exclusive_prices_title": "Exclusive Prices",
+        "exclusive_prices": "Our prices are exclusive. If you find a better offer, we match it."
+      }
+    },
+    "contact_us": {
+      "title": "Contact Us",
+      "cards": {
+        "customer_service": "Customer Service",
+        "whatsapp": "WhatsApp",
+        "email": "Email Us"
+      },
+      "form": {
+        "title": "Or send us a message and we will get back to you quickly",
+        "name_label": "Full Name",
+        "name_placeholder": "Enter your full name",
+        "email_label": "Email",
+        "email_placeholder": "Enter your email",
+        "message_label": "Message",
+        "message_placeholder": "Enter your message",
+        "submit": "Send",
+        "success": "Message sent successfully.",
+        "error": "Failed to send message. Please try again."
+      }
+    },
+    "language_institutes": {
+      "hero": {
+        "heading": "Discover the Best Language Institutes Worldwide",
+        "subheading": "A curated selection of the best accredited language institutes.",
+        "labels": {
+          "destination": "Destination",
+          "destination_placeholder": "Enter your destination",
+          "course": "Course Type",
+          "course_placeholder": "Enter your course type",
+          "duration": "Duration",
+          "duration_placeholder": "Enter your duration",
+          "start": "Start Date",
+          "start_placeholder": "Enter your start date"
+        }
+      },
+      "results": {
+        "count_label": "institutes available based on your choice",
+        "step_label": "Step 1: Choose the right institute for you"
+      },
+      "sidebar": {
+        "accommodation": {
+          "title": "Accommodation",
+          "all": "All",
+          "with_accommodation": "With Accommodation",
+          "without_accommodation": "Without Accommodation"
+        },
+        "pickup": {
+          "title": "Airport Pickup",
+          "all": "All",
+          "with_pickup": "With Pickup",
+          "without_pickup": "Without Pickup"
+        },
+        "insurance": {
+          "title": "Insurance",
+          "all": "All",
+          "with_insurance": "With Insurance",
+          "without_insurance": "Without Insurance"
+        }
+      }
+    },
+    "institute_detail": {
+      "nav": {
+        "back": "Back to List",
+        "add_to_compare": "Add to Compare",
+        "already_in_compare": "Already in Compare",
+        "add_to_wishlist": "Add to Wishlist",
+        "already_in_wishlist": "Already in Wishlist",
+        "share": "Share"
+      },
+      "main_area": {
+        "course_step": {
+          "title": "Step 1: Choose the Suitable Course",
+          "subtitle": "price calculated per week",
+          "start_date": "start date",
+          "weeks": "Number of weeks",
+          "lessons": "Lessons/week",
+          "hours": "Hours",
+          "age": "Age",
+          "level": "Level"
+        },
+        "choose_accomodations": {
+          "title": "Choose Accommodations",
+          "subtitle": "You can choose accommodation or continue without",
+          "age": "Age",
+          "weeks": "Number of weeks",
+          "none_title": "No Accommodation",
+          "none_desc": "Select this if you have arranged your own stay."
+        },
+        "additional_options": {
+          "title": "Additional Options",
+          "subtitle": "You can choose additional services as needed",
+          "airport_pickup": "Airport Pickup",
+          "insurance": "Insurance",
+          "additional_supplements": "Additional Supplements"
+        }
+      },
+      "sidebar": {
+        "total": "Total inclusive of all fees",
+        "dates": "Study Dates",
+        "duration": "Duration",
+        "coupon_title": "Do you have a coupon ?",
+        "coupon_placeholder": "Enter your coupon code",
+        "coupon_button": "Apply",
+        "registration_fee": "registration fee",
+        "metrial_fee": "metrial fee",
+        "total_discount": "Total Discount",
+        "total_price": "total price",
+        "total_price_subtitle": "Total inclusive of all fees",
+        "review_confirm": "Review & Confirm",
+        "cta_title": "Have a question?",
+        "cta_subtitle": "Do you have questions or need more info about this course?",
+        "cta_button": "Chat via WhatsApp"
+      }
+    },
+    "summer_programs": {
+      "hero": {
+        "heading": "Unforgettable Summer Camps for Teens",
+        "subheading": "Explore the world, learn English, and make lifelong friends."
+      },
+      "results": {
+        "count_label": "camps available based on your choice",
+        "step_label": "Step 1: Choose the perfect summer camp"
+      }
+    },
+    "online_courses": {
+      "hero": {
+        "heading": "Master English Online from Anywhere",
+        "subheading": "Flexible, accredited online courses designed for your success."
+      },
+      "results": {
+        "count_label": "courses available based on your choice",
+        "step_label": "Step 1: Choose the right online course for you"
+      }
+    },
+    "university_admissions": {
+      "hero": {
+        "badge": "Admissions Portal",
+        "title": "Find Your Future",
+        "description": "Explore thousands of world-class universities and specialized courses."
+      },
+      "cards": {
+        "universities": {
+          "title": "Search Universities",
+          "description": "Browse top-ranked institutions across the globe and find the perfect campus for you"
+        },
+        "courses": {
+          "title": "Search Courses",
+          "description": "Find the right program for your goals, Filter by subject, lavel, and locations."
+        }
+      },
+      "stats": {
+        "partners_state": "500+",
+        "partners": "Partner Universities",
+        "courses_state": "40K+",
+        "courses": "Courses Available",
+        "destinations_state": "50+",
+        "destinations": "Destinations",
+        "consultation_state": "100%",
+        "consultation": "Free Consultation"
+      }
+    },
+    "travel_tourism": {
+      "hero": {
+        "badge": "Discover the World",
+        "title": "Plan Your Dream Journey",
+        "description": "From flight bookings to visa assistance, we handle all the details so you can focus on making memories.",
+        "start_planning_button": "Start Planning",
+        "view_packages_button": "View Packages"
+      },
+      "cta": {
+        "title": "Ready to Plan Your Trip?",
+        "subtitle": "Get a free consultation with our travel experts today.",
+        "whatsapp_button": "WhatsApp",
+        "call_button": "Call Us",
+        "email_button": "Inquire Now"
+      },
+      "state_details": {
+        "support_title": "24/7 Support",
+        "support_text": "Our team is available round the clock to assist you during your trip.",
+        "best_price_title": "Best Price Guarantee",
+        "best_price_text": "We offer competitive prices and exclusive deals for all destinations.",
+        "global_coverage_title": "Global Coverage",
+        "global_coverage_text": "Destinations across 6 continents with local partner support",
+        "secure_title": "100% Secure",
+        "secure_text": "Your bookings and payments are secure with our trusted platform."
+      },
+      "top_destinations_section": {
+        "heading_top": "Top Destinations",
+        "heading": "Trending Holiday Spots",
+        "view_all": "View All Destinations"
+      },
+      "services": {
+        "top_heading": "Our Services",
+        "heading": "Everything You Need for a Perfect Trip",
+        "sub_heading": "We offer a comprehensive range of travel services to ensure your experience is seamless, memorable, and hassle-free.",
+        "flights": "Flight Bookings",
+        "flight_text": "Best deals on domestic and international flights. We ensure a smooth journey from takeoff to landing.",
+        "hotels": "Hotel Reservations",
+        "hotel_text": "From luxury resorts to budget-friendly stays, find the perfect accommodation for your trip.",
+        "visa": "Visa Assistance",
+        "visa_text": "Expert guidance for tourist, student, and business visas. We handle the paperwork, you pack the bags.",
+        "tours": "Tour Packages",
+        "tour_text": "Curated holiday packages for families, couples, and solo travelers to the world's best destinations.",
+        "beaches": "Beach Holidays",
+        "beaches_text": "Relax on the most pristine beaches with our exclusive island getaway packages.",
+        "cruises": "Cruises",
+        "cruises_text": "Set sail on a luxury cruise and explore multiple destinations with premium onboard amenities."
+      },
+      "inquiry": {
+        "title": "Plan Your Trip",
+        "subtitle": "Fill out the form and our travel experts will contact you to arrange the perfect trip tailored to your needs.",
+        "form_title": "Travel Inquiry",
+        "form_subtitle": "Tell us about your travel preferences and we'll create a personalized itinerary just for you.",
+        "ul_text": {
+          "li1": "Direct flight bookings worldwide",
+          "li2": "Premium hotel reservations",
+          "li3": "Hassle-free visa assistance"
+        },
+        "cta_title": "Prefer to chat ?",
+        "cta_button": "Chat on WhatsApp",
+        "form_fields": {
+          "name": "Full Name",
+          "name_placeholder": "Enter your full name",
+          "phone": "Phone Number",
+          "phone_placeholder": "Enter your phone number",
+          "destination": "Preferred Destination",
+          "destination_placeholder": "e.g. London, Dubai, Paris",
+          "travel_dates": "Travel Dates",
+          "message": "Requirement / Message",
+          "message_placeholder": "Tell us about your travel preferences and we'll create a personalized itinerary just for you.",
+          "submit": "Send Request"
+        }
+      }
+    },
+    "training_courses": {
+      "hero": {
+        "heading": "Advance Your Career with Professional Courses",
+        "subheading": "Gain Accredited Certificates and Specialized Skills."
+      },
+      "results": {
+        "count_label": "professional courses available",
+        "step_label": "Step 1: Choose the right course for your career"
+      }
+    },
+    "articles": {
+      "hero": {
+        "heading": "Latest stories and guides",
+        "subheading": "Browse insights, tips, and how-tos for your study journey."
+      },
+      "sidebar": {
+        "recent": "Recent posts",
+        "categories": "Categories"
+      }
+    }
+  }
+}

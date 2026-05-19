@@ -1,0 +1,683 @@
+{
+  "layouts": {
+    "navbar": {
+      "destinations": "Destinations",
+      "courses": "Courses",
+      "universities": "Universities",
+      "scholarships": "Scholarships",
+      "blogs": "Blogs",
+      "about": "About",
+      "services": "Services",
+      "contact": "Contact",
+      "login": "Login",
+      "compare": "Compare",
+      "wishlist": "Wishlist",
+      "account": "Account",
+      "apply_now": "Apply Now",
+      "view_all": "View All",
+      "dropdowns": {
+        "courses": {
+          "foundation": {
+            "name": "Foundation",
+            "pitch": "Foundation courses help international students get ready for university."
+          },
+          "undergraduate": {
+            "name": "Undergraduate Degree",
+            "pitch": "Explore undergraduate degrees in the UK for almost any career path."
+          },
+          "top_up": {
+            "name": "Top-Up Degrees",
+            "pitch": "Learn about Top-Up degrees to complete your degree."
+          },
+          "pre_masters": {
+            "name": "Pre-Masters",
+            "pitch": "Find Pre-Masters programs in the UK to prepare you for postgraduate study."
+          },
+          "masters": {
+            "name": "Masters Degree",
+            "pitch": "Explore Master's degrees in the UK for further academic and career growth."
+          },
+          "phd": {
+            "name": "PhD-Degree",
+            "pitch": "Discover PhD opportunities in the UK for advanced research and expertise."
+          },
+          "footer_text": "All your options for your Higher Education journey."
+        },
+        "universities": {
+          "find": {
+            "name": "Find a University",
+            "pitch": "Browse over 150 top UK universities to find the perfect place to study."
+          },
+          "affordable": {
+            "name": "Affordable Universities",
+            "pitch": "Discover affordable universities for low tuition fees."
+          },
+          "rankings": {
+            "name": "Rankings",
+            "pitch": "Choose from the best UK universities using our comprehensive rankings guide."
+          },
+          "top": {
+            "name": "Top Universities",
+            "pitch": "Choose from the best UK universities using our comprehensive rankings guide."
+          },
+          "subjects": {
+            "name": "Subject Guides",
+            "pitch": "Browse universities by subject to find the best match for your interests."
+          },
+          "reviews": {
+            "name": "Student Reviews",
+            "pitch": "Read reviews from real international students to make an informed choice."
+          }
+        },
+        "services": {
+          "scholarships": {
+            "name": "Scholarships",
+            "pitch": "Find financial aid and scholarships to support your studies."
+          },
+          "application": {
+            "name": "Application Services",
+            "pitch": "Get expert help with your university application and personal statement."
+          },
+          "agents": {
+            "name": "Agent Program",
+            "pitch": "Partner with us to help students achieve their study abroad dreams."
+          },
+          "visa": {
+            "name": "Visa Support",
+            "pitch": "Guidance on student visa requirements and application processes."
+          },
+          "accommodation": {
+            "name": "Accommodation",
+            "pitch": "Find safe and comfortable student housing near your university."
+          },
+          "guides": {
+            "name": "Student Guides",
+            "pitch": "Comprehensive guides to help you settle into your new student life."
+          }
+        },
+        "contact": {
+          "about": {
+            "name": "About Us",
+            "pitch": "Learn more about our mission and global reach."
+          },
+          "contact": {
+            "name": "Contact Us",
+            "pitch": "Get in touch with our team for personalized support."
+          },
+          "blogs": {
+            "name": "Our Blogs",
+            "pitch": "Stay updated with the latest study abroad news and guides."
+          },
+          "office_prefix": "Pioneers in"
+        }
+      }
+    },
+    "footer": {
+      "subscribe_heading": "Get Study Abroad Updates",
+      "subscribe_placeholder": "Enter your email",
+      "subscribe_button": "Subscribe",
+      "description": "Your trusted partner for international education. We guide you from university selection to visa approval with integrity and excellence.",
+      "copyright": "All rights reserved © 2026",
+      "brand": "PIONEERSADMISSIONS",
+      "privacy_policy": "Privacy Policy",
+      "terms_of_service": "Terms of Service",
+      "cookie_policy": "Cookie Policy",
+      "columns": {
+        "destinations": "TOP DESTINATIONS",
+        "services": "OUR SERVICES",
+        "contact": "CONTACT US"
+      },
+      "links": {
+        "usa": "Study in USA",
+        "uk": "Study in UK",
+        "canada": "Study in Canada",
+        "australia": "Study in Australia",
+        "admission_counseling": "Admission Counseling",
+        "visa_assistance": "Visa Assistance",
+        "scholarship_guidance": "Scholarship Guidance",
+        "partner_with_us": "Partner with Us",
+        "directions": "Get Directions"
+      }
+    },
+    "mobile_nav": {
+      "promo_text": "Apply confidently with expert support for admissions, visa, and accommodation.",
+      "home": "Home",
+      "destinations": "Destinations",
+      "courses": "Courses",
+      "universities": "Universities",
+      "services": "Services",
+      "contact": "Contact",
+      "my_account": "My Account",
+      "compare": "Compare",
+      "wishlist": "Wishlist",
+      "privacy_policy": "Privacy Policy",
+      "terms_of_service": "Terms of Service",
+      "cookie_policy": "Cookie Policy"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "headline": "Shape Your Future with World-Class Education",
+        "subheadline": "Expert guidance and personalized support to help you secure admission at the world's leading universities.",
+        "search_label": "Search Courses",
+        "search_placeholder_courses": "e.g. Computer Science, MBA...",
+        "search_placeholder_universities": "e.g. Oxford, Harvard...",
+        "country_label": "Country",
+        "country_placeholder": "All Countries",
+        "level_label": "Study Level",
+        "level_placeholder": "Select...",
+        "intake_label": "Intake",
+        "intake_placeholder": "Any Intake",
+        "tab_courses": "Find Courses",
+        "tab_universities": "Find Universities",
+        "search_button": "Search"
+      },
+      "stats": {
+        "heading": "Our achievements in numbers",
+        "body": "Thanks to our trusted partners and leading educational institutions around the world, we have helped thousands of students secure admissions in top universities.",
+        "labels": {
+          "students": "Students",
+          "universities": "Partner Universities"
+        }
+      },
+      "certificates": {
+        "heading": "We are accredited by many institutions",
+        "body": "We are proud of our partnerships with leading educational organizations around the world."
+      },
+      "destinations": {
+        "title": "Prestigious Destinations",
+        "subtitle": "Study Abroad",
+        "view_all": "View All"
+      },
+      "universities": {
+        "title": "Prestigious Universities",
+        "subtitle": "Top Ranked",
+        "view_all": "View All",
+        "browse_all": "Browse Universities"
+      },
+      "reviews": {
+        "video_title": "Student Video Reviews",
+        "video_subtitle": "Real Stories",
+        "text_title": "What Students Say",
+        "text_subtitle": "Written Reviews"
+      },
+      "scholarships": {
+        "title": "Scholarships You Can Apply For",
+        "subtitle": "Funding Opportunities",
+        "view_all": "View All",
+        "check_eligibility": "Check Eligibility"
+      },
+      "trust": {
+        "title": "Why Students Trust Us",
+        "subtitle": "Our Value"
+      },
+      "faq": {
+        "heading": "Questions & Answers",
+        "subheading": "We help you decide with confidence. These are the most common questions prospective students ask us.",
+        "cta_title": "Still have a question?",
+        "cta_text": "We're here to help you.",
+        "show_more": "Show more"
+      },
+      "blogs": {
+        "heading": "Blogs & Latest News",
+        "cta_text": "All articles"
+      }
+    },
+    "about": {
+      "hero": {
+        "badge": "Who We Are",
+        "title": "About Pioneers",
+        "description": "Transforming lives through international education since 2012."
+      },
+      "director": {
+        "role": "Director",
+        "title": "Welcome to Pioneers EDU",
+        "closing": "Warm regards"
+      },
+      "ceo": {
+        "role": "CEO",
+        "title": "A Message from the CEO",
+        "closing": "Warm regards"
+      },
+      "team": {
+        "badge": "Our Experts",
+        "title": "Meet Our Team"
+      },
+      "mission": "Our Mission",
+      "vision": "Our Vision",
+      "values": "Our Values"
+    },
+    "contact": {
+      "hero": {
+        "badge": "We're Here for You",
+        "title": "Contact Us",
+        "description": "Whether you have a question about universities, visas, or just want to say hello, we're ready to answer all your questions."
+      },
+      "info": {
+        "title": "Get in Touch",
+        "description": "Can't make it to an office? No problem. Fill out the form or reach out to us directly through our general channels."
+      },
+      "offices": {
+        "title": "Our Global Offices",
+        "description": "Visit us at one of our offices for a face-to-face consultation.",
+        "view_details": "View Office Details"
+      },
+      "form": {
+        "title": "Send us a Message",
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "message": "Message",
+        "send": "Send Message"
+      },
+      "inquiries": {
+        "title": "General Inquiries",
+        "email_title": "Email Us",
+        "email_desc": "For general questions and support:",
+        "phone_title": "Call Us",
+        "phone_desc": "Mon-Fri from 9am to 6pm:",
+        "follow_us": "Follow Us"
+      }
+    },
+    "student_guide": {
+      "hero": {
+        "badge": "Knowledge Hub",
+        "title": "Essential Student Guides",
+        "description": "Expert advice, insider tips, and comprehensive resources to help you thrive in your international education journey."
+      },
+      "trust": {
+        "title": "Trusted by 10,000+ Students",
+        "cta": "Speak to an Expert"
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "cta_title": "Still have questions?",
+        "btn_text": "Contact Us"
+      }
+    },
+    "visa_support": {
+      "hero": {
+        "badge": "Visa Support Services",
+        "title": "Secure Your Student Visa",
+        "description": "Expert guidance for UK, USA, Canada, and Australia student visas. We minimize the risk of rejection with our proven methodology."
+      },
+      "services": {
+        "title": "Comprehensive Visa Support",
+        "subtitle": "Detailed Assistance"
+      },
+      "process": {
+        "title": "Your Roadmap to Approval",
+        "subtitle": "Step-by-Step"
+      },
+      "cta": {
+        "title": "Don't Risk Your Visa Application",
+        "button": "Book Visa Consultation"
+      }
+    },
+    "agents": {
+      "hero": {
+        "badge": "B2B Partnership Program",
+        "title": "Grow Your Business with Pioneers",
+        "description": "Join our global network of recruitment partners. We empower agents with the tools, technology, and university connections needed to succeed.",
+        "cta_primary": "Become a Partner",
+        "cta_secondary": "Learn More"
+      },
+      "services": {
+        "title": "Empowering Your Growth",
+        "subtitle": "Why Choose Us"
+      },
+      "process": {
+        "title": "Simple Steps to Start",
+        "description": "Partnership Process"
+      },
+      "cta": {
+        "title": "Ready to grow with us?",
+        "button": "Register Now"
+      }
+    },
+    "services": {
+      "hero": {
+        "badge": "World-Class Support",
+        "title": "Comprehensive Services for Your Global Journey.",
+        "description": "From your first counseling session to your first day on campus, we provide the tools, guidance, and support you need to succeed."
+      },
+      "offer": {
+        "title": "What We Offer",
+        "description": "Tailored solutions designed to make your study abroad experience seamless and stress-free."
+      },
+      "process": {
+        "title": "Simple Steps to Success",
+        "description": "We've simplified the complex study abroad process into a clear, manageable roadmap."
+      },
+      "partner": {
+        "title": "Grow with Pioneers Admissions",
+        "button_primary": "Become a Partner",
+        "button_secondary": "Contact Our B2B Team"
+      },
+      "cta": {
+        "title": "Ready to start your journey?",
+        "button": "Get Started Now"
+      }
+    },
+    "applications": {
+      "hero": {
+        "badge": "Apply Now",
+        "title": "Start Your Application",
+        "description": "Your journey to a top university starts here. We guide you through every step."
+      },
+      "requirements": {
+        "title": "Admission Requirements"
+      },
+      "timeline": {
+        "title": "Application Timeline"
+      },
+      "cta": {
+        "title": "Apply Online",
+        "button": "Apply Now"
+      }
+    },
+    "accommodation": {
+      "hero": {
+        "badge": "Housing",
+        "title": "Find Your Perfect Home",
+        "description": "Browse our verified student accommodation options. Safe, comfortable, and affordable."
+      },
+      "features": {
+        "title": "Why Our Housing?"
+      },
+      "process": {
+        "title": "Easy Booking"
+      },
+      "cta": {
+        "title": "Need Help?",
+        "button": "Contact Housing Team"
+      }
+    },
+    "destinations": {
+      "hero": {
+        "title": "Study Abroad Destinations",
+        "subtitle": "Choose from top-ranked universities and colleges in the world's most student-friendly countries."
+      },
+      "filters": {
+        "all": "All",
+        "europe": "Europe",
+        "na": "North America",
+        "oceania": "Oceania",
+        "budget": "Low Tuition",
+        "search": "Search destinations..."
+      },
+      "no_results": {
+        "title": "No matches found",
+        "text": "We couldn't find any destinations matching your search."
+      },
+      "cta": {
+        "title": "Ready to Start Your Journey?",
+        "button": "Get Free Consultation"
+      },
+      "details": {
+        "tuitionRange": "Tuition Range",
+        "visaTime": "Visa Time",
+        "workRights": "Work Rights",
+        "topUniversities": "Top Universities",
+        "popularPrograms": "Popular Programs",
+        "whyStudy": "Why Study in",
+        "comingSoon": "Universities list coming soon.",
+        "programsSoon": "Programs for this destination are coming soon.",
+        "topDestination": "Top Destination"
+      }
+    },
+    "scholarships": {
+      "title": "Global Scholarships",
+      "subtitle": "Discover funding opportunities to support your education at top universities worldwide.",
+      "deadline": "Deadline",
+      "amount": "Amount",
+      "applyNow": "Apply Now",
+      "noResults": "No scholarships found."
+    },
+    "university_detail": {
+      "popularCourses": "Popular Courses",
+      "about": "About",
+      "rankings": "Rankings",
+      "qsRanking": "QS Ranking",
+      "theRanking": "THE Ranking",
+      "shanghaiRanking": "Shanghai Ranking",
+      "visitWebsite": "Visit Website",
+      "type": "Type",
+      "established": "Established",
+      "noCourses": "No specific courses listed yet for this university."
+    },
+    "course_detail": {
+      "duration": "Duration",
+      "level": "Level",
+      "intake": "Intake",
+      "deadline": "Deadline",
+      "tuition": "Tuition (Est.)",
+      "relatedCourses": "Related Courses",
+      "overview": "Course Overview",
+      "requirements": "Entry Requirements",
+      "applyBtn": "Apply for this Course"
+    },
+    "blogs": {
+      "title": "Latest News & Insights",
+      "subtitle": "Stay informed about global education trends.",
+      "readMore": "Read More",
+      "byAuthor": "By"
+    },
+    "search": {
+      "sidebar": {
+        "location": "Location",
+        "all_cities": "All Cities",
+        "study_level": "Study Level",
+        "intake": "Intake",
+        "tuition_range": "Tuition Range",
+        "max_budget": "MAX BUDGET",
+        "any": "Any",
+        "world_ranking": "World Ranking",
+        "min": "Min",
+        "max": "Max",
+        "options": "Options",
+        "scholarship_available": "Scholarship Available",
+        "cta": {
+          "title": "Need Expert Advice?",
+          "body": "Our Ivy-League counselors are here to help you choose the best fit.",
+          "button": "Book Free Session"
+        }
+      },
+      "results": {
+        "no_courses": "No courses found",
+        "no_courses_desc": "We couldn't find any courses matching your current filters. Try broadening your search.",
+        "no_universities": "No universities found",
+        "no_universities_desc": "We couldn't find any universities matching your current filters. Try broadening your search.",
+        "showing": "Showing",
+        "of": "of",
+        "results": "results"
+      }
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "overview": "Overview",
+      "applications": "Applications",
+      "wishlist": "Wishlist",
+      "scholarship": "Scholarship",
+      "profile": "My Profile",
+      "sign_out": "Sign Out"
+    },
+    "overview": {
+      "welcome": "Welcome back",
+      "subtitle": "Here is what's happening with your applications today.",
+      "stats": {
+        "active_applications": "Active Applications",
+        "saved_courses": "Saved Courses",
+        "messages": "Messages"
+      },
+      "cta": {
+        "title": "Start a New Application",
+        "description": "Ready to take the next step? Browse thousands of courses from top universities.",
+        "button": "Browse Courses"
+      },
+      "status": {
+        "title": "Application Status",
+        "label": "Status",
+        "empty": "You haven't submitted any applications yet."
+      }
+    }
+  },
+  "common": {
+    "ui": {
+      "home": "Home",
+      "back": "Back",
+      "viewAll": "View all",
+      "viewDetails": "View Details",
+      "applyNow": "Apply Now",
+      "contactUs": "Contact Us",
+      "downloadPdf": "Download PDF ↓",
+      "learnMore": "Learn More",
+      "search": "Search",
+      "browseAll": "Browse All Courses",
+      "perYear": "per year",
+      "notAvailable": "N/A",
+      "requirements": "Requirements",
+      "quickFaq": "Quick FAQ",
+      "readyToApply": "Ready to Apply?",
+      "startJourney": "Start your journey today.",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "clear_all": "Clear All",
+      "clear_all_filters": "Clear All Filters",
+      "loading": "Loading...",
+      "error_title": "Something went wrong",
+      "error_desc": "Please try again later.",
+      "no_results": "No results found matching your search.",
+      "sort_by": "Sort by"
+    },
+    "filters": {
+      "all": "All",
+      "all_countries": "All Countries",
+      "all_levels": "All Levels",
+      "all_intakes": "Any Intake",
+      "subject_areas": "Subject Areas",
+      "price_range": "Price Range",
+      "subjects": {
+        "business_management": "Business & Management",
+        "risk_management": "Risk management",
+        "engineering_management": "Engineering management",
+        "banking": "Banking",
+        "sustainability_management": "Sustainability Management",
+        "accounting": "Accounting",
+        "finance": "Finance",
+        "economics": "Economics",
+        "macroeconomics": "Macroeconomics",
+        "marketing": "Marketing",
+        "mba": "Master of Business Administration MBA",
+        "sustainability_studies": "Sustainability Studies",
+        "education": "Education",
+        "law": "Law",
+        "politics": "Politics /Political science",
+        "journalism": "Journalism",
+        "sociology": "Sociology",
+        "design_applied_arts": "Design and Applied Arts",
+        "architecture": "Architecture",
+        "interior_design": "Interior Design",
+        "arts_humanities": "Art & Humanities",
+        "english_linguistics": "English Language & Literature / Linguistics",
+        "history": "History",
+        "philosophy": "Philosophy",
+        "engineering": "Engineering",
+        "general_engineering": "General Engineering",
+        "civil_structural": "Civil & Structural Engineering",
+        "chemical_engineering": "Chemical Engineering",
+        "mechanical_engineering": "Mechanical Engineering",
+        "electrical_engineering": "Electrical Engineering",
+        "electronics_engineering": "Electronics Engineering",
+        "energy_engineering": "Energy engineering",
+        "control_automation": "Control, automation, and instrumentation systems engineering",
+        "computer_software": "Computer & Software Engineering",
+        "aerospace_aviation": "Aerospace & Aviation Systems and Engineering",
+        "mechatronics_robotics": "Mechatronics & Robotics engineering",
+        "material_science": "Material Engineering & Science",
+        "industrial_production": "Industrial & Production Engineering",
+        "biotechnology": "Biotechnology",
+        "environmental_engineering": "Environmental Engineering",
+        "architectural_engineering": "Architectural Engineering",
+        "biomedical_engineering": "Biomedical engineering",
+        "mining_mineral": "Mining and Mineral engineering",
+        "marine_engineering": "Marine engineering",
+        "surveying_engineering": "Surveying Engineering",
+        "urban_regional_planning": "Urban & Regional Planning",
+        "manufacturing": "Manufacturing",
+        "construction_management": "Construction / Construction management and engineering",
+        "agriculture_forestry": "Agriculture & Forestry",
+        "environmental_sciences": "Environmental Sciences",
+        "fisheries": "Fisheries",
+        "veterinary": "Veterinary",
+        "pharmacy": "Pharmacy & Pharmacology",
+        "natural_sciences": "Sciences & Natural sciences",
+        "biology": "Biology",
+        "chemistry": "Chemistry",
+        "physics": "Physics",
+        "mathematics_statistics": "Mathematics & Statistics",
+        "earth_sciences_geology": "Earth Sciences & Geology",
+        "astronomy": "Astronomy",
+        "nanoscience_nanotechnology": "Nanoscience and Nanotechnology",
+        "computer_science": "Computer science",
+        "data_sciences": "Data sciences",
+        "ict": "Information and Communication Technologies (ICTs)",
+        "info_security": "Information security",
+        "info_systems": "Information systems",
+        "info_technology": "Information technology",
+        "services": "Services",
+        "sports_related": "Sports-Related Subjects",
+        "ai_ml": "Artificial Intelligence & Machine Learning",
+        "hospitality_leisure": "Hospitality / Leisure",
+        "tour_management": "Tour guide / Tour Management",
+        "heritage_management": "Heritage resource management",
+        "nautical_sciences": "Nautical sciences",
+        "occupational_health_safety": "Occupational health and safety",
+        "life_sciences_medicine": "Life Sciences and Medicine",
+        "religion": "Religion",
+        "archaeology": "Archaeology",
+        "geography": "Geography",
+        "museum_studies": "Museum studies",
+        "health_sciences": "Health Sciences",
+        "nursing": "Nursing",
+        "healthcare": "Healthcare",
+        "criminology": "Criminology",
+        "microbiology": "Microbiology",
+        "genetics": "Genetics",
+        "toxicology": "Toxicology",
+        "nutrition_sciences": "Nutrition Sciences",
+        "science_tech_society": "Science, Technology and Society",
+        "natural_resources": "Natural Resources and Conservation",
+        "urban_studies": "Urban Studies / Affairs",
+        "transportation_studies": "Transportation Studies",
+        "air_transportation": "Air Transportation"
+      },
+      "levels": {
+        "foundation": "Foundation",
+        "bachelor": "Bachelor",
+        "bachelor_top_up": "Bachelor Top-Up",
+        "integrated_master": "Integrated Master",
+        "pre_masters": "Pre-Masters",
+        "masters": "Masters",
+        "mba": "MBA",
+        "mres": "MRes",
+        "phd": "PhD / Doctorate",
+        "professional_doctorate": "Professional Doctorate",
+        "postgraduate_diploma": "PG Diploma",
+        "postgraduate_certificate": "PG Certificate",
+        "graduate_diploma": "Graduate Diploma",
+        "diploma": "Diploma",
+        "certificate": "Certificate",
+        "short_course": "Short Course",
+        "distance_learning": "Distance Learning"
+      }
+    },
+    "placeholders": {
+      "search_courses": "e.g. Computer Science, MBA...",
+      "search_universities": "e.g. Oxford, Harvard...",
+      "email": "Enter your email"
+    }
+  }
+}

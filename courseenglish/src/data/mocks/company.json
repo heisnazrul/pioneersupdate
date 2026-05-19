@@ -1,0 +1,153 @@
+{
+    "about": {
+        "hero": {
+            "badge": "Who We Are",
+            "title": "About Pioneers",
+            "description": "Transforming lives through international education since 2012."
+        },
+        "director_message": {
+            "image": "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Md Abdul Qaium",
+            "role": "Director",
+            "title": "Welcome to Pioneers EDU",
+            "paragraphs": [
+                "Dear Valued Partners, Students, and Stakeholders,",
+                "Welcome to Pioneers Educational Admission Consultancy (PEAC). From humble beginnings, we have grown into a global organization dedicated to transforming lives through international education.",
+                "Our team of highly experienced representatives provides expert guidance. This unique blend of expertise and empathy sets us apart.",
+                "We are proud of our high visa success rates and the trust placed in us by students and partners."
+            ],
+            "closing": {
+                "text": "Warm regards,",
+                "name": "Md Abdul Qaium",
+                "position": "Director, Pioneers Educational Admission Consultancy Ltd"
+            }
+        },
+        "ceo_message": {
+            "image": "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "name": "Hanan Asiri",
+            "role": "CEO",
+            "title": "A Message from the CEO",
+            "paragraphs": [
+                "Dear Students, Parents, and Collaborators,",
+                "As CEO of Pioneers Edu, I am honored to oversee an organization that prioritizes educational excellence and student success.",
+                "At Pioneers EDU, we believe in creating opportunities through innovation, collaboration, and integrity.",
+                "Thank you for trusting us to be part of your journey."
+            ],
+            "closing": {
+                "text": "Warm regards,",
+                "name": "Hanan Asiri",
+                "position": "CEO, Pioneers Educational Admission Consultancy Ltd"
+            }
+        },
+        "team": {
+            "badge": "Our Experts",
+            "title": "Meet Our Team",
+            "members": [
+                {
+                    "name": "John Doe",
+                    "role": "Senior Consultant",
+                    "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "desc": "Expert in UK and USA admissions with over 10 years of experience."
+                },
+                {
+                    "name": "Jane Smith",
+                    "role": "Visa Specialist",
+                    "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "desc": "Ensuring smooth visa processes for students worldwide."
+                },
+                {
+                    "name": "Michael Brown",
+                    "role": "Student Counselor",
+                    "image": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "desc": "Dedicated to finding the perfect course and university for every student."
+                },
+                {
+                    "name": "Sarah Lee",
+                    "role": "Marketing Manager",
+                    "image": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    "desc": "Passionate about connecting students with educational opportunities."
+                }
+            ]
+        }
+    },
+    "contact": {
+        "hero": {
+            "badge": "We're Here for You",
+            "title": "Contact Us",
+            "description": "Whether you have a question about universities, visas, or just want to say hello, we're ready to answer all your questions."
+        },
+        "contact_info": {
+            "description": "Can't make it to an office? No problem. Fill out the form or reach out to us directly through our general channels.",
+            "email": "info@pioneers.edu.sa",
+            "phone": "+966 50 123 4567",
+            "social_links": [
+                {
+                    "platform": "facebook",
+                    "url": "#"
+                },
+                {
+                    "platform": "twitter",
+                    "url": "#"
+                },
+                {
+                    "platform": "instagram",
+                    "url": "#"
+                },
+                {
+                    "platform": "linkedin",
+                    "url": "#"
+                },
+                {
+                    "platform": "youtube",
+                    "url": "#"
+                }
+            ]
+        },
+        "offices": [
+            {
+                "id": 1,
+                "city": "London",
+                "country": "United Kingdom",
+                "type": "Headquarters",
+                "address": "123 Oxford Street, London, W1D 1LP",
+                "phone": "+44 20 1234 5678",
+                "email": "london@pioneers.edu.sa",
+                "slug": "london",
+                "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            {
+                "id": 2,
+                "city": "Riyadh",
+                "country": "Saudi Arabia",
+                "type": "Regional Office",
+                "address": "King Fahd Road, Riyadh, 12345",
+                "phone": "+966 11 123 4567",
+                "email": "riyadh@pioneers.edu.sa",
+                "slug": "riyadh",
+                "image": "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            {
+                "id": 3,
+                "city": "New Delhi",
+                "country": "India",
+                "type": "Branch Office",
+                "address": "Connaught Place, New Delhi, 110001",
+                "phone": "+91 11 1234 5678",
+                "email": "delhi@pioneers.edu.sa",
+                "slug": "delhi",
+                "image": "https://images.pexels.com/photos/789750/pexels-photo-789750.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            {
+                "id": 4,
+                "city": "Dubai",
+                "country": "UAE",
+                "type": "Branch Office",
+                "address": "Business Bay, Dubai, UAE",
+                "phone": "+971 4 123 4567",
+                "email": "dubai@pioneers.edu.sa",
+                "slug": "dubai",
+                "image": "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=800"
+            }
+        ]
+    }
+}

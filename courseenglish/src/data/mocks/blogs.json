@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Top 10 Tips for Learning English Fast",
+        "summary": "Discover the best strategies to accelerate your English learning journey. from immersive techniques to daily habits that make a difference.",
+        "category": "Learning Tips",
+        "image": "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "slug": "top-10-tips-learning-english"
+    },
+    {
+        "id": 2,
+        "title": "Why Study in the UK?",
+        "summary": "The UK is home to some of the world's most prestigious universities and language schools. Here's why you should consider it for your studies.",
+        "category": "Study Abroad",
+        "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "slug": "why-study-in-uk"
+    },
+    {
+        "id": 3,
+        "title": "Mastering English Grammar: A Beginner's Guide",
+        "summary": "Grammar doesn't have to be confident. Break down the basics with our comprehensive guide designed for beginners.",
+        "category": "Grammar",
+        "image": "https://images.pexels.com/photos/159581/dictionary-reference-book-learning-meaning-159581.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "slug": "mastering-english-grammar"
+    },
+    {
+        "id": 4,
+        "title": "The Benefits of Bilingualism",
+        "summary": "Speaking more than one language opens doors to new cultures, career opportunities, and cognitive benefits.",
+        "category": "General",
+        "image": "https://images.pexels.com/photos/267669/pexels-photo-267669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "slug": "benefits-of-bilingualism"
+    },
+    {
+        "id": 5,
+        "title": "How to Prepare for IELTS",
+        "summary": "Get ready for the International English Language Testing System with these expert tips and study plans.",
+        "category": "Exams",
+        "image": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "slug": "how-to-prepare-for-ielts"
+    }
+]

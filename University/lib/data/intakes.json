@@ -1,0 +1,50 @@
+[
+  {
+    "id": "intake_1",
+    "label": "Jan 2025",
+    "month": "January",
+    "year": 2025,
+    "startDate": "2025-01-01",
+    "endDate": "2025-01-30"
+  },
+  {
+    "id": "intake_2",
+    "label": "May 2025",
+    "month": "May",
+    "year": 2025,
+    "startDate": "2025-05-01",
+    "endDate": "2025-05-30"
+  },
+  {
+    "id": "intake_3",
+    "label": "Sep 2025",
+    "month": "September",
+    "year": 2025,
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-30"
+  },
+  {
+    "id": "intake_4",
+    "label": "Jan 2026",
+    "month": "January",
+    "year": 2026,
+    "startDate": "2026-01-01",
+    "endDate": "2026-01-30"
+  },
+  {
+    "id": "intake_5",
+    "label": "May 2026",
+    "month": "May",
+    "year": 2026,
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-30"
+  },
+  {
+    "id": "intake_6",
+    "label": "Sep 2026",
+    "month": "September",
+    "year": 2026,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30"
+  }
+]

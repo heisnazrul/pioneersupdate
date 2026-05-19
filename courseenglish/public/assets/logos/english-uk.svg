@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120">
+  <rect width="240" height="120" rx="16" fill="#FFFFFF" stroke="#D8E3EE" />
+  <text x="32" y="62" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#E11D48">ENGLISH</text>
+  <text x="150" y="62" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0B5DB6">UK</text>
+  <text x="32" y="88" font-family="Arial, sans-serif" font-size="12" fill="#5B6775">Accredited Centre</text>
+</svg>

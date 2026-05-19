@@ -1,0 +1,19 @@
+[
+  { "id": "foundation", "name": "Foundation", "key": "foundation", "sort_order": 1 },
+  { "id": "bachelor", "name": "Bachelor", "key": "bachelor", "sort_order": 2 },
+  { "id": "bachelor-top-up", "name": "Bachelor Top-Up", "key": "bachelor-top-up", "sort_order": 3 },
+  { "id": "integrated-master", "name": "Integrated Master", "key": "integrated-master", "sort_order": 4 },
+  { "id": "pre-masters", "name": "Pre-Masters", "key": "pre-masters", "sort_order": 5 },
+  { "id": "masters", "name": "Masters", "key": "masters", "sort_order": 6 },
+  { "id": "mba", "name": "MBA", "key": "mba", "sort_order": 7 },
+  { "id": "mres", "name": "MRes", "key": "mres", "sort_order": 8 },
+  { "id": "phd-doctorate", "name": "PhD / Doctorate", "key": "phd-doctorate", "sort_order": 9 },
+  { "id": "professional-doctorate", "name": "Professional Doctorate", "key": "professional-doctorate", "sort_order": 10 },
+  { "id": "postgraduate-diploma", "name": "PG Diploma", "key": "postgraduate-diploma", "sort_order": 11 },
+  { "id": "postgraduate-certificate", "name": "PG Certificate", "key": "postgraduate-certificate", "sort_order": 12 },
+  { "id": "graduate-diploma", "name": "Graduate Diploma", "key": "graduate-diploma", "sort_order": 13 },
+  { "id": "diploma", "name": "Diploma", "key": "diploma", "sort_order": 14 },
+  { "id": "certificate", "name": "Certificate", "key": "certificate", "sort_order": 15 },
+  { "id": "short-course", "name": "Short Course", "key": "short-course", "sort_order": 16 },
+  { "id": "distance-learning", "name": "Distance Learning", "key": "distance-learning", "sort_order": 17 }
+]

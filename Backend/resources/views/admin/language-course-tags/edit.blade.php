@@ -1,0 +1,55 @@
+@extends('admin.layouts.layout')
+
+@section('content')
+<div class="main-content py-10">
+  <div class="flex justify-between py-10">
+    <h2 class="text-2xl font-bold mb-4">Edit Language Course Tag</h2>
+    <a href="{{ route('admin.language-course-tags.index') }}" class="ti-btn rounded-full ti-btn-outline ti-btn-outline-primary">Back to List</a>
+  </div>
+
+  @if ($errors->any())
+    <div class="mb-4 text-red-700 bg-red-50 border border-red-200 rounded-md px-4 py-2">
+      <ul class="list-disc pl-5">
+        @foreach ($errors->all() as $error)
+          <li class="text-sm">{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
+  <form action="{{ route('admin.language-course-tags.update', $tag) }}" method="POST" class="space-y-4">
+    @csrf
+    @method('PUT')
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Tag Code</label>
+      <input type="text" name="tag_code" value="{{ old('tag_code', $tag->tag_code) }}" class="mt-1 block w-full border rounded-md px-3 py-2" required>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Name (EN)</label>
+      <input type="text" name="name" value="{{ old('name', $tag->name) }}" class="mt-1 block w-full border rounded-md px-3 py-2" required>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Name (AR)</label>
+      <input type="text" name="ar_name" value="{{ old('ar_name', $tag->ar_name) }}" class="mt-1 block w-full border rounded-md px-3 py-2" required>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Description</label>
+      <textarea name="description" class="mt-1 block w-full border rounded-md px-3 py-2">{{ old('description', $tag->description) }}</textarea>
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Description (AR)</label>
+      <textarea name="ar_description" class="mt-1 block w-full border rounded-md px-3 py-2">{{ old('ar_description', $tag->ar_description) }}</textarea>
+    </div>
+
+    <div class="flex space-x-2">
+      <button type="submit" class="ti-btn rounded-full ti-btn-outline ti-btn-outline-success">Update</button>
+      <a href="{{ route('admin.language-course-tags.index') }}" class="ti-btn rounded-full border">Cancel</a>
+    </div>
+  </form>
+</div>
+@endsection

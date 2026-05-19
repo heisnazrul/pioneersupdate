@@ -1,0 +1,2008 @@
+[
+  {
+    "id": "uni_1",
+    "name": "Massachusetts Institute of Technology (MIT)",
+    "countryCode": "US",
+    "cityId": "city_boston",
+    "worldRank": 1,
+    "logoUrl": "/assets/universities/mit.png",
+    "slug": "mit",
+    "websiteUrl": "https://web.mit.edu",
+    "location": "Cambridge, MA, USA"
+  },
+  {
+    "id": "uni_2",
+    "name": "Harvard University",
+    "countryCode": "US",
+    "cityId": "city_boston",
+    "worldRank": 4,
+    "logoUrl": "/assets/universities/harvard.png",
+    "slug": "harvard",
+    "websiteUrl": "https://harvard.edu",
+    "location": "Cambridge, MA, USA"
+  },
+  {
+    "id": "uni_3",
+    "name": "University of Oxford",
+    "countryCode": "GB",
+    "cityId": "city_oxford",
+    "worldRank": 3,
+    "logoUrl": "/assets/universities/oxford.png",
+    "slug": "oxford",
+    "websiteUrl": "https://ox.ac.uk",
+    "location": "Oxford, UK"
+  },
+  {
+    "id": "uni_4",
+    "name": "University of Cambridge",
+    "countryCode": "GB",
+    "cityId": "city_cambridge",
+    "worldRank": 5,
+    "logoUrl": "/assets/universities/cambridge.png",
+    "slug": "cambridge",
+    "websiteUrl": "https://cam.ac.uk",
+    "location": "Cambridge, UK"
+  },
+  {
+    "id": "uni_5",
+    "name": "Stanford University",
+    "countryCode": "US",
+    "cityId": "city_sf",
+    "worldRank": 2,
+    "logoUrl": "/assets/universities/stanford.png",
+    "slug": "stanford",
+    "websiteUrl": "https://stanford.edu",
+    "location": "Stanford, CA, USA"
+  },
+  {
+    "id": "uni_6",
+    "name": "University of Toronto",
+    "countryCode": "CA",
+    "cityId": "city_toronto",
+    "worldRank": 21,
+    "logoUrl": "/assets/universities/toronto.png",
+    "slug": "toronto",
+    "websiteUrl": "https://utoronto.ca",
+    "location": "Toronto, Canada"
+  },
+  {
+    "id": "uni_7",
+    "name": "Boston Polytechnic 7",
+    "countryCode": "GB",
+    "cityId": "city_3",
+    "worldRank": 162,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-polytechnic-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_8",
+    "name": "City Institute of Technology 8",
+    "countryCode": "GB",
+    "cityId": "city_176",
+    "worldRank": 60,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-institute-of-technology-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_9",
+    "name": "Boston Polytechnic 9",
+    "countryCode": "GB",
+    "cityId": "city_3",
+    "worldRank": 641,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-polytechnic-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_10",
+    "name": "City School of Economics 10",
+    "countryCode": "GB",
+    "cityId": "city_176",
+    "worldRank": 765,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-school-of-economics-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_11",
+    "name": "Dublin University 11",
+    "countryCode": "GB",
+    "cityId": "city_4",
+    "worldRank": 338,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-university-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_12",
+    "name": "Berlin Polytechnic 12",
+    "countryCode": "GB",
+    "cityId": "city_1",
+    "worldRank": 931,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-polytechnic-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_13",
+    "name": "Boston University 13",
+    "countryCode": "GB",
+    "cityId": "city_3",
+    "worldRank": 782,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-university-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_14",
+    "name": "Boston Polytechnic 14",
+    "countryCode": "GB",
+    "cityId": "city_3",
+    "worldRank": 587,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-polytechnic-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_15",
+    "name": "City College 15",
+    "countryCode": "GB",
+    "cityId": "city_176",
+    "worldRank": 641,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_16",
+    "name": "Vancouver Institute of Technology 16",
+    "countryCode": "GB",
+    "cityId": "city_5",
+    "worldRank": 673,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-institute-of-technology-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_17",
+    "name": "Manchester School of Economics 17",
+    "countryCode": "GB",
+    "cityId": "city_2",
+    "worldRank": 830,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-school-of-economics-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_18",
+    "name": "Berlin University 18",
+    "countryCode": "GB",
+    "cityId": "city_1",
+    "worldRank": 563,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-university-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_19",
+    "name": "Vancouver Institute of Technology 19",
+    "countryCode": "GB",
+    "cityId": "city_5",
+    "worldRank": 826,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-institute-of-technology-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_20",
+    "name": "Berlin Institute of Technology 20",
+    "countryCode": "GB",
+    "cityId": "city_1",
+    "worldRank": 599,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-institute-of-technology-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_21",
+    "name": "Lyon Institute of Technology 1",
+    "countryCode": "US",
+    "cityId": "city_7",
+    "worldRank": 36,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-institute-of-technology-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_22",
+    "name": "Munich Polytechnic 2",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 31,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-polytechnic-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_23",
+    "name": "San Polytechnic 3",
+    "countryCode": "US",
+    "cityId": "city_8",
+    "worldRank": 23,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "san-polytechnic-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_24",
+    "name": "Munich School of Economics 4",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 192,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-school-of-economics-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_25",
+    "name": "Lyon School of Economics 5",
+    "countryCode": "US",
+    "cityId": "city_7",
+    "worldRank": 76,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-school-of-economics-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_26",
+    "name": "Munich College 6",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 111,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-college-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_27",
+    "name": "Munich School of Economics 7",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 118,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-school-of-economics-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_28",
+    "name": "Munich University 8",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 188,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-university-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_29",
+    "name": "Vancouver College 9",
+    "countryCode": "US",
+    "cityId": "city_10",
+    "worldRank": 770,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-college-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_30",
+    "name": "Paris School of Economics 10",
+    "countryCode": "US",
+    "cityId": "city_6",
+    "worldRank": 888,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-school-of-economics-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_31",
+    "name": "Munich University 11",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 488,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-university-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_32",
+    "name": "Paris College 12",
+    "countryCode": "US",
+    "cityId": "city_6",
+    "worldRank": 492,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-college-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_33",
+    "name": "Lyon School of Economics 13",
+    "countryCode": "US",
+    "cityId": "city_7",
+    "worldRank": 586,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-school-of-economics-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_34",
+    "name": "Munich School of Economics 14",
+    "countryCode": "US",
+    "cityId": "city_9",
+    "worldRank": 733,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-school-of-economics-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_35",
+    "name": "Lyon University 15",
+    "countryCode": "US",
+    "cityId": "city_7",
+    "worldRank": 769,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-university-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_36",
+    "name": "Lyon School of Economics 16",
+    "countryCode": "US",
+    "cityId": "city_7",
+    "worldRank": 826,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-school-of-economics-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_37",
+    "name": "Vancouver Polytechnic 17",
+    "countryCode": "US",
+    "cityId": "city_10",
+    "worldRank": 375,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-polytechnic-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_38",
+    "name": "City Institute of Technology 18",
+    "countryCode": "US",
+    "cityId": "city_159",
+    "worldRank": 309,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-institute-of-technology-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_39",
+    "name": "San College 19",
+    "countryCode": "US",
+    "cityId": "city_8",
+    "worldRank": 452,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "san-college-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_40",
+    "name": "Vancouver College 20",
+    "countryCode": "US",
+    "cityId": "city_10",
+    "worldRank": 773,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-college-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_41",
+    "name": "City Polytechnic 1",
+    "countryCode": "CA",
+    "cityId": "city_199",
+    "worldRank": 50,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_42",
+    "name": "City University 2",
+    "countryCode": "CA",
+    "cityId": "city_199",
+    "worldRank": 45,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_43",
+    "name": "Kuala School of Economics 3",
+    "countryCode": "CA",
+    "cityId": "city_15",
+    "worldRank": 8,
+    "logoUrl": "https://placehold.co/100x100?text=K",
+    "slug": "kuala-school-of-economics-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_44",
+    "name": "Chicago University 4",
+    "countryCode": "CA",
+    "cityId": "city_13",
+    "worldRank": 136,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-university-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_45",
+    "name": "City University 5",
+    "countryCode": "CA",
+    "cityId": "city_199",
+    "worldRank": 197,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_46",
+    "name": "Kuala Polytechnic 6",
+    "countryCode": "CA",
+    "cityId": "city_15",
+    "worldRank": 159,
+    "logoUrl": "https://placehold.co/100x100?text=K",
+    "slug": "kuala-polytechnic-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_47",
+    "name": "Kuala School of Economics 7",
+    "countryCode": "CA",
+    "cityId": "city_15",
+    "worldRank": 168,
+    "logoUrl": "https://placehold.co/100x100?text=K",
+    "slug": "kuala-school-of-economics-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_48",
+    "name": "Kuala University 8",
+    "countryCode": "CA",
+    "cityId": "city_15",
+    "worldRank": 162,
+    "logoUrl": "https://placehold.co/100x100?text=K",
+    "slug": "kuala-university-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_49",
+    "name": "Chicago Institute of Technology 9",
+    "countryCode": "CA",
+    "cityId": "city_13",
+    "worldRank": 521,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-institute-of-technology-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_50",
+    "name": "Chicago Institute of Technology 10",
+    "countryCode": "CA",
+    "cityId": "city_13",
+    "worldRank": 908,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-institute-of-technology-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_51",
+    "name": "City College 11",
+    "countryCode": "CA",
+    "cityId": "city_199",
+    "worldRank": 813,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_52",
+    "name": "Chicago Institute of Technology 12",
+    "countryCode": "CA",
+    "cityId": "city_13",
+    "worldRank": 426,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-institute-of-technology-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_53",
+    "name": "Dublin Institute of Technology 13",
+    "countryCode": "CA",
+    "cityId": "city_11",
+    "worldRank": 894,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-institute-of-technology-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_54",
+    "name": "Dublin University 14",
+    "countryCode": "CA",
+    "cityId": "city_11",
+    "worldRank": 709,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-university-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_55",
+    "name": "Chicago Institute of Technology 15",
+    "countryCode": "CA",
+    "cityId": "city_13",
+    "worldRank": 349,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-institute-of-technology-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_56",
+    "name": "Kuala Polytechnic 16",
+    "countryCode": "CA",
+    "cityId": "city_15",
+    "worldRank": 337,
+    "logoUrl": "https://placehold.co/100x100?text=K",
+    "slug": "kuala-polytechnic-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_57",
+    "name": "Kuala School of Economics 17",
+    "countryCode": "CA",
+    "cityId": "city_15",
+    "worldRank": 528,
+    "logoUrl": "https://placehold.co/100x100?text=K",
+    "slug": "kuala-school-of-economics-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_58",
+    "name": "City Institute of Technology 18",
+    "countryCode": "CA",
+    "cityId": "city_199",
+    "worldRank": 548,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-institute-of-technology-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_59",
+    "name": "Dublin Polytechnic 19",
+    "countryCode": "CA",
+    "cityId": "city_11",
+    "worldRank": 616,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-polytechnic-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_60",
+    "name": "City University 20",
+    "countryCode": "CA",
+    "cityId": "city_199",
+    "worldRank": 537,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_61",
+    "name": "Berlin Polytechnic 1",
+    "countryCode": "AU",
+    "cityId": "city_16",
+    "worldRank": 43,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-polytechnic-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_62",
+    "name": "Lyon Polytechnic 2",
+    "countryCode": "AU",
+    "cityId": "city_17",
+    "worldRank": 7,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-polytechnic-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_63",
+    "name": "City College 3",
+    "countryCode": "AU",
+    "cityId": "city_191",
+    "worldRank": 7,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_64",
+    "name": "Boston College 4",
+    "countryCode": "AU",
+    "cityId": "city_20",
+    "worldRank": 195,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-college-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_65",
+    "name": "Lyon Polytechnic 5",
+    "countryCode": "AU",
+    "cityId": "city_17",
+    "worldRank": 144,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-polytechnic-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_66",
+    "name": "Dublin School of Economics 6",
+    "countryCode": "AU",
+    "cityId": "city_19",
+    "worldRank": 76,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-school-of-economics-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_67",
+    "name": "City Institute of Technology 7",
+    "countryCode": "AU",
+    "cityId": "city_191",
+    "worldRank": 73,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-institute-of-technology-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_68",
+    "name": "Boston School of Economics 8",
+    "countryCode": "AU",
+    "cityId": "city_20",
+    "worldRank": 164,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-school-of-economics-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_69",
+    "name": "City College 9",
+    "countryCode": "AU",
+    "cityId": "city_182",
+    "worldRank": 350,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_70",
+    "name": "City University 10",
+    "countryCode": "AU",
+    "cityId": "city_182",
+    "worldRank": 248,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_71",
+    "name": "Lyon Polytechnic 11",
+    "countryCode": "AU",
+    "cityId": "city_17",
+    "worldRank": 560,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-polytechnic-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_72",
+    "name": "Montreal College 12",
+    "countryCode": "AU",
+    "cityId": "city_18",
+    "worldRank": 210,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "montreal-college-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_73",
+    "name": "City School of Economics 13",
+    "countryCode": "AU",
+    "cityId": "city_182",
+    "worldRank": 466,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-school-of-economics-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_74",
+    "name": "Dublin College 14",
+    "countryCode": "AU",
+    "cityId": "city_19",
+    "worldRank": 315,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-college-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_75",
+    "name": "Berlin Polytechnic 15",
+    "countryCode": "AU",
+    "cityId": "city_16",
+    "worldRank": 510,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-polytechnic-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_76",
+    "name": "Lyon Institute of Technology 16",
+    "countryCode": "AU",
+    "cityId": "city_17",
+    "worldRank": 837,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-institute-of-technology-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_77",
+    "name": "Montreal College 17",
+    "countryCode": "AU",
+    "cityId": "city_18",
+    "worldRank": 211,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "montreal-college-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_78",
+    "name": "Lyon University 18",
+    "countryCode": "AU",
+    "cityId": "city_17",
+    "worldRank": 538,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-university-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_79",
+    "name": "Montreal Polytechnic 19",
+    "countryCode": "AU",
+    "cityId": "city_18",
+    "worldRank": 570,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "montreal-polytechnic-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_80",
+    "name": "Boston School of Economics 20",
+    "countryCode": "AU",
+    "cityId": "city_20",
+    "worldRank": 653,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-school-of-economics-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_81",
+    "name": "Sydney University 1",
+    "countryCode": "DE",
+    "cityId": "city_22",
+    "worldRank": 49,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "sydney-university-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_82",
+    "name": "Stockholm School of Economics 2",
+    "countryCode": "DE",
+    "cityId": "city_23",
+    "worldRank": 12,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "stockholm-school-of-economics-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_83",
+    "name": "Stockholm School of Economics 3",
+    "countryCode": "DE",
+    "cityId": "city_23",
+    "worldRank": 21,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "stockholm-school-of-economics-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_84",
+    "name": "City College 4",
+    "countryCode": "DE",
+    "cityId": "city_125",
+    "worldRank": 135,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_85",
+    "name": "Munich Polytechnic 5",
+    "countryCode": "DE",
+    "cityId": "city_25",
+    "worldRank": 179,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-polytechnic-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_86",
+    "name": "Cork Institute of Technology 6",
+    "countryCode": "DE",
+    "cityId": "city_24",
+    "worldRank": 141,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "cork-institute-of-technology-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_87",
+    "name": "City College 7",
+    "countryCode": "DE",
+    "cityId": "city_65",
+    "worldRank": 122,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_88",
+    "name": "Munich Polytechnic 8",
+    "countryCode": "DE",
+    "cityId": "city_21",
+    "worldRank": 86,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-polytechnic-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_89",
+    "name": "Munich University 9",
+    "countryCode": "DE",
+    "cityId": "city_25",
+    "worldRank": 661,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-university-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_90",
+    "name": "Stockholm School of Economics 10",
+    "countryCode": "DE",
+    "cityId": "city_23",
+    "worldRank": 237,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "stockholm-school-of-economics-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_91",
+    "name": "Sydney College 11",
+    "countryCode": "DE",
+    "cityId": "city_22",
+    "worldRank": 575,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "sydney-college-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_92",
+    "name": "Munich Institute of Technology 12",
+    "countryCode": "DE",
+    "cityId": "city_21",
+    "worldRank": 552,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-institute-of-technology-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_93",
+    "name": "Munich School of Economics 13",
+    "countryCode": "DE",
+    "cityId": "city_25",
+    "worldRank": 982,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-school-of-economics-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_94",
+    "name": "Cork Institute of Technology 14",
+    "countryCode": "DE",
+    "cityId": "city_24",
+    "worldRank": 655,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "cork-institute-of-technology-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_95",
+    "name": "Sydney Institute of Technology 15",
+    "countryCode": "DE",
+    "cityId": "city_22",
+    "worldRank": 924,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "sydney-institute-of-technology-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_96",
+    "name": "Sydney Institute of Technology 16",
+    "countryCode": "DE",
+    "cityId": "city_22",
+    "worldRank": 220,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "sydney-institute-of-technology-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_97",
+    "name": "Cork Institute of Technology 17",
+    "countryCode": "DE",
+    "cityId": "city_24",
+    "worldRank": 209,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "cork-institute-of-technology-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_98",
+    "name": "Stockholm University 18",
+    "countryCode": "DE",
+    "cityId": "city_23",
+    "worldRank": 946,
+    "logoUrl": "https://placehold.co/100x100?text=S",
+    "slug": "stockholm-university-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_99",
+    "name": "City Polytechnic 19",
+    "countryCode": "DE",
+    "cityId": "city_65",
+    "worldRank": 422,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_100",
+    "name": "City University 20",
+    "countryCode": "DE",
+    "cityId": "city_125",
+    "worldRank": 805,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_101",
+    "name": "City University 1",
+    "countryCode": "IE",
+    "cityId": "city_108",
+    "worldRank": 48,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_102",
+    "name": "New Polytechnic 2",
+    "countryCode": "IE",
+    "cityId": "city_26",
+    "worldRank": 44,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_103",
+    "name": "New Polytechnic 3",
+    "countryCode": "IE",
+    "cityId": "city_27",
+    "worldRank": 32,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_104",
+    "name": "Munich Polytechnic 4",
+    "countryCode": "IE",
+    "cityId": "city_28",
+    "worldRank": 106,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-polytechnic-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_105",
+    "name": "Lyon Polytechnic 5",
+    "countryCode": "IE",
+    "cityId": "city_30",
+    "worldRank": 128,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-polytechnic-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_106",
+    "name": "New Polytechnic 6",
+    "countryCode": "IE",
+    "cityId": "city_26",
+    "worldRank": 129,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_107",
+    "name": "City Polytechnic 7",
+    "countryCode": "IE",
+    "cityId": "city_108",
+    "worldRank": 144,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_108",
+    "name": "New Institute of Technology 8",
+    "countryCode": "IE",
+    "cityId": "city_27",
+    "worldRank": 136,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-institute-of-technology-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_109",
+    "name": "Lyon College 9",
+    "countryCode": "IE",
+    "cityId": "city_30",
+    "worldRank": 851,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-college-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_110",
+    "name": "City University 10",
+    "countryCode": "IE",
+    "cityId": "city_99",
+    "worldRank": 889,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_111",
+    "name": "New Institute of Technology 11",
+    "countryCode": "IE",
+    "cityId": "city_26",
+    "worldRank": 377,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-institute-of-technology-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_112",
+    "name": "Munich Polytechnic 12",
+    "countryCode": "IE",
+    "cityId": "city_28",
+    "worldRank": 941,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-polytechnic-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_113",
+    "name": "City School of Economics 13",
+    "countryCode": "IE",
+    "cityId": "city_99",
+    "worldRank": 382,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-school-of-economics-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_114",
+    "name": "New Polytechnic 14",
+    "countryCode": "IE",
+    "cityId": "city_26",
+    "worldRank": 302,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_115",
+    "name": "Lyon Institute of Technology 15",
+    "countryCode": "IE",
+    "cityId": "city_30",
+    "worldRank": 426,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-institute-of-technology-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_116",
+    "name": "Munich Polytechnic 16",
+    "countryCode": "IE",
+    "cityId": "city_28",
+    "worldRank": 759,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-polytechnic-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_117",
+    "name": "Lyon College 17",
+    "countryCode": "IE",
+    "cityId": "city_30",
+    "worldRank": 782,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-college-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_118",
+    "name": "Munich College 18",
+    "countryCode": "IE",
+    "cityId": "city_28",
+    "worldRank": 312,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-college-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_119",
+    "name": "City Institute of Technology 19",
+    "countryCode": "IE",
+    "cityId": "city_108",
+    "worldRank": 895,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-institute-of-technology-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_120",
+    "name": "Munich Institute of Technology 20",
+    "countryCode": "IE",
+    "cityId": "city_28",
+    "worldRank": 958,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "munich-institute-of-technology-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_121",
+    "name": "City University 1",
+    "countryCode": "NL",
+    "cityId": "city_188",
+    "worldRank": 38,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_122",
+    "name": "Paris Polytechnic 2",
+    "countryCode": "NL",
+    "cityId": "city_31",
+    "worldRank": 33,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-polytechnic-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_123",
+    "name": "Paris Institute of Technology 3",
+    "countryCode": "NL",
+    "cityId": "city_34",
+    "worldRank": 47,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-institute-of-technology-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_124",
+    "name": "New Polytechnic 4",
+    "countryCode": "NL",
+    "cityId": "city_33",
+    "worldRank": 198,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_125",
+    "name": "Paris Institute of Technology 5",
+    "countryCode": "NL",
+    "cityId": "city_31",
+    "worldRank": 198,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-institute-of-technology-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_126",
+    "name": "New Polytechnic 6",
+    "countryCode": "NL",
+    "cityId": "city_35",
+    "worldRank": 51,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_127",
+    "name": "New College 7",
+    "countryCode": "NL",
+    "cityId": "city_35",
+    "worldRank": 56,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-college-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_128",
+    "name": "New College 8",
+    "countryCode": "NL",
+    "cityId": "city_35",
+    "worldRank": 172,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-college-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_129",
+    "name": "City Polytechnic 9",
+    "countryCode": "NL",
+    "cityId": "city_188",
+    "worldRank": 578,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_130",
+    "name": "Lyon College 10",
+    "countryCode": "NL",
+    "cityId": "city_32",
+    "worldRank": 548,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-college-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_131",
+    "name": "New School of Economics 11",
+    "countryCode": "NL",
+    "cityId": "city_33",
+    "worldRank": 994,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-school-of-economics-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_132",
+    "name": "City Polytechnic 12",
+    "countryCode": "NL",
+    "cityId": "city_188",
+    "worldRank": 373,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_133",
+    "name": "City College 13",
+    "countryCode": "NL",
+    "cityId": "city_188",
+    "worldRank": 867,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_134",
+    "name": "City School of Economics 14",
+    "countryCode": "NL",
+    "cityId": "city_188",
+    "worldRank": 434,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-school-of-economics-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_135",
+    "name": "City Polytechnic 15",
+    "countryCode": "NL",
+    "cityId": "city_140",
+    "worldRank": 761,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_136",
+    "name": "Paris College 16",
+    "countryCode": "NL",
+    "cityId": "city_31",
+    "worldRank": 872,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-college-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_137",
+    "name": "Paris Polytechnic 17",
+    "countryCode": "NL",
+    "cityId": "city_34",
+    "worldRank": 703,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-polytechnic-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_138",
+    "name": "City School of Economics 18",
+    "countryCode": "NL",
+    "cityId": "city_140",
+    "worldRank": 474,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-school-of-economics-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_139",
+    "name": "New University 19",
+    "countryCode": "NL",
+    "cityId": "city_35",
+    "worldRank": 419,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-university-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_140",
+    "name": "City College 20",
+    "countryCode": "NL",
+    "cityId": "city_140",
+    "worldRank": 270,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_141",
+    "name": "Berlin School of Economics 1",
+    "countryCode": "SE",
+    "cityId": "city_40",
+    "worldRank": 9,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-school-of-economics-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_142",
+    "name": "Chicago University 2",
+    "countryCode": "SE",
+    "cityId": "city_37",
+    "worldRank": 5,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-university-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_143",
+    "name": "Paris College 3",
+    "countryCode": "SE",
+    "cityId": "city_36",
+    "worldRank": 32,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-college-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_144",
+    "name": "Toronto University 4",
+    "countryCode": "SE",
+    "cityId": "city_38",
+    "worldRank": 53,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-university-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_145",
+    "name": "Toronto College 5",
+    "countryCode": "SE",
+    "cityId": "city_38",
+    "worldRank": 154,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-college-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_146",
+    "name": "Paris College 6",
+    "countryCode": "SE",
+    "cityId": "city_36",
+    "worldRank": 71,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-college-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_147",
+    "name": "Toronto University 7",
+    "countryCode": "SE",
+    "cityId": "city_38",
+    "worldRank": 194,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-university-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_148",
+    "name": "Toronto Polytechnic 8",
+    "countryCode": "SE",
+    "cityId": "city_38",
+    "worldRank": 117,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-polytechnic-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_149",
+    "name": "Toronto Polytechnic 9",
+    "countryCode": "SE",
+    "cityId": "city_38",
+    "worldRank": 488,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-polytechnic-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_150",
+    "name": "City College 10",
+    "countryCode": "SE",
+    "cityId": "city_80",
+    "worldRank": 927,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_151",
+    "name": "Berlin University 11",
+    "countryCode": "SE",
+    "cityId": "city_40",
+    "worldRank": 598,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-university-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_152",
+    "name": "City College 12",
+    "countryCode": "SE",
+    "cityId": "city_80",
+    "worldRank": 459,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_153",
+    "name": "Birmingham College 13",
+    "countryCode": "SE",
+    "cityId": "city_39",
+    "worldRank": 579,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "birmingham-college-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_154",
+    "name": "City University 14",
+    "countryCode": "SE",
+    "cityId": "city_80",
+    "worldRank": 654,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_155",
+    "name": "Berlin University 15",
+    "countryCode": "SE",
+    "cityId": "city_40",
+    "worldRank": 674,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "berlin-university-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_156",
+    "name": "Birmingham Polytechnic 16",
+    "countryCode": "SE",
+    "cityId": "city_39",
+    "worldRank": 389,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "birmingham-polytechnic-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_157",
+    "name": "City Polytechnic 17",
+    "countryCode": "SE",
+    "cityId": "city_67",
+    "worldRank": 872,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-polytechnic-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_158",
+    "name": "Toronto University 18",
+    "countryCode": "SE",
+    "cityId": "city_38",
+    "worldRank": 718,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-university-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_159",
+    "name": "Paris College 19",
+    "countryCode": "SE",
+    "cityId": "city_36",
+    "worldRank": 945,
+    "logoUrl": "https://placehold.co/100x100?text=P",
+    "slug": "paris-college-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_160",
+    "name": "City University 20",
+    "countryCode": "SE",
+    "cityId": "city_80",
+    "worldRank": 673,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_161",
+    "name": "Toronto Polytechnic 1",
+    "countryCode": "FR",
+    "cityId": "city_43",
+    "worldRank": 23,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-polytechnic-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_162",
+    "name": "Manchester Institute of Technology 2",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 24,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-institute-of-technology-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_163",
+    "name": "Manchester University 3",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 6,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-university-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_164",
+    "name": "Manchester Institute of Technology 4",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 70,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-institute-of-technology-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_165",
+    "name": "Boston Institute of Technology 5",
+    "countryCode": "FR",
+    "cityId": "city_44",
+    "worldRank": 147,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-institute-of-technology-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_166",
+    "name": "Manchester Polytechnic 6",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 124,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-polytechnic-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_167",
+    "name": "Vancouver Institute of Technology 7",
+    "countryCode": "FR",
+    "cityId": "city_42",
+    "worldRank": 198,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-institute-of-technology-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_168",
+    "name": "Toronto School of Economics 8",
+    "countryCode": "FR",
+    "cityId": "city_43",
+    "worldRank": 101,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-school-of-economics-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_169",
+    "name": "Boston College 9",
+    "countryCode": "FR",
+    "cityId": "city_44",
+    "worldRank": 303,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-college-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_170",
+    "name": "Toronto College 10",
+    "countryCode": "FR",
+    "cityId": "city_43",
+    "worldRank": 516,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-college-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_171",
+    "name": "Chicago School of Economics 11",
+    "countryCode": "FR",
+    "cityId": "city_45",
+    "worldRank": 361,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-school-of-economics-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_172",
+    "name": "Chicago School of Economics 12",
+    "countryCode": "FR",
+    "cityId": "city_45",
+    "worldRank": 959,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-school-of-economics-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_173",
+    "name": "Manchester University 13",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 421,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-university-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_174",
+    "name": "Manchester University 14",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 333,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-university-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_175",
+    "name": "Chicago University 15",
+    "countryCode": "FR",
+    "cityId": "city_45",
+    "worldRank": 401,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "chicago-university-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_176",
+    "name": "Boston School of Economics 16",
+    "countryCode": "FR",
+    "cityId": "city_44",
+    "worldRank": 834,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-school-of-economics-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_177",
+    "name": "Boston School of Economics 17",
+    "countryCode": "FR",
+    "cityId": "city_44",
+    "worldRank": 679,
+    "logoUrl": "https://placehold.co/100x100?text=B",
+    "slug": "boston-school-of-economics-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_178",
+    "name": "Vancouver Polytechnic 18",
+    "countryCode": "FR",
+    "cityId": "city_42",
+    "worldRank": 270,
+    "logoUrl": "https://placehold.co/100x100?text=V",
+    "slug": "vancouver-polytechnic-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_179",
+    "name": "Manchester College 19",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 619,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-college-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_180",
+    "name": "Manchester Institute of Technology 20",
+    "countryCode": "FR",
+    "cityId": "city_41",
+    "worldRank": 438,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "manchester-institute-of-technology-20",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_181",
+    "name": "Toronto School of Economics 1",
+    "countryCode": "MY",
+    "cityId": "city_48",
+    "worldRank": 2,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-school-of-economics-1",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_182",
+    "name": "Montreal School of Economics 2",
+    "countryCode": "MY",
+    "cityId": "city_47",
+    "worldRank": 17,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "montreal-school-of-economics-2",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_183",
+    "name": "Dublin School of Economics 3",
+    "countryCode": "MY",
+    "cityId": "city_50",
+    "worldRank": 40,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-school-of-economics-3",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_184",
+    "name": "Montreal Institute of Technology 4",
+    "countryCode": "MY",
+    "cityId": "city_47",
+    "worldRank": 193,
+    "logoUrl": "https://placehold.co/100x100?text=M",
+    "slug": "montreal-institute-of-technology-4",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_185",
+    "name": "Lyon School of Economics 5",
+    "countryCode": "MY",
+    "cityId": "city_46",
+    "worldRank": 67,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-school-of-economics-5",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_186",
+    "name": "City University 6",
+    "countryCode": "MY",
+    "cityId": "city_92",
+    "worldRank": 170,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-6",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_187",
+    "name": "Toronto University 7",
+    "countryCode": "MY",
+    "cityId": "city_48",
+    "worldRank": 146,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-university-7",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_188",
+    "name": "New Polytechnic 8",
+    "countryCode": "MY",
+    "cityId": "city_49",
+    "worldRank": 85,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-8",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_189",
+    "name": "New College 9",
+    "countryCode": "MY",
+    "cityId": "city_49",
+    "worldRank": 480,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-college-9",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_190",
+    "name": "Dublin Polytechnic 10",
+    "countryCode": "MY",
+    "cityId": "city_50",
+    "worldRank": 906,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-polytechnic-10",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_191",
+    "name": "Toronto School of Economics 11",
+    "countryCode": "MY",
+    "cityId": "city_48",
+    "worldRank": 769,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-school-of-economics-11",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_192",
+    "name": "City University 12",
+    "countryCode": "MY",
+    "cityId": "city_92",
+    "worldRank": 811,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-12",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_193",
+    "name": "City University 13",
+    "countryCode": "MY",
+    "cityId": "city_92",
+    "worldRank": 683,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-university-13",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_194",
+    "name": "City College 14",
+    "countryCode": "MY",
+    "cityId": "city_92",
+    "worldRank": 221,
+    "logoUrl": "https://placehold.co/100x100?text=C",
+    "slug": "city-college-14",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_195",
+    "name": "Lyon Polytechnic 15",
+    "countryCode": "MY",
+    "cityId": "city_46",
+    "worldRank": 442,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-polytechnic-15",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_196",
+    "name": "Toronto Polytechnic 16",
+    "countryCode": "MY",
+    "cityId": "city_48",
+    "worldRank": 269,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-polytechnic-16",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_197",
+    "name": "Dublin School of Economics 17",
+    "countryCode": "MY",
+    "cityId": "city_50",
+    "worldRank": 561,
+    "logoUrl": "https://placehold.co/100x100?text=D",
+    "slug": "dublin-school-of-economics-17",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_198",
+    "name": "Toronto School of Economics 18",
+    "countryCode": "MY",
+    "cityId": "city_48",
+    "worldRank": 752,
+    "logoUrl": "https://placehold.co/100x100?text=T",
+    "slug": "toronto-school-of-economics-18",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_199",
+    "name": "New Polytechnic 19",
+    "countryCode": "MY",
+    "cityId": "city_49",
+    "worldRank": 991,
+    "logoUrl": "https://placehold.co/100x100?text=N",
+    "slug": "new-polytechnic-19",
+    "websiteUrl": "https://example.com"
+  },
+  {
+    "id": "uni_200",
+    "name": "Lyon Polytechnic 20",
+    "countryCode": "MY",
+    "cityId": "city_46",
+    "worldRank": 874,
+    "logoUrl": "https://placehold.co/100x100?text=L",
+    "slug": "lyon-polytechnic-20",
+    "websiteUrl": "https://example.com"
+  }
+]

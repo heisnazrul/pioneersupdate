@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "General",
+        "slug": "general"
+    },
+    {
+        "id": 2,
+        "name": "Learning Tips",
+        "slug": "learning-tips"
+    },
+    {
+        "id": 3,
+        "name": "Study Abroad",
+        "slug": "study-abroad"
+    },
+    {
+        "id": 4,
+        "name": "Grammar",
+        "slug": "grammar"
+    },
+    {
+        "id": 5,
+        "name": "Exams",
+        "slug": "exams"
+    }
+]

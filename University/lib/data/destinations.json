@@ -1,0 +1,658 @@
+[
+  {
+    "id": "dest_GB",
+    "slug": "united-kingdom",
+    "name": "United Kingdom",
+    "region": "Europe",
+    "description": "Study in United Kingdom and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=United Kingdom",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "GBP 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_1",
+      "city_2",
+      "city_3",
+      "city_4"
+    ],
+    "featuredUniversities": [
+      "uni_1",
+      "uni_2",
+      "uni_3",
+      "uni_4"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_GB_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_GB_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_US",
+    "slug": "united-states",
+    "name": "United States",
+    "region": "North America",
+    "description": "Study in United States and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=United States",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "USD 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_6",
+      "city_7",
+      "city_8",
+      "city_9"
+    ],
+    "featuredUniversities": [
+      "uni_21",
+      "uni_22",
+      "uni_23",
+      "uni_24"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_US_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_US_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_CA",
+    "slug": "canada",
+    "name": "Canada",
+    "region": "North America",
+    "description": "Study in Canada and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=Canada",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "CAD 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_11",
+      "city_12",
+      "city_13",
+      "city_14"
+    ],
+    "featuredUniversities": [
+      "uni_41",
+      "uni_42",
+      "uni_43",
+      "uni_44"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_CA_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_CA_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_AU",
+    "slug": "australia",
+    "name": "Australia",
+    "region": "Oceania",
+    "description": "Study in Australia and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=Australia",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "AUD 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_16",
+      "city_17",
+      "city_18",
+      "city_19"
+    ],
+    "featuredUniversities": [
+      "uni_61",
+      "uni_62",
+      "uni_63",
+      "uni_64"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_AU_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_AU_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_DE",
+    "slug": "germany",
+    "name": "Germany",
+    "region": "Europe",
+    "description": "Study in Germany and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=Germany",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "EUR 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_21",
+      "city_22",
+      "city_23",
+      "city_24"
+    ],
+    "featuredUniversities": [
+      "uni_81",
+      "uni_82",
+      "uni_83",
+      "uni_84"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_DE_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_DE_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_IE",
+    "slug": "ireland",
+    "name": "Ireland",
+    "region": "Europe",
+    "description": "Study in Ireland and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=Ireland",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "EUR 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_26",
+      "city_27",
+      "city_28",
+      "city_29"
+    ],
+    "featuredUniversities": [
+      "uni_101",
+      "uni_102",
+      "uni_103",
+      "uni_104"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_IE_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_IE_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_NL",
+    "slug": "netherlands",
+    "name": "Netherlands",
+    "region": "Europe",
+    "description": "Study in Netherlands and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=Netherlands",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "EUR 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_31",
+      "city_32",
+      "city_33",
+      "city_34"
+    ],
+    "featuredUniversities": [
+      "uni_121",
+      "uni_122",
+      "uni_123",
+      "uni_124"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_NL_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_NL_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  },
+  {
+    "id": "dest_MY",
+    "slug": "malaysia",
+    "name": "Malaysia",
+    "region": "Asia",
+    "description": "Study in Malaysia and experience world-class education. Known for its academic excellence and vibrant culture, it's a top choice for international students.",
+    "imageUrl": "https://placehold.co/800x600?text=Malaysia",
+    "shortPitch": "World-renowned degrees & post-study work rights.",
+    "tuitionRange": "MYR 15,000 - 35,000 / year",
+    "visaTimeline": "4-6 weeks",
+    "workRights": "Up to 3 years post-study",
+    "scholarships": "Government & University mandated",
+    "features": [
+      "High Quality Education",
+      "Multicultural Society",
+      "Global Recognition"
+    ],
+    "stats": [
+      {
+        "label": "Universities",
+        "value": "20+"
+      },
+      {
+        "label": "Intl. Students",
+        "value": "500k+"
+      },
+      {
+        "label": "Post-Study Work",
+        "value": "Yes"
+      }
+    ],
+    "topCities": [
+      "city_46",
+      "city_47",
+      "city_48",
+      "city_49"
+    ],
+    "featuredUniversities": [
+      "uni_181",
+      "uni_182",
+      "uni_183",
+      "uni_184"
+    ],
+    "popularDisciplines": [
+      "Business",
+      "Engineering",
+      "Health",
+      "IT"
+    ],
+    "intakeTimeline": [
+      {
+        "month": "Jan",
+        "event": "Winter Intake"
+      },
+      {
+        "month": "May",
+        "event": "Spring Intake"
+      },
+      {
+        "month": "Sep",
+        "event": "Fall Intake (Main)"
+      }
+    ],
+    "requirements": [
+      "Academic Transcripts",
+      "English Proficiency (IELTS/TOEFL)",
+      "Statement of Purpose",
+      "Financial Proof"
+    ],
+    "faqs": [
+      {
+        "id": "faq_MY_1",
+        "question": "Can I work while studying?",
+        "answer": "Yes, usually 20 hours per week during term time."
+      },
+      {
+        "id": "faq_MY_2",
+        "question": "Are scholarships available?",
+        "answer": "Yes, many universities offer merit-based scholarships."
+      }
+    ]
+  }
+]
