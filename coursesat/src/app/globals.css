@@ -14,7 +14,7 @@
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
   --color-line: var(--line);
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-graphik-arabic);
 }
 
 * {
@@ -31,7 +31,7 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--foreground);
-  font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-graphik-arabic);
   background: transparent;
 }
 

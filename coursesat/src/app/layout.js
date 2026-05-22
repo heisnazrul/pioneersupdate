@@ -1,10 +1,61 @@
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
+import { headers } from "next/headers";
+
+import { LocaleProvider } from "@/components/providers/locale-provider";
+import { getPreferredLanguage, isRtlLanguage } from "@/lib/locale";
 
 import "./globals.css";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
+const graphikArabic = localFont({
+  src: [
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Thin.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Extralight.woff2",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Super.woff2",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/graphik-arabic/GraphikArabic-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-graphik-arabic",
+  display: "swap",
 });
 
 export const metadata = {
@@ -12,10 +63,16 @@ export const metadata = {
   description: "CourseSat is coming soon.",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const headerStore = await headers();
+  const language = getPreferredLanguage(headerStore.get("accept-language") ?? "");
+  const direction = isRtlLanguage(language) ? "rtl" : "ltr";
+
   return (
-    <html lang="en" className={manrope.variable}>
-      <body>{children}</body>
+    <html lang={language} dir={direction} className={graphikArabic.variable}>
+      <body>
+        <LocaleProvider initialLanguage={language}>{children}</LocaleProvider>
+      </body>
     </html>
   );
 }

@@ -9,25 +9,27 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 import {
-  DESKTOP_CURRENCIES,
-  DESKTOP_MAIN_NAV,
-  DESKTOP_TOP_NAV,
-  LANGUAGES,
+  getDesktopCurrencies,
+  getDesktopMainNav,
+  getDesktopTopNav,
+  getLanguages,
 } from "@/lib/site-nav";
+import { useLocale } from "@/components/providers/locale-provider";
 
 export default function DesktopHeader() {
   const pathname = usePathname();
-  const [language, setLanguage] = useState("en");
+  const { direction, language, messages, setLanguage, t } = useLocale();
+  const isRtl = direction === "rtl";
   const [currency, setCurrency] = useState("SAR");
   const [languageOpen, setLanguageOpen] = useState(false);
   const [currencyOpen, setCurrencyOpen] = useState(false);
   const languageRef = useRef(null);
   const currencyRef = useRef(null);
 
-  const topNav = useMemo(() => DESKTOP_TOP_NAV, []);
-  const mainNav = useMemo(() => DESKTOP_MAIN_NAV, []);
-  const languages = useMemo(() => LANGUAGES, []);
-  const currencies = useMemo(() => DESKTOP_CURRENCIES, []);
+  const topNav = useMemo(() => getDesktopTopNav(messages), [messages]);
+  const mainNav = useMemo(() => getDesktopMainNav(messages), [messages]);
+  const languages = useMemo(() => getLanguages(messages), [messages]);
+  const currencies = useMemo(() => getDesktopCurrencies(messages), [messages]);
 
   useEffect(() => {
     function handleClick(event) {
@@ -60,10 +62,14 @@ export default function DesktopHeader() {
   };
 
   return (
-    <header className="relative z-[80] w-full">
+    <header className="relative z-[80] w-full" dir={direction}>
       <div className="w-full overflow-visible bg-[#135FAE] text-white">
         <div className="overflow-visible px-4 md:px-10 xl:px-20 2xl:px-40">
-          <div className="flex h-[56px] items-stretch justify-between">
+          <div
+            className={`flex h-[56px] items-stretch justify-between ${
+              isRtl ? "flex-row-reverse" : ""
+            }`}
+          >
             <nav className="flex items-stretch gap-1.5 text-[16px] font-semibold">
               {topNav.map((link, index) => (
                 <Link
@@ -82,7 +88,11 @@ export default function DesktopHeader() {
               ))}
             </nav>
 
-            <div className="flex items-center self-center gap-3.5">
+            <div
+              className={`flex items-center self-center gap-3.5 ${
+                isRtl ? "flex-row-reverse" : ""
+              }`}
+            >
               <div className="relative z-[90]" ref={languageRef}>
                 <button
                   className="flex items-center gap-2 rounded px-2 py-1 opacity-90 transition hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
@@ -90,10 +100,11 @@ export default function DesktopHeader() {
                   aria-expanded={languageOpen}
                   onClick={() => setLanguageOpen((value) => !value)}
                   type="button"
+                  dir={direction}
                 >
                   <img
                     src={activeLanguage?.flag || "/assets/flags/gb.svg"}
-                    alt={activeLanguage?.label || "Language"}
+                    alt={activeLanguage?.label || t("layouts.common.search", "Language")}
                     className="h-[18px] w-[18px]"
                     loading="lazy"
                   />
@@ -104,12 +115,17 @@ export default function DesktopHeader() {
                 </button>
 
                 <div
-                  className={`absolute right-0 z-[9999] mt-2 w-36 rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${
+                  className={`absolute z-[9999] mt-2 w-36 rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${
                     languageOpen ? "block" : "hidden"
-                  }`}
+                  } ${direction === "rtl" ? "left-0" : "right-0"}`}
                   role="listbox"
+                  dir={direction}
                 >
-                  <div className="space-y-1 p-2 text-left">
+                  <div
+                    className={`space-y-1 p-2 ${
+                      isRtl ? "text-right" : "text-left"
+                    }`}
+                  >
                     {languages.map((item) => (
                       <button
                         key={item.code}
@@ -131,7 +147,7 @@ export default function DesktopHeader() {
                           className="h-[18px] w-[18px]"
                           loading="lazy"
                         />
-                        <div>
+                        <div className={isRtl ? "text-right" : "text-left"}>
                           <p className="text-slate-900">{item.label}</p>
                           <p className="text-xs text-slate-500">{item.code}</p>
                         </div>
@@ -148,10 +164,11 @@ export default function DesktopHeader() {
                   aria-expanded={currencyOpen}
                   onClick={() => setCurrencyOpen((value) => !value)}
                   type="button"
+                  dir={direction}
                 >
                   <img
                     src={activeCurrency?.iconLight || "/assets/sar.svg"}
-                    alt="Currency"
+                    alt={t("layouts.navbar.actions.compare", "Currency")}
                     className="h-[18px] w-[18px] brightness-0 invert"
                     loading="lazy"
                   />
@@ -162,12 +179,17 @@ export default function DesktopHeader() {
                 </button>
 
                 <div
-                  className={`absolute right-0 z-[9999] mt-2 w-[11.5rem] rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${
+                  className={`absolute z-[9999] mt-2 w-[11.5rem] rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${
                     currencyOpen ? "block" : "hidden"
-                  }`}
+                  } ${direction === "rtl" ? "left-0" : "right-0"}`}
                   role="listbox"
+                  dir={direction}
                 >
-                  <div className="space-y-1 p-2 text-left">
+                  <div
+                    className={`space-y-1 p-2 ${
+                      isRtl ? "text-right" : "text-left"
+                    }`}
+                  >
                     {currencies.map((item) => (
                       <button
                         key={item.code}
@@ -191,7 +213,7 @@ export default function DesktopHeader() {
                             loading="lazy"
                           />
                         </span>
-                        <div>
+                        <div className={isRtl ? "text-right" : "text-left"}>
                           <p className="font-normal text-slate-900">{item.label}</p>
                           <p className="text-xs font-normal text-slate-500">
                             {item.code}
@@ -210,18 +232,26 @@ export default function DesktopHeader() {
       <div className="w-full bg-white">
         <div className="px-4 md:px-12 xl:px-20 2xl:px-40">
           <div className="grid grid-cols-12 items-center gap-4 py-3">
-            <div className="col-span-3 mt-[7px] flex items-center">
-              <Link href="/" aria-label="Home" className="flex items-center gap-3">
+            <div
+              className={`col-span-3 mt-[7px] flex items-center ${
+                isRtl ? "order-3 justify-end" : "order-1 justify-start"
+              }`}
+            >
+              <Link
+                href="/"
+                aria-label={t("layouts.navbar.main_nav.home", "Home")}
+                className="flex items-center gap-3"
+              >
                 <img
                   src="/assets/logo/logo.png"
-                  alt="CourseSat"
+                  alt={t("pages.coursesat.shared.brand", "CourseSat")}
                   className="h-[75px] max-w-[230px] object-contain"
                   loading="lazy"
                 />
               </Link>
             </div>
 
-            <div className="col-span-6 mt-[2px]">
+            <div className="col-span-6 order-2 mt-[2px]">
               <nav className="flex items-center justify-center gap-7 text-[16px] font-medium">
                 {mainNav.map((item, index) => (
                   <Link
@@ -239,10 +269,14 @@ export default function DesktopHeader() {
               </nav>
             </div>
 
-            <div className="col-span-3 flex items-center justify-end gap-2.5">
+            <div
+              className={`col-span-3 flex items-center gap-2.5 ${
+                isRtl ? "order-1 justify-start flex-row-reverse" : "order-3 justify-end"
+              }`}
+            >
               <Link
                 href="/#compare"
-                aria-label="Compare"
+                aria-label={t("layouts.navbar.actions.compare", "Compare")}
                 className="relative inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-slate-100 text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
               >
                 <svg
@@ -264,7 +298,7 @@ export default function DesktopHeader() {
 
               <Link
                 href="/#wishlist"
-                aria-label="Wishlist"
+                aria-label={t("layouts.navbar.actions.wishlist", "Wishlist")}
                 className="relative inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-slate-100 text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
               >
                 <svg
@@ -289,7 +323,7 @@ export default function DesktopHeader() {
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#135FAE] px-7 py-2 text-[15px] font-normal text-white shadow-sm transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
               >
                 <FontAwesomeIcon icon={faUser} className="text-sm" />
-                My Account
+                {t("layouts.navbar.actions.my_account", "My Account")}
               </Link>
             </div>
           </div>

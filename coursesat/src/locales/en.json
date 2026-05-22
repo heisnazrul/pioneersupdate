@@ -484,6 +484,68 @@
         "recent": "Recent posts",
         "categories": "Categories"
       }
+    },
+    "coursesat": {
+      "shared": {
+        "brand": "CourseSat",
+        "coming_soon": "CourseSat is coming soon."
+      },
+      "mobile": {
+        "experience": "Mobile Experience",
+        "description": "This mobile view now has its own header, content area, and footer.",
+        "footer_primary": "Fresh mobile layout",
+        "footer_secondary": "Coming soon",
+        "open_menu": "Open menu",
+        "close_menu": "Close menu",
+        "contact_whatsapp": "Contact via WhatsApp",
+        "discount_icon": "discount icon",
+        "footer": {
+          "tagline": "Join our ideal team in exploring study opportunities abroad! Get tailored guidance, accredited institutions, detailed course options, and exclusive offers - all designed to enrich your educational journey.",
+          "company_title": "About Course English",
+          "services_title": "Services",
+          "home": "Home",
+          "about": "About Us",
+          "contact": "Contact Us",
+          "team": "Team",
+          "terms": "Terms & Conditions",
+          "privacy": "Privacy Policy",
+          "language_institutes": "English Language Schools",
+          "summer_programs": "Summer Program",
+          "university_admissions": "University Admissions",
+          "blog": "Blog",
+          "newsletter_title": "Subscribe to the Newsletter",
+          "email_placeholder": "Email address",
+          "subscribe": "Subscribe",
+          "rights": "All rights reserved © 2026 Course English"
+        }
+      },
+      "desktop": {
+        "experience": "Desktop Experience",
+        "description": "Desktop visitors now load a dedicated desktop shell with separate header and footer components.",
+        "launch_state": "Launch State",
+        "placeholder_title": "Simple placeholder view",
+        "placeholder_body": "Replace this shell later with your real desktop sections.",
+        "footer_primary": "Fresh desktop layout",
+        "footer": {
+          "tagline": "Join our ideal team in exploring study opportunities abroad! Get tailored guidance, accredited institutions, detailed course options, housing, and exclusive offers - all designed to enrich your educational journey.",
+          "company_title": "About Course English",
+          "services_title": "Services",
+          "newsletter_title": "Subscribe to the Newsletter",
+          "email_placeholder": "Email address",
+          "subscribe": "Subscribe",
+          "home": "Home",
+          "about": "About Us",
+          "contact": "Contact Us",
+          "team": "Team",
+          "terms": "Terms & Conditions",
+          "privacy": "Privacy Policy",
+          "language_institutes": "English Language Schools",
+          "summer_programs": "Summer Program",
+          "university_admissions": "University Admissions",
+          "blog": "Blog",
+          "rights": "All rights reserved © 2026 Course English"
+        }
+      }
     }
   }
 }

@@ -22,14 +22,16 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import {
-  MOBILE_CURRENCIES,
-  MOBILE_DRAWER_LINKS,
-  MOBILE_LEGAL_LINKS,
-  MOBILE_PROMO_TEXT,
-  MOBILE_QUICK_LINKS,
   MOBILE_SOCIAL_LINKS,
-  NAVBAR_TOP_LINKS,
+  getDesktopTopNav,
+  getLanguages,
+  getMobileCurrencies,
+  getMobileDrawerLinks,
+  getMobileLegalLinks,
+  getMobilePromoText,
+  getMobileQuickLinks,
 } from "@/lib/site-nav";
+import { useLocale } from "@/components/providers/locale-provider";
 
 function useDismiss(ref, onClose) {
   useEffect(() => {
@@ -53,12 +55,13 @@ function useDismiss(ref, onClose) {
 }
 
 export default function MobileHeader() {
+  const { direction, language, messages, setLanguage, t } = useLocale();
+  const isRtl = direction === "rtl";
   const [menuOpen, setMenuOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [currencyOpen, setCurrencyOpen] = useState(false);
-  const [language, setLanguage] = useState("en");
   const [currency, setCurrency] = useState("SAR");
-  const [activeChip, setActiveChip] = useState(NAVBAR_TOP_LINKS[0]?.href || "/");
+  const [activeChip, setActiveChip] = useState("/#language-institutes");
   const [thumb, setThumb] = useState({ width: 0, left: 0 });
 
   const chipsRef = useRef(null);
@@ -68,17 +71,13 @@ export default function MobileHeader() {
 
   useDismiss(panelRef, () => setMenuOpen(false));
 
-  const chips = useMemo(() => NAVBAR_TOP_LINKS.slice(0, 4), []);
-
-  const languages = useMemo(
-    () => [
-      { code: "en", label: "English", flag: "/assets/flags/gb.svg" },
-      { code: "ar", label: "Arabic", flag: "/assets/flags/sa.svg" },
-    ],
-    []
-  );
-
-  const currencies = useMemo(() => MOBILE_CURRENCIES, []);
+  const chips = useMemo(() => getDesktopTopNav(messages).slice(0, 4), [messages]);
+  const languages = useMemo(() => getLanguages(messages), [messages]);
+  const currencies = useMemo(() => getMobileCurrencies(messages), [messages]);
+  const drawerLinks = useMemo(() => getMobileDrawerLinks(messages), [messages]);
+  const quickLinks = useMemo(() => getMobileQuickLinks(messages), [messages]);
+  const legalLinks = useMemo(() => getMobileLegalLinks(messages), [messages]);
+  const promoText = useMemo(() => getMobilePromoText(messages), [messages]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -166,34 +165,42 @@ export default function MobileHeader() {
 
   return (
     <>
-      <header className="block w-full">
+      <header className="block w-full" dir={direction}>
         <div className="flex items-center justify-center bg-[#1E6FBC] px-4 py-3 text-center text-sm leading-5 text-white">
           <div>
             <img
               src="/assets/icons/dscount-top.svg"
-              alt="discount icon"
+              alt={t("pages.coursesat.mobile.discount_icon", "discount icon")}
               className="h-10 w-10"
               loading="lazy"
             />
           </div>
-          <div className="px-4">{MOBILE_PROMO_TEXT}</div>
+          <div className="px-4">{promoText}</div>
         </div>
 
         <div className="bg-[#135FAE] text-white">
-          <div className="flex items-center justify-between px-3 py-3">
+          <div
+            className={`flex items-center justify-between px-3 py-3 ${
+              isRtl ? "flex-row-reverse" : ""
+            }`}
+          >
             <button
               type="button"
-              aria-label="Open menu"
+              aria-label={t("pages.coursesat.mobile.open_menu", "Open menu")}
               onClick={() => setMenuOpen(true)}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 ring-4 ring-white/10 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <FontAwesomeIcon icon={faBars} className="h-5 w-5" />
             </button>
 
-            <Link href="/" aria-label="Home" className="flex flex-col items-center">
+            <Link
+              href="/"
+              aria-label={t("layouts.navbar.main_nav.home", "Home")}
+              className="flex flex-col items-center"
+            >
               <img
                 src="/assets/logo/logo-white.png"
-                alt="CourseSat"
+                alt={t("pages.coursesat.shared.brand", "CourseSat")}
                 className="h-12 w-auto"
                 loading="lazy"
               />
@@ -201,7 +208,10 @@ export default function MobileHeader() {
 
             <Link
               href="https://wa.me/0000000000"
-              aria-label="Contact via WhatsApp"
+              aria-label={t(
+                "pages.coursesat.mobile.contact_whatsapp",
+                "Contact via WhatsApp"
+              )}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-[#25D366] ring-4 ring-white/10 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <FontAwesomeIcon
@@ -249,10 +259,14 @@ export default function MobileHeader() {
 
         {menuOpen && (
           <div className="fixed inset-0 z-50 bg-[#135FAE] text-white">
-            <div className="flex justify-end px-3 py-3">
+            <div
+              className={`flex px-3 py-3 ${
+                isRtl ? "justify-start" : "justify-end"
+              }`}
+            >
               <button
                 type="button"
-                aria-label="Close menu"
+                aria-label={t("pages.coursesat.mobile.close_menu", "Close menu")}
                 onClick={() => setMenuOpen(false)}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/20 ring-4 ring-white/10 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
@@ -265,7 +279,7 @@ export default function MobileHeader() {
               className="h-[calc(100vh-56px)] overflow-y-auto px-3 pb-6"
             >
               <div className="mb-4 grid grid-cols-3 gap-3">
-                {MOBILE_QUICK_LINKS.map((item) => (
+                {quickLinks.map((item) => (
                   <Tile
                     key={item.href}
                     href={item.href}
@@ -276,7 +290,7 @@ export default function MobileHeader() {
               </div>
 
               <div className="space-y-2">
-                {MOBILE_DRAWER_LINKS.map((item) => (
+                {drawerLinks.map((item) => (
                   <MenuButton key={item.href} href={item.href}>
                     {item.label}
                   </MenuButton>
@@ -285,7 +299,8 @@ export default function MobileHeader() {
 
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <Dropdown
-                  label={activeLanguage?.label || "English"}
+                  direction={direction}
+                  label={activeLanguage?.label || t("layouts.navbar.dropdowns.language.en", "English")}
                   icon={
                     <img
                       src={activeLanguage?.flag || "/assets/flags/gb.svg"}
@@ -320,7 +335,8 @@ export default function MobileHeader() {
                 </Dropdown>
 
                 <Dropdown
-                  label={activeCurrency?.label || "Saudi Riyal"}
+                  direction={direction}
+                  label={activeCurrency?.label || t("layouts.navbar.dropdowns.currency.sar.name", "Saudi Riyal")}
                   icon={
                     activeCurrency?.icon ? (
                       <img
@@ -371,10 +387,10 @@ export default function MobileHeader() {
               </div>
 
               <div className="mt-4 flex items-center justify-center gap-4 text-[12px] opacity-90">
-                {MOBILE_LEGAL_LINKS.map((item, index) => (
+                {legalLinks.map((item, index) => (
                   <span key={item.href} className="flex items-center gap-4">
                     <Link href={item.href}>{item.label}</Link>
-                    {index < MOBILE_LEGAL_LINKS.length - 1 ? <span>•</span> : null}
+                    {index < legalLinks.length - 1 ? <span>•</span> : null}
                   </span>
                 ))}
               </div>
@@ -428,12 +444,12 @@ function MenuButton({ href, children }) {
       href={href}
       className="flex items-center rounded-xl bg-white/10 px-4 py-3 text-[15px] hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
     >
-      <span className="w-full">{children}</span>
+      <span className="w-full text-start">{children}</span>
     </Link>
   );
 }
 
-function Dropdown({ label, icon, open, setOpen, children }) {
+function Dropdown({ children, direction, icon, label, open, setOpen }) {
   return (
     <div className="relative z-[60]">
       <button
@@ -442,7 +458,7 @@ function Dropdown({ label, icon, open, setOpen, children }) {
         className="flex w-full items-center justify-between rounded-lg bg-white/10 px-3 py-3 ring-1 ring-white/15 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
         aria-haspopup="listbox"
         aria-expanded={open}
-        dir="ltr"
+        dir={direction}
       >
         <span className="inline-flex items-center gap-2 text-sm">
           {icon}
