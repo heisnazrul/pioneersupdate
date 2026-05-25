@@ -17,6 +17,7 @@
             <tr class="bg-gray-50 dark:bg-gray-750 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
                 <th class="px-6 py-4 font-semibold">School</th>
                 <th class="px-6 py-4 font-semibold">City</th>
+                <th class="px-6 py-4 font-semibold">Accreditations</th>
                 <th class="px-6 py-4 font-semibold text-center">Active</th>
                 <th class="px-6 py-4 font-semibold text-right">Actions</th>
             </tr>
@@ -29,6 +30,22 @@
                 </td>
                 <td class="px-6 py-4">
                     <p class="text-sm text-gray-700 dark:text-gray-300">{{ $branch->city->name }}</p>
+                </td>
+                <td class="px-6 py-4">
+                    @if($branch->accreditations->isNotEmpty())
+                        <div class="flex flex-wrap gap-2">
+                            @foreach($branch->accreditations as $accreditation)
+                                <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-3 py-1 text-xs text-gray-700 dark:text-gray-300">
+                                    @if($accreditation->logo)
+                                        <img src="{{ Storage::url($accreditation->logo) }}" alt="{{ $accreditation->name }}" class="h-4 w-4 object-contain">
+                                    @endif
+                                    {{ $accreditation->name }}
+                                </span>
+                            @endforeach
+                        </div>
+                    @else
+                        <span class="text-xs text-gray-400">No accreditations</span>
+                    @endif
                 </td>
                 <td class="px-6 py-4 text-center">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide {{ $branch->is_active == 'yes' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600' }}">
@@ -52,7 +69,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="4" class="px-6 py-10 text-center text-gray-500">No branches found.</td>
+                <td colspan="5" class="px-6 py-10 text-center text-gray-500">No branches found.</td>
             </tr>
             @endforelse
         </tbody>

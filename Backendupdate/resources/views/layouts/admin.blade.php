@@ -69,9 +69,24 @@
                     <span :class="sidebarOpen ? 'block' : 'hidden'">School Branches</span>
                 </a>
 
+                <a href="{{ route('admin.accreditations.index') }}" class="{{ request()->routeIs('admin.accreditations.*') ? 'bg-primary-600 text-white' : 'hover:bg-slate-800 hover:text-white' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors">
+                    <i class="fa-solid fa-certificate w-6 text-center mr-2 {{ request()->routeIs('admin.accreditations.*') ? 'text-white' : 'text-slate-400 group-hover:text-white' }}"></i>
+                    <span :class="sidebarOpen ? 'block' : 'hidden'">Accreditations</span>
+                </a>
+
+                <a href="{{ route('admin.certifications.index') }}" class="{{ request()->routeIs('admin.certifications.*') ? 'bg-primary-600 text-white' : 'hover:bg-slate-800 hover:text-white' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors">
+                    <i class="fa-solid fa-award w-6 text-center mr-2 {{ request()->routeIs('admin.certifications.*') ? 'text-white' : 'text-slate-400 group-hover:text-white' }}"></i>
+                    <span :class="sidebarOpen ? 'block' : 'hidden'">Certifications</span>
+                </a>
+
                 <a href="{{ route('admin.language-course-categories.index') }}" class="{{ request()->routeIs('admin.language-course-categories.*') ? 'bg-primary-600 text-white' : 'hover:bg-slate-800 hover:text-white' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors">
                     <i class="fa-solid fa-layer-group w-6 text-center mr-2 {{ request()->routeIs('admin.language-course-categories.*') ? 'text-white' : 'text-slate-400 group-hover:text-white' }}"></i>
                     <span :class="sidebarOpen ? 'block' : 'hidden'">Course Categories</span>
+                </a>
+
+                <a href="{{ route('admin.tags.index') }}" class="{{ request()->routeIs('admin.tags.*') ? 'bg-primary-600 text-white' : 'hover:bg-slate-800 hover:text-white' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors">
+                    <i class="fa-solid fa-tag w-6 text-center mr-2 {{ request()->routeIs('admin.tags.*') ? 'text-white' : 'text-slate-400 group-hover:text-white' }}"></i>
+                    <span :class="sidebarOpen ? 'block' : 'hidden'">Course Tags</span>
                 </a>
 
                 <a href="{{ route('admin.language-school-courses.index') }}" class="{{ request()->routeIs('admin.language-school-courses.*') ? 'bg-primary-600 text-white' : 'hover:bg-slate-800 hover:text-white' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors">

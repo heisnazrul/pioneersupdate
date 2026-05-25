@@ -72,6 +72,31 @@
                             <input type="number" name="min_age" value="{{ old('min_age') }}" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                         </div>
                     </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tags</label>
+                            <a href="{{ route('admin.tags.create') }}" class="text-xs font-medium text-primary-600 hover:text-primary-700">Create Tag</a>
+                        </div>
+                        @php($selectedTags = collect(old('tags', []))->map(fn ($id) => (int) $id)->all())
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            @forelse($tags as $tag)
+                                <label class="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-3 bg-gray-50 dark:bg-gray-900/40 hover:border-primary-400 cursor-pointer transition-colors">
+                                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500" {{ in_array($tag->id, $selectedTags, true) ? 'checked' : '' }}>
+                                    <div class="min-w-0">
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ $tag->name }}</p>
+                                        @if($tag->ar_name)
+                                            <p class="text-xs text-gray-500 dark:text-gray-400" dir="rtl">{{ $tag->ar_name }}</p>
+                                        @endif
+                                    </div>
+                                </label>
+                            @empty
+                                <div class="md:col-span-2 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 px-4 py-5 text-sm text-gray-500">
+                                    No tags found. Create course tags first.
+                                </div>
+                            @endforelse
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 rounded-xl p-6 space-y-6">

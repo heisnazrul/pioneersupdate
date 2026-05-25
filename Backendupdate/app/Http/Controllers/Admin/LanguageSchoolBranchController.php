@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Accreditation;
 use App\Models\LanguageSchool;
 use App\Models\LanguageSchoolBranch;
 use App\Models\City;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -16,15 +19,18 @@ class LanguageSchoolBranchController extends Controller
 {
     public function index(): View
     {
-        $branches = LanguageSchoolBranch::with(['school', 'city'])->latest()->paginate(20);
+        $branches = LanguageSchoolBranch::with(['school', 'city', 'accreditations'])->latest()->paginate(20);
+
         return view('admin.language-school-branches.index', compact('branches'));
     }
 
     public function create(): View
     {
         $schools = LanguageSchool::active()->orderBy('name_en')->get();
-        $cities = City::active()->orderBy('name')->get();
-        return view('admin.language-school-branches.create', compact('schools', 'cities'));
+        $cities = City::active()->with('country')->orderBy('name')->get();
+        $accreditations = $this->accreditations();
+
+        return view('admin.language-school-branches.create', compact('schools', 'cities', 'accreditations'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -36,6 +42,9 @@ class LanguageSchoolBranchController extends Controller
             'new_year_close_from' => 'nullable|date',
             'new_year_close_to'   => 'nullable|date',
             'gallery_images'      => 'nullable|array',
+            'gallery_images.*'    => 'nullable|string|max:255',
+            'accreditation_ids'   => 'nullable|array',
+            'accreditation_ids.*' => 'integer|exists:accreditations,id',
             'is_active'           => 'required|in:yes,no',
         ]);
 
@@ -47,7 +56,10 @@ class LanguageSchoolBranchController extends Controller
 
         $data['branch_images'] = $request->gallery_images ?? [];
 
-        LanguageSchoolBranch::create($data);
+        DB::transaction(function () use ($data, $request): void {
+            $branch = LanguageSchoolBranch::create($data);
+            $branch->accreditations()->sync($request->input('accreditation_ids', []));
+        });
 
         return redirect()->route('admin.language-school-branches.index')
             ->with('success', 'Branch created successfully.');
@@ -55,9 +67,12 @@ class LanguageSchoolBranchController extends Controller
 
     public function edit(LanguageSchoolBranch $languageSchoolBranch): View
     {
+        $languageSchoolBranch->load('accreditations');
         $schools = LanguageSchool::orderBy('name_en')->get();
         $cities = City::with('country')->orderBy('name')->get();
-        return view('admin.language-school-branches.edit', compact('languageSchoolBranch', 'schools', 'cities'));
+        $accreditations = $this->accreditations();
+
+        return view('admin.language-school-branches.edit', compact('languageSchoolBranch', 'schools', 'cities', 'accreditations'));
     }
 
     public function update(Request $request, LanguageSchoolBranch $languageSchoolBranch): RedirectResponse
@@ -69,12 +84,18 @@ class LanguageSchoolBranchController extends Controller
             'new_year_close_from' => 'nullable|date',
             'new_year_close_to'   => 'nullable|date',
             'gallery_images'      => 'nullable|array',
+            'gallery_images.*'    => 'nullable|string|max:255',
+            'accreditation_ids'   => 'nullable|array',
+            'accreditation_ids.*' => 'integer|exists:accreditations,id',
             'is_active'           => 'required|in:yes,no',
         ]);
 
         $data['branch_images'] = $request->gallery_images ?? [];
 
-        $languageSchoolBranch->update($data);
+        DB::transaction(function () use ($data, $languageSchoolBranch, $request): void {
+            $languageSchoolBranch->update($data);
+            $languageSchoolBranch->accreditations()->sync($request->input('accreditation_ids', []));
+        });
 
         return redirect()->route('admin.language-school-branches.index')
             ->with('success', 'Branch updated successfully.');
@@ -91,5 +112,12 @@ class LanguageSchoolBranchController extends Controller
 
         return redirect()->route('admin.language-school-branches.index')
             ->with('success', 'Branch deleted successfully.');
+    }
+
+    private function accreditations(): Collection
+    {
+        return Accreditation::query()
+            ->orderBy('name')
+            ->get();
     }
 }

@@ -96,6 +96,7 @@ class CourseEnglishApiSupport
 
     public function schoolSummary(?LanguageSchool $school, mixed $branch = null): array
     {
+        $branch?->loadMissing('accreditations');
         $city = $branch?->city;
         $country = $city?->country;
         $gallery = $this->normalizeGallery($branch?->branch_images ?? []);
@@ -122,7 +123,12 @@ class CourseEnglishApiSupport
             'location' => collect([$city?->name, $country?->name])->filter()->join(', '),
             'location_ar' => collect([$city?->ar_name, $country?->ar_name])->filter()->join('، '),
             'rating' => 5,
-            'accreditations' => [],
+            'accreditations' => $branch?->accreditations?->map(fn ($accreditation) => [
+                'id' => $accreditation->id,
+                'name' => $accreditation->name,
+                'ar_name' => $accreditation->ar_name,
+                'logo' => $this->toPublicUrl($accreditation->logo),
+            ])->values()->all() ?? [],
         ];
     }
 

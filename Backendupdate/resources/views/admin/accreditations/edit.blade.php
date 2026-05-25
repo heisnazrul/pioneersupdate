@@ -18,12 +18,12 @@
         <div class="bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 rounded-xl p-6 space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name (English) *</label>
-                    <input type="text" name="name_en" value="{{ old('name_en', $accreditation->name_en) }}" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name *</label>
+                    <input type="text" name="name" value="{{ old('name', $accreditation->name) }}" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name (Arabic)</label>
-                    <input type="text" name="name_ar" value="{{ old('name_ar', $accreditation->name_ar) }}" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" dir="rtl">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Arabic Name</label>
+                    <input type="text" name="ar_name" value="{{ old('ar_name', $accreditation->ar_name) }}" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" dir="rtl">
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
     </form>
 
     <!-- Media Picker Modal -->
-    @include('admin.partials.media-picker-modal', ['title' => 'Select Accreditation Logo'])
+    @include('admin.partials.media-picker-modal', ['title' => 'Select Accreditation Logo', 'useCase' => 'accreditation_logo'])
 </div>
 
 <script>

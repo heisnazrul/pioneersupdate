@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\LanguageSchoolCourse;
 use App\Models\LanguageSchoolBranch;
 use App\Models\LanguageCourseCategory;
+use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -15,7 +17,7 @@ class LanguageSchoolCourseController extends Controller
 {
     public function index(): View
     {
-        $courses = LanguageSchoolCourse::with(['branch.school', 'category'])->latest()->paginate(20);
+        $courses = LanguageSchoolCourse::with(['branch.school', 'category', 'tags'])->latest()->paginate(20);
         return view('admin.language-school-courses.index', compact('courses'));
     }
 
@@ -23,7 +25,8 @@ class LanguageSchoolCourseController extends Controller
     {
         $branches = LanguageSchoolBranch::with('school')->get();
         $categories = LanguageCourseCategory::active()->get();
-        return view('admin.language-school-courses.create', compact('branches', 'categories'));
+        $tags = Tag::query()->orderBy('name')->get();
+        return view('admin.language-school-courses.create', compact('branches', 'categories', 'tags'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -56,6 +59,8 @@ class LanguageSchoolCourseController extends Controller
             'weekly_fee_6'                  => 'nullable|numeric',
             'week_category_7'               => 'nullable|integer',
             'weekly_fee_7'                  => 'nullable|numeric',
+            'tags'                          => 'nullable|array',
+            'tags.*'                        => 'integer|exists:tags,id',
             'is_active'                     => 'required|in:yes,no',
         ]);
 
@@ -63,7 +68,10 @@ class LanguageSchoolCourseController extends Controller
             $data['slug'] = Str::slug($data['course_name_from_school']);
         }
 
-        LanguageSchoolCourse::create($data);
+        DB::transaction(function () use ($data, $request): void {
+            $course = LanguageSchoolCourse::create($data);
+            $course->tags()->sync($request->input('tags', []));
+        });
 
         return redirect()->route('admin.language-school-courses.index')
             ->with('success', 'Course created successfully.');
@@ -71,9 +79,11 @@ class LanguageSchoolCourseController extends Controller
 
     public function edit(LanguageSchoolCourse $languageSchoolCourse): View
     {
+        $languageSchoolCourse->load('tags');
         $branches = LanguageSchoolBranch::with('school')->get();
         $categories = LanguageCourseCategory::all();
-        return view('admin.language-school-courses.edit', compact('languageSchoolCourse', 'branches', 'categories'));
+        $tags = Tag::query()->orderBy('name')->get();
+        return view('admin.language-school-courses.edit', compact('languageSchoolCourse', 'branches', 'categories', 'tags'));
     }
 
     public function update(Request $request, LanguageSchoolCourse $languageSchoolCourse): RedirectResponse
@@ -106,10 +116,15 @@ class LanguageSchoolCourseController extends Controller
             'weekly_fee_6'                  => 'nullable|numeric',
             'week_category_7'               => 'nullable|integer',
             'weekly_fee_7'                  => 'nullable|numeric',
+            'tags'                          => 'nullable|array',
+            'tags.*'                        => 'integer|exists:tags,id',
             'is_active'                     => 'required|in:yes,no',
         ]);
 
-        $languageSchoolCourse->update($data);
+        DB::transaction(function () use ($data, $languageSchoolCourse, $request): void {
+            $languageSchoolCourse->update($data);
+            $languageSchoolCourse->tags()->sync($request->input('tags', []));
+        });
 
         return redirect()->route('admin.language-school-courses.index')
             ->with('success', 'Course updated successfully.');

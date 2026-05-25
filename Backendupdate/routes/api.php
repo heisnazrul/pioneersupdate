@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\CourseEnglishArticlesController;
 use App\Http\Controllers\Api\CourseEnglishAccountController;
 use App\Http\Controllers\Api\CourseEnglishBookingController;
 use App\Http\Controllers\Api\CourseEnglishAgentController;
+use App\Http\Controllers\Api\CourseSatController;
 
 // Public API auth endpoints
 Route::prefix('auth')->group(function () {
@@ -97,6 +98,10 @@ Route::prefix('courseenglish')->group(function () {
         Route::post('/summer-camp', [CourseEnglishBookingController::class, 'bookSummerCamp']);
         Route::post('/training-course', [CourseEnglishBookingController::class, 'bookTrainingCourse']);
     });
+});
+
+Route::prefix('coursesat')->group(function () {
+    Route::get('/home', [CourseSatController::class, 'home']);
 });
 
 Route::middleware(['auth:sanctum', 'frontend.app:courseenglish'])->group(function () {

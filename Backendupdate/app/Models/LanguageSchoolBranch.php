@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class LanguageSchoolBranch extends Model
 {
@@ -30,6 +31,16 @@ class LanguageSchoolBranch extends Model
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id');
+    }
+
+    public function accreditations(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Accreditation::class,
+            'accreditation_language_school_branch',
+            'language_school_branch_id',
+            'accreditation_id'
+        )->withTimestamps();
     }
 
     public function courses()

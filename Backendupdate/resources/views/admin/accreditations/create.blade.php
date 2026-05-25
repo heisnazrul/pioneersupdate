@@ -17,12 +17,12 @@
         <div class="bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 rounded-xl p-6 space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name (English) *</label>
-                    <input type="text" name="name_en" value="{{ old('name_en') }}" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name *</label>
+                    <input type="text" name="name" value="{{ old('name') }}" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name (Arabic)</label>
-                    <input type="text" name="name_ar" value="{{ old('name_ar') }}" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" dir="rtl">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Arabic Name</label>
+                    <input type="text" name="ar_name" value="{{ old('ar_name') }}" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" dir="rtl">
                 </div>
             </div>
 
@@ -72,6 +72,9 @@ function mediaPicker() {
         tempSelected: null,
         selectedUrl: '{{ old("logo") ? Storage::url(old("logo")) : "" }}',
         selectedPath: '{{ old("logo") ?? "" }}',
+        uploadFile: null,
+        uploadPreview: null,
+        uploadTitle: '',
 
         openModal() { this.showModal = true; this.tab = 'gallery'; this.fetchImages(); },
         async fetchImages() {
@@ -83,15 +86,38 @@ function mediaPicker() {
             this.loading = false;
         },
         selectImage(img) { this.selectedId = img.id; this.tempSelected = img; },
-        async uploadAndSelect() { /* Similar upload logic */ },
+        handleFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            this.uploadFile = file;
+            this.uploadPreview = URL.createObjectURL(file);
+            if (!this.uploadTitle) this.uploadTitle = file.name.split('.')[0];
+        },
+        async uploadAndSelect() {
+            this.uploading = true;
+            const formData = new FormData();
+            formData.append('image', this.uploadFile);
+            formData.append('title', this.uploadTitle);
+            formData.append('use_case', 'accreditation_logo');
+            formData.append('_token', '{{ csrf_token() }}');
+            try {
+                const response = await fetch(`{{ route('admin.galleries.api-store') }}`, { method: 'POST', body: formData });
+                const result = await response.json();
+                this.tempSelected = result;
+                this.confirmSelection();
+                this.uploadFile = null;
+                this.uploadPreview = null;
+                this.uploadTitle = '';
+            } catch (e) { alert("Upload failed."); }
+            this.uploading = false;
+        },
         confirmSelection() {
             if (this.tempSelected) {
                 this.selectedUrl = this.tempSelected.url;
                 this.selectedPath = this.tempSelected.path;
                 this.showModal = false;
             }
-        },
-        handleFileUpload(e) { /* ... */ }
+        }
     }
 }
 </script>

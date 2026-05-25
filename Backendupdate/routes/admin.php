@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\{
     CityController,
     CategoryController,
     BlogTagController,
+    TagController,
     BlogController,
     ApplicationController,
     ContactSubmissionController,
@@ -73,8 +74,9 @@ Route::prefix('admin')
     Route::resource('countries', CountryController::class);
     Route::resource('cities',    CityController::class);
     Route::resource('language-schools',           LanguageSchoolController::class);
-    Route::resource('language-school-branches',    LanguageSchoolBranchController::class);
+    Route::resource('language-school-branches',    LanguageSchoolBranchController::class)->except('show');
     Route::resource('language-course-categories',  LanguageCourseCategoryController::class);
+    Route::resource('tags',                        TagController::class)->except('show');
     Route::resource('language-online-courses',     LanguageOnlineCourseController::class)->except('show');
     Route::resource('language-course-summer-camps', LanguageCourseSummerCampController::class)->except('show');
     Route::resource('language-course-training-courses', LanguageCourseTrainingCourseController::class)->except('show');
@@ -90,8 +92,8 @@ Route::prefix('admin')
     Route::resource('bathroom-types',              BathroomTypeController::class);
     Route::resource('language-school-accommodations', LanguageSchoolAccommodationController::class);
     Route::resource('language-school-insurances', LanguageSchoolInsuranceController::class);
-    Route::resource('accreditations',             AccreditationController::class);
-    Route::resource('certifications',             CertificationController::class);
+    Route::resource('accreditations',             AccreditationController::class)->except('show');
+    Route::resource('certifications',             CertificationController::class)->except('show');
     Route::resource('wishlists',                  LanguageCourseWishlistController::class)->only(['index', 'destroy']);
     Route::resource('compares',                   LanguageCourseCompareController::class)->only(['index', 'destroy']);
     Route::resource('universities', UniversityController::class)->except('show');

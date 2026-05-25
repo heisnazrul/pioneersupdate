@@ -37,6 +37,15 @@
                     </td>
                     <td class="px-6 py-4">
                         <span class="text-sm text-gray-600 dark:text-gray-400">{{ $course->category->name_en }}</span>
+                        @if($course->tags->isNotEmpty())
+                            <div class="mt-2 flex flex-wrap gap-1.5 max-w-xs">
+                                @foreach($course->tags as $tag)
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-50 text-[10px] font-medium text-primary-700">
+                                        {{ $tag->name }}
+                                    </span>
+                                @endforeach
+                            </div>
+                        @endif
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex flex-wrap gap-1 max-w-xs">

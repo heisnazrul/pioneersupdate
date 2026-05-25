@@ -4,6 +4,10 @@
 @section('header', 'New Branch')
 
 @section('content')
+@php
+    $oldCity = $cities->firstWhere('id', old('city_id'));
+    $oldCityLabel = $oldCity ? $oldCity->name . ' (' . $oldCity->country->name . ')' : '';
+@endphp
 <div class="max-w-4xl" x-data="branchPicker()">
     <div class="mb-6">
         <a href="{{ route('admin.language-school-branches.index') }}" class="text-sm text-gray-500 hover:text-primary-600 flex items-center gap-1 transition-colors">
@@ -47,6 +51,38 @@
                             @endforeach
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Accreditations</label>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Select the accreditation logos that belong to this branch.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    @php($selectedAccreditationIds = collect(old('accreditation_ids', []))->map(fn ($id) => (int) $id)->all())
+                    @forelse($accreditations as $accreditation)
+                        <label class="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-3 bg-gray-50 dark:bg-gray-900/40 hover:border-primary-400 cursor-pointer transition-colors">
+                            <input type="checkbox" name="accreditation_ids[]" value="{{ $accreditation->id }}" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500" {{ in_array($accreditation->id, $selectedAccreditationIds, true) ? 'checked' : '' }}>
+                            <div class="h-12 w-12 shrink-0 rounded-lg border border-gray-200 dark:border-gray-700 bg-white flex items-center justify-center overflow-hidden">
+                                @if($accreditation->logo)
+                                    <img src="{{ Storage::url($accreditation->logo) }}" alt="{{ $accreditation->name }}" class="h-10 w-10 object-contain">
+                                @else
+                                    <i class="fa-solid fa-image text-gray-300"></i>
+                                @endif
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ $accreditation->name }}</p>
+                                @if($accreditation->ar_name)
+                                    <p class="text-xs text-gray-500 dark:text-gray-400" dir="rtl">{{ $accreditation->ar_name }}</p>
+                                @endif
+                            </div>
+                        </label>
+                    @empty
+                        <div class="md:col-span-2 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 px-4 py-5 text-sm text-gray-500">
+                            No accreditations found. Create them first from the Accreditation admin page.
+                        </div>
+                    @endforelse
                 </div>
             </div>
 
@@ -176,7 +212,7 @@
 function branchPicker() {
     return {
         selectedCityId: '{{ old("city_id") ?? "" }}',
-        selectedCityName: '', // Will be set by logic or Alpine init
+        selectedCityName: @js($oldCityLabel),
 
         showModal: false,
         tab: 'gallery',

@@ -16,8 +16,8 @@
         <thead>
             <tr class="bg-gray-50 dark:bg-gray-750 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
                 <th class="px-6 py-4 font-semibold">Logo</th>
-                <th class="px-6 py-4 font-semibold">Name (EN)</th>
-                <th class="px-6 py-4 font-semibold">Name (AR)</th>
+                <th class="px-6 py-4 font-semibold">Name</th>
+                <th class="px-6 py-4 font-semibold">Arabic Name</th>
                 <th class="px-6 py-4 font-semibold text-right">Actions</th>
             </tr>
         </thead>
@@ -33,8 +33,8 @@
                         </div>
                     @endif
                 </td>
-                <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{{ $item->name_en }}</td>
-                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400" dir="rtl">{{ $item->name_ar }}</td>
+                <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{{ $item->name }}</td>
+                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400" dir="rtl">{{ $item->ar_name }}</td>
                 <td class="px-6 py-4 text-right">
                     <div class="flex justify-end gap-2">
                         <a href="{{ route('admin.accreditations.edit', $item) }}" class="text-gray-400 hover:text-primary-600 transition-colors p-1">

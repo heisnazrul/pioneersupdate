@@ -50,6 +50,38 @@
                 </div>
             </div>
 
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Accreditations</label>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Select the accreditation logos that belong to this branch.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    @php($selectedAccreditationIds = collect(old('accreditation_ids', $languageSchoolBranch->accreditations->pluck('id')->all()))->map(fn ($id) => (int) $id)->all())
+                    @forelse($accreditations as $accreditation)
+                        <label class="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-3 bg-gray-50 dark:bg-gray-900/40 hover:border-primary-400 cursor-pointer transition-colors">
+                            <input type="checkbox" name="accreditation_ids[]" value="{{ $accreditation->id }}" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500" {{ in_array($accreditation->id, $selectedAccreditationIds, true) ? 'checked' : '' }}>
+                            <div class="h-12 w-12 shrink-0 rounded-lg border border-gray-200 dark:border-gray-700 bg-white flex items-center justify-center overflow-hidden">
+                                @if($accreditation->logo)
+                                    <img src="{{ Storage::url($accreditation->logo) }}" alt="{{ $accreditation->name }}" class="h-10 w-10 object-contain">
+                                @else
+                                    <i class="fa-solid fa-image text-gray-300"></i>
+                                @endif
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ $accreditation->name }}</p>
+                                @if($accreditation->ar_name)
+                                    <p class="text-xs text-gray-500 dark:text-gray-400" dir="rtl">{{ $accreditation->ar_name }}</p>
+                                @endif
+                            </div>
+                        </label>
+                    @empty
+                        <div class="md:col-span-2 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 px-4 py-5 text-sm text-gray-500">
+                            No accreditations found. Create them first from the Accreditation admin page.
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Slug</label>
                 <input type="text" name="slug" value="{{ old('slug', $languageSchoolBranch->slug) }}" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
@@ -129,10 +161,10 @@
                         <template x-if="loading"><div class="flex flex-col items-center justify-center h-40 text-gray-400"><i class="fa-solid fa-circle-notch fa-spin text-2xl mb-2"></i><p>Loading...</p></div></template>
                         <div x-show="!loading" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                             <template x-for="img in images" :key="img.id">
-                                <div @click="toggleImage(img)" :class="isImageSelected(img.id) ? 'border-primary-500 bg-primary-50' : 'border-gray-100 hover:border-primary-300'" class="relative aspect-square border-2 rounded-xl p-2 cursor-pointer transition-all group overflow-hidden bg-white">
+                                <div @click="toggleImage(img)" :class="isImageSelected(img.path) ? 'border-primary-500 bg-primary-50' : 'border-gray-100 hover:border-primary-300'" class="relative aspect-square border-2 rounded-xl p-2 cursor-pointer transition-all group overflow-hidden bg-white">
                                     <img :src="img.url" class="w-full h-full object-contain">
                                     <div class="absolute inset-x-0 bottom-0 bg-black/60 text-white text-[9px] px-2 py-1 translate-y-full group-hover:translate-y-0 transition-transform truncate" x-text="img.title"></div>
-                                    <div x-show="isImageSelected(img.id)" class="absolute top-1 right-1 bg-primary-600 text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                    <div x-show="isImageSelected(img.path)" class="absolute top-1 right-1 bg-primary-600 text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md"><i class="fa-solid fa-check text-[10px]"></i></div>
                                 </div>
                             </template>
                         </div>
@@ -217,13 +249,7 @@ function branchPicker() {
             }
         },
 
-        isImageSelected(id) {
-            // Using path for more reliable check in edit mode since MD5 id might differ from real DB id
-            return this.tempSelected.some(i => i.id === id || (typeof i.id === 'string' && i.id.length > 20)); // Rough check for MD5 vs Real ID
-        },
-        
-        // Better selection check for both modes
-        isImageInTemp(path) {
+        isImageSelected(path) {
             return this.tempSelected.some(i => i.path === path);
         },
 
