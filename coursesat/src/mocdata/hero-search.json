@@ -1,0 +1,146 @@
+{
+    "institutes": [
+        {
+            "id": 1,
+            "name": "Islington Centre",
+            "arabicName": "مركز إزلنجتون للغة الإنجليزية",
+            "logo": "/assets/logos/islington.png"
+        },
+        {
+            "id": 2,
+            "name": "Concorde International",
+            "arabicName": "معهد كونكورد العالمي",
+            "logo": "/assets/logos/concorde.png"
+        },
+        {
+            "id": 3,
+            "name": "Bath Academy",
+            "arabicName": "معهد اكاديمية باث",
+            "logo": "/assets/logos/bath.png"
+        },
+        {
+            "id": 4,
+            "name": "LSI",
+            "arabicName": "معهد ال اس اي",
+            "logo": "/assets/logos/lsi.png"
+        },
+        {
+            "id": 5,
+            "name": "Berlitz",
+            "arabicName": "معهد بيرلتز",
+            "logo": "/assets/logos/berlitz.png"
+        },
+        {
+            "id": 6,
+            "name": "Beet Language Centre",
+            "arabicName": "معهد بيت لانقويج سنتر",
+            "logo": "/assets/logos/beet.png"
+        },
+        {
+            "id": 7,
+            "name": "London School of English",
+            "arabicName": "معهد لندن للغة الإنجليزية",
+            "logo": "/assets/logos/london-school.png"
+        },
+        {
+            "id": 8,
+            "name": "Wimbledon School",
+            "arabicName": "مدرسة ويمبلدون للغة",
+            "logo": "/assets/logos/wimbledon.png"
+        }
+    ],
+    "countries": [
+        {
+            "id": "UK",
+            "name": "United Kingdom",
+            "arabicName": "المملكة المتحدة",
+            "flag": "🇬🇧"
+        },
+        {
+            "id": "CA",
+            "name": "Canada",
+            "arabicName": "كندا",
+            "flag": "🇨🇦"
+        },
+        {
+            "id": "US",
+            "name": "USA",
+            "arabicName": "الولايات المتحدة",
+            "flag": "🇺🇸"
+        },
+        {
+            "id": "SA",
+            "name": "Saudi Arabia",
+            "arabicName": "المملكة العربية السعودية",
+            "flag": "🇸🇦"
+        },
+        {
+            "id": "AU",
+            "name": "Australia",
+            "arabicName": "استراليا",
+            "flag": "🇦🇺"
+        },
+        {
+            "id": "NZ",
+            "name": "New Zealand",
+            "arabicName": "نيوزيلندا",
+            "flag": "🇳🇿"
+        },
+        {
+            "id": "FR",
+            "name": "France",
+            "arabicName": "فرنسا",
+            "flag": "🇫🇷"
+        }
+    ],
+    "cities": [
+        {
+            "id": "LDN",
+            "name": "London",
+            "country": "UK",
+            "arabicName": "لندن"
+        },
+        {
+            "id": "TOR",
+            "name": "Toronto",
+            "country": "Canada",
+            "arabicName": "تورونتو"
+        },
+        {
+            "id": "NY",
+            "name": "New York",
+            "country": "USA",
+            "arabicName": "نيويورك"
+        },
+        {
+            "id": "BOS",
+            "name": "Boston",
+            "country": "USA",
+            "arabicName": "بوسطن"
+        },
+        {
+            "id": "AUK",
+            "name": "Auckland",
+            "country": "NZ",
+            "arabicName": "اوكلاند"
+        },
+        {
+            "id": "SYD",
+            "name": "Sydney",
+            "country": "Australia",
+            "arabicName": "سيدني"
+        },
+        {
+            "id": "BER",
+            "name": "Berlin",
+            "country": "Germany",
+            "arabicName": "برلين"
+        },
+        {
+            "id": "LYN",
+            "name": "Lyon",
+            "country": "France",
+            "arabicName": "ليون"
+        }
+    ]
+}

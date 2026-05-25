@@ -1,0 +1,199 @@
+{
+  "schools": [
+    {
+      "id": 1,
+      "name": "Islington Centre",
+      "ar_name": "مركز إزلنجتون للغة الإنجليزية",
+      "slug": "islington-centre",
+      "logo": "/assets/logos/islington.png"
+    },
+    {
+      "id": 2,
+      "name": "Concorde International",
+      "ar_name": "معهد كونكورد العالمي",
+      "slug": "concorde-international",
+      "logo": "/assets/logos/concorde.png"
+    },
+    {
+      "id": 3,
+      "name": "Bath Academy",
+      "ar_name": "معهد أكاديمية باث",
+      "slug": "bath-academy",
+      "logo": "/assets/logos/bath.png"
+    },
+    {
+      "id": 4,
+      "name": "LSI",
+      "ar_name": "معهد إل إس آي",
+      "slug": "lsi",
+      "logo": "/assets/logos/lsi.png"
+    },
+    {
+      "id": 5,
+      "name": "Berlitz",
+      "ar_name": "معهد بيرلتز",
+      "slug": "berlitz",
+      "logo": "/assets/logos/berlitz.png"
+    },
+    {
+      "id": 6,
+      "name": "Beet Language Centre",
+      "ar_name": "معهد بيت لانغويج سنتر",
+      "slug": "beet-language-centre",
+      "logo": "/assets/logos/beet.png"
+    },
+    {
+      "id": 7,
+      "name": "London School of English",
+      "ar_name": "معهد لندن للغة الإنجليزية",
+      "slug": "london-school-of-english",
+      "logo": "/assets/logos/london-school.png"
+    },
+    {
+      "id": 8,
+      "name": "Wimbledon School",
+      "ar_name": "مدرسة ويمبلدون للغة",
+      "slug": "wimbledon-school",
+      "logo": "/assets/logos/wimbledon.png"
+    }
+  ],
+  "countries": [
+    {
+      "id": "UK",
+      "name": "United Kingdom",
+      "ar_name": "المملكة المتحدة",
+      "slug": "united-kingdom",
+      "flag": "/assets/flags/gb.svg"
+    },
+    {
+      "id": "CA",
+      "name": "Canada",
+      "ar_name": "كندا",
+      "slug": "canada",
+      "flag": "/assets/flags/ca.svg"
+    },
+    {
+      "id": "US",
+      "name": "USA",
+      "ar_name": "الولايات المتحدة",
+      "slug": "united-states",
+      "flag": "/assets/flags/us.svg"
+    },
+    {
+      "id": "SA",
+      "name": "Saudi Arabia",
+      "ar_name": "المملكة العربية السعودية",
+      "slug": "saudi-arabia",
+      "flag": "/assets/flags/sa.svg"
+    },
+    {
+      "id": "AU",
+      "name": "Australia",
+      "ar_name": "أستراليا",
+      "slug": "australia",
+      "flag": "/assets/flags/au.svg"
+    },
+    {
+      "id": "NZ",
+      "name": "New Zealand",
+      "ar_name": "نيوزيلندا",
+      "slug": "new-zealand",
+      "flag": "/assets/flags/nz.svg"
+    },
+    {
+      "id": "FR",
+      "name": "France",
+      "ar_name": "فرنسا",
+      "slug": "france",
+      "flag": "/assets/flags/fr.svg"
+    }
+  ],
+  "cities": [
+    {
+      "id": "LDN",
+      "name": "London",
+      "country_name": "United Kingdom",
+      "country_ar_name": "المملكة المتحدة",
+      "ar_name": "لندن",
+      "slug": "london"
+    },
+    {
+      "id": "TOR",
+      "name": "Toronto",
+      "country_name": "Canada",
+      "country_ar_name": "كندا",
+      "ar_name": "تورونتو",
+      "slug": "toronto"
+    },
+    {
+      "id": "NY",
+      "name": "New York",
+      "country_name": "USA",
+      "country_ar_name": "الولايات المتحدة",
+      "ar_name": "نيويورك",
+      "slug": "new-york"
+    },
+    {
+      "id": "BOS",
+      "name": "Boston",
+      "country_name": "USA",
+      "country_ar_name": "الولايات المتحدة",
+      "ar_name": "بوسطن",
+      "slug": "boston"
+    },
+    {
+      "id": "AUK",
+      "name": "Auckland",
+      "country_name": "New Zealand",
+      "country_ar_name": "نيوزيلندا",
+      "ar_name": "أوكلاند",
+      "slug": "auckland"
+    },
+    {
+      "id": "SYD",
+      "name": "Sydney",
+      "country_name": "Australia",
+      "country_ar_name": "أستراليا",
+      "ar_name": "سيدني",
+      "slug": "sydney"
+    },
+    {
+      "id": "BER",
+      "name": "Berlin",
+      "country_name": "Germany",
+      "country_ar_name": "ألمانيا",
+      "ar_name": "برلين",
+      "slug": "berlin"
+    },
+    {
+      "id": "LYN",
+      "name": "Lyon",
+      "country_name": "France",
+      "country_ar_name": "فرنسا",
+      "ar_name": "ليون",
+      "slug": "lyon"
+    }
+  ],
+  "language_course_types": [
+    {
+      "name": "General English",
+      "ar_name": "الإنجليزية العامة"
+    },
+    {
+      "name": "Intensive English",
+      "ar_name": "الإنجليزية المكثفة"
+    },
+    {
+      "name": "Semi-Intensive",
+      "ar_name": "شبه مكثفة"
+    },
+    {
+      "name": "IELTS Preparation",
+      "ar_name": "التحضير لاختبار آيلتس"
+    },
+    {
+      "name": "Business English",
+      "ar_name": "الإنجليزية للأعمال"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 import { LocaleProvider } from "@/components/providers/locale-provider";
 import { getPreferredLanguage, isRtlLanguage } from "@/lib/locale";
@@ -64,8 +64,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const headerStore = await headers();
-  const language = getPreferredLanguage(headerStore.get("accept-language") ?? "");
+  const cookieStore = await cookies();
+  const savedLocale = cookieStore.get("locale")?.value;
+  const language = savedLocale === "en" ? "en" : "ar";
   const direction = isRtlLanguage(language) ? "rtl" : "ltr";
 
   return (

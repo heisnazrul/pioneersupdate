@@ -11,7 +11,7 @@ import {
 
 const LocaleContext = createContext(null);
 
-export function LocaleProvider({ children, initialLanguage = "en" }) {
+export function LocaleProvider({ children, initialLanguage = "ar" }) {
   const [language, setLanguage] = useState(resolveLanguage(initialLanguage));
 
   const messages = useMemo(() => getLocaleMessages(language), [language]);
@@ -22,12 +22,20 @@ export function LocaleProvider({ children, initialLanguage = "en" }) {
     document.documentElement.dir = direction;
   }, [direction, language]);
 
+  const handleSetLanguage = (lang) => {
+    const resolved = resolveLanguage(lang);
+    setLanguage(resolved);
+    if (typeof window !== "undefined") {
+      document.cookie = `locale=${resolved}; path=/; max-age=31536000; SameSite=Lax`;
+    }
+  };
+
   const value = useMemo(
     () => ({
       direction,
       language,
       messages,
-      setLanguage,
+      setLanguage: handleSetLanguage,
       t: (path, fallback = "") => getLocaleValue(messages, path, fallback),
     }),
     [direction, language, messages]

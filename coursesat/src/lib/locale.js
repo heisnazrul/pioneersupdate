@@ -7,7 +7,7 @@ const dictionaries = {
 };
 
 export function resolveLanguage(language) {
-  return language === "ar" ? "ar" : "en";
+  return language === "en" ? "en" : "ar";
 }
 
 export function isRtlLanguage(language) {
@@ -20,7 +20,10 @@ export function getLocaleMessages(language) {
 
 export function getPreferredLanguage(acceptLanguage = "") {
   const normalized = acceptLanguage.toLowerCase();
-  return normalized.includes("ar") ? "ar" : "en";
+  if (normalized.includes("en") && !normalized.includes("ar")) {
+    return "en";
+  }
+  return "ar";
 }
 
 export function getLocaleValue(messages, path, fallback = "") {

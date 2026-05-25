@@ -36,7 +36,7 @@ export default function MobileBottomNav() {
     {
       key: "institutes",
       label: t("layouts.navbar.bottom_nav.institutes", "Institutes"),
-      href: "/#language-institutes",
+      href: "/language-institutes",
       icon: faSchool,
     },
     {

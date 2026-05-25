@@ -207,7 +207,7 @@ export default function MobileHeader() {
             </Link>
 
             <Link
-              href="https://wa.me/0000000000"
+              href="https://wa.me/966550027268"
               aria-label={t(
                 "pages.coursesat.mobile.contact_whatsapp",
                 "Contact via WhatsApp"

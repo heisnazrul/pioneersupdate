@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
+        "summary": "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
+        "date": "29/06/2025",
+        "category": "مدونة",
+        "image": "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "slug": "study-in-uk-guide"
+    },
+    {
+        "id": 2,
+        "title": "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
+        "summary": "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
+        "date": "29/06/2025",
+        "category": "مدونة",
+        "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "slug": "study-in-uk-guide-2"
+    },
+    {
+        "id": 3,
+        "title": "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
+        "summary": "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
+        "date": "29/06/2025",
+        "category": "مدونة",
+        "image": "https://images.pexels.com/photos/159581/dictionary-reference-book-learning-meaning-159581.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "slug": "study-in-uk-guide-3"
+    },
+    {
+        "id": 4,
+        "title": "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
+        "summary": "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
+        "date": "29/06/2025",
+        "category": "مدونة",
+        "image": "https://images.pexels.com/photos/267669/pexels-photo-267669.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "slug": "study-in-uk-guide-4"
+    },
+    {
+        "id": 5,
+        "title": "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
+        "summary": "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
+        "date": "29/06/2025",
+        "category": "مدونة",
+        "image": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "slug": "study-in-uk-guide-5"
+    }
+]

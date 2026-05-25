@@ -56,9 +56,10 @@ export default function DesktopHeader() {
   );
 
   const isTopActive = (index) => (activeIndex === -1 ? index === 0 : index === activeIndex);
-  const isMainActive = (href) => {
-    if (href === "/") return pathname === "/";
-    return pathname?.startsWith(href);
+  const isMainActive = (item) => {
+    if (item.key === "offers") return false;
+    if (item.href === "/") return pathname === "/";
+    return pathname?.startsWith(item.href);
   };
 
   return (
@@ -66,32 +67,25 @@ export default function DesktopHeader() {
       <div className="w-full overflow-visible bg-[#135FAE] text-white">
         <div className="overflow-visible px-4 md:px-10 xl:px-20 2xl:px-40">
           <div
-            className={`flex h-[56px] items-stretch justify-between ${
-              isRtl ? "flex-row-reverse" : ""
-            }`}
+            className="flex h-[56px] items-stretch justify-between"
           >
-            <nav className="flex items-stretch gap-1.5 text-[16px] font-semibold">
+            <nav className="flex items-stretch gap-1.5 text-[14px]">
               {topNav.map((link, index) => (
                 <Link
                   key={`${link.href}-${index}`}
                   href={link.href}
-                  className={`flex items-center border-b-[4px] px-2 pt-[4px] transition ${
-                    link.style ?? ""
-                  } ${
-                    isTopActive(index)
+                  className={`flex items-center border-b-[4px] px-2 pt-[4px] transition ${link.style ?? ""
+                    } ${isTopActive(index)
                       ? "border-white"
                       : "border-transparent text-white/90 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            <div
-              className={`flex items-center self-center gap-3.5 ${
-                isRtl ? "flex-row-reverse" : ""
-              }`}
+            <div className="flex items-center self-center gap-3.5"
             >
               <div className="relative z-[90]" ref={languageRef}>
                 <button
@@ -115,25 +109,22 @@ export default function DesktopHeader() {
                 </button>
 
                 <div
-                  className={`absolute z-[9999] mt-2 w-36 rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${
-                    languageOpen ? "block" : "hidden"
-                  } ${direction === "rtl" ? "left-0" : "right-0"}`}
+                  className={`absolute z-[9999] mt-2 w-36 rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${languageOpen ? "block" : "hidden"
+                    } ${direction === "rtl" ? "left-0" : "right-0"}`}
                   role="listbox"
                   dir={direction}
                 >
                   <div
-                    className={`space-y-1 p-2 ${
-                      isRtl ? "text-right" : "text-left"
-                    }`}
+                    className={`space-y-1 p-2 ${isRtl ? "text-right" : "text-left"
+                      }`}
                   >
                     {languages.map((item) => (
                       <button
                         key={item.code}
-                        className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${
-                          language === item.code
-                            ? "bg-slate-100 font-normal"
-                            : "hover:bg-slate-50"
-                        }`}
+                        className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${language === item.code
+                          ? "bg-slate-100 font-normal"
+                          : "hover:bg-slate-50"
+                          }`}
                         role="option"
                         aria-selected={language === item.code}
                         onClick={() => {
@@ -179,25 +170,22 @@ export default function DesktopHeader() {
                 </button>
 
                 <div
-                  className={`absolute z-[9999] mt-2 w-[11.5rem] rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${
-                    currencyOpen ? "block" : "hidden"
-                  } ${direction === "rtl" ? "left-0" : "right-0"}`}
+                  className={`absolute z-[9999] mt-2 w-[11.5rem] rounded-2xl bg-white text-slate-900 shadow-lg ring-1 ring-black/5 ${currencyOpen ? "block" : "hidden"
+                    } ${direction === "rtl" ? "left-0" : "right-0"}`}
                   role="listbox"
                   dir={direction}
                 >
                   <div
-                    className={`space-y-1 p-2 ${
-                      isRtl ? "text-right" : "text-left"
-                    }`}
+                    className={`space-y-1 p-2 ${isRtl ? "text-right" : "text-left"
+                      }`}
                   >
                     {currencies.map((item) => (
                       <button
                         key={item.code}
-                        className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${
-                          currency === item.code
-                            ? "bg-slate-100 font-normal"
-                            : "hover:bg-slate-50"
-                        }`}
+                        className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm transition ${currency === item.code
+                          ? "bg-slate-100 font-normal"
+                          : "hover:bg-slate-50"
+                          }`}
                         role="option"
                         aria-selected={currency === item.code}
                         onClick={() => {
@@ -230,13 +218,9 @@ export default function DesktopHeader() {
       </div>
 
       <div className="w-full bg-white">
-        <div className="px-4 md:px-12 xl:px-20 2xl:px-40">
-          <div className="grid grid-cols-12 items-center gap-4 py-3">
-            <div
-              className={`col-span-3 mt-[7px] flex items-center ${
-                isRtl ? "order-3 justify-end" : "order-1 justify-start"
-              }`}
-            >
+        <div className="px-4 md:px-10 xl:px-20  2xl:px-40">
+          <div className="grid grid-cols-12 items-center gap-4 py-5">
+            <div className="col-span-3 mt-[7px] flex items-center">
               <Link
                 href="/"
                 aria-label={t("layouts.navbar.main_nav.home", "Home")}
@@ -245,23 +229,22 @@ export default function DesktopHeader() {
                 <img
                   src="/assets/logo/logo.png"
                   alt={t("pages.coursesat.shared.brand", "CourseSat")}
-                  className="h-[75px] max-w-[230px] object-contain"
+                  className="xl:h-[55px] 2xl:h-[75px] max-w-[230px] object-contain"
                   loading="lazy"
                 />
               </Link>
             </div>
 
-            <div className="col-span-6 order-2 mt-[2px]">
-              <nav className="flex items-center justify-center gap-7 text-[16px] font-medium">
+            <div className="col-span-6 mt-[2px]">
+              <nav className="flex items-center justify-center gap-10 text-[14px] font-medium">
                 {mainNav.map((item, index) => (
                   <Link
                     key={`${item.href}-${index}`}
                     href={item.href}
-                    className={`transition ${
-                      isMainActive(item.href)
-                        ? "text-[#135FAE]"
-                        : "text-slate-800 hover:text-[#135FAE]"
-                    }`}
+                    className={`transition ${isMainActive(item)
+                      ? "!text-[#135FAE] font-bold"
+                      : "text-slate-800 hover:text-[#135FAE]"
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -269,19 +252,36 @@ export default function DesktopHeader() {
               </nav>
             </div>
 
-            <div
-              className={`col-span-3 flex items-center gap-2.5 ${
-                isRtl ? "order-1 justify-start flex-row-reverse" : "order-3 justify-end"
-              }`}
-            >
+            <div className="col-span-3 flex items-center justify-end gap-4" >
+              <Link
+                href="/#wishlist"
+                aria-label={t("layouts.navbar.actions.wishlist", "Wishlist")}
+                className="relative inline-flex h-[50px] w-[50px] items-center justify-center rounded-full bg-slate-100 text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
+              >
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.001 20.25S4.5 15.192 4.5 9.988c0-2.486 1.996-4.5 4.46-4.5 1.56 0 2.94.81 3.54 2.01.6-1.2 1.98-2.01 3.54-2.01 2.464 0 4.46 2.014 4.46 4.5 0 5.204-7.5 10.262-7.5 10.262z"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
               <Link
                 href="/#compare"
                 aria-label={t("layouts.navbar.actions.compare", "Compare")}
-                className="relative inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-slate-100 text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
+                className="relative inline-flex h-[50px] w-[50px] items-center justify-center rounded-full bg-slate-100 text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
               >
                 <svg
-                  width="20"
-                  height="20"
+                  width="30"
+                  height="30"
                   viewBox="0 0 24 24"
                   fill="none"
                   aria-hidden="true"
@@ -296,34 +296,12 @@ export default function DesktopHeader() {
                 </svg>
               </Link>
 
-              <Link
-                href="/#wishlist"
-                aria-label={t("layouts.navbar.actions.wishlist", "Wishlist")}
-                className="relative inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-slate-100 text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12.001 20.25S4.5 15.192 4.5 9.988c0-2.486 1.996-4.5 4.46-4.5 1.56 0 2.94.81 3.54 2.01.6-1.2 1.98-2.01 3.54-2.01 2.464 0 4.46 2.014 4.46 4.5 0 5.204-7.5 10.262-7.5 10.262z"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
 
-              <Link
-                href="/#account"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#135FAE] px-7 py-2 text-[15px] font-normal text-white shadow-sm transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40"
-              >
-                <FontAwesomeIcon icon={faUser} className="text-sm" />
-                {t("layouts.navbar.actions.my_account", "My Account")}
+
+              <Link href="/#account" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#135FAE] px-10 py-3 text-[15px] !text-white shadow-sm transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#135FAE]/40">
+                <span className="text-white">
+                  {t("layouts.navbar.actions.my_account", "My Account")}
+                </span>
               </Link>
             </div>
           </div>

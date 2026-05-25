@@ -1,0 +1,25 @@
+{
+  "certificates": [
+    {
+      "id": 1,
+      "image": "/assets/certificate/1.png",
+      "title": "English UK Certification",
+      "ar_title": "رابطة English UK البريطانية",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "image": "/assets/certificate/2.png",
+      "title": "رابطة ICAF البريطانية",
+      "ar_title": "رابطة ICAF البريطانية",
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "image": "/assets/certificate/3.png",
+      "title": "رابطة English UK البريطانية",
+      "ar_title": "رابطة English UK البريطانية",
+      "link": "#"
+    }
+  ]
+}

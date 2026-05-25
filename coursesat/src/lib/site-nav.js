@@ -1,5 +1,5 @@
 const TOP_NAV_ITEMS = [
-  { href: "/#language-institutes", key: "language_institutes", fallback: "Language Institutes" },
+  { href: "/language-institutes", key: "language_institutes", fallback: "Language Institutes" },
   { href: "/#summer-programs", key: "summer_programs", fallback: "Summer Programs" },
   { href: "/#online-courses", key: "online_courses", fallback: "Online Courses" },
   { href: "/#university-admissions", key: "university_admissions", fallback: "University Admissions" },
@@ -14,10 +14,10 @@ const TOP_NAV_ITEMS = [
 
 const MAIN_NAV_ITEMS = [
   { href: "/", key: "home", fallback: "Home" },
-  { href: "/#offers", key: "offers", fallback: "Offers" },
-  { href: "/#about-us", key: "about_us", fallback: "About Us" },
-  { href: "/#contact-us", key: "contact_us", fallback: "Contact Us" },
-  { href: "/#articles", key: "articles", fallback: "Articles" },
+  { href: "/", key: "offers", fallback: "Offers" },
+  { href: "/about-us", key: "about_us", fallback: "About Us" },
+  { href: "/contact-us", key: "contact_us", fallback: "Contact Us" },
+  { href: "/articles", key: "articles", fallback: "Articles" },
 ];
 
 export const MOBILE_SOCIAL_LINKS = [
@@ -45,6 +45,7 @@ export function getDesktopMainNav(locale) {
   const mainNav = getNavbar(locale)?.main_nav ?? {};
 
   return MAIN_NAV_ITEMS.map((item) => ({
+    key: item.key,
     href: item.href,
     label: mainNav?.[item.key] || item.fallback,
   }));
@@ -107,7 +108,7 @@ export function getMobileQuickLinks(locale) {
 
   return [
     { label: quickLinks?.home || "Home", icon: "home", href: "/" },
-    { label: quickLinks?.contact || "Contact Us", icon: "phone", href: "/#contact-us" },
+    { label: quickLinks?.contact || "Contact Us", icon: "phone", href: "/contact-us" },
     { label: quickLinks?.faq || "FAQ", icon: "question", href: "/#faq" },
   ];
 }
@@ -119,13 +120,12 @@ export function getMobileDrawerLinks(locale) {
   const footer = locale?.layouts?.footer ?? {};
 
   return [
-    { label: mainNav?.offers || "Offers", href: "/#offers" },
-    { label: mainNav?.about_us || "About Us", href: "/#about-us" },
+    { label: mainNav?.about_us || "About Us", href: "/about-us" },
     { label: mobileNav?.drawer?.team || "Team", href: "/#team" },
-    { label: footer?.blog || "Blog", href: "/#blog" },
+    { label: footer?.blog || "Blog", href: "/articles" },
     {
       label: topNav?.language_institutes || "Language Institutes",
-      href: "/#language-institutes",
+      href: "/language-institutes",
     },
     { label: topNav?.summer_programs || "Summer Programs", href: "/#summer-programs" },
     {

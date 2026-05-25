@@ -115,7 +115,7 @@ export default function DesktopFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#blog" className={linkCls}>
+                <Link href="/articles" className={linkCls}>
                   {content.blog}
                 </Link>
               </li>
@@ -131,12 +131,12 @@ export default function DesktopFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#about-us" className={linkCls}>
+                <Link href="/about-us" className={linkCls}>
                   {content.about}
                 </Link>
               </li>
               <li>
-                <Link href="/#contact-us" className={linkCls}>
+                <Link href="/contact-us" className={linkCls}>
                   {content.contact}
                 </Link>
               </li>
@@ -193,7 +193,7 @@ export default function DesktopFooter() {
       </div>
 
       <a
-        href="https://wa.me/0000000000"
+        href="https://wa.me/966550027268"
         target="_blank"
         rel="noreferrer"
         aria-label={content.whatsapp}

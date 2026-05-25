@@ -104,6 +104,169 @@
     }
   },
   "pages": {
+    "institute_details": {
+      "backToList": "Back to List",
+      "share": "Share",
+      "addFavorite": "Add to Favorites",
+      "inFavorite": "Already in Favorites",
+      "addCompare": "Add to Compare",
+      "inCompare": "Already in Compare",
+      "aboutInstitute": "About the Institute",
+      "accreditations": "Accreditations",
+      "step1": "Step 1: Choose the Suitable Course",
+      "step1Sub": "Prices calculated per week",
+      "startDate": "Start Date",
+      "selectStart": "Select start date",
+      "weeks": "Weeks",
+      "numWeeks": "Number of Weeks",
+      "selectWeeks": "Select weeks",
+      "lessonsWeek": "Lessons/week",
+      "hoursWeek": "Hours/week",
+      "requiredAge": "Required Age",
+      "requiredLevel": "Required Level",
+      "age": "Age",
+      "perWeek": "/ week",
+      "step2": "Choose Accommodation",
+      "step2Sub": "You can choose accommodation or continue without",
+      "withAcc": "With Accommodation",
+      "withoutAcc": "Without Accommodation",
+      "withoutAccSub": "You can continue without accommodation",
+      "step3pickups": "Airport Pickup",
+      "noPickup": "No pickup needed",
+      "noPickupSub": "You can continue without pickup",
+      "extraOptions": "Additional Options",
+      "extraOptionsSub": "You can add optional services as needed",
+      "step3insurance": "Insurance",
+      "step3supplements": "Additional Supplements",
+      "couponQ": "Do you have a discount code?",
+      "couponCode": "Discount code",
+      "apply": "Apply",
+      "totalIncludes": "Total includes all fees",
+      "reviewRequest": "Review Request",
+      "selected": "Selected",
+      "bestOffer": "Best Offer",
+      "mostPopular": "Most Popular",
+      "studyDate": "Study Date",
+      "from": "From",
+      "to": "To",
+      "registrationFee": "Registration Fee",
+      "totalDiscount": "Total Discount",
+      "haveQuestion": "Have a question?",
+      "haveQuestionDesc": "Do you have any questions or need more information to proceed?",
+      "contactUsWhatsapp": "Have a question? Contact us",
+      "visa": "Visa",
+      "booking": {
+        "reviewBooking": "Review Booking",
+        "reviewConfirm": "Review and Confirm Booking",
+        "reviewSubtitle": "Review booking details and contact info before sending request",
+        "contactDetails": "Contact Details",
+        "contactSubtitle": "We will contact you via WhatsApp to confirm details",
+        "fullName": "Full Name",
+        "enterFullName": "Enter Full Name",
+        "email": "Email Address",
+        "enterEmail": "Enter Email Address",
+        "mobile": "Mobile Number",
+        "sendRequest": "Send Request",
+        "disclaimer": "After sending, one of our consultants will contact you via WhatsApp shortly",
+        "priceSummary": "Price Summary",
+        "courseDetails": "Course Details",
+        "accDetails": "Accommodation Details",
+        "addServices": "Additional Services",
+        "change": "Change",
+        "course": "Course",
+        "accommodation": "Accommodation",
+        "registrationFee": "Registration Fee",
+        "discount": "Discount",
+        "total": "Total",
+        "duration": "Duration",
+        "pickup": "Airport Pickup",
+        "insurance": "Insurance",
+        "supplements": "Supplements",
+        "totalInclude": "Total includes all fees"
+      }
+    },
+    "about_us": {
+      "breadcrumb_home": "Home",
+      "breadcrumb_current": "About Us",
+      "page_title": "About Course English",
+      "intro_title": "We Help You Choose the Right Language Institute with Confidence",
+      "intro_p1": "A specialized platform for showcasing and comparing accredited language institutes around the world, helping you make the right decision before booking.",
+      "intro_p2": "We connect students and families with trusted institutes in different countries and help compare by quality, location, and cost.",
+      "vision_title": "Our Vision",
+      "vision_body": "To lead the market by managing outstanding talent and becoming the best specialized company in our field.",
+      "mission_title": "Our Mission",
+      "mission_body": "A specialized platform for showing and comparing accredited language institutes globally, and helping you choose with clarity.",
+      "why_title": "Why Us?",
+      "why_subtitle": "Because we believe your educational journey starts with confidence.",
+      "why_1_title": "Free Services",
+      "why_1_body": "Our free services include admission support and guidance to find the most suitable schools.",
+      "why_2_title": "Official Partnerships",
+      "why_2_body": "We partner with trusted English schools worldwide to secure better choices for your learning journey.",
+      "why_3_title": "Exclusive Prices",
+      "why_3_body": "Our prices are exclusive. If you find a better offer, we match it."
+    },
+    "contact_us": {
+      "breadcrumb_home": "Home",
+      "breadcrumb_current": "Contact Us",
+      "title": "Contact Us",
+      "form": {
+        "title": "Or send us a message and we will get back to you quickly",
+        "full_name_label": "Full Name",
+        "full_name_placeholder": "Enter full name",
+        "email_label": "Email",
+        "email_placeholder": "Enter email",
+        "message_label": "Message",
+        "message_placeholder": "Write your message",
+        "submit_text": "Send",
+        "sending_text": "Sending...",
+        "success_text": "Message sent successfully.",
+        "fail_text": "Failed to send message. Please try again."
+      },
+      "cards": {
+        "customer_service": "Customer Service",
+        "whatsapp": "WhatsApp",
+        "email": "Email Us"
+      }
+    },
+    "articles": {
+      "breadcrumb_home": "Home",
+      "breadcrumb_current": "Articles",
+      "title": "Articles",
+      "recent_posts": "Recent Articles",
+      "all_articles": "All Articles",
+      "showing": "Showing",
+      "of": "of",
+      "articles_count": "articles",
+      "load_more": "Load More",
+      "empty_title": "Articles",
+      "empty_message": "No articles available.",
+      "published_in": "Published on",
+      "share": "Share",
+      "other_articles": "Other articles from Course English",
+      "categories": "Categories"
+    },
+    "offers_page": {
+      "hero_badge": "Limited Time Offers",
+      "hero_headline": "Exclusive Education Deals",
+      "hero_subheadline": "Explore our handpicked selection of specialized courses at unbeatable prices.",
+      "labels": {
+        "all": "All Offers",
+        "discounted": "Discounted Only",
+        "viewAll": "View All",
+        "empty": "No items match the selected filter.",
+        "clear": "Clear Filter"
+      },
+      "sections": {
+        "language": {
+          "title": "Language Courses",
+          "subtitle": "Top-rated institutes with exclusive discounts."
+        },
+        "online": {
+          "title": "Online Courses",
+          "subtitle": "Learn from anywhere with flexible schedules."
+        }
+      }
+    },
     "homepage": {
       "hero": {
         "offer": "Our offers are exclusive. We guarantee the best prices and services and will pay the difference if you find a better price or service.",
@@ -142,12 +305,12 @@
         "body": "Thanks to our trusted partners and leading educational institutions around the world, we’ve helped thousands of students achieve their dream of learning English in accredited international environments.",
         "state_details": {
           "students": {
-            "number": "1000+",
+            "number": "+15,000",
             "title": "Students enrolled in accredited English programs abroad",
             "title_mobile": "Students"
           },
           "partners": {
-            "number": "50+",
+            "number": "+50",
             "title": "Partner universities offering accredited English study programs abroad",
             "title_mobile": "Partners"
           }
@@ -158,16 +321,26 @@
         "subheading": "We are proud of our partnerships with leading English language institutes and accredited educational organizations around the world."
       },
       "partners_offers": {
-        "heading": "Partner institutes around the world",
-        "view_all": "View all schools"
+        "heading": "Accredited partner institutes around the world",
+        "view_all": "All schools",
+        "per_week": "/ week",
+        "tabs": {
+          "all": "All",
+          "top-rated": "Highest rating",
+          "most-popular": "Most requested",
+          "best-offer": "Best offer",
+          "best-campus": "Best campus",
+          "best-match": "Best match"
+        }
       },
       "summer_programs": {
         "heading": "Summer Programs",
-        "view_all": "View all programs"
+        "subheading": "Discover the summer programs available this summer",
+        "view_all": "All programs"
       },
       "online_courses": {
         "heading": "Online Courses",
-        "view_all": "View all courses"
+        "view_all": "All courses"
       },
       "professional_training": {
         "heading": "Professional Training",
@@ -211,46 +384,7 @@
         }
       }
     },
-    "about_us": {
-      "title": "About Course English",
-      "intro": {
-        "heading": "We Help You Choose the Right Language Institute with Confidence",
-        "p1": "A specialized platform for showcasing and comparing accredited language institutes around the world, helping you make the right decision before booking.",
-        "p2": "We connect students and families with trusted institutes in different countries and help compare by quality, location, and cost."
-      },
-      "vision": "To lead the market by managing outstanding talent and becoming the best specialized company in our field.",
-      "mission": "A specialized platform for showing and comparing accredited language institutes globally, and helping you choose with clarity.",
-      "why": {
-        "title": "Why Us?",
-        "subtitle": "Because we believe your educational journey starts with confidence.",
-        "free_services_title": "Free Services",
-        "free_services": "Our free services include admission support and guidance to find the most suitable schools.",
-        "partnerships_title": "Partnerships",
-        "partnerships": "We partner with trusted English schools worldwide to secure better choices for your learning journey.",
-        "exclusive_prices_title": "Exclusive Prices",
-        "exclusive_prices": "Our prices are exclusive. If you find a better offer, we match it."
-      }
-    },
-    "contact_us": {
-      "title": "Contact Us",
-      "cards": {
-        "customer_service": "Customer Service",
-        "whatsapp": "WhatsApp",
-        "email": "Email Us"
-      },
-      "form": {
-        "title": "Or send us a message and we will get back to you quickly",
-        "name_label": "Full Name",
-        "name_placeholder": "Enter your full name",
-        "email_label": "Email",
-        "email_placeholder": "Enter your email",
-        "message_label": "Message",
-        "message_placeholder": "Enter your message",
-        "submit": "Send",
-        "success": "Message sent successfully.",
-        "error": "Failed to send message. Please try again."
-      }
-    },
+
     "language_institutes": {
       "hero": {
         "heading": "Discover the Best Language Institutes Worldwide",
@@ -343,6 +477,46 @@
         "cta_title": "Have a question?",
         "cta_subtitle": "Do you have questions or need more info about this course?",
         "cta_button": "Chat via WhatsApp"
+      }
+    },
+    "language_institutes": {
+      "hero": {
+        "heading": "Discover the best language institutes\naround the world",
+        "subheading": "A curated selection of the best accredited language institutes.",
+        "labels": {
+          "destination": "Enter your preferred destination",
+          "destination_placeholder": "Enter country, city, or institute",
+          "course": "Course type",
+          "course_placeholder": "Choose course type",
+          "duration": "Number of weeks",
+          "duration_placeholder": "Choose number of weeks",
+          "start": "Start date",
+          "start_placeholder": "Choose start date"
+        }
+      },
+      "results": {
+        "count_label": "institutes available based on your choice",
+        "step_label": "Step 1: Choose the right institute for you"
+      },
+      "sidebar": {
+        "accommodation": {
+          "title": "Accommodation",
+          "all": "All",
+          "with_accommodation": "With accommodation",
+          "without_accommodation": "Without accommodation"
+        },
+        "pickup": {
+          "title": "Airport Pickup",
+          "all": "All",
+          "with_pickup": "With pickup",
+          "without_pickup": "Without pickup"
+        },
+        "insurance": {
+          "title": "Insurance",
+          "all": "All",
+          "with_insurance": "With insurance",
+          "without_insurance": "Without insurance"
+        }
       }
     },
     "summer_programs": {
@@ -475,16 +649,7 @@
         "step_label": "Step 1: Choose the right course for your career"
       }
     },
-    "articles": {
-      "hero": {
-        "heading": "Latest stories and guides",
-        "subheading": "Browse insights, tips, and how-tos for your study journey."
-      },
-      "sidebar": {
-        "recent": "Recent posts",
-        "categories": "Categories"
-      }
-    },
+
     "coursesat": {
       "shared": {
         "brand": "CourseSat",

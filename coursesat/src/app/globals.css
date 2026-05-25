@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3ead9;
+  --background: #ffffff;
   --foreground: #142033;
   --surface: rgba(255, 255, 255, 0.74);
   --surface-strong: rgba(255, 255, 255, 0.88);
@@ -22,9 +22,7 @@
 }
 
 html {
-  background:
-    radial-gradient(circle at top, rgba(207, 119, 53, 0.22), transparent 34%),
-    linear-gradient(180deg, #f7f0e4 0%, #efe3ce 100%);
+  background: #ffffff;
 }
 
 body {

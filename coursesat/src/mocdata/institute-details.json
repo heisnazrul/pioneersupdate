@@ -1,0 +1,96 @@
+{
+  "school": {
+    "id": 1,
+    "name": "LSI Education",
+    "ar_name": "إل إس آي إديوكيشن",
+    "city": "London",
+    "city_ar": "لندن",
+    "country": "UK",
+    "country_ar": "المملكة المتحدة",
+    "location": "UK, London",
+    "rating": 4.6,
+    "reviews": 12,
+    "image": "https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg",
+    "logo": "/ces.png",
+    "flag": "https://flagcdn.com/w40/gb.png",
+    "description": "LSI Education is located in London, the capital of the United Kingdom, with branches in countries like the UK, USA, Canada, New Zealand, and Australia. Students benefit from a supportive learning environment, qualified teachers, interactive activities encouraging language use, and organized trips to famous tourist destinations in London. The institute is dedicated to providing an outstanding educational experience that blends rigorous academic instruction with complete cultural immersion, helping students develop their language skills quickly and confidently. Thanks to its central location in the heart of London, students can easily access historical and cultural landmarks and traditional cafes, enriching their daily experience and making the journey of learning English an unforgettable adventure. Enjoy learning a language in one of the world's most vibrant cities.",
+    "ar_description": "يقع معهد إل إس آي إديوكيشن في مدينة لندن، عاصمة المملكة المتحدة. وله فروع في دول مثل المملكة المتحدة، الولايات المتحدة، كندا، نيوزيلندا وأستراليا، وغيرها. يستفيد الطلاب من بيئة تعليمية داعمة، مع مدرسين مؤهلين، وأنشطة تفاعلية تشجع على استخدام اللغة، ورحلات منظمة إلى وجهات سياحية شهيرة في لندن. يحرص المعهد على تقديم تجربة تعليمية متميزة تمزج بين التعليم الأكاديمي الرصين والانغماس الثقافي الكامل، مما يساعد الطلاب على تطوير مهاراتهم اللغوية بسرعة وثقة. بفضل موقعه المركزي في قلب لندن، يسهل على الطلاب الوصول إلى المعالم التاريخية والثقافية والمقاهي العريقة، مما يثري تجربتهم اليومية ويجعل من رحلة تعلم اللغة الإنجليزية مغامرة لا تُنسى. استمتع بتعلم اللغة في واحدة من أكثر مدن العالم حيوية.",
+    "gallery": [
+      "https://images.pexels.com/photos/1758531/pexels-photo-1758531.jpeg",
+      "https://images.pexels.com/photos/8359223/pexels-photo-8359223.jpeg"
+    ],
+    "accreditations": [
+      { "id": 1, "name": "English UK", "ar_name": "إنجليش يو كيه", "logo": "/assets/acredations/englisuk.png" },
+      { "id": 2, "name": "British Council", "ar_name": "المجلس الثقافي البريطاني", "logo": "/assets/acredations/britishcouncil.png" }
+    ]
+  },
+  "courses": [
+    {
+      "id": 1,
+      "name": "General English",
+      "ar_name": "لغة إنجليزية عامة",
+      "tag": "Most Popular",
+      "tag_ar": "الأكثر طلباً",
+      "hours": 20,
+      "level": "All Levels",
+      "lessons": 20,
+      "min_age": 16,
+      "price": 250,
+      "price_sar": 1200
+    },
+    {
+      "id": 2,
+      "name": "Intensive English",
+      "ar_name": "لغة إنجليزية مكثفة",
+      "hours": 30,
+      "level": "All Levels",
+      "lessons": 30,
+      "min_age": 16,
+      "price": 320,
+      "price_sar": 1500
+    }
+  ],
+  "accommodations": [
+    {
+      "id": 1,
+      "title": "Homestay - Single Room",
+      "ar_title": "عائلة مضيفة - غرفة مفردة",
+      "features": "Single Room, Shared Bathroom, Halfboard",
+      "fee_per_week": 200,
+      "fee_per_week_sar": 950
+    }
+  ],
+  "pickups": [
+    {
+      "id": 1,
+      "route": "Heathrow Airport to Accommodation",
+      "ar_route": "مطار هيثرو إلى السكن",
+      "price": 100,
+      "price_sar": 480
+    }
+  ],
+  "insurances": [
+    {
+      "id": 1,
+      "name": "Student Insurance",
+      "ar_name": "تأمين طالب",
+      "price": 10,
+      "price_sar": 48
+    }
+  ],
+  "supplements": [
+    {
+      "id": 1,
+      "name": "Course Materials",
+      "ar_name": "مواد الدورة",
+      "amount": 50,
+      "price_sar": 240
+    }
+  ],
+  "registration_fee": {
+    "amount": 80,
+    "price_sar": 380
+  },
+  "discounts": [],
+  "pioneers_discounts": [20]
+}

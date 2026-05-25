@@ -91,12 +91,12 @@ export default function MobileFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#about-us" className={linkCls}>
+                <Link href="/about-us" className={linkCls}>
                   {content.about}
                 </Link>
               </li>
               <li>
-                <Link href="/#contact-us" className={linkCls}>
+                <Link href="/contact-us" className={linkCls}>
                   {content.contact}
                 </Link>
               </li>
@@ -139,7 +139,7 @@ export default function MobileFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#blog" className={linkCls}>
+                <Link href="/articles" className={linkCls}>
                   {content.blog}
                 </Link>
               </li>
