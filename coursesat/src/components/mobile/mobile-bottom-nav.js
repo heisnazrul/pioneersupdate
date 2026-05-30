@@ -1,36 +1,42 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHouse } from "@fortawesome/free-regular-svg-icons";
 import { faArrowRightArrowLeft, faSchool } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 import { useLocale } from "@/components/providers/locale-provider";
+import { getStoredAuthToken, getStoredAuthUser } from "@/lib/auth";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
   const { direction, t } = useLocale();
   const isRtl = direction === "rtl";
+  const isAuthenticated = Boolean(getStoredAuthToken());
+  const userRole = getStoredAuthUser()?.role || "";
+  const wishlistHref = isAuthenticated
+    ? "/student/wishlist"
+    : `/login?redirect=${encodeURIComponent("/student/wishlist")}`;
 
   const baseItems = [
     {
       key: "account",
       label: t("layouts.navbar.bottom_nav.account", "My Account"),
-      href: "/#account",
+      href: isAuthenticated ? (userRole === "lg_agent" ? "/agent/dashboard" : "/student/dashboard") : "/login",
       icon: faUser,
     },
     {
       key: "compare",
       label: t("layouts.navbar.bottom_nav.compare", "Compare"),
-      href: "/#compare",
+      href: "/compare",
       icon: faArrowRightArrowLeft,
     },
     {
       key: "wishlist",
       label: t("layouts.navbar.bottom_nav.wishlist", "Wishlist"),
-      href: "/#wishlist",
+      href: wishlistHref,
       iconType: "heart",
     },
     {

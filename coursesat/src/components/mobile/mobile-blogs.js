@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { useApi } from "@/lib/api";
+import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 
 const TOKENS = {
@@ -47,9 +47,7 @@ function BlogCard({ post, isArabic, t }) {
         className="mt-2 flex items-center justify-between border-t px-3 pt-3 pb-1"
         style={{ borderColor: TOKENS.border }}
       >
-        <span className="text-[12px] font-semibold text-slate-500">
-          {post.date || "29/06/2025"}
-        </span>
+        <span className="text-[12px] font-semibold text-slate-500">{post.date}</span>
         <Link
           href={href}
           className="grid h-8 w-8 place-items-center rounded-full border text-slate-700 active:bg-slate-50"
@@ -71,108 +69,45 @@ function BlogCard({ post, isArabic, t }) {
 }
 
 export default function MobileBlogs() {
-  const { data } = useApi("/courseenglish/home/blogs");
+  const { data } = useApi("/coursesat/home/blogs");
   const { language, direction, t } = useLocale();
   const isArabic = language === "ar";
 
   const heading = t("pages.homepage.blogs.heading", "المدونات واخر الاخبار");
   const subheading = t("pages.homepage.blogs.subheading", "ابق علي اطلاع: موجز يومي للقضايا الحاسمة");
 
-  const rawBlogs = data?.blogs;
-
-  const dummyBlogs = [
-    {
-      id: 1,
-      title: "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
-      summary: "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
-      date: "29/06/2025",
-      category: "مدونة",
-      image: "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800",
-      slug: "study-in-uk-guide"
-    },
-    {
-      id: 2,
-      title: "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
-      summary: "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
-      date: "29/06/2025",
-      category: "مدونة",
-      image: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
-      slug: "study-in-uk-guide-2"
-    },
-    {
-      id: 3,
-      title: "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
-      summary: "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
-      date: "29/06/2025",
-      category: "مدونة",
-      image: "https://images.pexels.com/photos/159581/dictionary-reference-book-learning-meaning-159581.jpeg?auto=compress&cs=tinysrgb&w=800",
-      slug: "study-in-uk-guide-3"
-    },
-    {
-      id: 4,
-      title: "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
-      summary: "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
-      date: "29/06/2025",
-      category: "مدونة",
-      image: "https://images.pexels.com/photos/267669/pexels-photo-267669.jpeg?auto=compress&cs=tinysrgb&w=800",
-      slug: "study-in-uk-guide-4"
-    },
-    {
-      id: 5,
-      title: "دليل شامل لدراسة اللغة الإنجليزية في بريطانيا 10 خطوات أساسية",
-      summary: "استمتع بتجربة فريدة لتعلّم اللغة الإنجليزية في واحدة من أكثر مدن بريطانيا حيوية على البحر!",
-      date: "29/06/2025",
-      category: "مدونة",
-      image: "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=800",
-      slug: "study-in-uk-guide-5"
-    }
-  ];
-
   const posts = useMemo(() => {
-    const list = rawBlogs && rawBlogs.length > 0 ? rawBlogs : dummyBlogs;
+    const list = data?.blogs ?? [];
     if (!list.length) return [];
+
     return list.map((item, idx) => ({
       id: item.id ?? idx,
       title: isArabic ? item.ar_title || item.title || "مقال" : item.title || item.ar_title || "Blog post",
       summary: isArabic ? item.ar_summary || item.summary || "" : item.summary || item.ar_summary || "",
       category: isArabic ? item.category_ar_name || item.category || "مدونة" : item.category || item.category_ar_name || "Blog",
-      date: item.date || "29/06/2025",
-      image: item.image || "/assets/hero.png",
+      date: item.date || "",
+      image: getImageUrl(item.image) || "/assets/hero.png",
       slug: item.slug || item.id || idx,
     }));
-  }, [rawBlogs, isArabic]);
+  }, [data?.blogs, isArabic]);
 
   if (posts.length === 0) return null;
 
   return (
     <section className="block md:hidden bg-white py-10 w-full" dir={direction}>
-      
-      {/* Title block */}
       <div className="text-center px-4">
-        <h2 className="text-2xl font-bold leading-snug text-slate-900">
-          {heading}
-        </h2>
-        <p className="mt-2 text-slate-500 text-[14px]">
-          {subheading}
-        </p>
+        <h2 className="text-2xl font-bold leading-snug text-slate-900">{heading}</h2>
+        <p className="mt-2 text-slate-500 text-[14px]">{subheading}</p>
       </div>
 
-      {/* Swipe Row */}
       <div className="mt-6">
         <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
           {posts.map((p) => (
-            <BlogCard
-              key={p.id}
-              post={p}
-              isArabic={isArabic}
-              t={t}
-            />
+            <BlogCard key={p.id} post={p} isArabic={isArabic} t={t} />
           ))}
-          {/* Peek padding */}
-          <div className="shrink-0 w-4 snap-none"></div>
+          <div className="shrink-0 w-4 snap-none" />
         </div>
       </div>
-
 
       <div className="mt-8 flex justify-center px-4">
         <Link

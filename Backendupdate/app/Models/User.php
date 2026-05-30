@@ -57,6 +57,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'username', 'role', 'phone',
         'avatar', 'status', 'last_login_at', 'password', 'google_id',
+        'referral_code', 'referred_by_type', 'referred_by_user_id', 'referred_by_agent_id',
+        'referral_code_used', 'referred_at', 'referral_commission_balance', 'referral_commission_total',
     ];
 
     protected $hidden = ['password', 'remember_token'];
@@ -67,6 +69,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
             'last_login_at'     => 'datetime',
+            'referred_at'       => 'datetime',
         ];
     }
 
@@ -88,6 +91,16 @@ class User extends Authenticatable
     public function agent()
     {
         return $this->hasOne(Agent::class);
+    }
+
+    public function staffAssignments()
+    {
+        return $this->hasMany(StaffStudentAssignment::class, 'student_user_id');
+    }
+
+    public function assignedStudents()
+    {
+        return $this->hasMany(StaffStudentAssignment::class, 'staff_user_id');
     }
 
     public function universityWishlists()

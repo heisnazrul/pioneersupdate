@@ -11,8 +11,10 @@ import {
   faChevronRight,
   faStar as faStarSolid,
 } from "@fortawesome/free-solid-svg-icons";
-import { useApi } from "@/lib/api";
+import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 const TOKENS = {
@@ -41,24 +43,8 @@ function InstituteCard({ item, currency = "SAR", isArabic = false, href, t }) {
   const totalStars = 5;
   const tagLabel = item.tagLabel || (isArabic ? "الأعلى تقييماً" : "Top rated");
   const discountLabel = item.discountLabel;
-  const currencyIcon = "/assets/sar.svg";
-  const currencySymbol = currency === "GBP" ? "£" : null;
-
-  const formatAmount = (value) => {
-    if (value === null || value === undefined) return null;
-    if (typeof value === "number") return value;
-    if (typeof value === "string") {
-      const match = value.replace(/,/g, "").match(/[\d.]+/);
-      return match ? Number(match[0]) : null;
-    }
-    return null;
-  };
-
-  const formatNumber = (value) =>
-    new Intl.NumberFormat("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
+  const priceNewValue = getCoursePrice(item, currency, "new");
+  const priceOldValue = getCoursePrice(item, currency, "old");
 
   const CardTag = href ? Link : "article";
   const cardProps = href ? { href } : {};
@@ -166,43 +152,23 @@ function InstituteCard({ item, currency = "SAR", isArabic = false, href, t }) {
 
         {/* Price Row */}
         <div className="mt-3.5 flex gap-2 text-[13px] text-slate-700 items-center text-left" dir={isArabic ? "rtl" : "ltr"}>
-          <span className="inline-flex items-center gap-1 text-[16px] font-extrabold text-[#111827]">
-            {currencySymbol ? (
-              <span>{currencySymbol}</span>
-            ) : (
-              <img
-                src={currencyIcon}
-                alt={currency}
-                className="h-3.5 w-3.5 invert"
-              />
-            )}
-            <span>
-              {(() => {
-                const newAmount = formatAmount(item.priceNewValue ?? item.priceNew);
-                return newAmount ? formatNumber(newAmount) : item.priceNew || "-";
-              })()}
-            </span>
-          </span>
+          <CurrencyAmount
+            currency={currency}
+            amount={priceNewValue}
+            className="inline-flex items-center gap-1 text-[16px] font-extrabold text-[#111827]"
+            iconClassName="h-3.5 w-3.5"
+          />
           <span className="text-[#111827] font-medium text-[14px]">{t("pages.homepage.partners_offers.per_week", "/ week")}</span>
 
-          {(() => {
-            const oldAmount = formatAmount(item.priceOldValue ?? item.priceOld);
-            if (!oldAmount) return null;
-            return (
-              <span className="inline-flex items-center gap-0.5 text-slate-400 line-through text-[14px] mr-1">
-                {currencySymbol ? (
-                  <span>{currencySymbol}</span>
-                ) : (
-                  <img
-                    src={currencyIcon}
-                    alt={currency}
-                    className="h-3.5 w-3.5 invert opacity-50"
-                  />
-                )}
-                <span>{formatNumber(oldAmount)}</span>
-              </span>
-            );
-          })()}
+          {priceOldValue ? (
+            <CurrencyAmount
+              currency={currency}
+              amount={priceOldValue}
+              className="inline-flex items-center gap-0.5 text-slate-400 line-through text-[14px] mr-1"
+              iconClassName="h-3.5 w-3.5"
+              muted
+            />
+          ) : null}
         </div>
       </div>
     </CardTag>
@@ -214,10 +180,10 @@ export default function MobileOffers() {
   const tabsScrollRef = useRef(null);
   const tabRefs = useRef({});
   const tabTrackRef = useRef(null);
-  const { data: offersData } = useApi("/courseenglish/offers");
+  const { data: offersData } = useApi("/coursesat/home/offers");
   const { language, direction, t } = useLocale();
+  const { currency } = useCurrency();
   const isArabic = language === "ar";
-  const currency = "SAR";
 
   const offersCourses = offersData?.language_courses;
   const offersTags = offersData?.language_course_tags;
@@ -226,10 +192,12 @@ export default function MobileOffers() {
     const courses = offersCourses ?? [];
     if (!courses.length) return [];
     return courses.map((course) => {
-      const priceNewValue = course.price_new_sar ?? course.price_new_gbp ?? course.price_new;
-      const priceOldValue = course.price_old_sar ?? course.price_old_gbp ?? course.price_old;
+      const priceNewValue = getCoursePrice(course, currency, "new");
+      const priceOldValue = getCoursePrice(course, currency, "old");
       let discountLabel = null;
-      if (priceOldValue && priceNewValue && priceOldValue > priceNewValue) {
+      if (course.discount_percent) {
+        discountLabel = `${course.discount_percent}% OFF`;
+      } else if (priceOldValue && priceNewValue && priceOldValue > priceNewValue) {
         const discount = Math.round((1 - priceNewValue / priceOldValue) * 100);
         if (discount > 0) discountLabel = `${discount}% OFF`;
       }
@@ -248,22 +216,24 @@ export default function MobileOffers() {
         name: displayName,
         slug: course.slug,
         country: isArabic ? course.country_ar_name || course.country : course.country || course.country_ar_name,
-        flag: course.flag,
+        flag: getImageUrl(course.flag),
         courseType: isArabic
           ? course.course_type_ar_name || course.course_type
           : course.course_type || course.course_type_ar_name,
+        prices: course.prices,
         priceNewValue,
         priceOldValue,
         rating: course.rating,
         tagId: course.tag_id,
+        tagIds: course.tag_ids ?? [],
         tagSlug: course.tag_slug,
         tagLabel: isArabic ? course.tag_ar_name || course.tag : course.tag || course.tag_ar_name,
         tag: course.tag_slug || course.tag,
         discountLabel,
-        image: course.image || "/assets/hero.png",
+        image: getImageUrl(course.image) || "/assets/hero.png",
       };
     });
-  }, [offersCourses, isArabic]);
+  }, [offersCourses, isArabic, currency]);
 
   const tabs = useMemo(() => {
     const tags = offersTags ?? [];
@@ -293,11 +263,29 @@ export default function MobileOffers() {
   }, [tabs, activeTab]);
 
   const filtered = useMemo(() => {
-    if (currentTab === "all") return institutes;
-    const tagId = Number(currentTab);
-    return institutes.filter(
-      (item) => item.tagId === tagId || item.tagSlug === currentTab || item.tag === currentTab
-    );
+    const matchesTab = (item) => {
+      if (currentTab === "all") return true;
+
+      const tagId = Number(currentTab);
+      if (!Number.isNaN(tagId) && tagId > 0) {
+        return item.tagIds?.includes(tagId) || item.tagId === tagId;
+      }
+
+      return item.tagSlug === currentTab || item.tag === currentTab;
+    };
+
+    const matched = institutes.filter(matchesTab);
+
+    if (currentTab !== "all") {
+      return matched;
+    }
+
+    const seen = new Set();
+    return matched.filter((item) => {
+      if (seen.has(item.id)) return false;
+      seen.add(item.id);
+      return true;
+    });
   }, [institutes, currentTab]);
 
   const mobileHeading = t("pages.homepage.partners_offers.heading", "Partner institutes around the world");
@@ -482,11 +470,11 @@ export default function MobileOffers() {
           <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
             {filtered.map((inst) => (
               <InstituteCard
-                key={inst.id}
+                key={`${inst.id}-${inst.tagId ?? currentTab}`}
                 item={inst}
                 currency={currency}
                 isArabic={isArabic}
-                href={inst.slug ? `/language-institutes/${inst.slug}?course_id=${inst.id}` : undefined}
+                href={inst.school_slug || inst.slug ? `/language-institutes/${inst.school_slug || inst.slug}?course_id=${inst.id}` : undefined}
                 t={t}
               />
             ))}

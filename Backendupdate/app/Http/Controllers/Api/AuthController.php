@@ -32,6 +32,7 @@ class AuthController extends Controller
             'role' => ['nullable', Rule::in(\App\Models\User::LOW_LEVEL_ROLES)],
             'app' => ['nullable', Rule::in(\App\Models\User::FRONTEND_APPS)],
             'phone' => ['nullable', 'string', 'max:50'],
+            'referral_code' => ['nullable', 'string', 'max:50'],
         ]);
 
         $data['app'] = $app ?? $data['app'] ?? null;

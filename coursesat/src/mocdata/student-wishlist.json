@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "course_id": 1,
+      "course_type": "language_courses",
+      "course": {
+        "id": 1,
+        "slug": "ces-school",
+        "school_name": "CES School",
+        "school_ar_name": "سي اي اس",
+        "name": "CES School - London",
+        "ar_name": "سي اي اس - لندن",
+        "city_name": "London",
+        "city_ar_name": "لندن",
+        "country_name": "UK",
+        "country_ar_name": "المملكة المتحدة",
+        "flag": "/assets/flags/gb.svg",
+        "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "rating": 4.5,
+        "level": "A1",
+        "lessons": 20,
+        "hours": 15,
+        "price_sar": 2527,
+        "old_price_sar": 3200,
+        "course_name": "General English",
+        "course_ar_name": "الإنجليزية العامة",
+        "course_type": "General English",
+        "course_type_ar": "الإنجليزية العامة",
+        "tag": "Best Offer",
+        "tag_ar_name": "أفضل عرض"
+      }
+    },
+    {
+      "course_id": 2,
+      "course_type": "language_courses",
+      "course": {
+        "id": 2,
+        "slug": "lsi-london",
+        "school_name": "LSI London",
+        "school_ar_name": "معهد LSI لندن",
+        "name": "LSI London",
+        "ar_name": "معهد LSI لندن",
+        "city_name": "London",
+        "city_ar_name": "لندن",
+        "country_name": "UK",
+        "country_ar_name": "المملكة المتحدة",
+        "flag": "/assets/flags/gb.svg",
+        "image": "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "rating": 4.8,
+        "level": "A2",
+        "lessons": 25,
+        "hours": 20,
+        "price_sar": 2890,
+        "old_price_sar": 3600,
+        "course_name": "Intensive English",
+        "course_ar_name": "الإنجليزية المكثفة",
+        "course_type": "Intensive English",
+        "course_type_ar": "الإنجليزية المكثفة",
+        "tag": "20% OFF",
+        "tag_ar_name": "خصم 20%"
+      }
+    }
+  ]
+}

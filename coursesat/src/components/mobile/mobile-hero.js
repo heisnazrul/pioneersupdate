@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import HeroSearch from "@/components/shared/hero-search";
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
-import { useApi } from "@/lib/api";
+import { mapCourseTypeOptions, useHeroSearchData } from "@/lib/hero-search-data";
 import { useLocale } from "@/components/providers/locale-provider";
 
 const DEFAULT_SERVICE_MAP = [
@@ -25,7 +25,7 @@ function formatLocalDate(date) {
 
 export default function MobileHero() {
   const router = useRouter();
-  const { data: utilities } = useApi("/courseenglish/utilities");
+  const { courseTypes } = useHeroSearchData();
   const { language, messages, direction } = useLocale();
   const hero = messages?.pages?.homepage?.hero ?? {};
 
@@ -100,16 +100,10 @@ export default function MobileHero() {
     router.push(`/language-institutes?${params.toString()}`);
   };
 
-  const courseTypeOptions =
-    utilities?.language_course_types?.map((type) =>
-      language === "ar" ? type.ar_name || type.name : type.name || type.ar_name
-    ) ?? [
-      "General English",
-      "Intensive English",
-      "Semi-Intensive",
-      "IELTS Preparation",
-      "Business English",
-    ];
+  const courseTypeOptions = useMemo(
+    () => mapCourseTypeOptions(courseTypes, language),
+    [courseTypes, language]
+  );
 
   return (
     <section className="relative w-full overflow-hidden" dir={direction}>
@@ -121,7 +115,7 @@ export default function MobileHero() {
           </h2>
 
           {/* Fields */}
-          <div className="mt-4 space-y-3">
+          <div className="relative z-40 mt-4 space-y-3">
             {/* Destination */}
             <HeroSearch
               placeholder={hero.destination_box?.placeholder}
@@ -154,13 +148,15 @@ export default function MobileHero() {
                 placeholder={hero.course_placeholder}
                 options={courseTypeOptions}
                 selectedValue={courseType}
-                onSelect={(val) => setCourseType(val)}
+                onSelect={(option) =>
+                  setCourseType(typeof option === "object" ? option.value : option)
+                }
               />
             </div>
           </div>
 
           {/* Services checklist */}
-          <div className="mt-4 text-xs font-normal text-slate-700">
+          <div className="relative z-0 mt-4 text-xs font-normal text-slate-700">
             <div className="flex gap-1.5 text-sm justify-center">
               {services.map((service) => {
                 const checked = !!selectedServices[service.id];
@@ -192,7 +188,7 @@ export default function MobileHero() {
           {/* Search Button */}
           <button
             type="button"
-            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#135FAE] px-4 py-3 text-sm font-normal text-white shadow-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#135FAE] focus:ring-offset-2 focus:ring-offset-white"
+            className="relative z-0 mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#135FAE] px-4 py-3 text-sm font-normal text-white shadow-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#135FAE] focus:ring-offset-2 focus:ring-offset-white"
             onClick={handleSearch}
           >
             {hero.search_button_text || hero.search_button}

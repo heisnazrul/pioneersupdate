@@ -4,11 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-// import { useApi, buildApiUrl } from "@/lib/api";
-import { buildApiUrl } from "@/lib/api";
+import { useApi, buildApiUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
-import mockBlogs from "@/mocdata/blogs.json";
-import mockCats from "@/mocdata/categories.json";
 
 function pickImage(item) {
   const apiBase = buildApiUrl("");
@@ -56,7 +53,7 @@ function summarize(text, limit = 160) {
 }
 
 export default function MobileArticles() {
-  // const { data } = useApi("/courseenglish/articles");
+  const { data, loading } = useApi("/courseenglish/articles?per_page=50");
   const { language, t } = useLocale();
   const isArabic = language === "ar";
   const loc = (key) => t(`pages.articles.${key}`);
@@ -64,17 +61,14 @@ export default function MobileArticles() {
   const [articles, setArticles] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCat, setActiveCat] = useState("all");
-  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const load = async () => {
-      // Add fallback mock data
-      setArticles(mockBlogs || []);
-      setCategories(mockCats || []);
-      setLoaded(true);
-    };
-    load();
-  }, []);
+    if (!data) return;
+    setArticles(Array.isArray(data.data) ? data.data : []);
+    setCategories(Array.isArray(data.categories) ? data.categories : []);
+  }, [data]);
+
+  const loaded = !loading;
 
   const filtered = useMemo(() => {
     if (activeCat === "all") return articles;
@@ -86,6 +80,14 @@ export default function MobileArticles() {
       return catSlug === activeCat;
     });
   }, [articles, activeCat]);
+
+  if (!loaded) {
+    return (
+      <main className="flex min-h-[40vh] items-center justify-center px-4 py-16">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#1277BE] border-t-transparent" />
+      </main>
+    );
+  }
 
   if (loaded && articles.length === 0) {
     return (

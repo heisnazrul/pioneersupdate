@@ -100,8 +100,13 @@ export default function DesktopFooter() {
             <h4 className="mb-7 text-[1.2rem] font-semibold">{content.programs}</h4>
             <ul className="space-y-0.5 text-[0.9rem] leading-8">
               <li>
-                <Link href="/#language-institutes" className={linkCls}>
+                <Link href="/language-institutes" className={linkCls}>
                   {content.languageInstitutes}
+                </Link>
+              </li>
+              <li>
+                <Link href="/online-courses" className={linkCls}>
+                  {t("layouts.navbar.top_nav.online_courses", "Online Courses")}
                 </Link>
               </li>
               <li>

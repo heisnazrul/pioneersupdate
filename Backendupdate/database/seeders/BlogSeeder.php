@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class BlogSeeder extends Seeder
 {
@@ -75,6 +76,8 @@ class BlogSeeder extends Seeder
             ],
         ];
 
+        $this->publishBlogImages();
+
         foreach ($rows as $row) {
             $categoryId = $categoryIds[$row['category_slug']] ?? null;
             if (! $categoryId) {
@@ -98,6 +101,28 @@ class BlogSeeder extends Seeder
                     'updated_at' => now(),
                 ]
             );
+        }
+    }
+
+    private function publishBlogImages(): void
+    {
+        $sourceDir = database_path('seeders/assets/blog_images');
+
+        if (! is_dir($sourceDir)) {
+            return;
+        }
+
+        Storage::disk('public')->makeDirectory('blog_images');
+
+        foreach (glob($sourceDir . '/*.{jpg,jpeg,png,webp}', GLOB_BRACE) ?: [] as $file) {
+            $filename = basename($file);
+            $destination = 'blog_images/' . $filename;
+
+            if (Storage::disk('public')->exists($destination)) {
+                continue;
+            }
+
+            Storage::disk('public')->put($destination, file_get_contents($file));
         }
     }
 }

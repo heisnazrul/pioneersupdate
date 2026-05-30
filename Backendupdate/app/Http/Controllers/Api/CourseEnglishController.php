@@ -48,19 +48,20 @@ class CourseEnglishController extends Controller
         $countries = \App\Models\Country::query()
             ->active()
             ->orderBy('name')
-            ->get(['id', 'name', 'ar_name', 'slug', 'flag'])
+            ->get(['id', 'name', 'ar_name', 'slug', 'flag', 'country_code'])
             ->map(fn ($country) => [
                 'id' => $country->id,
                 'name' => $country->name,
                 'ar_name' => $country->ar_name,
                 'slug' => $country->slug,
-                'flag' => $this->support->toPublicUrl($country->flag),
+                'country_code' => $country->country_code,
+                'flag' => $this->support->toPublicUrl($country->resolveFlagPath()),
             ])
             ->values();
 
         $cities = \App\Models\City::query()
             ->active()
-            ->with('country:id,name,ar_name,flag')
+            ->with('country:id,name,ar_name,flag,country_code')
             ->orderBy('name')
             ->get(['id', 'country_id', 'name', 'ar_name', 'slug'])
             ->map(fn ($city) => [
@@ -70,7 +71,8 @@ class CourseEnglishController extends Controller
                 'slug' => $city->slug,
                 'country_name' => $city->country?->name,
                 'country_ar_name' => $city->country?->ar_name,
-                'flag' => $this->support->toPublicUrl($city->country?->flag),
+                'country_code' => $city->country?->country_code,
+                'flag' => $this->support->toPublicUrl($city->country?->resolveFlagPath()),
             ])
             ->values();
 
@@ -216,12 +218,23 @@ class CourseEnglishController extends Controller
             ->where('is_active', true)
             ->orderBy('display_order')
             ->orderBy('id')
-            ->get()
+            ->get();
+
+        $items = $faqs
             ->map(fn (Faq $faq) => $this->support->faqCard($faq))
             ->values();
 
+        $categories = $faqs
+            ->unique(fn (Faq $faq) => $faq->category)
+            ->map(fn (Faq $faq) => [
+                'category' => $faq->category,
+                'ar_category' => $faq->ar_category,
+            ])
+            ->values();
+
         return response()->json([
-            'faqs' => $faqs,
+            'faqs' => $items,
+            'categories' => $categories,
         ]);
     }
 
@@ -523,6 +536,7 @@ class CourseEnglishController extends Controller
             'school' => $this->support->schoolSummary($school, $school->branches->first()),
             'courses' => $courses,
             'selected_course_id' => $courseBySlug?->id,
+            'registration_fee' => (float) ($courses->min('registration_fee') ?? 0),
         ]);
     }
 

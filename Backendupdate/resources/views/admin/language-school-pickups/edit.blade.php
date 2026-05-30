@@ -33,6 +33,11 @@
             </div>
 
             <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pickup Location Name (Arabic)</label>
+                <input type="text" name="pickup_location_ar" value="{{ old('pickup_location_ar', $languageSchoolPickup->pickup_location_ar) }}" dir="rtl" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+            </div>
+
+            <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pickup Fee ($) *</label>
                 <input type="number" step="0.01" name="fee" value="{{ old('fee', $languageSchoolPickup->fee) }}" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
             </div>

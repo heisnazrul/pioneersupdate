@@ -2,9 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\LanguageCourseCategory;
 use App\Models\LanguageOnlineCourse;
 use App\Models\LanguageSchool;
+use App\Models\LanguageSchoolBranch;
+use App\Models\LanguageSchoolCourse;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -79,6 +83,103 @@ class CourseEnglishApiTest extends TestCase
             ->assertJsonCount(1, 'items')
             ->assertJsonPath('items.0.course_type', 'online_courses')
             ->assertJsonPath('items.0.course.id', $course->id);
+    }
+
+    public function test_courseenglish_user_can_manage_compare_for_language_course_with_weeks(): void
+    {
+        $user = User::factory()->create([
+            'role' => 'lg_student',
+            'status' => 'active',
+        ]);
+        $user->assignPrimaryRole('lg_student');
+
+        $country = Country::create([
+            'name' => 'United Kingdom',
+            'ar_name' => 'المملكة المتحدة',
+            'slug' => 'united-kingdom',
+            'flag' => 'flags/uk.svg',
+            'country_code' => 'GB',
+            'currency_code' => 'GBP',
+            'is_active' => true,
+        ]);
+
+        $city = City::create([
+            'country_id' => $country->id,
+            'name' => 'London',
+            'ar_name' => 'لندن',
+            'slug' => 'london',
+            'is_active' => true,
+        ]);
+
+        $school = LanguageSchool::create([
+            'name_en' => 'Compare School',
+            'name_ar' => 'مدرسة المقارنة',
+            'slug' => 'compare-school',
+            'status' => 'active',
+        ]);
+
+        $branch = LanguageSchoolBranch::create([
+            'school_id' => $school->id,
+            'city_id' => $city->id,
+            'slug' => 'compare-london',
+            'is_active' => 'yes',
+        ]);
+
+        $category = LanguageCourseCategory::create([
+            'name_en' => 'General English',
+            'name_ar' => 'الإنجليزية العامة',
+            'slug' => 'general-english',
+            'is_active' => 'yes',
+        ]);
+
+        $course = LanguageSchoolCourse::create([
+            'branch_id' => $branch->id,
+            'course_category_id' => $category->id,
+            'course_name_from_school' => 'Compare English',
+            'course_name_from_school_ar' => 'إنجليزي للمقارنة',
+            'slug' => 'compare-english',
+            'weekly_fee_1' => 120,
+            'week_category_1' => 1,
+            'is_active' => 'yes',
+        ]);
+
+        Sanctum::actingAs($user, ['app:courseenglish']);
+
+        $this->postJson('/api/courseenglish/compare/add', [
+            'course_type' => 'language_courses',
+            'course_id' => $course->id,
+            'weeks' => 8,
+        ])->assertOk()
+            ->assertJsonPath('success', true);
+
+        $this->getJson('/api/courseenglish/compare')
+            ->assertOk()
+            ->assertJsonCount(1, 'items')
+            ->assertJsonPath('items.0.course_type', 'language_courses')
+            ->assertJsonPath('items.0.course_id', $course->id)
+            ->assertJsonPath('items.0.weeks', 8);
+
+        $this->postJson('/api/courseenglish/compare/add', [
+            'course_type' => 'language_courses',
+            'course_id' => $course->id,
+            'weeks' => 12,
+        ])->assertOk();
+
+        $this->assertDatabaseHas('language_course_compares', [
+            'user_id' => $user->id,
+            'course_type' => 'language_courses',
+            'course_id' => $course->id,
+            'weeks' => 12,
+        ]);
+
+        $this->postJson('/api/courseenglish/compare/remove', [
+            'course_type' => 'language_courses',
+            'course_id' => $course->id,
+        ])->assertOk();
+
+        $this->getJson('/api/courseenglish/compare')
+            ->assertOk()
+            ->assertJsonCount(0, 'items');
     }
 
     public function test_booking_otp_flow_creates_courseenglish_lead_and_frontend_user(): void

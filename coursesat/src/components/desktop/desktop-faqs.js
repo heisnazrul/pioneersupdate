@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useApi } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
+import { normalizeFaqs, normalizeFaqCategories, resolveFaqCategory } from "@/lib/faq-content";
 
 const BLUE = "#0072bc";            // section background
 const BLUE_SOFT = "rgba(255,255,255,.10)"; // card bg over blue
@@ -85,32 +86,21 @@ export default function DesktopFaqs() {
 
   const rawFaqs = faqsData?.faqs;
 
-  const faqs = useMemo(() => {
-    const list = rawFaqs ?? [];
-    if (!list.length) return [];
-    return list.map((item, idx) => ({
-      id: item.id ?? idx,
-      cat: isArabic ? item.ar_category || item.category || "General" : item.category || item.ar_category || "General",
-      q: isArabic ? item.ar_question || item.question || "" : item.question || item.ar_question || "",
-      a: isArabic ? item.ar_answer || item.answer || "" : item.answer || item.ar_answer || "",
-    }));
-  }, [rawFaqs, isArabic]);
+  const faqs = useMemo(() => normalizeFaqs(rawFaqs, isArabic), [rawFaqs, isArabic]);
 
-  // Derived categories
-  const categories = useMemo(() => {
-    if (!faqs.length) return [];
-    return Array.from(new Set(faqs.map((f) => f.cat)));
-  }, [faqs]);
+  const categories = useMemo(
+    () => normalizeFaqCategories(faqsData?.categories, faqs, isArabic),
+    [faqsData?.categories, faqs, isArabic],
+  );
 
   const [activeCat, setActiveCat] = useState("");
   const [openId, setOpenId] = useState(null);
   const [visible, setVisible] = useState(3);
 
-  // Derived current category
-  const currentCat = useMemo(() => {
-    if (activeCat) return activeCat;
-    return categories[0] || "";
-  }, [categories, activeCat]);
+  const currentCat = useMemo(
+    () => resolveFaqCategory(activeCat, categories, isArabic),
+    [categories, activeCat, isArabic],
+  );
 
   // Derived list
   const list = useMemo(() => {

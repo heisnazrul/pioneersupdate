@@ -18,7 +18,7 @@ function priceField(obj, field, currency) {
 
 function fmtNum(value) {
     if (value === null || value === undefined) return "";
-    return Number(value).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return Math.round(Number(value)).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
 
 function Price({ value, currency, className = "", size = "md", isNegative = false }) {
@@ -41,7 +41,7 @@ function Price({ value, currency, className = "", size = "md", isNegative = fals
     );
 }
 
-export default function MobileInstituteBooking({ params }) {
+export default function MobileInstituteBooking({ slug: slugProp }) {
     const searchParams = useSearchParams();
     const { language, t } = useLocale();
     const isArabic = language === "ar";
@@ -90,7 +90,7 @@ export default function MobileInstituteBooking({ params }) {
 
     const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
     const [submitting, setSubmitting] = useState(false);
-    const slug = params?.slug || "lsi-education-london";
+    const slug = slugProp || "lsi-education-london";
 
     const loc = (en, ar) => (isArabic && ar) ? ar : en;
     const l = (key) => t(`pages.institute_details.booking.${key}`) || t(`pages.institute_details.${key}`);

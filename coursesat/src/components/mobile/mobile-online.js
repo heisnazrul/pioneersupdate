@@ -6,39 +6,27 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { useApi } from "@/lib/api";
+import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
-const TOKENS = {
-  border: "#E4EDF8",
-  primary: "#1F63AE",
-};
+const TOKENS = { border: "#E4EDF8", primary: "#1F63AE" };
 
-/* ===== CARD Component ===== */
 function CourseCard({ course, currency = "SAR", isArabic = false, href, t }) {
   const { isInWishlist, isInCompare, toggleWishlist, toggleCompare } = useCourseEnglishInteractions();
   const interactionType = "online_courses";
   const inWishlist = isInWishlist(interactionType, course.id);
   const inCompare = isInCompare(interactionType, course.id);
-  const currencyIcon = "/assets/sar.svg";
-  const currencySymbol = currency === "GBP" ? "£" : null;
-
-  const formatAmount = (value) => {
-    if (value === null || value === undefined) return null;
-    if (typeof value === "number") return value;
-    if (typeof value === "string") {
-      const match = value.replace(/,/g, "").match(/[\d.]+/);
-      return match ? Number(match[0]) : null;
-    }
-    return null;
-  };
-
-  const formatNumber = (value) =>
-    new Intl.NumberFormat("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
+  const priceNewValue = getCoursePrice(course, currency, "new");
+  const priceOldValue = getCoursePrice(course, currency, "old");
+  const priceUnit =
+    course.priceUnit === "per course"
+      ? isArabic
+        ? "/ دورة"
+        : "/ course"
+      : t("pages.homepage.partners_offers.per_week", "/ week");
 
   const CardTag = href ? Link : "article";
   const cardProps = href ? { href } : {};
@@ -113,10 +101,8 @@ function CourseCard({ course, currency = "SAR", isArabic = false, href, t }) {
         </div>
 
         <div className="mt-3 flex items-center gap-1.5 text-[12px] text-slate-500 justify-start">
-          {course.flag && (course.flag.startsWith("http") || course.flag.startsWith("/")) ? (
+          {course.flag ? (
             <img src={course.flag} alt={course.country} className="h-3.5 w-3.5" />
-          ) : course.flag ? (
-            <span className="text-sm leading-none">{course.flag}</span>
           ) : (
             <span className="text-sm leading-none">🌍</span>
           )}
@@ -128,153 +114,88 @@ function CourseCard({ course, currency = "SAR", isArabic = false, href, t }) {
         </h3>
 
         <div className="mt-3.5 flex items-center justify-start gap-1" dir="ltr">
-          <span className="inline-flex items-center gap-0.5 font-bold text-slate-900">
-            {currencySymbol ? (
-              <span>{currencySymbol}</span>
-            ) : (
-              <img src={currencyIcon} alt={currency} className="h-3.5 w-3.5 invert" />
-            )}
-            <span>
-              {(() => {
-                const newAmount = formatAmount(course.priceNewValue ?? course.price);
-                return newAmount ? formatNumber(newAmount) : course.price || "-";
-              })()}
-            </span>
-          </span>
-          {(() => {
-            const oldAmount = formatAmount(course.priceOldValue);
-            if (!oldAmount) return null;
-            return (
-              <span className="text-slate-400 line-through text-xs ml-1">
-                {currencySymbol ? currencySymbol : "SAR "} {formatNumber(oldAmount)}
-              </span>
-            );
-          })()}
-          <span className="text-slate-500 font-medium ml-1">{t("pages.homepage.partners_offers.per_week", "/ week")}</span>
+          <CurrencyAmount
+            currency={currency}
+            amount={priceNewValue}
+            className="inline-flex items-center gap-0.5 font-bold text-slate-900"
+            iconClassName="h-3.5 w-3.5"
+          />
+          {priceOldValue ? (
+            <CurrencyAmount
+              currency={currency}
+              amount={priceOldValue}
+              className="inline-flex items-center gap-0.5 text-slate-400 line-through text-xs ml-1"
+              iconClassName="h-3 w-3"
+              muted
+            />
+          ) : null}
+          <span className="text-slate-500 font-medium ml-1">{priceUnit}</span>
         </div>
       </div>
     </CardTag>
   );
 }
 
-/* ===== Mobile Component ===== */
 export default function MobileOnline() {
-  const { data } = useApi("/courseenglish/home/online");
+  const { data } = useApi("/coursesat/home/online");
   const { language, direction, t } = useLocale();
+  const { currency } = useCurrency();
   const isArabic = language === "ar";
-  const currency = "SAR";
 
   const heading = t("pages.homepage.online_courses.heading", "الدراسة عن بعد");
-  const subheading = t("pages.homepage.online_courses.subheading", "تعلم اللغة الإنجليزية أينما كنت، بخيارات مرنة تناسب وقتك وأهدافك");
+  const subheading = t(
+    "pages.homepage.online_courses.subheading",
+    "تعلم اللغة الإنجليزية أينما كنت، بخيارات مرنة تناسب وقتك وأهدافك"
+  );
   const ctaText = t("pages.homepage.online_courses.view_all", "View all courses");
   const ctaUrl = "/online-courses";
 
-  const offersOnline = data?.online_courses;
-
-  const dummyOnline = [
-    {
-      id: 1,
-      title: "سي اي اس - CES School",
-      ar_title: "سي اي اس - CES School",
-      provider: "English Academy Online",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      flag: "🇬🇧",
-      price_old: 2000,
-      price_new: 2527,
-      discountLabel: "خصم 20%",
-      image: "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 2,
-      title: "سي اي اس - CES School",
-      ar_title: "سي اي اس - CES School",
-      provider: "English Academy Online",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      flag: "🇬🇧",
-      price_old: 2000,
-      price_new: 2527,
-      discountLabel: "خصم 20%",
-      image: "https://images.pexels.com/photos/5212361/pexels-photo-5212361.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 3,
-      title: "سي اي اس - CES School",
-      ar_title: "سي اي اس - CES School",
-      provider: "English Academy Online",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      flag: "🇬🇧",
-      price_old: 2000,
-      price_new: 2527,
-      discountLabel: "خصم 20%",
-      image: "https://images.pexels.com/photos/4144222/pexels-photo-4144222.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 4,
-      title: "سي اي اس - CES School",
-      ar_title: "سي اي اس - CES School",
-      provider: "English Academy Online",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      flag: "🇬🇧",
-      price_old: 2000,
-      price_new: 2527,
-      discountLabel: "خصم 20%",
-      image: "https://images.pexels.com/photos/5151697/pexels-photo-5151697.jpeg?auto=compress&cs=tinysrgb&w=800",
-    }
-  ];
-
   const courses = useMemo(() => {
-    const apiCourses = offersOnline && offersOnline.length > 0 ? offersOnline : dummyOnline;
+    const apiCourses = data?.online_courses ?? [];
     return apiCourses.map((course) => {
-      const priceNewValue = course.price_new_sar ?? course.price_new_gbp ?? course.price_new ?? course.price;
-      const priceOldValue = course.price_old_sar ?? course.price_old_gbp ?? course.price_old;
       const providerName = course.provider || course.name || course.title;
       const providerAr = course.provider_ar_name || course.ar_name || course.ar_title || course.provider;
-      const schoolName = isArabic ? providerAr : providerName;
 
       return {
         id: course.id,
         title: isArabic ? course.ar_title || course.title : course.title || course.ar_title,
-        provider: schoolName,
+        provider: isArabic ? providerAr : providerName,
         slug: course.slug,
+        schoolSlug: course.school_slug,
         country: isArabic ? course.country_ar_name || course.country : course.country || course.country_ar_name,
-        flag: course.flag,
-        mode: course.mode || (isArabic ? "عن بُعد" : "Online"),
-        discountLabel: isArabic ? course.tag_ar_name || course.discountLabel || course.tag : course.discountLabel || course.tag || course.tag_ar_name,
-        priceNewValue,
-        priceOldValue,
-        image: course.image || "/assets/hero.png",
+        flag: getImageUrl(course.flag),
+        mode: isArabic ? "عن بُعد" : course.mode || "Online",
+        discountLabel: isArabic
+          ? course.tag_ar_name || course.discountLabel
+          : course.discountLabel || course.tag,
+        prices: course.prices,
+        priceUnit: course.price_unit,
+        image: getImageUrl(course.image) || "/assets/hero.png",
+        url: course.url,
       };
     });
-  }, [offersOnline, isArabic]);
+  }, [data?.online_courses, isArabic]);
 
   if (courses.length === 0) return null;
 
   return (
     <section className="block md:hidden bg-[#EEF4FB] py-10 w-full" dir={direction}>
-      
-      {/* Title */}
       <div className="px-4">
         <div className="flex items-center justify-between">
           <h2 className="text-[24px] font-extrabold leading-[1.3] text-[#111827] max-w-[55%] text-start">
             {heading}
           </h2>
-          <Link href={ctaUrl} className="flex items-center gap-1 rounded-[8px] bg-[#1F63AE] px-4 py-2 text-sm font-bold !text-white hover:brightness-110 transition-all">
+          <Link
+            href={ctaUrl}
+            className="flex items-center gap-1 rounded-[8px] bg-[#1F63AE] px-4 py-2 text-sm font-bold !text-white hover:brightness-110 transition-all"
+          >
             <span className="pb-0.5">{ctaText}</span>
             <FontAwesomeIcon icon={isArabic ? faChevronLeft : faChevronRight} className="text-xs" />
           </Link>
         </div>
-        {subheading && (
-          <p className="mt-2 text-sm text-slate-500 text-start">
-            {subheading}
-          </p>
-        )}
+        {subheading ? <p className="mt-2 text-sm text-slate-500 text-start">{subheading}</p> : null}
       </div>
 
-      {/* Swipe Row */}
       <div className="mt-6">
         <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
           {courses.map((course) => (
@@ -283,15 +204,20 @@ export default function MobileOnline() {
               course={course}
               currency={currency}
               isArabic={isArabic}
-              href={course.slug ? `/online-course/${course.slug}?course_id=${course.id}` : undefined}
+              href={
+                course.url ||
+                (course.schoolSlug
+                  ? `/online-courses/${course.schoolSlug}?course_id=${course.id}`
+                  : course.slug
+                    ? `/online-course/${course.slug}?course_id=${course.id}`
+                    : undefined)
+              }
               t={t}
             />
           ))}
-          {/* Peek padding */}
-          <div className="shrink-0 w-4 snap-none"></div>
+          <div className="shrink-0 w-4 snap-none" />
         </div>
       </div>
-
     </section>
   );
 }

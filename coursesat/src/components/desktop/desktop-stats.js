@@ -27,7 +27,7 @@ export default function DesktopStats() {
   ];
 
   return (
-    <section className="w-full bg-white py-16" dir={direction}>
+    <section className="relative z-0 w-full bg-white py-16" dir={direction}>
       <div className="mx-auto flex flex-row items-center justify-between gap-16 px-4 md:px-10 xl:px-20 2xl:px-40">
 
         {/* TEXT COLUMN: Left in LTR, Right in RTL */}

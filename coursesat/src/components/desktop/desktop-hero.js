@@ -7,7 +7,7 @@ import { useMemo, useState } from "react";
 import HeroSearch from "@/components/shared/hero-search";
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
-import { useApi } from "@/lib/api";
+import { mapCourseTypeOptions, useHeroSearchData } from "@/lib/hero-search-data";
 import { useLocale } from "@/components/providers/locale-provider";
 
 const DEFAULT_SERVICE_MAP = [
@@ -26,7 +26,7 @@ function formatLocalDate(date) {
 
 export default function DesktopHero() {
   const router = useRouter();
-  const { data: utilities } = useApi("/courseenglish/utilities");
+  const { courseTypes } = useHeroSearchData();
   const { language, messages, direction } = useLocale();
   const hero = messages?.pages?.homepage?.hero ?? {};
   const promoIcon = "/assets/icons/fire.svg";
@@ -103,19 +103,13 @@ export default function DesktopHero() {
     router.push(`/language-institutes?${params.toString()}`);
   };
 
-  const courseTypeOptions =
-    utilities?.language_course_types?.map((type) =>
-      language === "ar" ? type.ar_name || type.name : type.name || type.ar_name
-    ) ?? [
-      "General English",
-      "Intensive English",
-      "Semi-Intensive",
-      "IELTS Preparation",
-      "Business English",
-    ];
+  const courseTypeOptions = useMemo(
+    () => mapCourseTypeOptions(courseTypes, language),
+    [courseTypes, language]
+  );
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-white to-[#EDF5FB] overflow-hidden">
+    <section className="relative z-20 w-full bg-gradient-to-b from-white to-[#EDF5FB]">
       {/* Big Ben — centered between student and content */}
       <div className="pointer-events-none select-none absolute inset-0 overflow-hidden">
         <Image
@@ -163,38 +157,42 @@ export default function DesktopHero() {
 
           {/* Search card */}
           <div className="mt-5 w-full max-w-[650px] 2xl:max-w-[750px]">
-            <HeroSearch
-              placeholder={hero.destination_box?.placeholder}
-              subPlaceholder={hero.destination_box?.subtext}
-              onSelect={(dest) => setDestination(dest)}
-            />
+            <div className="relative z-40">
+              <HeroSearch
+                placeholder={hero.destination_box?.placeholder}
+                subPlaceholder={hero.destination_box?.subtext}
+                onSelect={(dest) => setDestination(dest)}
+              />
 
-            <div className="mt-4 2xl:mt-6 grid gap-6 sm:grid-cols-3">
-              <HeroDropdown
-                label={hero.course_label}
-                placeholder={hero.course_placeholder}
-                options={courseTypeOptions}
-                selectedValue={courseType}
-                onSelect={(val) => setCourseType(val)}
-              />
-              <HeroDropdown
-                label={hero.weeks_label}
-                placeholder={hero.weeks_placeholder}
-                options={weeksOptions}
-                scroll
-                selectedValue={formatWeeksValue(weeks)}
-                onSelect={(val) => setWeeks(parseInt(val))}
-              />
-              <HeroDatePicker
-                label={hero.start_label}
-                placeholder={hero.start_placeholder}
-                selectedDate={startDate}
-                onSelect={(date) => setStartDate(date)}
-              />
+              <div className="mt-4 2xl:mt-6 grid gap-6 sm:grid-cols-3">
+                <HeroDropdown
+                  label={hero.course_label}
+                  placeholder={hero.course_placeholder}
+                  options={courseTypeOptions}
+                  selectedValue={courseType}
+                  onSelect={(option) =>
+                    setCourseType(typeof option === "object" ? option.value : option)
+                  }
+                />
+                <HeroDropdown
+                  label={hero.weeks_label}
+                  placeholder={hero.weeks_placeholder}
+                  options={weeksOptions}
+                  scroll
+                  selectedValue={formatWeeksValue(weeks)}
+                  onSelect={(val) => setWeeks(parseInt(val))}
+                />
+                <HeroDatePicker
+                  label={hero.start_label}
+                  placeholder={hero.start_placeholder}
+                  selectedDate={startDate}
+                  onSelect={(date) => setStartDate(date)}
+                />
+              </div>
             </div>
 
             {/* Services checklist */}
-            <div className="mt-4 2xl:mt-6 text-lg 2xl:text-2xl font-medium text-slate-700 text-start">
+            <div className="relative z-0 mt-4 2xl:mt-6 text-lg 2xl:text-2xl font-medium text-slate-700 text-start">
               <div className="flex flex-wrap items-center gap-1.5 justify-start">
                 {services.map((service) => {
                   const checked = !!selectedServices[service.id];
@@ -223,7 +221,7 @@ export default function DesktopHero() {
               </div>
             </div>
 
-            <div className="text-start">
+            <div className="relative z-0 text-start">
               <button
                 type="button"
                 className="mt-4 mb-0 2xl:mb-30 inline-flex items-center justify-center rounded-xl bg-[#1A70C4] px-14 py-3.5 text-[18px] font-semibold text-white shadow-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#1A70C4] focus:ring-offset-2"

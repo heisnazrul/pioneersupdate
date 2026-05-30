@@ -124,8 +124,13 @@ export default function MobileFooter() {
             </h4>
             <ul className="text-[0.80rem] leading-8">
               <li>
-                <Link href="/#language-institutes" className={linkCls}>
+                <Link href="/language-institutes" className={linkCls}>
                   {content.languageInstitutes}
+                </Link>
+              </li>
+              <li>
+                <Link href="/online-courses" className={linkCls}>
+                  {t("layouts.navbar.top_nav.online_courses", "Online Courses")}
                 </Link>
               </li>
               <li>

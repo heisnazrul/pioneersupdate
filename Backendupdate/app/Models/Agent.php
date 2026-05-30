@@ -11,7 +11,8 @@ class Agent extends Model
 
     protected $fillable = [
         'user_id', 'company_name', 'phone', 'status',
-        'referral_code', 'referral_discount', 'commission_percent',
+        'referral_code', 'referral_slug', 'is_code_custom',
+        'referral_discount', 'commission_percent', 'commission_balance', 'total_commission_earned',
         'referral_joined_at', 'verified_at',
     ];
 

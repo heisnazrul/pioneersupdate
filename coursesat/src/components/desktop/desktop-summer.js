@@ -6,9 +6,12 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faUser } from "@fortawesome/free-solid-svg-icons";
-import { useApi } from "@/lib/api";
+import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
+import { SUMMER_CAMPS_LISTING_URL } from "@/lib/summer-camps";
 
 const TOKENS = {
   border: "#E4EDF8",
@@ -16,22 +19,15 @@ const TOKENS = {
   primaryShadow: "0 4px 12px rgba(31,99,174,.35)",
 };
 
-const GAP = 28; // px
+const GAP = 28;
 const AUTO_MS = 4000;
 
-/* ---------- Card ---------- */
-function ProgramCard({ program, style, currency = "SAR", isArabic = false, t }) {
+function ProgramCard({ program, style, currency = "SAR", isArabic = false, href, t }) {
   const { isInWishlist, isInCompare, toggleWishlist, toggleCompare } = useCourseEnglishInteractions();
   const interactionType = "summer_camps";
   const inWishlist = isInWishlist(interactionType, program.id);
   const inCompare = isInCompare(interactionType, program.id);
-  const currencyIcon = "/assets/sar.svg";
-  const currencySymbol = currency === "GBP" ? "£" : null;
-
-  const priceText = String(program.priceFrom ?? "")
-    .replace(/^(SAR|GBP)\s*/i, "")
-    .replace(/^£\s*/i, "")
-    .trim();
+  const priceFromValue = getCoursePrice(program, currency, "from");
 
   const ageText = String(program.ageRange ?? "").trim();
   const hasAgeUnit = /(year|years|سنة|سنوات|عام|أعوام)/i.test(ageText);
@@ -41,9 +37,13 @@ function ProgramCard({ program, style, currency = "SAR", isArabic = false, t }) 
       : `${ageText} ${isArabic ? "سنة" : "years"}`
     : "";
 
+  const CardTag = href ? Link : "article";
+  const cardProps = href ? { href } : {};
+
   return (
-    <article
-      className="shrink-0 rounded-[24px] bg-white overflow-hidden transition duration-300 hover:shadow-lg"
+    <CardTag
+      {...cardProps}
+      className="shrink-0 rounded-[24px] bg-white overflow-hidden transition duration-300 hover:shadow-lg block"
       style={{ ...style, border: `1px solid ${TOKENS.border}` }}
     >
       <div className="relative m-4 rounded-[20px] bg-[#E7F0FB]">
@@ -93,9 +93,7 @@ function ProgramCard({ program, style, currency = "SAR", isArabic = false, t }) 
       </div>
 
       <div className="px-6 pb-5 text-start">
-        <h3 className="text-[18px] font-bold leading-snug text-slate-900">
-          {program.title}
-        </h3>
+        <h3 className="text-[18px] font-bold leading-snug text-slate-900">{program.title}</h3>
 
         <div className="mt-2 flex items-center gap-2 text-[13px] text-slate-600">
           <FontAwesomeIcon icon={faLocationDot} className="text-[#1F63AE]" />
@@ -115,126 +113,54 @@ function ProgramCard({ program, style, currency = "SAR", isArabic = false, t }) 
 
         <div className="mt-4 text-[14px] text-slate-700 flex items-center gap-1">
           <span className="text-slate-500 font-medium">{isArabic ? "ابتداءً من " : "From "}</span>
-          <span className="inline-flex items-center gap-1 font-bold text-slate-900">
-            {currencySymbol ? (
-              <span>{currencySymbol}</span>
-            ) : (
-              <img src={currencyIcon} alt={currency} className="h-4 w-4 invert" />
-            )}
-            <span>{priceText}</span>
-          </span>
+          <CurrencyAmount
+            currency={currency}
+            amount={priceFromValue}
+            className="inline-flex items-center gap-1 font-bold text-slate-900"
+            iconClassName="h-4 w-4"
+          />
           <span className="text-slate-500 font-medium">{t("pages.homepage.partners_offers.per_week", "/ week")}</span>
         </div>
       </div>
-    </article>
+    </CardTag>
   );
 }
 
-/* ---------- Main Component ---------- */
 export default function DesktopSummer() {
   const viewportRef = useRef(null);
-  const { data } = useApi("/courseenglish/home/summer");
+  const { data } = useApi("/coursesat/home/summer");
   const { language, direction, t } = useLocale();
+  const { currency } = useCurrency();
   const isArabic = language === "ar";
-  const currency = "SAR";
 
   const heading = t("pages.homepage.summer_programs.heading", "Summer Programs");
-  const subheading = t("pages.homepage.summer_programs.subheading", "Discover the summer programs available this summer");
+  const subheading = t(
+    "pages.homepage.summer_programs.subheading",
+    "Discover the summer programs available this summer"
+  );
   const ctaText = t("pages.homepage.summer_programs.view_all", "All programs");
-  const ctaUrl = "/summer-programs";
-
-  const offersCamps = data?.summer_camps;
-
-  const dummyCamps = [
-    {
-      id: 1,
-      title: "English Adventure on Brighton Seafront",
-      ar_title: "مخيم صيفي في برايتون",
-      city: "Brighton",
-      city_ar_name: "برايتون",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      ageRange: "15–17 years",
-      description: "Enjoy a unique experience learning English on the beautiful Brighton seafront.",
-      ar_description: "استمتع بتجربة فريدة لتعلم اللغة الإنجليزية على الواجهة البحرية الجميلة.",
-      priceFrom: "£500",
-      image: "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 2,
-      title: "London City Explorer Camp",
-      ar_title: "مخيم مستكشف مدينة لندن",
-      city: "London",
-      city_ar_name: "لندن",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      ageRange: "12-16 years",
-      description: "Discover famous landmarks while improving your English skills.",
-      ar_description: "اكتشف المعالم الشهيرة أثناء تحسين مهاراتك في اللغة الإنجليزية.",
-      priceFrom: "£950",
-      image: "https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 3,
-      title: "California Surf & Study",
-      ar_title: "دراسة وتزلج على الأمواج في كاليفورنيا",
-      city: "Santa Monica",
-      city_ar_name: "سانتا مونيكا",
-      country: "USA",
-      country_ar_name: "الولايات المتحدة",
-      ageRange: "14-18 years",
-      description: "Combine English lessons with professional surf coaching.",
-      ar_description: "اجمع بين دروس اللغة الإنجليزية وتدريب ركوب الأمواج المحترف.",
-      priceFrom: "$2200",
-      image: "https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 4,
-      title: "Oxford Academic Summer",
-      ar_title: "الصيف الأكاديمي في أكسفورد",
-      city: "Oxford",
-      city_ar_name: "أكسفورد",
-      country: "United Kingdom",
-      country_ar_name: "المملكة المتحدة",
-      ageRange: "16-19 years",
-      description: "Experience student life at one of the world's most prestigious universities.",
-      ar_description: "جرب حياة الطالب في واحدة من أرقى الجامعات في العالم.",
-      priceFrom: "£2800",
-      image: "https://images.pexels.com/photos/1181397/pexels-photo-1181397.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
-    {
-      id: 5,
-      title: "Toronto Tech Camp",
-      ar_title: "مخيم تورونتو التقني",
-      city: "Toronto",
-      city_ar_name: "تورونتو",
-      country: "Canada",
-      country_ar_name: "كندا",
-      ageRange: "13-17 years",
-      description: "Learn coding and robotics alongside English classes.",
-      ar_description: "تعلم البرمجة والروبوتات إلى جانب دروس اللغة الإنجليزية.",
-      priceFrom: "C$1800",
-      image: "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=800",
-    }
-  ];
+  const ctaUrl = SUMMER_CAMPS_LISTING_URL;
 
   const programs = useMemo(() => {
-    const apiPrograms = offersCamps && offersCamps.length > 0 ? offersCamps : dummyCamps;
+    const apiPrograms = data?.summer_camps ?? [];
     return apiPrograms.map((camp) => ({
       id: camp.id,
       title: isArabic ? camp.ar_title || camp.ar_name || camp.title || camp.name : camp.title || camp.name || camp.ar_title,
+      slug: camp.slug,
+      campSlug: camp.camp_slug,
       city: isArabic ? camp.city_ar_name || camp.city : camp.city || camp.city_ar_name,
       country: isArabic ? camp.country_ar_name || camp.country : camp.country || camp.country_ar_name,
-      ageRange: camp.ageRange || camp.age_range,
+      ageRange: camp.age_range,
       description: isArabic
         ? camp.ar_description || camp.description || ""
         : camp.description || camp.ar_description || "",
-      priceFrom: camp.priceFrom || camp.price_from || "",
-      image: camp.image || "/assets/hero.png",
+      prices: camp.prices,
+      image: getImageUrl(camp.image) || "/assets/hero.png",
+      url: camp.url,
     }));
-  }, [offersCamps, isArabic]);
+  }, [data?.summer_camps, isArabic]);
 
-  const [cardW, setCardW] = useState(0);
+  const [cardW, setCardW] = useState(320);
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(3);
 
@@ -244,13 +170,9 @@ export default function DesktopSummer() {
     const handleResize = () => {
       if (typeof window === "undefined") return;
       const w = window.innerWidth;
-      if (w >= 1536) {
-        setVisible(4);
-      } else if (w >= 1280) {
-        setVisible(3);
-      } else {
-        setVisible(2);
-      }
+      if (w >= 1536) setVisible(4);
+      else if (w >= 1280) setVisible(3);
+      else setVisible(2);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -264,8 +186,7 @@ export default function DesktopSummer() {
     const calc = () => {
       const w = el.clientWidth;
       const totalGap = GAP * (visible - 1);
-      const width = Math.max(260, Math.floor((w - totalGap) / visible));
-      setCardW(width);
+      setCardW(Math.max(260, Math.floor((w - totalGap) / visible)));
     };
 
     calc();
@@ -276,7 +197,6 @@ export default function DesktopSummer() {
 
   const maxIndex = Math.max(0, len - visible);
 
-  // Autoplay
   useEffect(() => {
     if (len <= visible) return;
     const id = setInterval(() => {
@@ -295,10 +215,10 @@ export default function DesktopSummer() {
     setIndex((i) => (i + 1 > maxIndex ? 0 : i + 1));
   };
 
-  const dir = isArabic ? 1 : -1;
+  const dir = -1;
   const trackStyle = {
     gap: `${GAP}px`,
-    width: cardW ? `${len * cardW + (len - 1) * GAP}px` : "auto",
+    width: `${len * cardW + (len - 1) * GAP}px`,
     transform: `translateX(${dir * Math.min(index, maxIndex) * (cardW + GAP)}px)`,
     transition: "transform 500ms ease",
   };
@@ -311,65 +231,39 @@ export default function DesktopSummer() {
   if (len === 0) return null;
 
   return (
-    <section className="hidden md:block py-16 sm:py-20 w-full bg-white" dir={direction}>
+    <section id="summer-programs" className="hidden md:block py-16 sm:py-20 w-full bg-white" dir={direction}>
       <div className="px-6 md:px-10 xl:px-20 2xl:px-40 mx-auto">
-
-        {/* Title */}
         <div className="text-center">
-          <h2 className="py-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            {heading}
-          </h2>
-          {subheading && (
-            <p className="mt-2 text-lg text-slate-500 max-w-2xl mx-auto">
-              {subheading}
-            </p>
-          )}
+          <h2 className="py-4 text-3xl font-bold text-slate-900 sm:text-4xl">{heading}</h2>
+          {subheading ? (
+            <p className="mt-2 text-lg text-slate-500 max-w-2xl mx-auto">{subheading}</p>
+          ) : null}
         </div>
 
-        {/* Slider Area */}
         <div className="relative mt-10 px-4 md:px-12">
-          {len > visible && (
+          {len > visible ? (
             <>
-              {/* Prev Button */}
               <button
                 type="button"
                 onClick={prev}
                 aria-label="Previous programs"
                 className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 grid place-items-center rounded-full border border-slate-200 bg-white p-4 text-slate-800 shadow-md hover:bg-slate-50 transition"
               >
-                <Image
-                  src="/assets/icons/arrow-left.svg"
-                  alt="Previous"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4"
-                />
+                <Image src="/assets/icons/arrow-left.svg" alt="Previous" width={16} height={16} className="h-4 w-4" />
               </button>
-
-              {/* Next Button */}
               <button
                 type="button"
                 onClick={next}
                 aria-label="Next programs"
                 className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 grid place-items-center rounded-full p-4 text-white shadow-md hover:brightness-110 transition"
-                style={{
-                  background: TOKENS.primary,
-                  boxShadow: TOKENS.primaryShadow,
-                }}
+                style={{ background: TOKENS.primary, boxShadow: TOKENS.primaryShadow }}
               >
-                <Image
-                  src="/assets/icons/arrow-right-white.svg"
-                  alt="Next"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4"
-                />
+                <Image src="/assets/icons/arrow-right-white.svg" alt="Next" width={16} height={16} className="h-4 w-4" />
               </button>
             </>
-          )}
+          ) : null}
 
-          {/* Cards Track */}
-          <div ref={viewportRef} className="overflow-hidden m-4">
+          <div ref={viewportRef} className="overflow-hidden m-4" dir="ltr">
             <div className="flex" style={trackStyle}>
               {programs.map((program) => (
                 <ProgramCard
@@ -378,6 +272,7 @@ export default function DesktopSummer() {
                   style={cardStyle}
                   currency={currency}
                   isArabic={isArabic}
+                  href={SUMMER_CAMPS_LISTING_URL}
                   t={t}
                 />
               ))}
@@ -385,7 +280,6 @@ export default function DesktopSummer() {
           </div>
         </div>
 
-        {/* All programs button */}
         <div className="mt-12 flex justify-center">
           <Link
             href={ctaUrl}
@@ -394,7 +288,6 @@ export default function DesktopSummer() {
             {ctaText}
           </Link>
         </div>
-
       </div>
     </section>
   );

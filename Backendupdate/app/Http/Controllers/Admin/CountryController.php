@@ -28,6 +28,7 @@ class CountryController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $this->validateData($request);
+        unset($data['flag']);
 
         if ($request->hasFile('flag')) {
             $data['flag'] = $request->file('flag')->store('flags', 'public');
@@ -45,6 +46,7 @@ class CountryController extends Controller
     public function update(Request $request, Country $country): RedirectResponse
     {
         $data = $this->validateData($request, $country);
+        unset($data['flag']);
 
         if ($request->boolean('remove_flag')) {
             if ($country->flag) Storage::disk('public')->delete($country->flag);
@@ -52,8 +54,6 @@ class CountryController extends Controller
         } elseif ($request->hasFile('flag')) {
             if ($country->flag) Storage::disk('public')->delete($country->flag);
             $data['flag'] = $request->file('flag')->store('flags', 'public');
-        } else {
-            unset($data['flag']);
         }
 
         $country->update($data);
@@ -86,7 +86,7 @@ class CountryController extends Controller
             'continent'    => ['nullable', 'string', 'max:100'],
             'description'  => ['nullable', 'string'],
             'ar_description'=> ['nullable', 'string'],
-            'flag'         => ['nullable', 'image', 'max:2048'],
+            'flag'         => ['nullable', 'image:allow_svg', 'max:2048'],
             'is_popular'   => ['nullable', 'boolean'],
             'is_active'    => ['nullable', 'boolean'],
             'display_order'=> ['nullable', 'integer', 'min:0'],

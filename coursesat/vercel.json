@@ -1,0 +1,15 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://app.pioneersedu.com/api/:path*"
+    },
+    {
+      "source": "/storage/:path*",
+      "destination": "https://app.pioneersedu.com/storage/:path*"
+    }
+  ]
+}

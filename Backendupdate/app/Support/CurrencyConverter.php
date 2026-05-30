@@ -21,6 +21,53 @@ class CurrencyConverter
         ];
     }
 
+    /**
+     * @return list<string>
+     */
+    public function availableCurrencyCodes(): array
+    {
+        $codes = ExchangeRate::query()
+            ->get(['base_currency', 'target_currency'])
+            ->flatMap(fn (ExchangeRate $rate) => [$rate->base_currency, $rate->target_currency])
+            ->map(fn ($code) => $this->normalize((string) $code))
+            ->unique()
+            ->sort()
+            ->values()
+            ->all();
+
+        return $codes;
+    }
+
+    /**
+     * @return array<string, float>
+     */
+    public function buildPriceMap(float|int|string|null $amount, string $baseCurrency): array
+    {
+        if ($amount === null || $amount === '') {
+            return [];
+        }
+
+        $base = $this->normalize($baseCurrency ?: 'GBP');
+        $map = [];
+
+        foreach ($this->availableCurrencyCodes() as $target) {
+            $fee = $this->feePercent($base, $target);
+            $converted = $this->convert($amount, $base, $target, $fee > 0);
+
+            if ($converted !== null) {
+                $map[$target] = $converted;
+            }
+        }
+
+        if (! array_key_exists($base, $map)) {
+            $map[$base] = round((float) $amount, 2);
+        }
+
+        ksort($map);
+
+        return $map;
+    }
+
     public function convert(float|int|string|null $amount, string $base, string $target, bool $applyFee): ?float
     {
         if ($amount === null || $amount === '') {
@@ -117,6 +164,55 @@ class CurrencyConverter
         }
 
         return $this->feeCache[$cacheKey] = (float) ($fee ?? 0);
+    }
+
+    public function getExchangeRate(string $baseCurrency, string $targetCurrency): ?float
+    {
+        return $this->rate($this->normalize($baseCurrency), $this->normalize($targetCurrency));
+    }
+
+    public function getConversionFeePercent(string $baseCurrency, string $targetCurrency): float
+    {
+        return $this->feePercent($this->normalize($baseCurrency), $this->normalize($targetCurrency));
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function bookingCurrencySnapshot(string $baseCurrency, string $displayCurrency, float $baseTotal): array
+    {
+        $base = $this->normalize($baseCurrency ?: 'GBP');
+        $display = $this->normalize($displayCurrency ?: $base);
+        $rate = $this->getExchangeRate($base, $display);
+        $feePercent = $this->getConversionFeePercent($base, $display);
+        $converted = $this->convert($baseTotal, $base, $display, $feePercent > 0);
+        $feeAmount = $converted !== null && $feePercent > 0
+            ? round($baseTotal * ($rate ?? 0) * ($feePercent / 100), 2)
+            : 0.0;
+
+        $ratesAtBooking = [];
+        foreach ($this->availableCurrencyCodes() as $code) {
+            $codeRate = $this->getExchangeRate($base, $code);
+            if ($codeRate !== null) {
+                $ratesAtBooking[$code] = round($codeRate, 6);
+            }
+        }
+
+        if (! array_key_exists($base, $ratesAtBooking)) {
+            $ratesAtBooking[$base] = 1.0;
+        }
+
+        return [
+            'base_currency' => $base,
+            'display_currency' => $display,
+            'exchange_rate' => $rate,
+            'conversion_fee_percent' => $feePercent,
+            'conversion_fee_amount' => $feeAmount,
+            'base_total' => round($baseTotal, 2),
+            'display_total' => $converted,
+            'rates_at_booking' => $ratesAtBooking,
+            'captured_at' => now()->toIso8601String(),
+        ];
     }
 
     private function normalize(string $code): string

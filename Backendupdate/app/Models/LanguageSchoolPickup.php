@@ -13,6 +13,7 @@ class LanguageSchoolPickup extends Model
     protected $fillable = [
         'branch_id',
         'pickup_location',
+        'pickup_location_ar',
         'fee'
     ];
 

@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useLocale } from "@/components/providers/locale-provider";
-import { buildApiUrl } from "@/lib/api";
-import mockBlogs from "@/mocdata/blogs.json";
-import mockCats from "@/mocdata/categories.json";
+import { useApi, buildApiUrl } from "@/lib/api";
+import ArticleContent, { formatArticleDate, getArticleField } from "@/lib/article-content";
 
 function pickImage(item) {
   const apiBase = buildApiUrl("");
@@ -52,34 +51,28 @@ function summarize(text, limit = 160) {
 }
 
 export default function DesktopArticleDetails({ slug }) {
+  const { data: articleData, loading, error } = useApi(slug ? `/courseenglish/articles/${encodeURIComponent(slug)}` : null);
+  const { data: listData } = useApi("/courseenglish/articles?per_page=12");
   const { language, t } = useLocale();
   const isArabic = language === "ar";
   const loc = (key) => t(`pages.articles.${key}`);
 
-  const [article, setArticle] = useState(null);
-  const [relatedArticles, setRelatedArticles] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+  const article = articleData?.slug || articleData?.id ? articleData : null;
+  const categories = Array.isArray(listData?.categories) ? listData.categories : [];
+  const relatedArticles = useMemo(() => {
+    const items = Array.isArray(listData?.data) ? listData.data : [];
+    return items.filter((b) => b.slug !== slug).slice(0, 3);
+  }, [listData, slug]);
 
-  useEffect(() => {
-    const load = () => {
-      // Find the article
-      const found = mockBlogs?.find((b) => b.slug === slug) || mockBlogs?.[0];
-      setArticle(found);
+  if (loading) {
+    return (
+      <main className="flex min-h-[40vh] items-center justify-center bg-[#F7F9FB] px-4 py-16">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#1277BE] border-t-transparent" />
+      </main>
+    );
+  }
 
-      // Get related/other articles
-      const others = mockBlogs?.filter((b) => b.slug !== slug).slice(0, 3) || [];
-      setRelatedArticles(others);
-
-      setCategories(mockCats || []);
-
-      setLoaded(true);
-    };
-    load();
-  }, [slug]);
-
-  if (!loaded) return null;
-  if (loaded && !article) {
+  if (error || !article) {
     return (
       <main className="px-2 py-16 text-slate-900 md:px-10 lg:px-20" dir={isArabic ? "rtl" : "ltr"}>
         <div className="rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-sm">
@@ -90,11 +83,13 @@ export default function DesktopArticleDetails({ slug }) {
     );
   }
 
-  const title = isArabic ? article.ar_title || article.title : article.title;
-  // Fallback content if the mock article doesn't have a full body
-  const content = isArabic
-    ? article.ar_content || article.content || "تعد بريطانيا واحدة من أفضل الوجهات العالمية لتعلم اللغة الإنجليزية بفضل معاهدها العريقة ومدنها الغنية ثقافيًا. إذا كنت تفكر في الدراسة هناك، إليك 10 خطوات رئيسية يجب معرفتها: شهرة معاهد بريطانيا هي الوجهة الأولى عالميًا لدراسة اللغة الإنجليزية، حيث تضم معاهد مرموقة تقدم برامج تعليمية عالية الجودة. تكلفة الدراسة تختلف حسب المدينة والمعهد، حيث تتراوح بين 285 و 650 جنيهًا إسترلينيًا أسبوعيًا، بينما تصل تكلفة الدراسة لمدة 6 أشهر إلى 12,000 جنيه إسترليني شاملة السكن. تكلفة المعيشة يمكن للطلاب السكن مع عائلات بريطانية أو في سكن طلابي. تتراوح تكلفة الإقامة مع عائلة بين 1800 و 2000 جنيه إسترليني لمدة 3 أشهر، بينما يختلف السكن الطلابي حسب الموقع والخدمات. أفضل المدن لدراسة اللغة من أبرز المدن التي يقصدها الطلاب: لندن، مانشستر، برايتون، بورنموث، وليفربول، حيث توفر بيئة مناسبة للدراسة والمعيشة. أفضل المعاهد في بريطانيا هناك العديد من المعاهد المميزة مثل: معهد مالفيرن هاوس ومعهد إي سي إنجلش."
-    : article.content || "The UK is one of the best global destinations for learning English thanks to its prestigious institutes and culturally rich cities. If you are considering studying there, here are 10 key steps you must know: The reputation of UK institutes makes it the premier global destination for English studies, housing prestigious institutes that offer high-quality educational programs. Tuition costs vary depending on the city and institute, ranging between £285 and £650 per week, while a 6-month study period can reach £12,000 including accommodation. Living costs: students can stay with British families or in student housing. Homestay accommodation ranges between £1,800 and £2,000 for 3 months, while student housing varies by location and services. The best cities to study English include London, Manchester, Brighton, Bournemouth, and Liverpool, providing a suitable environment for study and living. The best institutes in the UK include Malvern House and EC English.";
+  const title = getArticleField(article, isArabic, "title");
+  const content = getArticleField(article, isArabic, "content");
+  const summary = getArticleField(article, isArabic, "summary");
+  const publishedDate = formatArticleDate(article);
+  const categoryName = isArabic
+    ? article.category?.ar_name || article.category_ar_name || article.category?.name
+    : article.category?.name || article.category_ar_name;
 
   return (
     <main className="bg-[#F7F9FB] px-4 py-10 pb-20 text-slate-900 md:px-10 lg:px-20 2xl:px-40" dir={isArabic ? "rtl" : "ltr"}>
@@ -116,11 +111,8 @@ export default function DesktopArticleDetails({ slug }) {
       <section className="my-10 md:my-20 flex flex-col gap-40 lg:flex-row">
         {/* Article Text */}
         <div className="flex-1 text-start">
-          <div className="prose prose-lg max-w-none text-slate-700 leading-[2] ">
-            {content.split("\n").map((p, i) => (
-              <p key={i} className="mb-6">{p}</p>
-            ))}
-          </div>
+          {summary ? <p className="mb-8 text-lg text-slate-500">{summary}</p> : null}
+          <ArticleContent content={content} />
 
           {/* Featured Image inside content column */}
           <div className="mt-10 h-[400px] w-full overflow-hidden rounded-3xl md:h-[500px]">
@@ -138,8 +130,14 @@ export default function DesktopArticleDetails({ slug }) {
           <div className="mb-6 rounded-3xl border border-[#D9E4EF] bg-white p-6 shadow-sm text-start">
             <div className="mb-6 border-b border-[#E7EEF5] pb-6">
               <p className="mb-2 text-sm text-slate-500">{loc("published_in")}</p>
-              <p className="text-lg font-medium text-[#102233]">{article.date || "29/06/2025"}</p>
+              <p className="text-lg font-medium text-[#102233]">{publishedDate || "-"}</p>
             </div>
+            {categoryName ? (
+              <div className="mb-6 border-b border-[#E7EEF5] pb-6">
+                <p className="mb-2 text-sm text-slate-500">{loc("categories")}</p>
+                <p className="text-lg font-medium text-[#102233]">{categoryName}</p>
+              </div>
+            ) : null}
             <div>
               <p className="mb-4 text-sm text-slate-500">{loc("share")}</p>
               <div className="flex gap-4">
@@ -203,7 +201,7 @@ export default function DesktopArticleDetails({ slug }) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9E4EF] text-slate-600 transition group-hover:bg-[#1277BE] group-hover:text-white group-hover:border-transparent">
                       <FontAwesomeIcon icon={isArabic ? faArrowLeft : faArrowRight} className="h-4 w-4" />
                     </div>
-                    <span className="text-sm font-medium text-slate-500">{blog.date || "29/06/2025"}</span>
+                    <span className="text-sm font-medium text-slate-500">{formatArticleDate(blog) || blog.date || "-"}</span>
                   </div>
                 </div>
               </Link>

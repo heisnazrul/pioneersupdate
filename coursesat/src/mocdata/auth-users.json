@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "Ahmed Student",
+    "email": "student@test.com",
+    "password": "1234",
+    "token": "mock-token-student-1",
+    "role": "lg_student",
+    "phone": "+966501234567",
+    "status": "active",
+    "avatar": "",
+    "birth_date": "1998-05-15",
+    "gender": "male",
+    "country": "Saudi Arabia",
+    "city": "Riyadh",
+    "address": "King Fahd Road",
+    "postal_code": "11564",
+    "national_id": "",
+    "alt_phone": ""
+  }
+]

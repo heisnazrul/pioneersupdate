@@ -55,7 +55,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Flag Image</label>
-                    <input type="file" name="flag" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                    <input type="file" name="flag" accept=".svg,image/svg+xml,image/png,image/jpeg,image/webp,image/gif" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                    <p class="mt-1 text-xs text-gray-500">SVG, PNG, JPG, or WebP — max 2 MB</p>
+                    @error('flag')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="flex items-center gap-6 pt-6">
                     <div class="flex items-center">

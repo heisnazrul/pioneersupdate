@@ -4,12 +4,18 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Auth\AuthenticationException;
+use App\Services\Referral\ReferralService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class FrontendAuthService
 {
+    public function __construct(
+        private readonly ReferralService $referralService,
+    ) {
+    }
+
     public function register(array $data): array
     {
         $app = $this->resolveApp($data['app'] ?? null, $data['role'] ?? null);
@@ -25,6 +31,12 @@ class FrontendAuthService
         ]);
 
         $user->assignPrimaryRole($role);
+
+        $this->referralService->ensureStudentReferralCode($user);
+
+        if (! empty($data['referral_code'])) {
+            $this->referralService->attributeUser($user->fresh(), (string) $data['referral_code'], 'code');
+        }
 
         return $this->issueFrontendToken($user->fresh('roles'), $app);
     }

@@ -13,9 +13,9 @@ import {
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
 import { useLocale } from "@/components/providers/locale-provider";
-
-// Import mock data directly for now
-import mockDetails from "@/mocdata/institute-details.json";
+import { useApi } from "@/lib/api";
+import { buildInstituteBookingUrl, formatInstituteQueryDate } from "@/lib/institute-booking-url";
+import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 function priceField(obj, field, currency) {
     if (!obj) return 0;
@@ -26,7 +26,7 @@ function priceField(obj, field, currency) {
 
 function fmtNum(value) {
     if (value === null || value === undefined) return "";
-    return Number(value).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    return Math.round(Number(value)).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
 
 function Price({ value, currency, className = "", size = "md" }) {
@@ -80,15 +80,18 @@ function featureIcon(feature, idx = 0) {
     return faHouse;
 }
 
-export default function MobileInstituteDetails({ params }) {
+export default function MobileInstituteDetails({ slug: slugProp }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { language, t } = useLocale();
     const isArabic = language === "ar";
-    const currency = "GBP"; 
-    
-    // Hardcode mock data
-    const instituteData = mockDetails;
+    const currency = "GBP";
+
+    const slug = slugProp;
+    const apiPath = slug
+        ? `/coursesat/language-institutes/${encodeURIComponent(slug)}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`
+        : null;
+    const { data: instituteData, loading } = useApi(apiPath);
 
     const initialWeeks = searchParams.get('weeks') ? parseInt(searchParams.get('weeks')) : 12;
     const initialCourseId = searchParams.get('course_id') ? parseInt(searchParams.get('course_id')) : null;
@@ -106,7 +109,8 @@ export default function MobileInstituteDetails({ params }) {
     const [startDate, setStartDate] = useState(initialStartDate);
     const [accAge, setAccAge] = useState(initialAccAge);
     const [toastMsg, setToastMsg] = useState(null);
-    const slug = params?.slug || "lsi-education-london";
+    const { isInWishlist, isInCompare, toggleWishlist, toggleCompare } = useCourseEnglishInteractions();
+    const interactionType = "language_courses";
 
     const showToast = (msg) => {
         setToastMsg(msg);
@@ -128,6 +132,31 @@ export default function MobileInstituteDetails({ params }) {
     const insurances = instituteData?.insurances || [];
     const supplements = instituteData?.supplements || [];
 
+    useEffect(() => {
+        if (courses.length > 0 && !selectedCourseId) {
+            setSelectedCourseId(initialCourseId || courses[0].id);
+        }
+    }, [courses, selectedCourseId, initialCourseId]);
+
+    if (loading && !instituteData) {
+        return (
+            <div className="flex min-h-[50vh] items-center justify-center">
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#0057B7] border-t-transparent" />
+            </div>
+        );
+    }
+
+    if (!loading && !school) {
+        return (
+            <div className="flex min-h-[50vh] flex-col items-center justify-center px-4 text-center">
+                <p className="text-lg text-slate-600">{isArabic ? "المعهد غير موجود" : "Institute not found"}</p>
+                <Link href="/language-institutes" className="mt-4 text-[#0057B7] hover:underline">
+                    {isArabic ? "العودة إلى المعاهد" : "Back to institutes"}
+                </Link>
+            </div>
+        );
+    }
+
     const regFeeObj = instituteData?.registration_fee;
     const registrationFee = regFeeObj ? priceField(regFeeObj, "amount", currency) : 50;
 
@@ -136,12 +165,6 @@ export default function MobileInstituteDetails({ params }) {
     const bestDiscount = discounts.length > 0 ? Math.max(...discounts.map(d => d.discount_percentage || 0)) : 0;
     const pioneersDisc = pioneersDiscounts.length > 0 ? pioneersDiscounts[0] : null;
     const discountPercent = bestDiscount > 0 ? bestDiscount : (pioneersDisc ? 20 : 0);
-
-    useEffect(() => {
-        if (courses.length > 0 && !selectedCourseId) {
-            setSelectedCourseId(initialCourseId || courses[0].id);
-        }
-    }, [courses, selectedCourseId, initialCourseId]);
 
     const selectedCourse = courses.find(c => c.id === selectedCourseId);
     const selectedAccommodation = accommodations.find(a => a.id === selectedAccommodationId);
@@ -159,13 +182,41 @@ export default function MobileInstituteDetails({ params }) {
 
     const getDiscountPrice = (price) => discountPercent > 0 ? price * (1 - discountPercent / 100) : null;
 
-    if (!school) return <div className="p-20 text-center">Loading...</div>;
-
     const l = (key) => t(`pages.institute_details.${key}`);
     const loc = (en, ar) => (isArabic && ar) ? ar : en;
 
+    const handleToggleWishlist = async () => {
+        if (!selectedCourseId) return;
+        const added = !isInWishlist(interactionType, selectedCourseId);
+        const ok = await toggleWishlist(interactionType, selectedCourseId);
+        if (ok) {
+            showToast(added
+                ? (isArabic ? "تمت الإضافة إلى المفضلة" : "Added to wishlist")
+                : (isArabic ? "تمت الإزالة من المفضلة" : "Removed from wishlist"));
+        }
+    };
+
+    const handleToggleCompare = async () => {
+        if (!selectedCourseId) return;
+        const added = !isInCompare(interactionType, selectedCourseId);
+        const ok = await toggleCompare(interactionType, selectedCourseId, weeks);
+        if (ok) {
+            showToast(added
+                ? (isArabic ? "تمت الإضافة إلى المقارنة" : "Added to compare")
+                : (isArabic ? "تمت الإزالة من المقارنة" : "Removed from compare"));
+        }
+    };
+
+    const inWishlist = selectedCourseId ? isInWishlist(interactionType, selectedCourseId) : false;
+    const inCompare = selectedCourseId ? isInCompare(interactionType, selectedCourseId) : false;
+
     return (
         <div className="pb-32 bg-[#F8FAFC]" dir={isArabic ? "rtl" : "ltr"}>
+            {toastMsg && (
+                <div className="fixed top-20 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-lg">
+                    {toastMsg}
+                </div>
+            )}
             
             {/* Mobile Hero */}
             <div className="relative mb-6">
@@ -178,10 +229,18 @@ export default function MobileInstituteDetails({ params }) {
                             <button onClick={handleShare} className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-700 shadow-sm transition hover:bg-white">
                                 <FontAwesomeIcon icon={faShare} />
                             </button>
-                            <button className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-700 shadow-sm transition hover:bg-white hover:text-red-500">
+                            <button
+                                type="button"
+                                onClick={handleToggleWishlist}
+                                className={`h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm transition hover:bg-white ${inWishlist ? "text-red-500" : "text-slate-700 hover:text-red-500"}`}
+                            >
                                 <FontAwesomeIcon icon={faHeart} />
                             </button>
-                            <button className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-700 shadow-sm transition hover:bg-white hover:text-[#0057B7]">
+                            <button
+                                type="button"
+                                onClick={handleToggleCompare}
+                                className={`h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm transition hover:bg-white ${inCompare ? "text-[#0057B7]" : "text-slate-700 hover:text-[#0057B7]"}`}
+                            >
                                 <FontAwesomeIcon icon={faExchangeAlt} />
                             </button>
                         </div>
@@ -514,7 +573,15 @@ export default function MobileInstituteDetails({ params }) {
                         <div className="mt-1 text-[10px] font-medium text-slate-500 text-right">{l("totalIncludes")}</div>
                     </div>
                     <Link
-                        href={`/language-institutes/${slug}/booking?course_id=${selectedCourseId}&weeks=${weeks}&accommodation_id=${selectedAccommodationId}`}
+                        href={buildInstituteBookingUrl(slug, {
+                            courseId: selectedCourseId,
+                            weeks,
+                            accommodationId: selectedAccommodationId,
+                            pickupId: selectedPickupId,
+                            startDate: formatInstituteQueryDate(startDate),
+                            extras: selectedExtras,
+                            accAge,
+                        })}
                         className="flex items-center justify-center gap-2 rounded-xl bg-[#0057B7] flex-1 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-transform"
                     >
                         <span>{l("reviewRequest")}</span>

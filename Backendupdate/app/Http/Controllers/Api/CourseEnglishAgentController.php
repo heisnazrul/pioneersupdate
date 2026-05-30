@@ -8,6 +8,9 @@ use App\Models\AgentStudent;
 use App\Models\ContactSubmission;
 use App\Models\Role;
 use App\Models\User;
+use App\Services\Referral\ReferralService;
+use App\Services\Profile\ProfileService;
+use App\Services\Payout\PayoutService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +19,13 @@ use Illuminate\Support\Str;
 
 class CourseEnglishAgentController extends Controller
 {
+    public function __construct(
+        private readonly ReferralService $referralService,
+        private readonly ProfileService $profileService,
+        private readonly PayoutService $payoutService,
+    ) {
+    }
+
     public function me(Request $request): JsonResponse
     {
         $user = $this->resolveAgentUser($request);
@@ -24,11 +34,80 @@ class CourseEnglishAgentController extends Controller
         }
 
         $agent = $this->agentRecord($user);
+        $user->loadMissing([
+            'profile.nationalityCountry',
+            'profile.currentCountry',
+            'profile.currentCity',
+        ]);
 
         return response()->json([
             'success' => true,
-            'data' => $this->agentPayload($agent, $user),
+            'data' => array_merge(
+                $this->profileService->payload($user, $agent),
+                ['referral_link' => $this->referralLink($agent)],
+            ),
         ]);
+    }
+
+    public function updateProfile(Request $request): JsonResponse
+    {
+        $user = $this->resolveAgentUser($request);
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'User is not an agent.'], 403);
+        }
+
+        $agent = $this->agentRecord($user);
+        $data = $request->validate($this->profileService->profileRules($user));
+        $user = $this->profileService->update($user, $data, $request);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile updated successfully.',
+            'data' => array_merge(
+                $this->profileService->payload($user, $agent),
+                ['referral_link' => $this->referralLink($agent)],
+            ),
+        ]);
+    }
+
+    public function payouts(Request $request): JsonResponse
+    {
+        $user = $this->resolveAgentUser($request);
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'User is not an agent.'], 403);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $this->payoutService->listForUser($user),
+        ]);
+    }
+
+    public function createPayout(Request $request): JsonResponse
+    {
+        $user = $this->resolveAgentUser($request);
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'User is not an agent.'], 403);
+        }
+
+        $data = $request->validate([
+            'amount' => ['nullable', 'numeric', 'min:1'],
+            'notes' => ['nullable', 'string', 'max:1000'],
+        ]);
+
+        $agent = $this->agentRecord($user);
+        $payout = $this->payoutService->createForAgent(
+            $user->fresh(['profile']),
+            $agent,
+            isset($data['amount']) ? (float) $data['amount'] : null,
+            $data['notes'] ?? null,
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Payout request submitted successfully.',
+            'data' => $this->payoutService->serialize($payout),
+        ], 201);
     }
 
     public function overview(Request $request): JsonResponse
@@ -63,19 +142,31 @@ class CourseEnglishAgentController extends Controller
         }
 
         $agent = $this->agentRecord($user);
-        $signups = AgentStudent::query()->where('agent_id', $agent->id)->count();
+        $stats = $this->referralService->agentReferralStats($agent);
 
         return response()->json([
             'success' => true,
-            'data' => [
-                'referral_code' => $agent->referral_code,
-                'referral_link' => $this->referralLink($agent),
-                'commission_percent' => $agent->commission_percent,
-                'referral_discount' => $agent->referral_discount,
-                'signups' => $signups,
-                'total_clicks' => 0,
-                'conversion' => null,
-            ],
+            'data' => $stats,
+        ]);
+    }
+
+    public function updateReferralCode(Request $request): JsonResponse
+    {
+        $user = $this->resolveAgentUser($request);
+        if (! $user) {
+            return response()->json(['success' => false, 'message' => 'User is not an agent.'], 403);
+        }
+
+        $data = $request->validate([
+            'referral_code' => ['required', 'string', 'max:20'],
+        ]);
+
+        $agent = $this->agentRecord($user);
+        $agent = $this->referralService->updateAgentReferralCode($agent, $data['referral_code']);
+
+        return response()->json([
+            'success' => true,
+            'data' => $this->referralService->agentReferralStats($agent),
         ]);
     }
 
@@ -95,7 +186,7 @@ class CourseEnglishAgentController extends Controller
             'success' => true,
             'data' => [
                 'referral_code' => $agent->referral_code,
-                'referral_link' => $this->referralLink($agent),
+                'referral_link' => $this->referralService->referralLinkForCode($agent->referral_code),
             ],
         ]);
     }
@@ -280,7 +371,7 @@ class CourseEnglishAgentController extends Controller
 
     private function referralLink(Agent $agent): string
     {
-        return 'https://courseenglish.com/?ref=' . $agent->referral_code;
+        return $this->referralService->referralLinkForCode($agent->referral_code);
     }
 
     private function agentPayload(Agent $agent, User $user): array

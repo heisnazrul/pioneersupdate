@@ -20,8 +20,20 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectUsersTo(function (Request $request): string {
             $user = Auth::user();
 
-            if ($user && in_array($user->role, ['admin', 'team', 'counsellor'], true) && Route::has('admin.dashboard')) {
-                return route('admin.dashboard');
+            if (!$user) {
+                return Route::has('login') ? route('login') : '/';
+            }
+
+            $routeMap = [
+                'admin' => 'admin.dashboard',
+                'team' => 'team.dashboard',
+                'counsellor' => 'counsellor.dashboard',
+            ];
+
+            $routeName = $routeMap[$user->role] ?? null;
+
+            if ($routeName && Route::has($routeName)) {
+                return route($routeName);
             }
 
             return Route::has('unauthorized') ? route('unauthorized') : '/';
@@ -30,7 +42,13 @@ return Application::configure(basePath: dirname(__DIR__))
         // Register named middleware aliases
         $middleware->alias([
             'admin.only' => \App\Http\Middleware\AdminOnly::class,
+            'counsellor.only' => \App\Http\Middleware\CounsellorOnly::class,
+            'team.only' => \App\Http\Middleware\TeamOnly::class,
             'frontend.app' => \App\Http\Middleware\EnsureFrontendAppAccess::class,
+        ]);
+
+        $middleware->api(prepend: [
+            \App\Http\Middleware\CachePublicApiResponse::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

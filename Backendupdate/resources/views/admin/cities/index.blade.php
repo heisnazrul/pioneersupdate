@@ -30,8 +30,8 @@
                 </td>
                 <td class="px-6 py-4">
                     <span class="text-sm text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                        @if($city->country->flag)
-                            <img src="{{ Storage::url($city->country->flag) }}" class="w-5 h-3 object-cover rounded-sm">
+                        @if($city->country?->resolved_flag)
+                            <img src="{{ Storage::url($city->country->resolved_flag) }}" class="w-5 h-3 object-cover rounded-sm">
                         @endif
                         {{ $city->country->name }}
                     </span>

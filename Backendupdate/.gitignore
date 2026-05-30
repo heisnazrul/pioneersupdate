@@ -3,6 +3,7 @@
 .env
 .env.backup
 .env.production
+.deploy.env
 .phpactor.json
 .phpunit.result.cache
 /.codex
@@ -19,6 +20,8 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/database/*.sqlite
+/database/*.sqlite-journal
 /vendor
 _ide_helper.php
 Homestead.json

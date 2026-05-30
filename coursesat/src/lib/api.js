@@ -19,15 +19,53 @@ export const buildApiUrl = (path) => {
   return `${base}${suffix}`;
 };
 
+export const getBackendOrigin = () => {
+  const configured = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.NEXT_PUBLIC_API_ORIGIN;
+  if (configured) {
+    return configured.replace(/\/$/, "");
+  }
+
+  const base = API_BASE.replace(/\/api\/?$/, "");
+  if (base.startsWith("http://") || base.startsWith("https://")) {
+    return base.replace(/\/$/, "");
+  }
+
+  return "http://127.0.0.1:8000";
+};
+
 export const getImageUrl = (path) => {
   if (!path) return null;
-  if (path.startsWith("http://") || path.startsWith("https://")) {
-    return path;
+
+  const normalized = String(path).trim();
+  if (!normalized) return null;
+
+  if (normalized.startsWith("/assets/") || normalized.startsWith("assets/")) {
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
   }
-  // Remove /api from the end of API_BASE if present to get the root URL
-  const baseUrl = API_BASE.replace(/\/api\/?$/, "");
-  const suffix = path.startsWith("/") ? path : `/${path}`;
-  return `${baseUrl}${suffix}`;
+
+  const storageIndex = normalized.indexOf("/storage/");
+  if (storageIndex !== -1) {
+    return normalized.slice(storageIndex);
+  }
+
+  if (normalized.startsWith("storage/")) {
+    return `/${normalized}`;
+  }
+
+  if (normalized.startsWith("http://") || normalized.startsWith("https://")) {
+    const fixed = normalized.replace(/^https?:\/\/localhost(?=\/)/, getBackendOrigin());
+    const fixedStorageIndex = fixed.indexOf("/storage/");
+    if (fixedStorageIndex !== -1) {
+      return fixed.slice(fixedStorageIndex);
+    }
+    return fixed;
+  }
+
+  if (normalized.startsWith("/")) {
+    return normalized.startsWith("/storage/") ? normalized : `${getBackendOrigin()}${normalized}`;
+  }
+
+  return `/storage/${normalized.replace(/^\/+/, "")}`;
 };
 
 export const fetchApiJson = async (path, options = {}) => {
@@ -58,7 +96,10 @@ export const fetchApiJson = async (path, options = {}) => {
     url.includes("/auth") || 
     url.includes("/wishlist") || 
     url.includes("/compare") || 
-    url.includes("/booking");
+    url.includes("/booking") ||
+    url.includes("/utilities") ||
+    url.includes("/coursesat/home") ||
+    url.includes("/coursesat/language-institutes");
   
   if (!fetchOptions.cache && !fetchOptions.next) {
     if (method === "GET" && !isDynamicPath) {
@@ -101,11 +142,19 @@ export const useApi = (path) => {
     }
 
     let active = true;
-    let promise = requestCache.get(path);
+    const skipCache =
+      path.includes("/coursesat/home") || path.includes("/coursesat/language-institutes");
+    let promise = skipCache ? null : requestCache.get(path);
 
     if (!promise) {
-      promise = fetchApiJson(path);
-      requestCache.set(path, promise);
+      promise = fetchApiJson(path).catch((error) => {
+        requestCache.delete(path);
+        throw error;
+      });
+
+      if (!skipCache) {
+        requestCache.set(path, promise);
+      }
     }
 
     promise

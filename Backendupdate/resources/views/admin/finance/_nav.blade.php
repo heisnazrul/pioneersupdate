@@ -10,5 +10,10 @@
             <i class="fa-solid fa-percent"></i>
             <span>Conversion Fees</span>
         </a>
+        <a href="{{ route('admin.bank-accounts.index') }}"
+           class="{{ request()->routeIs('admin.bank-accounts.*') ? 'bg-primary-600 text-white shadow-sm' : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' }} inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Bank Accounts</span>
+        </a>
     </div>
 </div>

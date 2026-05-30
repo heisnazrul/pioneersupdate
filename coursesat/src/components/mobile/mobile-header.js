@@ -10,7 +10,6 @@ import {
   faCircleQuestion,
   faHouse,
   faPhone,
-  faSterlingSign,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -32,6 +31,8 @@ import {
   getMobileQuickLinks,
 } from "@/lib/site-nav";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { mapNavCurrencies, CurrencyIcon } from "@/lib/format-currency";
 
 function useDismiss(ref, onClose) {
   useEffect(() => {
@@ -56,11 +57,11 @@ function useDismiss(ref, onClose) {
 
 export default function MobileHeader() {
   const { direction, language, messages, setLanguage, t } = useLocale();
+  const { currency, setCurrency, currencies: apiCurrencies } = useCurrency();
   const isRtl = direction === "rtl";
   const [menuOpen, setMenuOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [currencyOpen, setCurrencyOpen] = useState(false);
-  const [currency, setCurrency] = useState("SAR");
   const [activeChip, setActiveChip] = useState("/#language-institutes");
   const [thumb, setThumb] = useState({ width: 0, left: 0 });
 
@@ -73,7 +74,10 @@ export default function MobileHeader() {
 
   const chips = useMemo(() => getDesktopTopNav(messages).slice(0, 4), [messages]);
   const languages = useMemo(() => getLanguages(messages), [messages]);
-  const currencies = useMemo(() => getMobileCurrencies(messages), [messages]);
+  const currencies = useMemo(
+    () => mapNavCurrencies(apiCurrencies, getMobileCurrencies(messages), language),
+    [apiCurrencies, messages, language]
+  );
   const drawerLinks = useMemo(() => getMobileDrawerLinks(messages), [messages]);
   const quickLinks = useMemo(() => getMobileQuickLinks(messages), [messages]);
   const legalLinks = useMemo(() => getMobileLegalLinks(messages), [messages]);
@@ -338,21 +342,18 @@ export default function MobileHeader() {
                   direction={direction}
                   label={activeCurrency?.label || t("layouts.navbar.dropdowns.currency.sar.name", "Saudi Riyal")}
                   icon={
-                    activeCurrency?.icon ? (
-                      <img
-                        src={activeCurrency.icon}
-                        alt=""
-                        className="h-4 w-4"
-                      />
-                    ) : (
-                      <FontAwesomeIcon icon={faSterlingSign} className="h-4 w-4" />
-                    )
+                    <CurrencyIcon
+                      currency={currency}
+                      activeCurrency={activeCurrency}
+                      className="h-4 w-4"
+                    />
                   }
                   open={currencyOpen}
                   setOpen={(nextValue) => {
                     setCurrencyOpen(nextValue);
                     if (nextValue) setLanguageOpen(false);
                   }}
+                  scrollable
                 >
                   {currencies.map((item) => (
                     <DropdownOption
@@ -363,11 +364,11 @@ export default function MobileHeader() {
                       }}
                       selected={currency === item.code}
                       icon={
-                        item.icon ? (
-                          <img src={item.icon} alt="" className="h-4 w-4" />
-                        ) : (
-                          <FontAwesomeIcon icon={faSterlingSign} className="h-4 w-4" />
-                        )
+                        <CurrencyIcon
+                          currency={item.code}
+                          activeCurrency={item}
+                          className="h-4 w-4"
+                        />
                       }
                       label={item.label}
                     />
@@ -449,7 +450,7 @@ function MenuButton({ href, children }) {
   );
 }
 
-function Dropdown({ children, direction, icon, label, open, setOpen }) {
+function Dropdown({ children, direction, icon, label, open, setOpen, scrollable = false }) {
   return (
     <div className="relative z-[60]">
       <button
@@ -471,7 +472,15 @@ function Dropdown({ children, direction, icon, label, open, setOpen }) {
       </button>
       {open && (
         <div className="absolute left-0 right-0 z-[9999] mt-1 overflow-hidden rounded-lg bg-white text-slate-800 shadow-lg ring-1 ring-black/10">
-          {children}
+          <div
+            className={
+              scrollable
+                ? "max-h-[10.75rem] overflow-y-auto overscroll-contain [scrollbar-color:#cbd5e1_transparent] [scrollbar-width:thin]"
+                : undefined
+            }
+          >
+            {children}
+          </div>
         </div>
       )}
     </div>

@@ -2,6 +2,9 @@ import localFont from "next/font/local";
 import { cookies, headers } from "next/headers";
 
 import { LocaleProvider } from "@/components/providers/locale-provider";
+import { CurrencyProvider } from "@/components/providers/currency-provider";
+import { InteractionsProvider } from "@/lib/interactions";
+import ReferralCapture from "@/components/shared/referral-capture";
 import { getPreferredLanguage, isRtlLanguage } from "@/lib/locale";
 
 import "./globals.css";
@@ -72,7 +75,14 @@ export default async function RootLayout({ children }) {
   return (
     <html lang={language} dir={direction} className={graphikArabic.variable}>
       <body>
-        <LocaleProvider initialLanguage={language}>{children}</LocaleProvider>
+        <LocaleProvider initialLanguage={language}>
+          <CurrencyProvider>
+            <InteractionsProvider>
+              <ReferralCapture />
+              {children}
+            </InteractionsProvider>
+          </CurrencyProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

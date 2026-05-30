@@ -14,6 +14,7 @@ class LanguageSchoolAccommodation extends Model
         'branch_id',
         'accommodation_type_id',
         'name',
+        'name_ar',
         'bedroom_type_id',
         'bathroom_type_id',
         'meal_plan_id',

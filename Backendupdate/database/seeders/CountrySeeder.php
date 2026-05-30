@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Country;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -24,26 +25,41 @@ class CountrySeeder extends Seeder
         ];
 
         foreach ($rows as $row) {
+            $exists = DB::table('countries')->where('country_code', $row['country_code'])->exists();
+
+            $payload = [
+                'name' => $row['name'],
+                'ar_name' => $row['ar_name'],
+                'slug' => Str::slug($row['name']),
+                'is_popular' => $row['is_popular'],
+                'currency_code' => $row['currency_code'],
+                'phone_code' => $row['phone_code'],
+                'description' => $row['name'] . ' is an important destination in the platform.',
+                'ar_description' => $row['ar_name'] . ' من الوجهات المهمة في المنصة.',
+                'capital' => $row['capital'],
+                'continent' => $row['continent'],
+                'display_order' => $row['display_order'],
+                'is_active' => true,
+                'updated_at' => now(),
+            ];
+
+            if (! $exists) {
+                $payload['flag'] = null;
+                $payload['created_at'] = now();
+            }
+
             DB::table('countries')->updateOrInsert(
                 ['country_code' => $row['country_code']],
-                [
-                    'name' => $row['name'],
-                    'ar_name' => $row['ar_name'],
-                    'slug' => Str::slug($row['name']),
-                    'flag' => null,
-                    'is_popular' => $row['is_popular'],
-                    'currency_code' => $row['currency_code'],
-                    'phone_code' => $row['phone_code'],
-                    'description' => $row['name'] . ' is an important destination in the platform.',
-                    'ar_description' => $row['ar_name'] . ' من الوجهات المهمة في المنصة.',
-                    'capital' => $row['capital'],
-                    'continent' => $row['continent'],
-                    'display_order' => $row['display_order'],
-                    'is_active' => true,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]
+                $payload
             );
         }
+
+        $withDefault = Country::query()
+            ->whereIn('country_code', collect($rows)->pluck('country_code'))
+            ->get()
+            ->filter(fn (Country $country) => $country->resolveFlagPath() !== null)
+            ->count();
+
+        $this->command?->info("Countries seeded. {$withDefault}/" . count($rows) . ' have default flags in storage/app/public/flags/.');
     }
 }

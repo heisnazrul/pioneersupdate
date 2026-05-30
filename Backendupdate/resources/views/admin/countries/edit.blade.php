@@ -57,11 +57,18 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Flag Image</label>
                     <div class="flex items-center gap-4">
-                        @if($country->flag)
-                            <img src="{{ Storage::url($country->flag) }}" alt="Flag" class="w-12 h-8 object-cover rounded shadow-sm">
+                        @if($country->resolved_flag)
+                            <img src="{{ Storage::url($country->resolved_flag) }}" alt="Flag" class="w-12 h-8 object-cover rounded shadow-sm">
+                            @unless($country->flag)
+                                <span class="text-xs text-slate-500">Default ISO flag</span>
+                            @endunless
                         @endif
-                        <input type="file" name="flag" class="flex-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                        <input type="file" name="flag" accept=".svg,image/svg+xml,image/png,image/jpeg,image/webp,image/gif" class="flex-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
                     </div>
+                    <p class="mt-1 text-xs text-gray-500">SVG, PNG, JPG, or WebP — max 2 MB</p>
+                    @error('flag')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="flex items-center gap-6 pt-6">
                     <div class="flex items-center">

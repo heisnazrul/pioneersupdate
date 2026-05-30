@@ -27,8 +27,9 @@ class LanguageSchoolPickupController extends Controller
     {
         $data = $request->validate([
             'branch_id'       => 'required|exists:language_school_branches,id',
-            'pickup_location' => 'required|string|max:255',
-            'fee'             => 'required|numeric|min:0',
+            'pickup_location'    => 'required|string|max:255',
+            'pickup_location_ar' => 'nullable|string|max:255',
+            'fee'                => 'required|numeric|min:0',
         ]);
 
         LanguageSchoolPickup::create($data);
@@ -47,8 +48,9 @@ class LanguageSchoolPickupController extends Controller
     {
         $data = $request->validate([
             'branch_id'       => 'required|exists:language_school_branches,id',
-            'pickup_location' => 'required|string|max:255',
-            'fee'             => 'required|numeric|min:0',
+            'pickup_location'    => 'required|string|max:255',
+            'pickup_location_ar' => 'nullable|string|max:255',
+            'fee'                => 'required|numeric|min:0',
         ]);
 
         $languageSchoolPickup->update($data);

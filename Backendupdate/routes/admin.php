@@ -15,6 +15,13 @@ use App\Http\Controllers\Admin\{
     FaqController,
     ExchangeRateController,
     ConversionFeeController,
+    BankAccountController,
+    AgentController,
+    ReferralProgramSettingController,
+    ReferralCommissionController,
+    ReferralAttributionController,
+    CourseSatBookingController,
+    PayoutRequestController,
     GalleryController,
     LanguageSchoolController,
     LanguageSchoolBranchController,
@@ -50,6 +57,7 @@ use App\Http\Controllers\Admin\{
     DestinationGuideController,
     FeaturedListController,
     UniversityAccommodationRoomController,
+    DashboardController,
 };
 
 Route::prefix('admin')
@@ -58,7 +66,7 @@ Route::prefix('admin')
     ->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', fn () => view('admin.dashboard'))->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     // ─── Users ───────────────────────────────────────────────────────
     Route::get('/users',                    [UserController::class, 'index'])->name('users.index');
@@ -129,6 +137,20 @@ Route::prefix('admin')
         ->name('exchange-rates.refresh-gbp');
     Route::resource('exchange-rates',  ExchangeRateController::class);
     Route::resource('conversion-fees', ConversionFeeController::class);
+    Route::resource('bank-accounts', BankAccountController::class);
+
+    // ─── Affiliates / Referrals ──────────────────────────────────────
+    Route::resource('agents', AgentController::class);
+    Route::get('referral-settings', [ReferralProgramSettingController::class, 'index'])->name('referral-settings.index');
+    Route::get('referral-settings/{scope}/edit', [ReferralProgramSettingController::class, 'edit'])->name('referral-settings.edit');
+    Route::put('referral-settings/{scope}', [ReferralProgramSettingController::class, 'update'])->name('referral-settings.update');
+    Route::resource('referral-commissions', ReferralCommissionController::class)->only(['index', 'show', 'edit', 'update']);
+    Route::resource('referral-attributions', ReferralAttributionController::class)->only(['index', 'show']);
+    Route::resource('payout-requests', PayoutRequestController::class)->only(['index', 'show', 'edit', 'update']);
+    Route::get('course-sat-bookings', [CourseSatBookingController::class, 'index'])->name('course-sat-bookings.index');
+    Route::get('course-sat-bookings/{type}/{id}', [CourseSatBookingController::class, 'show'])->name('course-sat-bookings.show');
+    Route::get('course-sat-bookings/{type}/{id}/edit', [CourseSatBookingController::class, 'edit'])->name('course-sat-bookings.edit');
+    Route::put('course-sat-bookings/{type}/{id}', [CourseSatBookingController::class, 'update'])->name('course-sat-bookings.update');
 
     // ─── Media ───────────────────────────────────────────────────────
     Route::get('/galleries',           [GalleryController::class, 'index'])->name('galleries.index');
@@ -141,4 +163,6 @@ Route::prefix('admin')
     // ─── Settings ────────────────────────────────────────────────────
     Route::get('/settings',            [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings.index');
     Route::post('/settings',           [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
+
+    Route::post('/cache/flush', [\App\Http\Controllers\Admin\CacheController::class, 'flush'])->name('cache.flush');
 });

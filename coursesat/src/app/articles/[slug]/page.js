@@ -7,7 +7,7 @@ import MobileFooter from "@/components/mobile/mobile-footer";
 import MobileBottomNav from "@/components/mobile/mobile-bottom-nav";
 
 export default async function ArticleDetailsPage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const headerStore = await headers();
   const userAgent = headerStore.get("user-agent") ?? "";
   const isMobile = isMobileRequest(userAgent);

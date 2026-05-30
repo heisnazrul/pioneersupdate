@@ -1,10 +1,10 @@
 "use client";
 
-import { useMemo, useState, useCallback, Suspense, useEffect } from "react";
+import { useMemo, useState, useCallback, Suspense, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faChevronUp, faChevronDown, faFilter } from "@fortawesome/free-solid-svg-icons";
-import HeroSearch from "@/components/shared/hero-search";
+import LanguageInstitutesHeroSearch from "@/components/shared/language-institutes-hero-search";
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
 import InstituteCard from "@/components/shared/institute-card";
@@ -13,9 +13,9 @@ import MobileFooter from "@/components/mobile/mobile-footer";
 import MobileBottomNav from "@/components/mobile/mobile-bottom-nav";
 import { useApi } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
-
-// Fallback mock data
-import mockInstitutes from "@/mocdata/institutes.json";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { getCoursePrice } from "@/lib/format-currency";
+import { mapCourseTypeOptions } from "@/lib/hero-search-data";
 
 const PAGE_SIZE = 12;
 
@@ -35,21 +35,32 @@ function formatLocalDate(date) {
 }
 
 // -- Mobile Filters & Sort Component --
-function MobileInstituteFilters({ totalCount, tags = [], onSortChange }) {
+function MobileInstituteFilters({ totalCount, tags = [], onSortChange, searchData }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isSortOpen, setIsSortOpen] = useState(false);
     const [selectedTag, setSelectedTag] = useState(null);
     const [priceDirection, setPriceDirection] = useState(null);
+    const mobileSearchPanelRef = useRef(null);
 
-    const { data } = useApi("/courseenglish/utilities");
+    const data = searchData;
     const { language, t } = useLocale();
     const isArabic = language === "ar";
     const page = t("pages.language_institutes", {});
 
-    const courseTypes = (data?.language_course_types ?? []).map((type) =>
-        isArabic ? type.ar_name || type.name : type.name || type.ar_name
+    const courseTypes = mapCourseTypeOptions(data?.course_types, language);
+
+    const weeksOptions = useMemo(
+        () =>
+            Array.from({ length: 52 }, (_, i) => {
+                const n = i + 1;
+                return {
+                    label: isArabic ? `${n} أسبوع` : `${n} Week${n === 1 ? "" : "s"}`,
+                    value: n,
+                };
+            }),
+        [isArabic]
     );
 
     const [destination, setDestination] = useState(null);
@@ -120,10 +131,6 @@ function MobileInstituteFilters({ totalCount, tags = [], onSortChange }) {
         router.push(`/language-institutes?${params.toString()}`);
     };
 
-    const weeksOptions = Array.from({ length: 52 }, (_, i) =>
-        isArabic ? `${i + 1} أسبوع` : `${i + 1} Week${i === 0 ? "" : "s"}`
-    );
-
     return (
         <div className="md:hidden mb-6 mt-4 relative z-50">
             <div className="flex gap-2">
@@ -167,7 +174,7 @@ function MobileInstituteFilters({ totalCount, tags = [], onSortChange }) {
                         className="absolute inset-0 bg-black/30"
                         onClick={() => setIsSearchOpen(false)}
                     />
-                    <div className="absolute inset-x-4 top-6 rounded-3xl bg-white p-4 shadow-2xl">
+                    <div ref={mobileSearchPanelRef} className="absolute inset-x-4 top-6 rounded-3xl bg-white p-4 shadow-2xl overflow-visible">
                         <div className="flex justify-start">
                             <button
                                 type="button"
@@ -179,23 +186,29 @@ function MobileInstituteFilters({ totalCount, tags = [], onSortChange }) {
                         </div>
 
                         <div className="mt-4 space-y-4">
-                            <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start">
-                                <HeroSearch
-                                    label={page?.hero?.labels?.destination || (isArabic ? "الوجهة" : "Destination")}
+                            <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start overflow-visible">
+                                <LanguageInstitutesHeroSearch
+                                    anchorRef={mobileSearchPanelRef}
                                     placeholder={page?.hero?.labels?.destination_placeholder || (isArabic ? "أدخل وجهتك المفضلة" : "Enter your preferred destination")}
-                                    value={destination?.name}
+                                    subPlaceholder={page?.hero?.labels?.destination || (isArabic ? "الوجهة" : "Destination")}
+                                    value={destination?.name || ""}
+                                    searchData={data}
                                     onSelect={(dest) => setDestination(dest)}
                                 />
                             </div>
 
                             <div className="grid grid-cols-2 gap-3">
-                                <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start">
+                                <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start overflow-visible">
                                     <HeroDropdown
                                         label={page?.hero?.labels?.duration || (isArabic ? "الأسابيع" : "Weeks")}
                                         placeholder={page?.hero?.labels?.duration_placeholder || (isArabic ? "اختر الأسابيع" : "Select weeks")}
                                         options={weeksOptions}
-                                        value={weeks ? (isArabic ? `${weeks} أسبوع` : `${weeks} Week${weeks === 1 ? "" : "s"}`) : ""}
-                                        onSelect={(val) => setWeeks(parseInt(val))}
+                                        selectedValue={weeks}
+                                        onSelect={(option) =>
+                                          setWeeks(typeof option === "object" ? option.value : parseInt(option, 10))
+                                        }
+                                        scroll
+                                        maxVisibleItems={8}
                                     />
                                 </div>
                                 <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start">
@@ -208,19 +221,15 @@ function MobileInstituteFilters({ totalCount, tags = [], onSortChange }) {
                                 </div>
                             </div>
 
-                            <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start">
+                            <div className="rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start overflow-visible">
                                 <HeroDropdown
                                     label={page?.hero?.labels?.course || (isArabic ? "نوع الدورة" : "Course type")}
                                     placeholder={page?.hero?.labels?.course_placeholder || (isArabic ? "اختر نوع الدورة" : "Select course type")}
-                                    options={courseTypes.length ? courseTypes : [
-                                        "General English",
-                                        "Intensive English",
-                                        "Semi-Intensive",
-                                        "IELTS Preparation",
-                                        "Business English",
-                                    ]}
-                                    value={courseType}
-                                    onSelect={(val) => setCourseType(val)}
+                                    options={courseTypes}
+                                    selectedValue={courseType}
+                                    onSelect={(option) =>
+                                      setCourseType(typeof option === "object" ? option.value : option)
+                                    }
                                 />
                             </div>
                         </div>
@@ -333,17 +342,15 @@ function MobileLanguageInstitutesInner() {
     const queryString = searchParams.toString();
     const selectedWeeksParam = searchParams.get("weeks");
     const selectedStartDateParam = searchParams.get("start_date");
-    const { data, loading } = useApi(`/courseenglish/language-institutes?per_page=200&${queryString}`);
+    const { data, loading } = useApi(`/coursesat/language-institutes?per_page=200&${queryString}`);
+    const { currency } = useCurrency();
     const { language, t } = useLocale();
     const isArabic = language === "ar";
     const page = t("pages.language_institutes", {});
 
-    const allCourses = useMemo(() => {
-        const api = data?.courses ?? [];
-        return api.length ? api : mockInstitutes;
-    }, [data]);
-
+    const allCourses = useMemo(() => data?.courses ?? [], [data?.courses]);
     const tags = data?.tags ?? [];
+    const searchData = data?.search_data ?? null;
 
     const [sortTag, setSortTag] = useState(null);
     const [sortPrice, setSortPrice] = useState(null);
@@ -363,16 +370,15 @@ function MobileLanguageInstitutesInner() {
         }
 
         if (sortPrice) {
-            const priceKey = "price_sar";
             list.sort((a, b) => {
-                const pa = Number(a[priceKey] ?? a.price ?? 0);
-                const pb = Number(b[priceKey] ?? b.price ?? 0);
+                const pa = Number(getCoursePrice(a, currency, "new") ?? 0);
+                const pb = Number(getCoursePrice(b, currency, "new") ?? 0);
                 return sortPrice === "asc" ? pa - pb : pb - pa;
             });
         }
 
         return list;
-    }, [allCourses, sortTag, sortPrice]);
+    }, [allCourses, sortTag, sortPrice, currency]);
 
     const visibleCourses = processedCourses.slice(0, visibleCount);
     const hasMore = visibleCount < processedCourses.length;
@@ -399,6 +405,7 @@ function MobileLanguageInstitutesInner() {
                         totalCount={processedCourses.length}
                         tags={tags}
                         onSortChange={handleSortChange}
+                        searchData={searchData}
                     />
                 </div>
 

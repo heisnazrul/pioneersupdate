@@ -71,8 +71,8 @@ class AuthController extends Controller
 
         $routeMap = [
             'admin'      => 'admin.dashboard',
-            'team'       => 'admin.dashboard',
-            'counsellor' => 'admin.dashboard',
+            'team'       => 'team.dashboard',
+            'counsellor' => 'counsellor.dashboard',
         ];
 
         $routeName = $routeMap[$user->role] ?? null;

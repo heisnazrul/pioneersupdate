@@ -1,21 +1,21 @@
 "use client";
 
-import { useMemo, useState, useCallback, Suspense, useEffect } from "react";
+import { useMemo, useState, useCallback, Suspense, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import HeroSearch from "@/components/shared/hero-search";
+import LanguageInstitutesHeroSearch from "@/components/shared/language-institutes-hero-search";
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
 import InstituteCard from "@/components/shared/institute-card";
 import SortDropdown from "@/components/shared/sort-dropdown";
 import DesktopHeader from "@/components/desktop/desktop-header";
 import DesktopFooter from "@/components/desktop/desktop-footer";
+import { mapCourseTypeOptions } from "@/lib/hero-search-data";
 import { useApi } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
-
-// Fallback mock data
-import mockInstitutes from "@/mocdata/institutes.json";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { getCoursePrice } from "@/lib/format-currency";
 
 const PAGE_SIZE = 12;
 
@@ -35,10 +35,11 @@ function formatLocalDate(date) {
 }
 
 // -- Hero Component --
-function LanguageInstitutesHero() {
+function LanguageInstitutesHero({ searchData }) {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const { data } = useApi("/courseenglish/utilities");
+    const searchBarRef = useRef(null);
+    const data = searchData;
     const { language, t } = useLocale();
     const isArabic = language === "ar";
     const page = t("pages.language_institutes", {});
@@ -82,9 +83,7 @@ function LanguageInstitutesHero() {
 
     }, [data, searchParams, isArabic]);
 
-    const courseTypes = (data?.language_course_types ?? []).map((type) =>
-        isArabic ? type.ar_name || type.name : type.name || type.ar_name
-    );
+    const courseTypesOptions = mapCourseTypeOptions(data?.course_types, language);
 
     const heroTitle = page?.hero?.heading || (isArabic ? "اكتشف أفضل معاهد اللغات حول العالم" : "Discover the Best Language Institutes Worldwide");
     const heroSubtitle = page?.hero?.subheading || (isArabic ? "مجموعة مختارة من أفضل معاهد اللغات المعتمدة." : "A curated selection of the best accredited language institutes.");
@@ -105,8 +104,16 @@ function LanguageInstitutesHero() {
         router.push(`/language-institutes?${params.toString()}`);
     };
 
-    const weeksOptions = Array.from({ length: 52 }, (_, i) =>
-        isArabic ? `${i + 1} أسبوع` : `${i + 1} Week${i === 0 ? "" : "s"}`
+    const weeksOptions = useMemo(
+        () =>
+            Array.from({ length: 52 }, (_, i) => {
+                const n = i + 1;
+                return {
+                    label: isArabic ? `${n} أسبوع` : `${n} Week${n === 1 ? "" : "s"}`,
+                    value: n,
+                };
+            }),
+        [isArabic]
     );
 
     return (
@@ -118,13 +125,15 @@ function LanguageInstitutesHero() {
                 {heroSubtitle}
             </p>
 
-            <div className="w-full max-w-6xl rounded-2xl bg-white px-4 py-3 shadow-sm">
-                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                    <div className="flex flex-1 flex-col border-b border-gray-100 md:border-b-0 md:border-e md:px-2 text-start">
-                        <HeroSearch
+            <div ref={searchBarRef} className="relative w-full max-w-6xl rounded-2xl bg-white px-4 py-3 shadow-sm overflow-visible">
+                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between overflow-visible">
+                    <div className="relative flex flex-1 flex-col border-b border-gray-100 md:border-b-0 md:border-e md:px-2 text-start overflow-visible">
+                        <LanguageInstitutesHeroSearch
+                            anchorRef={searchBarRef}
                             placeholder={page?.hero?.labels?.destination || (isArabic ? "ادخل وجهتك المفضلة" : "Enter your preferred destination")}
                             subPlaceholder={page?.hero?.labels?.destination_placeholder || (isArabic ? "ادخل الدولة أو المدينة أو المعهد" : "Enter country, city, or institute")}
-                            value={destination?.name}
+                            value={destination?.name || ""}
+                            searchData={data}
                             onSelect={(dest) => setDestination(dest)}
                             variant="borderless"
                         />
@@ -133,15 +142,11 @@ function LanguageInstitutesHero() {
                         <HeroDropdown
                             label={page?.hero?.labels?.course || (isArabic ? "نوع الدورة" : "Course type")}
                             placeholder={page?.hero?.labels?.course_placeholder || (isArabic ? "اختر نوع الدورة" : "Choose course type")}
-                            options={courseTypes.length ? courseTypes : [
-                                "General English",
-                                "Intensive English",
-                                "Semi-Intensive",
-                                "IELTS Preparation",
-                                "Business English",
-                            ]}
-                            value={courseType}
-                            onSelect={(val) => setCourseType(val)}
+                            options={courseTypesOptions}
+                            selectedValue={courseType}
+                            onSelect={(option) =>
+                              setCourseType(typeof option === "object" ? option.value : option)
+                            }
                             variant="borderless"
                         />
                     </div>
@@ -150,8 +155,12 @@ function LanguageInstitutesHero() {
                             label={page?.hero?.labels?.duration || (isArabic ? "عدد الأسابيع" : "Number of weeks")}
                             placeholder={page?.hero?.labels?.duration_placeholder || (isArabic ? "اختر عدد الأسابيع" : "Choose number of weeks")}
                             options={weeksOptions}
-                            value={weeks ? (isArabic ? `${weeks} أسبوع` : `${weeks} Week${weeks === 1 ? "" : "s"}`) : ""}
-                            onSelect={(val) => setWeeks(parseInt(val))}
+                            selectedValue={weeks}
+                            onSelect={(option) =>
+                              setWeeks(typeof option === "object" ? option.value : parseInt(option, 10))
+                            }
+                            scroll
+                            maxVisibleItems={8}
                             variant="borderless"
                         />
                     </div>
@@ -291,17 +300,15 @@ function LanguageInstitutesPageInner() {
     const queryString = searchParams.toString();
     const selectedWeeksParam = searchParams.get("weeks");
     const selectedStartDateParam = searchParams.get("start_date");
-    const { data, loading } = useApi(`/courseenglish/language-institutes?per_page=200&${queryString}`);
+    const { data, loading } = useApi(`/coursesat/language-institutes?per_page=200&${queryString}`);
+    const { currency } = useCurrency();
     const { language, t } = useLocale();
     const isArabic = language === "ar";
     const page = t("pages.language_institutes", {});
 
-    const allCourses = useMemo(() => {
-        const api = data?.courses ?? [];
-        return api.length ? api : mockInstitutes;
-    }, [data]);
-
+    const allCourses = useMemo(() => data?.courses ?? [], [data?.courses]);
     const tags = data?.tags ?? [];
+    const searchData = data?.search_data ?? null;
 
     const [filters, setFilters] = useState({
         accommodation: null,
@@ -337,16 +344,15 @@ function LanguageInstitutesPageInner() {
         }
 
         if (sortPrice) {
-            const priceKey = "price_sar";
             list.sort((a, b) => {
-                const pa = Number(a[priceKey] ?? a.price ?? 0);
-                const pb = Number(b[priceKey] ?? b.price ?? 0);
+                const pa = Number(getCoursePrice(a, currency, "new") ?? 0);
+                const pb = Number(getCoursePrice(b, currency, "new") ?? 0);
                 return sortPrice === "asc" ? pa - pb : pb - pa;
             });
         }
 
         return list;
-    }, [allCourses, filters, sortTag, sortPrice]);
+    }, [allCourses, filters, sortTag, sortPrice, currency]);
 
     const visibleCourses = processedCourses.slice(0, visibleCount);
     const hasMore = visibleCount < processedCourses.length;
@@ -366,7 +372,7 @@ function LanguageInstitutesPageInner() {
         <div className="flex min-h-screen flex-col">
             <DesktopHeader />
             <main className="flex-1 bg-white">
-                <LanguageInstitutesHero />
+                <LanguageInstitutesHero searchData={searchData} />
 
                 <div className="container mx-auto px-4 py-8">
                     <div className="relative z-20 mb-6 flex flex-col items-start justify-between gap-4 pb-6 md:flex-row md:items-end">

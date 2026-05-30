@@ -16,3 +16,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // Admin routes
 require __DIR__ . '/admin.php';
+require __DIR__ . '/counsellor.php';
+require __DIR__ . '/team.php';

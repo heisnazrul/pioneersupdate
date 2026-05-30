@@ -13,6 +13,8 @@ class UserProfile extends Model
         'user_id', 'first_name', 'last_name', 'date_of_birth', 'gender',
         'nationality_country_id', 'current_country_id', 'current_city_id',
         'address_line', 'postal_code', 'secondary_email', 'alt_phone_e164',
+        'national_id', 'bank_account_name', 'bank_name', 'bank_account_number',
+        'bank_iban', 'bank_swift_code',
     ];
 
     protected $casts = [

@@ -29,10 +29,11 @@
       "id": 1,
       "name": "General English",
       "ar_name": "لغة إنجليزية عامة",
-      "tag": "Most Popular",
-      "tag_ar": "الأكثر طلباً",
-      "hours": 20,
-      "level": "All Levels",
+      "tag": "Best Offer",
+      "tag_ar": "أفضل عرض",
+      "hours": 15,
+      "level": "A1",
+      "ar_level": "A1",
       "lessons": 20,
       "min_age": 16,
       "price": 250,
@@ -44,6 +45,7 @@
       "ar_name": "لغة إنجليزية مكثفة",
       "hours": 30,
       "level": "All Levels",
+      "ar_level": "جميع المستويات",
       "lessons": 30,
       "min_age": 16,
       "price": 320,
@@ -53,29 +55,59 @@
   "accommodations": [
     {
       "id": 1,
-      "title": "Homestay - Single Room",
-      "ar_title": "عائلة مضيفة - غرفة مفردة",
+      "title": "Homestay",
+      "ar_title": "إقامة مع عائلة",
+      "tag": "Best Offer",
+      "tag_ar": "أفضل عرض",
       "features": "Single Room, Shared Bathroom, Halfboard",
-      "fee_per_week": 200,
-      "fee_per_week_sar": 950
+      "ar_features": "غرفة فردية, حمام مشترك, نصف اقامة",
+      "fee_per_week": 400,
+      "fee_per_week_sar": 2000
+    },
+    {
+      "id": 2,
+      "title": "Intensive English Course",
+      "ar_title": "دورة لغة إنجليزية مكثفة",
+      "tag": "Best Offer",
+      "tag_ar": "أفضل عرض",
+      "features": "Single Room, Shared Bathroom, Halfboard",
+      "ar_features": "غرفة فردية, حمام مشترك, نصف اقامة",
+      "fee_per_week": 400,
+      "fee_per_week_sar": 2000
     }
   ],
   "pickups": [
     {
       "id": 1,
-      "route": "Heathrow Airport to Accommodation",
-      "ar_route": "مطار هيثرو إلى السكن",
-      "price": 100,
-      "price_sar": 480
+      "route": "Manchester International Airport",
+      "ar_route": "مطار مانشستر الدولي",
+      "price": 400,
+      "price_sar": 2527
+    },
+    {
+      "id": 2,
+      "route": "Manchester International Airport",
+      "ar_route": "مطار مانشستر الدولي",
+      "price": 400,
+      "price_sar": 2527
     }
   ],
   "insurances": [
     {
       "id": 1,
-      "name": "Student Insurance",
-      "ar_name": "تأمين طالب",
-      "price": 10,
-      "price_sar": 48
+      "name": "Visa",
+      "ar_name": "التأشيرة",
+      "price": 400,
+      "price_sar": 2527,
+      "original_price_sar": 2000
+    },
+    {
+      "id": 2,
+      "name": "Insurance",
+      "ar_name": "التامين",
+      "price": 400,
+      "price_sar": 2527,
+      "original_price_sar": 2000
     }
   ],
   "supplements": [

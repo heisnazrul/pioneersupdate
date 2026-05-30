@@ -46,6 +46,11 @@
                         <input type="text" name="name" value="{{ old('name') }}" required placeholder="e.g. Standard Single Room" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                     </div>
 
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Accommodation Name (Arabic)</label>
+                        <input type="text" name="name_ar" value="{{ old('name_ar') }}" dir="rtl" placeholder="e.g. غرفة فردية قياسية" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Bedroom Type</label>

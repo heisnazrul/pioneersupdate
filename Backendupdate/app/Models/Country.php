@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Country extends Model
 {
@@ -20,6 +22,35 @@ class Country extends Model
         'is_popular' => 'boolean',
         'is_active'  => 'boolean',
     ];
+
+    /**
+     * Admin-uploaded flag path, or default SVG from storage/app/public/flags/{code}.svg
+     */
+    public function resolveFlagPath(): ?string
+    {
+        if (filled($this->flag)) {
+            return $this->flag;
+        }
+
+        $code = strtolower(trim((string) $this->country_code));
+        if ($code === '') {
+            return null;
+        }
+
+        foreach (['svg', 'png', 'jpg', 'jpeg', 'webp'] as $extension) {
+            $path = "flags/{$code}.{$extension}";
+            if (Storage::disk('public')->exists($path)) {
+                return $path;
+            }
+        }
+
+        return null;
+    }
+
+    protected function resolvedFlag(): Attribute
+    {
+        return Attribute::get(fn () => $this->resolveFlagPath());
+    }
 
     public function cities()
     {

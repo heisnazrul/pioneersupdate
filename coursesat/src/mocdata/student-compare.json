@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "course_id": 1,
+      "course_type": "language_courses",
+      "course": {
+        "id": 1,
+        "slug": "ces-school",
+        "name": "General English",
+        "ar_name": "الإنجليزية العامة",
+        "school_name": "CES School",
+        "school_ar_name": "سي اي اس",
+        "city_name": "London",
+        "city_ar_name": "لندن",
+        "country_name": "UK",
+        "country_ar_name": "المملكة المتحدة",
+        "price": 2527,
+        "currency_code": "SAR",
+        "lessons_per_week": 20,
+        "study_time": "15h / week",
+        "required_level": "A1",
+        "start_date": "2026-06-02",
+        "logo": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "url": "/language-institutes/ces-school"
+      }
+    },
+    {
+      "course_id": 2,
+      "course_type": "language_courses",
+      "course": {
+        "id": 2,
+        "slug": "lsi-london",
+        "name": "Intensive English",
+        "ar_name": "الإنجليزية المكثفة",
+        "school_name": "LSI London",
+        "school_ar_name": "معهد LSI لندن",
+        "city_name": "London",
+        "city_ar_name": "لندن",
+        "country_name": "UK",
+        "country_ar_name": "المملكة المتحدة",
+        "price": 2890,
+        "currency_code": "SAR",
+        "lessons_per_week": 25,
+        "study_time": "20h / week",
+        "required_level": "A2",
+        "start_date": "2026-07-14",
+        "logo": "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "url": "/language-institutes/lsi-london"
+      }
+    }
+  ]
+}

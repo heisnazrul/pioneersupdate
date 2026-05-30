@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_STORE', 'database'),
+    'default' => env('CACHE_STORE', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,6 +51,12 @@ return [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),
             'lock_path' => storage_path('framework/cache/data'),
+        ],
+
+        'api_responses' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/cache/api_responses'),
+            'lock_path' => storage_path('framework/cache/api_responses'),
         ],
 
         'memcached' => [

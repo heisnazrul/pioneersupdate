@@ -26,8 +26,8 @@
             @forelse($countries as $country)
             <tr class="hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
                 <td class="px-6 py-4">
-                    @if($country->flag)
-                        <img src="{{ Storage::url($country->flag) }}" alt="" class="w-8 h-5 object-cover rounded shadow-sm">
+                    @if($country->resolved_flag)
+                        <img src="{{ Storage::url($country->resolved_flag) }}" alt="" class="w-8 h-5 object-cover rounded shadow-sm">
                     @else
                         <div class="w-8 h-5 bg-gray-200 dark:bg-gray-700 rounded"></div>
                     @endif

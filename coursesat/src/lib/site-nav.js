@@ -1,7 +1,7 @@
 const TOP_NAV_ITEMS = [
   { href: "/language-institutes", key: "language_institutes", fallback: "Language Institutes" },
   { href: "/#summer-programs", key: "summer_programs", fallback: "Summer Programs" },
-  { href: "/#online-courses", key: "online_courses", fallback: "Online Courses" },
+  { href: "/online-courses", key: "online_courses", fallback: "Online Courses" },
   { href: "/#university-admissions", key: "university_admissions", fallback: "University Admissions" },
   { href: "/#travel-tourism", key: "travel_tourism", fallback: "Travel & Tourism" },
   {
@@ -128,6 +128,7 @@ export function getMobileDrawerLinks(locale) {
       href: "/language-institutes",
     },
     { label: topNav?.summer_programs || "Summer Programs", href: "/#summer-programs" },
+    { label: topNav?.online_courses || "Online Courses", href: "/online-courses" },
     {
       label: topNav?.university_admissions || "University Admissions",
       href: "/#university-admissions",
