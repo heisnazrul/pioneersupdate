@@ -7,6 +7,8 @@ import { useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShare, faCheckCircle, faHeart, faExchangeAlt, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useCurrency } from "@/components/providers/currency-provider";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import mockDetails from "@/mocdata/institute-details.json";
 
 function priceField(obj, field, currency) {
@@ -16,28 +18,23 @@ function priceField(obj, field, currency) {
     return currency === "SAR" ? (obj[sarKey] || 0) : (obj[gbpKey] || (obj.price || obj.amount || 0));
 }
 
-function fmtNum(value) {
-    if (value === null || value === undefined) return "";
-    return Math.round(Number(value)).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
-
 function Price({ value, currency, className = "", size = "md", isNegative = false }) {
+    const { currencies } = useCurrency();
+    const activeCurrency = currencies.find((entry) => entry.code === currency);
+
     if (value === null || value === undefined) return null;
-    const num = fmtNum(Math.abs(value));
-    const iconSize = size === "lg" ? 24 : size === "sm" ? 14 : 18;
-    const sign = isNegative ? "-" : "";
-    if (currency === "SAR") {
-        return (
-            <span className={`inline-flex items-center gap-1 ${className} ${isNegative ? "text-green-500" : ""}`} dir="ltr">
-                <span className="font-medium">{sign}{num}</span>
-                <img src="/assets/icons/sar.svg" alt="SAR" width={iconSize} height={iconSize} className="inline-block" />
-            </span>
-        );
-    }
+    const iconClassName = size === "lg" ? "h-6 w-6" : size === "sm" ? "h-3.5 w-3.5" : "h-[18px] w-[18px]";
+    const textClass = size === "lg" ? "text-[24px] font-bold" : size === "sm" ? "text-[14px]" : "text-[14px] font-medium";
+
     return (
-        <span className={`inline-flex items-center gap-0.5 ${className} ${isNegative ? "text-green-500" : ""}`} dir="ltr">
-            <span className="font-medium">{sign}£{num}</span>
-        </span>
+        <CurrencyAmount
+            currency={currency}
+            amount={Math.abs(value)}
+            activeCurrency={activeCurrency}
+            sign={isNegative ? "-" : ""}
+            className={`inline-flex items-center gap-1 ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
+            iconClassName={iconClassName}
+        />
     );
 }
 

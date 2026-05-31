@@ -1,44 +1,55 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useApi } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 
+const AUTO_SCROLL_MS = 4000;
+const SLIDE_TRANSITION_MS = 500;
+
 const fallbackCertificates = [
   {
     image: "/assets/certificate/1.png",
-    title: "ICEF Certification",
+    title: "English UK Certification",
+    ar_title: "رابطة English UK البريطانية",
     link: "#",
   },
   {
     image: "/assets/certificate/2.png",
-    title: "English UK Partner Agency Certificate",
+    title: "British ICAF Association",
+    ar_title: "رابطة ICAF البريطانية",
     link: "#",
   },
   {
     image: "/assets/certificate/3.png",
-    title: "Accredited UK Training Certificate",
+    title: "English UK Certification",
+    ar_title: "رابطة English UK البريطانية",
     link: "#",
   },
 ];
 
 export default function MobileCertificates() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sliderRef = useRef(null);
+  const [translateX, setTranslateX] = useState(0);
+  const containerRef = useRef(null);
+  const trackRef = useRef(null);
+  const autoScrollPausedRef = useRef(false);
   const { data: certData } = useApi("/courseenglish/certificates");
   const { language, messages, direction } = useLocale();
   const isArabic = language === "ar";
 
   const meta = messages?.pages?.homepage?.certificates ?? {};
   const heading =
-    meta.heading || (isArabic ? "نحن معتمدون من العديد من المؤسسات" : "We are accredited by many institutions");
+    meta.mobile_heading ||
+    meta.heading ||
+    (isArabic ? "حاصلون على رخصات وكيل معتمد لدى العديد من المؤسسات" : "We are accredited by many institutions");
 
   const certificateItems = useMemo(() => {
     const apiItems = certData?.certificates ?? [];
-    if (!apiItems.length) return fallbackCertificates;
-    return apiItems.map((item, idx) => ({
+    const source = apiItems.length ? apiItems : fallbackCertificates;
+    return source.map((item, idx) => ({
       id: item.id ?? idx,
       image: item.image || item.certificate_image,
       title: isArabic ? item.ar_title || item.title || "Certification" : item.title || item.ar_title || "Certification",
@@ -46,87 +57,114 @@ export default function MobileCertificates() {
     }));
   }, [certData, isArabic]);
 
-  const handleDotClick = (idx) => {
-    setActiveIndex(idx);
-    if (sliderRef.current) {
-      sliderRef.current.scrollTo({
-        left: idx * 280, // card width + gap
-        behavior: "smooth",
-      });
-    }
+  const updateTranslate = useCallback(() => {
+    const container = containerRef.current;
+    const track = trackRef.current;
+    if (!container || !track) return;
+
+    const card = track.children[activeIndex];
+    if (!card) return;
+
+    const containerCenter = container.clientWidth / 2;
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    setTranslateX(containerCenter - cardCenter);
+  }, [activeIndex]);
+
+  useEffect(() => {
+    updateTranslate();
+    window.addEventListener("resize", updateTranslate);
+    return () => window.removeEventListener("resize", updateTranslate);
+  }, [updateTranslate, certificateItems.length]);
+
+  useEffect(() => {
+    if (certificateItems.length <= 1) return undefined;
+
+    const interval = window.setInterval(() => {
+      if (autoScrollPausedRef.current) return;
+      setActiveIndex((prev) => (prev + 1) % certificateItems.length);
+    }, AUTO_SCROLL_MS);
+
+    return () => window.clearInterval(interval);
+  }, [certificateItems.length]);
+
+  const pauseAutoScroll = () => {
+    autoScrollPausedRef.current = true;
+    window.setTimeout(() => {
+      autoScrollPausedRef.current = false;
+    }, AUTO_SCROLL_MS);
   };
 
-  // AUTO SLIDE every 4 seconds
-  useEffect(() => {
-    if (!certificateItems.length) return;
-    const interval = setInterval(() => {
-      const nextIdx = (activeIndex + 1) % certificateItems.length;
-      setActiveIndex(nextIdx);
-
-      if (sliderRef.current) {
-        sliderRef.current.scrollTo({
-          left: nextIdx * 280,
-          behavior: "smooth",
-        });
-      }
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [activeIndex, certificateItems.length]);
+  const handleDotClick = (idx) => {
+    pauseAutoScroll();
+    setActiveIndex(idx);
+  };
 
   return (
-    <section className="w-full pb-10 pt-6 bg-white" dir={direction}>
-      
-      {/* Mobile Heading */}
-      <div className="px-4 text-center mb-4">
-        <h2 className="text-2xl font-bold text-slate-900 leading-snug">
-          {heading}
-        </h2>
+    <section className="w-full bg-white pb-8 pt-6" dir={direction}>
+      <div className="mb-5 px-4 text-center">
+        <h2 className="text-2xl font-bold leading-snug text-slate-900">{heading}</h2>
       </div>
 
-      {/* Mobile Slider Carousel */}
       <div className="relative">
         <div
-          ref={sliderRef}
-          className="flex gap-3 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scrollbar-none"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          ref={containerRef}
+          className="overflow-hidden"
+          onMouseEnter={() => {
+            autoScrollPausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            autoScrollPausedRef.current = false;
+          }}
+          onTouchStart={() => {
+            autoScrollPausedRef.current = true;
+          }}
+          onTouchEnd={pauseAutoScroll}
         >
-          {certificateItems.map((item, idx) => {
-            const Card = item.link ? Link : "div";
-            return (
-              <Card
-                key={idx}
-                href={item.link || undefined}
-                className="min-w-[260px] snap-center rounded-2xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col justify-between"
-              >
-                <div className="relative h-52 w-full rounded-2xl overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-contain p-3"
-                    loading="lazy"
-                  />
-                </div>
+          <div
+            ref={trackRef}
+            className="flex gap-3 px-[11vw] will-change-transform"
+            style={{
+              transform: `translateX(${translateX}px)`,
+              transition: `transform ${SLIDE_TRANSITION_MS}ms ease-in-out`,
+            }}
+          >
+            {certificateItems.map((item, idx) => {
+              const Card = item.link && item.link !== "#" ? Link : "div";
+              return (
+                <Card
+                  key={item.id ?? idx}
+                  href={item.link && item.link !== "#" ? item.link : undefined}
+                  className="flex w-[78vw] max-w-[300px] shrink-0 flex-col"
+                >
+                  <div className="relative flex h-[210px] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                    />
+                  </div>
 
-                <p className="mt-4 text-center text-xs font-semibold text-slate-800 line-clamp-2">
-                  {item.title}
-                </p>
-              </Card>
-            );
-          })}
+                  <p className="mt-3 text-center text-sm font-bold leading-snug text-slate-900 line-clamp-2">
+                    {item.title}
+                  </p>
+                </Card>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Mobile Dots Pagination */}
-        <div className="mt-2 flex justify-center gap-1.5">
+        <div className="mt-4 flex items-center justify-center gap-1.5">
           {certificateItems.map((_, idx) => (
             <button
               key={idx}
+              type="button"
               onClick={() => handleDotClick(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              type="button"
+              aria-current={idx === activeIndex ? "true" : undefined}
             >
-              <div
-                className={`h-2 rounded-full transition-all duration-300 ${
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${
                   idx === activeIndex ? "w-6 bg-[#135FAE]" : "w-2 bg-slate-300"
                 }`}
               />

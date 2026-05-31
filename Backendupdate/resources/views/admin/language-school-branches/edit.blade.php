@@ -89,6 +89,17 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">About (English)</label>
+                    <textarea name="about_en" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{{ old('about_en', $languageSchoolBranch->about_en) }}</textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">About (Arabic)</label>
+                    <textarea name="about_ar" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" dir="rtl">{{ old('about_ar', $languageSchoolBranch->about_ar) }}</textarea>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">New Year Close From</label>
                     <input type="date" name="new_year_close_from" value="{{ old('new_year_close_from', $languageSchoolBranch->new_year_close_from?->format('Y-m-d')) }}" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                 </div>

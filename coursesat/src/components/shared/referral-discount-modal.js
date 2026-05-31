@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGift, faXmark, faUser, faPercent } from "@fortawesome/free-solid-svg-icons";
 
 import { useLocale } from "@/components/providers/locale-provider";
-import { CurrencyAmount } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 
 export default function ReferralDiscountModal({
     open,

@@ -18,7 +18,7 @@ function Metric({ title, value }) {
 }
 
 export default function AgentReferrals() {
-  const { direction, t } = useLocale();
+  const { direction, language, t } = useLocale();
   const isRtl = direction === "rtl";
   const loc = (key, fallback = "") => t(`pages.agent.referrals.${key}`, fallback);
   const { data: referralData, loading, error, refetch } = useAgentApi("/agent/referrals");
@@ -155,7 +155,7 @@ export default function AgentReferrals() {
               {referrals.reward_balance != null ? (
                 <p>
                   {loc("reward_balance", "Commission balance")}:{" "}
-                  {formatCurrency(referrals.reward_balance, "SAR")}
+                  {formatCurrency(referrals.reward_balance, "SAR", language)}
                 </p>
               ) : null}
             </div>

@@ -10,7 +10,9 @@ export default function MobileStats() {
   const stats = messages?.pages?.homepage?.stats ?? {};
 
   const heading =
-    stats.heading || (isArabic ? "إنجازاتنا بالأرقام" : "Our achievements in numbers");
+    stats.mobile_heading ||
+    stats.heading ||
+    (isArabic ? "إنجازاتنا بالأرقام" : "Our achievements in numbers");
 
   const mobileItems = [
     {
@@ -29,7 +31,7 @@ export default function MobileStats() {
     <section className="w-full bg-[#E8F3FC] py-8" dir={direction}>
       <div className="mx-auto w-full px-4">
         {/* Mobile heading */}
-        <h2 className="text-center text-2xl font-bold leading-snug text-slate-900">
+        <h2 className="text-center text-2xl font-bold leading-snug text-slate-900 px-8">
           {heading}
         </h2>
 

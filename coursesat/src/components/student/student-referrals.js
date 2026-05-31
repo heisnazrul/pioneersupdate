@@ -108,7 +108,7 @@ export default function StudentReferrals() {
             />
             <Metric
               title={loc("reward_balance", "Reward balance")}
-              value={formatCurrency(referrals.reward_balance_sar, "SAR")}
+              value={formatCurrency(referrals.reward_balance_sar, "SAR", language)}
             />
           </div>
 

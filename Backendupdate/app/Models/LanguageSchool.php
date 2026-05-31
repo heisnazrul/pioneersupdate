@@ -12,7 +12,7 @@ class LanguageSchool extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name_en', 'name_ar', 'slug', 'about_en', 'about_ar', 
+        'name_en', 'name_ar', 'slug',
         'logo_url', 'has_online', 'status'
     ];
 

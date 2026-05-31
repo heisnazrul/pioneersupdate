@@ -181,7 +181,7 @@ export default function StudentBookings() {
                 <div className="flex flex-col justify-end pt-1 text-center md:text-start">
                   <p className="mb-0.5 text-[11px] text-[#a0aaba] md:text-[12px]">{loc("total", "Total")}</p>
                   <p className="whitespace-nowrap text-[15px] font-semibold leading-none text-[#102233] md:text-[18px]" dir="ltr">
-                    {formatCurrency(item.final_price || item.total || 0, item.currency || "SAR")}
+                    {formatCurrency(item.final_price || item.total || 0, item.currency || "SAR", language)}
                   </p>
                 </div>
 

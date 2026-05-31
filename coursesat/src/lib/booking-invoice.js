@@ -137,7 +137,7 @@ export function buildBookingInvoiceHtml(booking, { isArabic = false, labels = {}
       return `<tr>
         <td style="text-align:center;">${index + 1}</td>
         <td>${label}${suffix}</td>
-        <td dir="ltr" style="text-align:${isArabic ? "left" : "right"};">${formatCurrency(line.amount, currency)}</td>
+        <td dir="ltr" style="text-align:${isArabic ? "left" : "right"};">${formatCurrency(line.amount, currency, isArabic ? "ar" : "en")}</td>
       </tr>`;
     })
     .join("");
@@ -149,7 +149,7 @@ export function buildBookingInvoiceHtml(booking, { isArabic = false, labels = {}
       return `<tr class="discount-row">
         <td style="text-align:center;">${rowNumber}</td>
         <td>${lineLabel(line, isArabic)}</td>
-        <td dir="ltr" style="text-align:${isArabic ? "left" : "right"};">${formatCurrency(line.amount, currency)}</td>
+        <td dir="ltr" style="text-align:${isArabic ? "left" : "right"};">${formatCurrency(line.amount, currency, isArabic ? "ar" : "en")}</td>
       </tr>`;
     })
     .join("");
@@ -270,7 +270,7 @@ export function buildBookingInvoiceHtml(booking, { isArabic = false, labels = {}
       </div>
     </div>
     <div class="summary">
-      <div class="card"><p class="label">${L("total", "Total")}</p><p class="value" dir="ltr">${formatCurrency(total, currency)}</p></div>
+      <div class="card"><p class="label">${L("total", "Total")}</p><p class="value" dir="ltr">${formatCurrency(total, currency, isArabic ? "ar" : "en")}</p></div>
       <div class="card"><p class="label">${L("start_date", "Start Date")}</p><p class="value">${esc(formatDate(booking.start_date))}</p></div>
       <div class="card"><p class="label">${L("booking_no", "Booking #")}</p><p class="value">#${esc(bookingId)}</p></div>
     </div>
@@ -279,11 +279,11 @@ export function buildBookingInvoiceHtml(booking, { isArabic = false, labels = {}
       <tbody>
         ${tableBodyRows}
         ${discountTableRows}
-        ${showSummaryDiscountRow ? `<tr class="discount-row"><td style="text-align:center;">${summaryDiscountRowNumber}</td><td>${L("total_discount", isArabic ? "اجمالي الخصم" : "Total Discount")}</td><td dir="ltr" style="text-align:${isArabic ? "left" : "right"};">${formatCurrency(-1 * totalDiscountAmount, currency)}</td></tr>` : ""}
+        ${showSummaryDiscountRow ? `<tr class="discount-row"><td style="text-align:center;">${summaryDiscountRowNumber}</td><td>${L("total_discount", isArabic ? "اجمالي الخصم" : "Total Discount")}</td><td dir="ltr" style="text-align:${isArabic ? "left" : "right"};">${formatCurrency(-1 * totalDiscountAmount, currency, isArabic ? "ar" : "en")}</td></tr>` : ""}
         <tr class="invoice-total">
           <td></td>
           <td>${L("grand_total", isArabic ? "الاجمالي ( السعر شامل جميع الرسوم )" : "Total (includes all fees)")}</td>
-          <td dir="ltr">${formatCurrency(total, currency)}</td>
+          <td dir="ltr">${formatCurrency(total, currency, isArabic ? "ar" : "en")}</td>
         </tr>
       </tbody>
     </table>

@@ -43,6 +43,29 @@ export function formatPriceAmount(value) {
   }).format(Math.round(amount));
 }
 
+export function isCurrencyAfterAmount(language) {
+  return language === "ar";
+}
+
+export function formatCurrencyText(value, currency = "SAR", language = "en") {
+  const formatted = formatPriceAmount(value);
+  if (formatted == null) return "-";
+
+  const after = isCurrencyAfterAmount(language);
+  const code = String(currency || "SAR").toUpperCase();
+
+  if (code === "GBP") {
+    return after ? `${formatted} £` : `£${formatted}`;
+  }
+
+  if (code === "SAR") {
+    const label = language === "ar" ? "ريال" : "SAR";
+    return after ? `${formatted} ${label}` : `${label} ${formatted}`;
+  }
+
+  return after ? `${formatted} ${code}` : `${code} ${formatted}`;
+}
+
 export function getCurrencyDisplay(currencyCode, activeCurrency) {
   const code = String(currencyCode || "").toUpperCase();
 
@@ -78,40 +101,29 @@ export function getCurrencyDisplay(currencyCode, activeCurrency) {
   return { type: "code", symbol: code };
 }
 
-export function CurrencyAmount({
+export function renderCurrencySymbol({
+  display,
   currency,
-  amount,
-  activeCurrency,
-  className = "inline-flex items-center gap-1",
-  iconClassName = "h-4 w-4",
-  variant = "light",
-  muted = false,
+  iconClassName,
+  variant,
+  muted,
 }) {
-  const formatted = formatPriceAmount(amount);
-  if (formatted == null) return <span className={className}>-</span>;
-
-  const display = getCurrencyDisplay(currency, activeCurrency);
-
   if (display.type === "icon") {
     const icon = variant === "dark" ? display.dark : display.light;
     return (
-      <span className={className}>
-        <img
-          src={icon}
-          alt={currency}
-          className={`${iconClassName}${variant === "light" && !muted ? " invert" : ""}${muted ? " opacity-50" : ""}`}
-        />
-        <span>{formatted}</span>
-      </span>
+      <img
+        src={icon}
+        alt={currency}
+        className={`${iconClassName}${variant === "light" && !muted ? " invert" : ""}${muted ? " opacity-50" : ""}`}
+      />
     );
   }
 
-  return (
-    <span className={className}>
-      {display.symbol ? <span>{display.symbol}</span> : null}
-      <span>{formatted}</span>
-    </span>
-  );
+  if (display.symbol) {
+    return <span>{display.symbol}</span>;
+  }
+
+  return null;
 }
 
 export function CurrencyIcon({

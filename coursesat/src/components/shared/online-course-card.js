@@ -4,7 +4,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getImageUrl } from "@/lib/api";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 const TOKENS = {

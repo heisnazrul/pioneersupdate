@@ -24,7 +24,8 @@ import HeroDatePicker from "@/components/shared/hero-date-picker";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
 import { useApi } from "@/lib/api";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 import {
   buildOnlineCourseBookingUrl,

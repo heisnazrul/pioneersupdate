@@ -12,8 +12,9 @@ class LanguageSchoolBranch extends Model
     use HasFactory;
 
     protected $fillable = [
-        'school_id', 'city_id', 'slug', 
-        'new_year_close_from', 'new_year_close_to', 
+        'school_id', 'city_id', 'slug',
+        'about_en', 'about_ar',
+        'new_year_close_from', 'new_year_close_to',
         'branch_images', 'is_active'
     ];
 

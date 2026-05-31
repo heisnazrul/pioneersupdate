@@ -9,7 +9,8 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 const TOKENS = { border: "#E4EDF8", primary: "#1F63AE" };

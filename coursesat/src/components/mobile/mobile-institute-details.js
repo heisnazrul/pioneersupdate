@@ -13,7 +13,9 @@ import {
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useCurrency } from "@/components/providers/currency-provider";
 import { useApi } from "@/lib/api";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { buildInstituteBookingUrl, formatInstituteQueryDate } from "@/lib/institute-booking-url";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
@@ -24,27 +26,24 @@ function priceField(obj, field, currency) {
     return currency === "SAR" ? (obj[sarKey] || 0) : (obj[gbpKey] || (obj.price || obj.amount || 0));
 }
 
-function fmtNum(value) {
-    if (value === null || value === undefined) return "";
-    return Math.round(Number(value)).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
+function Price({ value, currency, activeCurrency, className = "", size = "md", muted = false, isNegative = false }) {
+    const { currencies } = useCurrency();
+    const resolvedActiveCurrency = activeCurrency ?? currencies.find((entry) => entry.code === currency);
 
-function Price({ value, currency, className = "", size = "md" }) {
     if (value === null || value === undefined) return null;
-    const num = fmtNum(value);
-    const iconSize = size === "lg" ? 24 : size === "sm" ? 14 : 18;
-    if (currency === "SAR") {
-        return (
-            <span className={`inline-flex items-center ${className}`}>
-                <span>{num}</span>
-                <img src="/assets/icons/sar.svg" alt="SAR" width={iconSize} height={iconSize} className="inline-block" />
-            </span>
-        );
-    }
+    const iconClassName = size === "lg" ? "h-6 w-6" : size === "sm" ? "h-3.5 w-3.5" : "h-[18px] w-[18px]";
+    const textClass = size === "lg" ? "text-[24px] font-bold" : size === "sm" ? "text-[14px]" : "text-[14px] font-medium";
+
     return (
-        <span className={`inline-flex items-center gap-0.5 ${className}`}>
-            <span>£</span><span>{num}</span>
-        </span>
+        <CurrencyAmount
+            currency={currency}
+            amount={Math.abs(value)}
+            activeCurrency={resolvedActiveCurrency}
+            sign={isNegative ? "-" : ""}
+            className={`inline-flex items-center gap-1 ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
+            iconClassName={iconClassName}
+            muted={muted}
+        />
     );
 }
 

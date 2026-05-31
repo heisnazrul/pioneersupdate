@@ -272,7 +272,7 @@ export default function AccountProfileForm({ variant = "student" }) {
             <div>
               <p className="text-xs font-medium uppercase tracking-wide text-[#1277BE]">{loc("commission_balance", "Commission balance")}</p>
               <p className="mt-1 text-3xl font-semibold text-[#102233]">
-                {formatCurrency(commissionBalance, profileMeta.commission_currency || "SAR")}
+                {formatCurrency(commissionBalance, profileMeta.commission_currency || "SAR", language)}
               </p>
             </div>
             <button

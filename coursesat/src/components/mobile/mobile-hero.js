@@ -106,16 +106,16 @@ export default function MobileHero() {
   );
 
   return (
-    <section className="relative w-full overflow-hidden" dir={direction}>
+    <section className="relative z-30 w-full" dir={direction}>
       <div className="relative flex justify-center px-2 py-6" dir={direction}>
         <div className="w-full max-w-sm px-4 py-6">
           {/* Mobile heading */}
-          <h2 className="text-center text-2xl font-bold leading-snug text-slate-900 pb-4">
-            {hero.headline}
+          <h2 className="pb-4 text-center text-2xl font-bold leading-snug text-slate-900">
+            {hero.mobile_headline || hero.headline}
           </h2>
 
           {/* Fields */}
-          <div className="relative z-40 mt-4 space-y-3">
+          <div className="relative z-50 mt-4 space-y-3">
             {/* Destination */}
             <HeroSearch
               placeholder={hero.destination_box?.placeholder}

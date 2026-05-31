@@ -169,14 +169,15 @@ export default function StudentDashboard() {
 
               <div className="my-3 flex items-center gap-2">
                 <p className="text-xs font-semibold leading-none text-[#102233]">
-                  {formatCurrency(recentBooking?.final_price || recentBooking?.total || 0, recentBooking?.currency || "SAR")}
+                  {formatCurrency(recentBooking?.final_price || recentBooking?.total || 0, recentBooking?.currency || "SAR", language)}
                   <span className="text-xs font-normal text-slate-500"> {loc("per_week", "/ week")}</span>
                 </p>
                 <p className="text-xs text-slate-400 line-through">
                   {formatCurrency(
                     recentBooking?.original_price ||
                       Number(recentBooking?.final_price || recentBooking?.total || 0) * 1.2,
-                    recentBooking?.currency || "SAR"
+                    recentBooking?.currency || "SAR",
+                    language
                   )}
                 </p>
               </div>

@@ -9,7 +9,8 @@ import { faLocationDot, faUser, faChevronLeft, faChevronRight } from "@fortaweso
 import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 import { SUMMER_CAMPS_LISTING_URL } from "@/lib/summer-camps";
 

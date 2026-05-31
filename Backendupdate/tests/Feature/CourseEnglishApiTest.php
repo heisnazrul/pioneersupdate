@@ -46,8 +46,6 @@ class CourseEnglishApiTest extends TestCase
             'name_en' => 'Test School',
             'name_ar' => 'معهد تجريبي',
             'slug' => 'test-school',
-            'about_en' => 'About',
-            'about_ar' => 'نبذة',
             'status' => 'active',
         ]);
 

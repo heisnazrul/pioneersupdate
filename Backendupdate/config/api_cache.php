@@ -1,7 +1,7 @@
 <?php
 
 /** Catalog API cache TTL: 30 days (schools, courses, institutes — not auth/booking). */
-const API_CATALOG_CACHE_TTL = 2592000;
+$catalogCacheTtl = 2592000;
 
 return [
 
@@ -20,7 +20,7 @@ return [
 
     'store' => env('API_RESPONSE_CACHE_STORE', 'api_responses'),
 
-    'default_ttl' => (int) env('API_RESPONSE_CACHE_TTL', API_CATALOG_CACHE_TTL),
+    'default_ttl' => (int) env('API_RESPONSE_CACHE_TTL', $catalogCacheTtl),
 
     /*
     | Path patterns relative to site root (e.g. api/coursesat/home).
@@ -52,23 +52,23 @@ return [
     | Catalog data defaults to 30 days — flush via admin or cache:clear-api after edits.
     */
     'ttl_rules' => [
-        'api/coursesat/home*' => API_CATALOG_CACHE_TTL,
-        'api/coursesat/language-institutes*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/language-institutes*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/home/*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/online-courses*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/summer-programs*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/training-and-professional-courses*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/articles*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/utilities' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/certificates' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/reviews' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/faqs' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/offers*' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/about' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/university-admissions' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/travel-and-tourism' => API_CATALOG_CACHE_TTL,
-        'api/courseenglish/contact-us' => API_CATALOG_CACHE_TTL,
+        'api/coursesat/home*' => $catalogCacheTtl,
+        'api/coursesat/language-institutes*' => $catalogCacheTtl,
+        'api/courseenglish/language-institutes*' => $catalogCacheTtl,
+        'api/courseenglish/home/*' => $catalogCacheTtl,
+        'api/courseenglish/online-courses*' => $catalogCacheTtl,
+        'api/courseenglish/summer-programs*' => $catalogCacheTtl,
+        'api/courseenglish/training-and-professional-courses*' => $catalogCacheTtl,
+        'api/courseenglish/articles*' => $catalogCacheTtl,
+        'api/courseenglish/utilities' => $catalogCacheTtl,
+        'api/courseenglish/certificates' => $catalogCacheTtl,
+        'api/courseenglish/reviews' => $catalogCacheTtl,
+        'api/courseenglish/faqs' => $catalogCacheTtl,
+        'api/courseenglish/offers*' => $catalogCacheTtl,
+        'api/courseenglish/about' => $catalogCacheTtl,
+        'api/courseenglish/university-admissions' => $catalogCacheTtl,
+        'api/courseenglish/travel-and-tourism' => $catalogCacheTtl,
+        'api/courseenglish/contact-us' => $catalogCacheTtl,
     ],
 
 ];

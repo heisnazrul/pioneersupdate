@@ -262,26 +262,36 @@ export default function MobileHeader() {
         </div>
 
         {menuOpen && (
-          <div className="fixed inset-0 z-50 bg-[#135FAE] text-white">
-            <div
-              className={`flex px-3 py-3 ${
-                isRtl ? "justify-start" : "justify-end"
-              }`}
-            >
-              <button
-                type="button"
-                aria-label={t("pages.coursesat.mobile.close_menu", "Close menu")}
-                onClick={() => setMenuOpen(false)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/20 ring-4 ring-white/10 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                <FontAwesomeIcon icon={faXmark} className="h-5 w-5" />
-              </button>
-            </div>
+          <div className="fixed inset-0 z-50">
+            <button
+              type="button"
+              aria-label={t("pages.coursesat.mobile.close_menu", "Close menu backdrop")}
+              onClick={() => setMenuOpen(false)}
+              className="absolute inset-0 bg-[#0a2f57]/75"
+            />
 
             <div
               ref={panelRef}
-              className="h-[calc(100vh-56px)] overflow-y-auto px-3 pb-6"
+              className={`fixed bottom-0 z-10 flex max-h-[92vh] flex-col rounded-none bg-[#135FAE] text-white shadow-2xl ${
+                isRtl ? "left-14 right-0" : "left-0 right-14"
+              }`}
             >
+              <div
+                className={`flex shrink-0 px-3 py-3 ${
+                  isRtl ? "justify-start" : "justify-end"
+                }`}
+              >
+                <button
+                  type="button"
+                  aria-label={t("pages.coursesat.mobile.close_menu", "Close menu")}
+                  onClick={() => setMenuOpen(false)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/20 ring-4 ring-white/10 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <FontAwesomeIcon icon={faXmark} className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="overflow-y-auto px-3 pb-6">
               <div className="mb-4 grid grid-cols-3 gap-3">
                 {quickLinks.map((item) => (
                   <Tile
@@ -394,6 +404,7 @@ export default function MobileHeader() {
                     {index < legalLinks.length - 1 ? <span>•</span> : null}
                   </span>
                 ))}
+              </div>
               </div>
             </div>
           </div>

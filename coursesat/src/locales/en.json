@@ -331,6 +331,7 @@
       "hero": {
         "offer": "Our offers are exclusive. We guarantee the best prices and services and will pay the difference if you find a better price or service.",
         "headline": "Start your study journey now",
+        "mobile_headline": "Discover the best accredited institutes and courses around the world",
         "subheadline": "Discover the best institutes and accredited programs around the world, and choose the destination that fits your goals with ease.",
         "destination_box": {
           "placeholder": "Enter your preferred destination",
@@ -362,6 +363,7 @@
       },
       "stats": {
         "heading": "Our achievements in numbers",
+        "mobile_heading": "Our achievements and accreditations because thousands of students chose us",
         "body": "Thanks to our trusted partners and leading educational institutions around the world, we’ve helped thousands of students achieve their dream of learning English in accredited international environments.",
         "state_details": {
           "students": {
@@ -378,10 +380,12 @@
       },
       "certificates": {
         "heading": "We are accredited by many institutions",
+        "mobile_heading": "We hold certified agent licenses from many institutions",
         "subheading": "We are proud of our partnerships with leading English language institutes and accredited educational organizations around the world."
       },
       "partners_offers": {
         "heading": "Accredited partner institutes around the world",
+        "mobile_heading": "Discover institutes",
         "view_all": "All schools",
         "per_week": "/ week",
         "tabs": {

@@ -1,0 +1,68 @@
+# Files and folders never pushed to live hosting.
+# Used by sync.sh (--exclude-from). Safe to commit — no secrets here.
+
+# --- Secrets & server-only config (NEVER overwrite production .env) ---
+.env
+.env.backup
+.env.production
+.env.local
+.deploy.env
+auth.json
+
+# --- Local deploy & docs (dev machine only) ---
+sync.sh
+.deploy-exclude
+DEPLOY.md
+README.md
+
+# --- Git & editor ---
+.git/
+.gitignore
+.gitattributes
+.editorconfig
+.cursor/
+.idea/
+.vscode/
+.codex/
+.nova/
+.zed/
+.phpactor.json
+
+# --- Dependencies (composer install runs on server for full sync) ---
+vendor/
+node_modules/
+package.json
+package-lock.json
+vite.config.js
+
+# --- Tests & local dev tooling ---
+tests/
+phpunit.xml
+.phpunit.cache/
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+_ide_helper.php
+database/*.sqlite
+database/*.sqlite-journal
+
+# --- Server runtime data (preserve live uploads, logs, cache) ---
+storage/logs/
+storage/framework/cache/data/
+storage/framework/cache/api_responses/
+storage/framework/sessions/
+storage/framework/views/
+storage/app/public/
+storage/app/private/
+storage/*.key
+storage/pail/
+bootstrap/cache/*.php
+public/storage
+public/storage/
+public/hot
+public/build/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+*.log

@@ -14,7 +14,7 @@ import {
     faBed,
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocale } from "@/components/providers/locale-provider";
-import { CurrencyAmount } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 
 const FREE_FOR_ICONS = {
     pickup: faPlaneArrival,

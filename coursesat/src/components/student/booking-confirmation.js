@@ -211,7 +211,7 @@ export default function BookingConfirmation({ booking }) {
                 className={`font-medium text-slate-900 ${isRtl ? "text-left" : "text-right"}`}
                 dir="ltr"
               >
-                {formatCurrency(line.amount, currency)}
+                {formatCurrency(line.amount, currency, language)}
               </div>
             ))}
 
@@ -229,7 +229,7 @@ export default function BookingConfirmation({ booking }) {
                 className={`font-medium text-green-600 ${isRtl ? "text-left" : "text-right"}`}
                 dir="ltr"
               >
-                {formatCurrency(line.amount, currency)}
+                {formatCurrency(line.amount, currency, language)}
               </div>
             ))}
 
@@ -239,7 +239,7 @@ export default function BookingConfirmation({ booking }) {
                   {loc("total_discount", "Total Discount")}
                 </div>
                 <div className={`font-medium text-red-500 ${isRtl ? "text-left" : "text-right"}`} dir="ltr">
-                  {formatCurrency(-1 * totalDiscount, currency)}
+                  {formatCurrency(-1 * totalDiscount, currency, language)}
                 </div>
               </>
             ) : null}
@@ -251,7 +251,7 @@ export default function BookingConfirmation({ booking }) {
               <div className="text-xs text-slate-500">{loc("grand_total_hint", "( Total includes all fees )")}</div>
             </div>
             <div className="text-lg font-semibold text-[#0B5DB6]" dir="ltr">
-              {formatCurrency(total, currency)}
+              {formatCurrency(total, currency, language)}
             </div>
           </div>
         </div>

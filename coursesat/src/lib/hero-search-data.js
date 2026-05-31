@@ -10,13 +10,14 @@ export function mapCourseTypeOptions(types, language) {
 }
 
 export function useHeroSearchData() {
-  const { data, loading, error } = useApi("/courseenglish/utilities");
+  const { data, loading, error } = useApi("/coursesat/home");
+  const searchData = data?.hero?.search_data;
 
   return {
-    schools: data?.schools ?? [],
-    countries: data?.countries ?? [],
-    cities: data?.cities ?? [],
-    courseTypes: data?.language_course_types ?? [],
+    schools: searchData?.schools ?? [],
+    countries: searchData?.countries ?? [],
+    cities: searchData?.cities ?? [],
+    courseTypes: searchData?.course_types ?? [],
     loading,
     error,
   };

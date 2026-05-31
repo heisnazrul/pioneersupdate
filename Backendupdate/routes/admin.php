@@ -163,6 +163,7 @@ Route::prefix('admin')
     // ─── Settings ────────────────────────────────────────────────────
     Route::get('/settings',            [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings.index');
     Route::post('/settings',           [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
+    Route::post('/settings/test-smtp', [\App\Http\Controllers\Admin\SettingsController::class, 'testSmtp'])->name('settings.test-smtp');
 
     Route::post('/cache/flush', [\App\Http\Controllers\Admin\CacheController::class, 'flush'])->name('cache.flush');
 });

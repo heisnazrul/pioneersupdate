@@ -83,9 +83,9 @@ export default function ComparePage() {
                 ? (course.price_per_week_gbp ?? course.price_gbp ?? course.price_per_week ?? course.price ?? 0)
                 : (course.price_per_week_sar ?? course.price_sar ?? course.price_per_week ?? course.price ?? 0);
             const weeks = Number(item.weeks) || 12;
-            return formatCurrency(Number(perWeek) * weeks, currency);
+            return formatCurrency(Number(perWeek) * weeks, currency, language);
           }
-          return formatCurrency(course.price, currency);
+          return formatCurrency(course.price, currency, language);
         },
       },
       { key: "lessons", label: loc("row_lessons", "Lessons / Week"), value: (item) => item.course?.lessons_per_week || "-" },
@@ -95,7 +95,7 @@ export default function ComparePage() {
       { key: "city", label: loc("row_city", "City"), value: (item) => getCity(item.course) },
       { key: "country", label: loc("row_country", "Country"), value: (item) => getCountry(item.course) },
     ],
-    [loc, getType, getTitle, getSchool, getCity, getCountry],
+    [loc, getType, getTitle, getSchool, getCity, getCountry, language],
   );
 
   const loadCompare = useCallback(async () => {

@@ -14,7 +14,8 @@ import {
 import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 const TOKENS = {
@@ -154,20 +155,22 @@ function InstituteCard({ item, style, currency = "SAR", isArabic = false, href, 
           </span>
         </div>
 
-        <div className="mt-4 flex gap-2 text-[14px] text-slate-700 items-center text-left" dir={isArabic ? "rtl" : "ltr"}>
+        <div className="mt-4 flex flex-wrap items-center gap-2 text-[14px] text-slate-700">
           <CurrencyAmount
             currency={currency}
             amount={priceNewValue}
             className="inline-flex items-center gap-1 text-[18px] font-bold text-[#111827]"
             iconClassName="h-4 w-4"
           />
-          <span className="text-[#111827] font-medium text-[16px]">{t("pages.homepage.partners_offers.per_week", "/ week")}</span>
+          <span className="text-[16px] font-medium text-[#111827]">
+            {t("pages.homepage.partners_offers.per_week", "/ week")}
+          </span>
 
           {priceOldValue ? (
             <CurrencyAmount
               currency={currency}
               amount={priceOldValue}
-              className="inline-flex items-center gap-1 text-slate-400 line-through text-[16px] mr-1"
+              className="inline-flex items-center gap-1 text-[16px] text-slate-400 line-through"
               iconClassName="h-4 w-4"
               muted
             />

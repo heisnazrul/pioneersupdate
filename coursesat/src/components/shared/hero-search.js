@@ -11,82 +11,98 @@ import { getCountryFlagUrl, getLocalCountryFlagPath } from "@/lib/country-flags"
 import { useHeroSearchData } from "@/lib/hero-search-data";
 import { useLocale } from "@/components/providers/locale-provider";
 
+const MAX_VISIBLE_INSTITUTES = 7;
+const INSTITUTE_ROW_SIZE = 4;
+
+function buildInstituteGridItems(institutes) {
+  const visible = institutes.slice(0, MAX_VISIBLE_INSTITUTES);
+  const items = [];
+
+  if (visible.length <= INSTITUTE_ROW_SIZE - 1) {
+    visible.forEach((institute) => items.push({ type: "institute", data: institute }));
+    items.push({ type: "other-institutes" });
+    return items;
+  }
+
+  visible.slice(0, INSTITUTE_ROW_SIZE).forEach((institute) => items.push({ type: "institute", data: institute }));
+  items.push({ type: "other-institutes" });
+  visible.slice(INSTITUTE_ROW_SIZE, MAX_VISIBLE_INSTITUTES).forEach((institute) =>
+    items.push({ type: "institute", data: institute })
+  );
+
+  return items;
+}
+
+function HeroSearchOtherCard({ href, label, isArabic, onClose }) {
+  return (
+    <Link
+      href={href}
+      onClick={onClose}
+      className="flex min-h-[108px] flex-col items-center justify-center rounded-xl bg-[#F3F6FA] p-4 text-center transition hover:bg-slate-100"
+    >
+      <span className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#0057B7] text-white">
+        <FontAwesomeIcon icon={faArrowLeft} className={isArabic ? "" : "rotate-180"} />
+      </span>
+      <span className="text-sm font-medium text-slate-700">{label}</span>
+    </Link>
+  );
+}
+
 function HeroSearchDropdownPanel({
   isArabic,
   t,
   filteredInstitutes,
   filteredCountries,
   filteredCities,
-  showAllInstitutes,
-  setShowAllInstitutes,
   handleSelect,
   loading,
   searchTerm,
+  onClose,
 }) {
+  const instituteGridItems = buildInstituteGridItems(filteredInstitutes);
+
   return (
     <div className="max-h-[60vh] overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-gray-200">
       {filteredInstitutes.length > 0 && (
         <section className="mb-8">
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-lg font-medium text-slate-900">{t("Popular Institutes", "أشهر المعاهد")}</h3>
-            <Link
-              href="/language-institutes"
-              className="text-sm font-medium text-[#0057B7] hover:underline flex items-center gap-1"
-            >
-              {t("View All", "عرض الجميع")}{" "}
-              <FontAwesomeIcon icon={faArrowLeft} className={`${isArabic ? "" : "rotate-180"}`} />
-            </Link>
-          </div>
-          <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3`}>
-            {(showAllInstitutes ? filteredInstitutes : filteredInstitutes.slice(0, 6)).map((institute) => (
-              <button
-                key={institute.id ?? institute.slug ?? institute.name}
-                type="button"
-                onClick={() => handleSelect(institute, "school")}
-                className="flex flex-col items-center justify-center rounded-xl border border-gray-100 p-4 hover:border-blue-200 hover:bg-blue-50 transition text-center group min-w-0"
-              >
-                <div className="relative h-10 w-full mb-3 flex items-center justify-center opacity-90 group-hover:opacity-100">
-                  {institute.logo ? (
-                    <img
-                      src={getImageUrl(institute.logo)}
-                      alt={institute.name}
-                      className="h-10 w-full object-contain"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span className="text-xs font-medium text-slate-500 group-hover:text-[#0057B7]">
-                      {isArabic ? institute.ar_name || institute.name : institute.name || institute.ar_name}
-                    </span>
-                  )}
-                </div>
-                <span className="text-sm font-medium text-slate-700 group-hover:text-[#0057B7] line-clamp-2">
-                  {isArabic ? institute.ar_name || institute.name : institute.name || institute.ar_name}
-                </span>
-              </button>
-            ))}
-            {filteredInstitutes.length > 6 && (
-              <button
-                type="button"
-                onClick={() => setShowAllInstitutes((s) => !s)}
-                className="flex flex-col items-center justify-center rounded-xl bg-slate-50 p-4 hover:bg-slate-100 transition text-center"
-              >
-                <span className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#0057B7] text-white">
-                  <FontAwesomeIcon icon={faArrowLeft} className={`${isArabic ? "" : "rotate-180"}`} />
-                </span>
-                <span className="text-sm font-medium text-slate-700">
-                  {showAllInstitutes ? t("Show less", "عرض أقل") : t("Other Institutes", "معاهد أخرى")}
-                </span>
-              </button>
+          <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Institutes", "أشهر المعاهد")}</h3>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {instituteGridItems.map((item) =>
+              item.type === "other-institutes" ? (
+                <HeroSearchOtherCard
+                  key="other-institutes"
+                  href="/language-institutes"
+                  label={t("Other Institutes", "معاهد أخرى")}
+                  isArabic={isArabic}
+                  onClose={onClose}
+                />
+              ) : (
+                <button
+                  key={item.data.id ?? item.data.slug ?? item.data.name}
+                  type="button"
+                  onClick={() => handleSelect(item.data, "school")}
+                  className="group flex min-h-[108px] min-w-0 flex-col items-center justify-center rounded-xl border border-gray-100 p-4 text-center transition hover:border-blue-200 hover:bg-blue-50"
+                >
+                  <div className="relative mb-3 flex h-10 w-full items-center justify-center opacity-90 group-hover:opacity-100">
+                    {item.data.logo ? (
+                      <img
+                        src={getImageUrl(item.data.logo)}
+                        alt={item.data.name}
+                        className="h-10 w-full object-contain"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="text-xs font-medium text-slate-500 group-hover:text-[#0057B7]">
+                        {isArabic ? item.data.ar_name || item.data.name : item.data.name || item.data.ar_name}
+                      </span>
+                    )}
+                  </div>
+                  <span className="line-clamp-2 text-sm font-medium text-slate-700 group-hover:text-[#0057B7]">
+                    {isArabic ? item.data.ar_name || item.data.name : item.data.name || item.data.ar_name}
+                  </span>
+                </button>
+              )
             )}
-          </div>
-          <div className="mt-3">
-            <Link
-              href="/language-institutes"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#0057B7] hover:underline"
-            >
-              {t("View All institutes", "عرض كل المعاهد")}
-              <FontAwesomeIcon icon={faArrowLeft} className={`${isArabic ? "" : "rotate-180"}`} />
-            </Link>
           </div>
         </section>
       )}
@@ -94,47 +110,44 @@ function HeroSearchDropdownPanel({
       {filteredCountries.length > 0 && (
         <section className="mb-8">
           <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Countries", "أشهر الدول")}</h3>
-          <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3`}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {filteredCountries.slice(0, 4).map((country) => {
               const flagSrc = getCountryFlagUrl(country);
               return (
-              <button
-                key={country.id ?? country.slug ?? country.name}
-                type="button"
-                className="flex flex-col items-center justify-center rounded-xl border border-gray-100 p-4 hover:border-blue-200 hover:bg-blue-50 transition text-center min-w-0"
-                onClick={() => handleSelect(country, "country")}
-              >
-                {flagSrc ? (
-                  <img
-                    src={flagSrc}
-                    alt={country.name}
-                    className="mb-2 h-8 w-8 rounded-sm object-cover shadow-sm"
-                    loading="lazy"
-                    onError={(e) => {
-                      const fallback = getLocalCountryFlagPath(country);
-                      if (fallback && !e.currentTarget.src.endsWith(fallback)) {
-                        e.currentTarget.src = fallback;
-                      }
-                    }}
-                  />
-                ) : (
-                  <span className="text-3xl mb-2">🌍</span>
-                )}
-                <span className="text-sm font-medium text-slate-700">
-                  {isArabic ? country.ar_name || country.name : country.name || country.ar_name}
-                </span>
-              </button>
-            );
+                <button
+                  key={country.id ?? country.slug ?? country.name}
+                  type="button"
+                  className="flex min-h-[108px] min-w-0 flex-col items-center justify-center rounded-xl border border-gray-100 p-4 text-center transition hover:border-blue-200 hover:bg-blue-50"
+                  onClick={() => handleSelect(country, "country")}
+                >
+                  {flagSrc ? (
+                    <img
+                      src={flagSrc}
+                      alt={country.name}
+                      className="mb-2 h-8 w-8 rounded-full object-cover shadow-sm"
+                      loading="lazy"
+                      onError={(e) => {
+                        const fallback = getLocalCountryFlagPath(country);
+                        if (fallback && !e.currentTarget.src.endsWith(fallback)) {
+                          e.currentTarget.src = fallback;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <span className="mb-2 text-3xl">🌍</span>
+                  )}
+                  <span className="text-sm font-medium text-slate-700">
+                    {isArabic ? country.ar_name || country.name : country.name || country.ar_name}
+                  </span>
+                </button>
+              );
             })}
-            <button
-              type="button"
-              className="flex flex-col items-center justify-center rounded-xl bg-slate-50 p-4 hover:bg-slate-100 transition text-center"
-            >
-              <span className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#0057B7] text-white">
-                <FontAwesomeIcon icon={faArrowLeft} className={`${isArabic ? "" : "rotate-180"}`} />
-              </span>
-              <span className="text-sm font-medium text-slate-700">{t("Other Countries", "دول أخرى")}</span>
-            </button>
+            <HeroSearchOtherCard
+              href="/language-institutes"
+              label={t("Other Countries", "دول أخرى")}
+              isArabic={isArabic}
+              onClose={onClose}
+            />
           </div>
         </section>
       )}
@@ -142,31 +155,25 @@ function HeroSearchDropdownPanel({
       {filteredCities.length > 0 && (
         <section>
           <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Cities", "أشهر المدن")}</h3>
-          <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3`}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {filteredCities.slice(0, 4).map((city) => (
               <button
                 key={city.id ?? `${city.slug}-${city.country_name || ""}`}
                 type="button"
-                className="flex flex-col items-center justify-center rounded-xl border border-gray-100 p-4 hover:border-blue-200 hover:bg-blue-50 transition text-center min-w-0"
+                className="flex min-h-[52px] min-w-0 flex-col items-center justify-center rounded-xl border border-gray-100 px-4 py-3 text-center transition hover:border-blue-200 hover:bg-blue-50"
                 onClick={() => handleSelect(city, "city")}
               >
                 <span className="text-sm font-medium text-slate-800">
                   {isArabic ? city.ar_name || city.name : city.name || city.ar_name}
                 </span>
-                <span className="text-xs text-slate-500">
-                  {isArabic ? city.country_ar_name || city.country_name : city.country_name || city.country_ar_name}
-                </span>
               </button>
             ))}
-            <button
-              type="button"
-              className="flex flex-col items-center justify-center rounded-xl bg-slate-50 p-4 hover:bg-slate-100 transition text-center"
-            >
-              <span className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#0057B7] text-white">
-                <FontAwesomeIcon icon={faArrowLeft} className={`${isArabic ? "" : "rotate-180"}`} />
-              </span>
-              <span className="text-sm font-medium text-slate-700">{t("Other Cities", "مدن أخرى")}</span>
-            </button>
+            <HeroSearchOtherCard
+              href="/language-institutes"
+              label={t("Other Cities", "مدن أخرى")}
+              isArabic={isArabic}
+              onClose={onClose}
+            />
           </div>
         </section>
       )}
@@ -222,10 +229,11 @@ export default function HeroSearch({
   }, [value]);
 
   const updateDropdownPosition = useCallback(() => {
-    if (!wideDropdown || !anchorRef?.current) return;
+    const anchor = wideDropdown && anchorRef?.current ? anchorRef.current : dropdownRef.current;
+    if (!anchor) return;
 
-    const rect = anchorRef.current.getBoundingClientRect();
-    const width = rect.width * dropdownWidthRatio;
+    const rect = anchor.getBoundingClientRect();
+    const width = wideDropdown ? rect.width * dropdownWidthRatio : rect.width;
     const left = isRtl ? rect.right - width : rect.left;
 
     setDropdownPos({
@@ -236,7 +244,7 @@ export default function HeroSearch({
   }, [wideDropdown, anchorRef, dropdownWidthRatio, isRtl]);
 
   useEffect(() => {
-    if (!isOpen || !wideDropdown) {
+    if (!isOpen) {
       setDropdownPos(null);
       return undefined;
     }
@@ -249,7 +257,7 @@ export default function HeroSearch({
       window.removeEventListener("resize", updateDropdownPosition);
       window.removeEventListener("scroll", updateDropdownPosition, true);
     };
-  }, [isOpen, wideDropdown, updateDropdownPosition]);
+  }, [isOpen, updateDropdownPosition]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -276,7 +284,6 @@ export default function HeroSearch({
   const filteredInstitutes = filterItems(institutes);
   const filteredCountries = filterItems(countries);
   const filteredCities = filterItems(cities);
-  const [showAllInstitutes, setShowAllInstitutes] = useState(false);
 
   const handleSelect = (item, type) => {
     const displayValue = isArabic ? item.ar_name || item.name : item.name || item.ar_name;
@@ -293,32 +300,24 @@ export default function HeroSearch({
     filteredInstitutes,
     filteredCountries,
     filteredCities,
-    showAllInstitutes,
-    setShowAllInstitutes,
     handleSelect,
     loading,
     searchTerm,
+    onClose: () => setIsOpen(false),
   };
 
   const dropdownShellClass =
     "overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200";
 
-  const inlineDropdown = isOpen && !wideDropdown && (
-    <div className={`absolute left-0 top-full z-[100] mt-2 w-full origin-top-left ${dropdownShellClass}`}>
-      <HeroSearchDropdownPanel {...panelProps} />
-    </div>
-  );
-
-  const wideDropdownPanel =
+  const dropdownPanel =
     isOpen &&
-    wideDropdown &&
     dropdownPos &&
     mounted &&
     createPortal(
       <div
         data-hero-search-panel
         dir={direction}
-        className={`fixed z-[200] ${dropdownShellClass}`}
+        className={`fixed z-[500] ${dropdownShellClass}`}
         style={{
           top: dropdownPos.top,
           left: dropdownPos.left,
@@ -358,8 +357,7 @@ export default function HeroSearch({
         </div>
       </div>
 
-      {inlineDropdown}
-      {wideDropdownPanel}
+      {dropdownPanel}
     </div>
   );
 }

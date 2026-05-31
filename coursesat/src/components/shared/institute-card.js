@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSignal, faBookOpen, faClock, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { getImageUrl } from "@/lib/api";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 

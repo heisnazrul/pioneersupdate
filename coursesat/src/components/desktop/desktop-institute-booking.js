@@ -11,7 +11,7 @@ import { useCurrency } from "@/components/providers/currency-provider";
 import CountryPhoneInput from "@/components/shared/country-phone-input";
 import { AUTH_COUNTRIES } from "@/lib/auth-countries";
 import { useApi } from "@/lib/api";
-import { CurrencyAmount } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { computeInstitutePricing } from "@/lib/institute-pricing";
 import { resolveCoursePromotionPercent } from "@/lib/pioneers-discount";
 import {

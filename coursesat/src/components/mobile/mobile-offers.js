@@ -14,7 +14,8 @@ import {
 import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
-import { CurrencyAmount, getCoursePrice } from "@/lib/format-currency";
+import { getCoursePrice } from "@/lib/format-currency";
+import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 const TOKENS = {
@@ -115,57 +116,59 @@ function InstituteCard({ item, currency = "SAR", isArabic = false, href, t }) {
       </div>
 
       <div className="px-4 pb-4">
-        {/* Rating Stars */}
-        <div className="flex items-center gap-0.5 text-xs justify-start">
-          {Array.from({ length: totalStars }).map((_, idx) => (
-            <FontAwesomeIcon
-              key={idx}
-              icon={idx < filledStars ? faStarSolid : faStarRegular}
-              className={idx < filledStars ? "text-[#FFC107]" : "text-slate-300"}
-            />
-          ))}
-        </div>
-
-        {/* Location & Flag */}
-        <div className="mt-1 flex items-center gap-1.5 text-[12px] text-slate-500 justify-start">
-          <span>{item.country}</span>
-          {item.flag && (item.flag.startsWith("http") || item.flag.startsWith("/")) ? (
-            <img src={item.flag} alt={item.country} className="h-3.5 w-3.5" />
-          ) : item.flag ? (
-            <span className="text-sm leading-none">{item.flag}</span>
-          ) : (
-            <span className="text-sm leading-none">🌍</span>
-          )}
+        <div className="flex items-center gap-1 justify-between">
+          <div className="mt-1 flex items-center gap-1.5 text-[12px] text-slate-500 justify-start">
+            
+            {item.flag && (item.flag.startsWith("http") || item.flag.startsWith("/")) ? (
+              <img src={item.flag} alt={item.country} className="h-3.5 w-3.5" />
+            ) : item.flag ? (
+              <span className="text-sm leading-none">{item.flag}</span>
+            ) : (
+              <span className="text-sm leading-none">🌍</span>
+            )}
+            <span>{item.country}</span>
+          </div>
+          <div className="flex items-center gap-0.5 text-xs justify-start">
+            {Array.from({ length: totalStars }).map((_, idx) => (
+              <FontAwesomeIcon
+                key={idx}
+                icon={idx < filledStars ? faStarSolid : faStarRegular}
+                className={idx < filledStars ? "text-[#FFC107]" : "text-slate-300"}
+              />
+            ))}
+          </div>
         </div>
 
         {/* School Name */}
-        <h3 className="mt-1 text-[16px] font-bold leading-snug text-slate-900 text-start min-h-[48px] line-clamp-2">
+        <h3 className="mt-2 text-[16px] font-bold leading-snug text-slate-900 text-start line-clamp-2">
           {item.name}
         </h3>
 
         {/* Course Type */}
         <div className="mt-2.5 flex justify-start">
-          <span className="inline-flex rounded-full bg-[#EEF3FF] px-3.5 py-0.5 text-[11px] font-normal text-slate-600">
+          <span className="inline-flex rounded-full bg-[#EEF3FF] px-3.5 py-1 text-[14px] font-normal text-slate-600">
             {item.courseType}
           </span>
         </div>
 
         {/* Price Row */}
-        <div className="mt-3.5 flex gap-2 text-[13px] text-slate-700 items-center text-left" dir={isArabic ? "rtl" : "ltr"}>
+        <div className="mt-3.5 flex flex-wrap items-center gap-2 text-[13px] text-slate-700">
           <CurrencyAmount
             currency={currency}
             amount={priceNewValue}
-            className="inline-flex items-center gap-1 text-[16px] font-extrabold text-[#111827]"
+            className="inline-flex items-center gap-1 text-[16px] font-bold text-[#111827]"
             iconClassName="h-3.5 w-3.5"
           />
-          <span className="text-[#111827] font-medium text-[14px]">{t("pages.homepage.partners_offers.per_week", "/ week")}</span>
+          <span className="text-[14px] font-medium text-[#111827]">
+            {t("pages.homepage.partners_offers.per_week", "/ week")}
+          </span>
 
           {priceOldValue ? (
             <CurrencyAmount
               currency={currency}
               amount={priceOldValue}
-              className="inline-flex items-center gap-0.5 text-slate-400 line-through text-[14px] mr-1"
-              iconClassName="h-3.5 w-3.5"
+              className="inline-flex items-center gap-0.5 text-[14px] text-slate-400 line-through"
+              iconClassName="h-3.5 w-3.5 invert"
               muted
             />
           ) : null}
@@ -254,7 +257,7 @@ export default function MobileOffers() {
 
   const [activeTab, setActiveTab] = useState("all");
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
-  const [tabThumb, setTabThumb] = useState({ width: 0, left: 0 });
+  const [tabsThumb, setTabsThumb] = useState({ width: 0, left: 0 });
 
   // Derived Safe Active Tab
   const currentTab = useMemo(() => {
@@ -288,7 +291,10 @@ export default function MobileOffers() {
     });
   }, [institutes, currentTab]);
 
-  const mobileHeading = t("pages.homepage.partners_offers.heading", "Partner institutes around the world");
+  const mobileHeading = t(
+    "pages.homepage.partners_offers.mobile_heading",
+    t("pages.homepage.partners_offers.heading", "Partner institutes around the world")
+  );
   const viewAllLabel = t("pages.homepage.partners_offers.view_all", "View all schools");
   const viewAllUrl = "/language-institutes";
 
@@ -319,43 +325,49 @@ export default function MobileOffers() {
     return () => el.removeEventListener("scroll", handler);
   }, [updateUnderline]);
 
-  // Tab scrollbar thumb logic (wrapped in useCallback to satisfy exhaustive-deps)
-  const computeTabThumb = useCallback((customLeft) => {
+  const computeTabsThumb = useCallback(() => {
     const container = tabsScrollRef.current;
     const track = tabTrackRef.current;
     if (!container || !track) return;
+
     const trackWidth = track.clientWidth;
     const scrollWidth = container.scrollWidth;
     const clientWidth = container.clientWidth;
-    const scrollLeft = customLeft ?? container.scrollLeft;
-    const thumbWidth = Math.max(
-      32,
-      Math.min(80, (clientWidth / scrollWidth) * trackWidth)
-    );
+    const scrollable = scrollWidth - clientWidth;
+    const scrollLeft = Math.abs(container.scrollLeft);
+    const ratio = scrollable > 0 ? scrollLeft / scrollable : 0;
+    const thumbWidth =
+      scrollable > 0
+        ? Math.max(36, (clientWidth / scrollWidth) * trackWidth)
+        : Math.max(36, trackWidth * 0.18);
     const maxLeft = Math.max(0, trackWidth - thumbWidth);
-    const ratio =
-      scrollWidth > clientWidth ? scrollLeft / (scrollWidth - clientWidth) : 0;
-    const left = ratio * maxLeft;
-    setTabThumb({ width: thumbWidth, left });
-  }, []);
+    const left =
+      scrollable > 0
+        ? (isArabic ? (1 - ratio) * maxLeft : ratio * maxLeft)
+        : (isArabic ? maxLeft : 0);
+
+    setTabsThumb({ width: thumbWidth, left });
+  }, [isArabic]);
 
   useEffect(() => {
-    computeTabThumb();
+    computeTabsThumb();
     const el = tabsScrollRef.current;
-    if (!el) return;
-    const onScroll = () => computeTabThumb();
+    if (!el) return undefined;
+
+    const onScroll = () => computeTabsThumb();
     el.addEventListener("scroll", onScroll, { passive: true });
-    const ro = new ResizeObserver(() => computeTabThumb());
+    const ro = new ResizeObserver(() => computeTabsThumb());
     ro.observe(el);
-    const roTrack = new ResizeObserver(() => computeTabThumb());
-    const currentTrack = tabTrackRef.current;
-    if (currentTrack) roTrack.observe(currentTrack);
+    const track = tabTrackRef.current;
+    const roTrack = track ? new ResizeObserver(() => computeTabsThumb()) : null;
+    if (track) roTrack.observe(track);
+
     return () => {
       el.removeEventListener("scroll", onScroll);
       ro.disconnect();
-      roTrack.disconnect();
+      roTrack?.disconnect();
     };
-  }, [computeTabThumb]);
+  }, [computeTabsThumb, tabs.length]);
 
   const activateTab = (id) => {
     setActiveTab(id);
@@ -366,7 +378,6 @@ export default function MobileOffers() {
     const targetCenter = target.offsetLeft + target.offsetWidth / 2;
     const scrollTo = Math.max(0, targetCenter - containerWidth / 2);
     container.scrollTo({ left: scrollTo, behavior: "smooth" });
-    requestAnimationFrame(() => computeTabThumb(scrollTo));
   };
 
   const scrollTabs = (direction) => {
@@ -387,8 +398,11 @@ export default function MobileOffers() {
         <h2 className="text-xl font-bold leading-snug text-slate-900 max-w-[55%] text-start">
           {mobileHeading}
         </h2>
-        <Link href={viewAllUrl} className="flex items-center gap-1 rounded-[8px] bg-[#1F63AE] px-4 py-2 text-sm font-bold !text-white hover:brightness-110 transition-all">
-          <span className="pb-0.5">{viewAllLabel}</span>
+        <Link
+          href={viewAllUrl}
+          className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-[#1F63AE] transition-colors hover:text-[#135FAE]"
+        >
+          <span>{viewAllLabel}</span>
           <FontAwesomeIcon icon={isArabic ? faChevronLeft : faChevronRight} className="text-xs" />
         </Link>
       </div>
@@ -412,9 +426,9 @@ export default function MobileOffers() {
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
 
-        {/* Baseline & Tab Labels */}
+        {/* Baseline & Tab Labels — native scrollbar hidden (red area in design) */}
         <div className="mx-6 relative">
-          <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-[3px] bg-slate-200/70">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-transparent mx-2">
             <div
               className="absolute h-full bg-[#0072bc] transition-all duration-300"
               style={{
@@ -426,7 +440,7 @@ export default function MobileOffers() {
 
           <div
             ref={tabsScrollRef}
-            className="flex gap-5 overflow-x-auto pb-2 text-sm font-medium text-slate-500 scrollbar-hide"
+            className="tabs-scroll-hide flex gap-5 overflow-x-auto overflow-y-hidden pb-2 text-sm font-medium text-slate-500 mx-2"
           >
             {tabs.map((tab) => {
               const isActive = currentTab === tab.id;
@@ -445,29 +459,27 @@ export default function MobileOffers() {
               );
             })}
           </div>
-        </div>
-      </div>
 
-      {/* Underline Progress Bar */}
-      <div className="relative mt-2 px-6">
-        <div
-          className="pointer-events-none h-1 rounded-full bg-slate-200/50"
-          ref={tabTrackRef}
-        >
+          {/* Tab scroll indicator — white track, gray thumb (Figma) */}
           <div
-            className="absolute h-1 rounded-full bg-[#1F63AE] transition-all duration-300"
-            style={{
-              width: `${tabThumb.width}px`,
-              transform: `translateX(${tabThumb.left}px)`,
-            }}
-          />
+            ref={tabTrackRef}
+            className="relative mx-2 mt-3 h-1.5 w-[calc(100%-1rem)] overflow-hidden rounded-full bg-white"
+          >
+            <div
+              className="absolute top-0 h-1.5 rounded-full bg-[#B8C4D0] transition-[transform,width] duration-150 ease-out"
+              style={{
+                width: `${tabsThumb.width}px`,
+                transform: `translateX(${tabsThumb.left}px)`,
+              }}
+            />
+          </div>
         </div>
       </div>
 
       {/* Swipe Cards Container */}
-      <div className="mt-6">
+      <div className="mt-4">
         {filtered.length > 0 ? (
-          <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
+          <div className="cards-scroll-hide flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-2">
             {filtered.map((inst) => (
               <InstituteCard
                 key={`${inst.id}-${inst.tagId ?? currentTab}`}
@@ -488,6 +500,29 @@ export default function MobileOffers() {
         )}
       </div>
 
+      <style jsx>{`
+        .tabs-scroll-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .tabs-scroll-hide::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+
+        .cards-scroll-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .cards-scroll-hide::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+      `}</style>
     </section>
   );
 }
