@@ -40,7 +40,7 @@ function Price({ value, currency, activeCurrency, className = "", size = "md", m
             amount={Math.abs(value)}
             activeCurrency={resolvedActiveCurrency}
             sign={isNegative ? "-" : ""}
-            className={`inline-flex items-center gap-1 ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
+            className={`inline-flex items-center  ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
             iconClassName={iconClassName}
             muted={muted}
         />

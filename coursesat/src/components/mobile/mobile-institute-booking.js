@@ -32,7 +32,7 @@ function Price({ value, currency, className = "", size = "md", isNegative = fals
             amount={Math.abs(value)}
             activeCurrency={activeCurrency}
             sign={isNegative ? "-" : ""}
-            className={`inline-flex items-center gap-1 ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
+            className={`inline-flex items-center ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
             iconClassName={iconClassName}
         />
     );

@@ -12,6 +12,7 @@ import { useCurrency } from "@/components/providers/currency-provider";
 import { getCoursePrice } from "@/lib/format-currency";
 import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
+import MobileInfiniteCarousel from "@/components/mobile/mobile-infinite-carousel";
 
 const TOKENS = { border: "#E4EDF8", primary: "#1F63AE" };
 
@@ -110,11 +111,11 @@ function CourseCard({ course, currency = "SAR", isArabic = false, href, t }) {
           <span>{course.country}</span>
         </div>
 
-        <h3 className="mt-1 text-[16px] font-bold leading-snug text-slate-900 min-h-[48px] line-clamp-2">
+        <h3 className="mt-1 text-[16px] font-bold leading-snug text-slate-900  line-clamp-2">
           {course.title}
         </h3>
 
-        <div className="mt-3.5 flex items-center justify-start gap-1" dir="ltr">
+        <div className="mt-3.5 flex items-center gap-1">
           <CurrencyAmount
             currency={currency}
             amount={priceNewValue}
@@ -143,12 +144,14 @@ export default function MobileOnline() {
   const { currency } = useCurrency();
   const isArabic = language === "ar";
 
-  const heading = t("pages.homepage.online_courses.heading", "الدراسة عن بعد");
-  const subheading = t(
-    "pages.homepage.online_courses.subheading",
-    "تعلم اللغة الإنجليزية أينما كنت، بخيارات مرنة تناسب وقتك وأهدافك"
+  const heading = t(
+    "pages.homepage.online_courses.mobile_heading",
+    t("pages.homepage.online_courses.heading", "Online Courses")
   );
-  const ctaText = t("pages.homepage.online_courses.view_all", "View all courses");
+  const ctaText = t(
+    "pages.homepage.online_courses.mobile_view_all",
+    t("pages.homepage.online_courses.view_all", "All courses")
+  );
   const ctaUrl = "/online-courses";
 
   const courses = useMemo(() => {
@@ -182,26 +185,27 @@ export default function MobileOnline() {
   return (
     <section className="block md:hidden bg-[#EEF4FB] py-10 w-full" dir={direction}>
       <div className="px-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-[24px] font-extrabold leading-[1.3] text-[#111827] max-w-[55%] text-start">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="text-xl font-bold leading-snug text-slate-900 max-w-[55%] text-start">
             {heading}
           </h2>
           <Link
             href={ctaUrl}
-            className="flex items-center gap-1 rounded-[8px] bg-[#1F63AE] px-4 py-2 text-sm font-bold !text-white hover:brightness-110 transition-all"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-[#1F63AE] transition-colors hover:text-[#135FAE]"
           >
-            <span className="pb-0.5">{ctaText}</span>
+            <span>{ctaText}</span>
             <FontAwesomeIcon icon={isArabic ? faChevronLeft : faChevronRight} className="text-xs" />
           </Link>
         </div>
-        {subheading ? <p className="mt-2 text-sm text-slate-500 text-start">{subheading}</p> : null}
       </div>
 
       <div className="mt-6">
-        <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
-          {courses.map((course) => (
+        <MobileInfiniteCarousel
+          items={courses}
+          getItemKey={(course) => course.id}
+          renderItem={(course, _idx, key) => (
             <CourseCard
-              key={course.id}
+              key={key}
               course={course}
               currency={currency}
               isArabic={isArabic}
@@ -215,9 +219,8 @@ export default function MobileOnline() {
               }
               t={t}
             />
-          ))}
-          <div className="shrink-0 w-4 snap-none" />
-        </div>
+          )}
+        />
       </div>
     </section>
   );

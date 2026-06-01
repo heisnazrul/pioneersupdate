@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Required Level</label>
                     <input type="text" name="required_level" value="{{ old('required_level', $course->required_level ?? '') }}" placeholder="A1 / B2" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
@@ -81,10 +81,6 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Min Age</label>
                     <input type="number" name="min_age" value="{{ old('min_age', $course->min_age ?? '') }}" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Start Date</label>
-                    <input type="text" name="start_date" value="{{ old('start_date', $course->start_date ?? '') }}" placeholder="Flexible" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                 </div>
             </div>
         </div>
@@ -165,88 +161,3 @@
         </div>
     </div>
 </div>
-
-@include('admin.partials.media-picker-modal', ['title' => 'Select Online Course Thumbnail'])
-
-<script>
-function mediaPicker() {
-    return {
-        showModal: false,
-        tab: 'gallery',
-        loading: false,
-        uploading: false,
-        searchTerm: '',
-        images: [],
-        selectedId: null,
-        tempSelected: null,
-        selectedUrl: '{{ old("gallery_thumbnail", $course->thumbnail ?? null) ? Storage::url(old("gallery_thumbnail", $course->thumbnail ?? null)) : "" }}',
-        selectedPath: '{{ old("gallery_thumbnail", $course->thumbnail ?? "") }}',
-        selectedTitle: '',
-        uploadFile: null,
-        uploadPreview: null,
-        uploadTitle: '',
-
-        openModal() {
-            this.showModal = true;
-            this.tab = 'gallery';
-            this.fetchImages();
-        },
-
-        async fetchImages() {
-            this.loading = true;
-            try {
-                const response = await fetch(`{{ route('admin.galleries.search') }}?use_case=online_course&search=${this.searchTerm}`);
-                this.images = await response.json();
-            } catch (e) {
-                console.error('Failed to fetch images', e);
-            }
-            this.loading = false;
-        },
-
-        selectImage(img) {
-            this.selectedId = img.id;
-            this.tempSelected = img;
-        },
-
-        handleFileUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            this.uploadFile = file;
-            this.uploadPreview = URL.createObjectURL(file);
-            if (!this.uploadTitle) this.uploadTitle = file.name.split('.')[0];
-        },
-
-        async uploadAndSelect() {
-            this.uploading = true;
-            const formData = new FormData();
-            formData.append('image', this.uploadFile);
-            formData.append('title', this.uploadTitle);
-            formData.append('use_case', 'online_course');
-            formData.append('_token', '{{ csrf_token() }}');
-
-            try {
-                const response = await fetch(`{{ route('admin.galleries.api-store') }}`, {
-                    method: 'POST',
-                    body: formData
-                });
-                const result = await response.json();
-                this.tempSelected = result;
-                this.confirmSelection();
-            } catch (e) {
-                alert('Upload failed. Please try again.');
-            }
-
-            this.uploading = false;
-        },
-
-        confirmSelection() {
-            if (this.tempSelected) {
-                this.selectedUrl = this.tempSelected.url;
-                this.selectedPath = this.tempSelected.path;
-                this.selectedTitle = this.tempSelected.title;
-                this.showModal = false;
-            }
-        }
-    }
-}
-</script>

@@ -22,6 +22,12 @@ class CountrySeeder extends Seeder
             ['name' => 'Malaysia', 'ar_name' => 'ماليزيا', 'country_code' => 'MY', 'currency_code' => 'MYR', 'phone_code' => '+60', 'capital' => 'Kuala Lumpur', 'continent' => 'Asia', 'is_popular' => true, 'display_order' => 8],
             ['name' => 'Saudi Arabia', 'ar_name' => 'المملكة العربية السعودية', 'country_code' => 'SA', 'currency_code' => 'SAR', 'phone_code' => '+966', 'capital' => 'Riyadh', 'continent' => 'Asia', 'is_popular' => true, 'display_order' => 9],
             ['name' => 'Bangladesh', 'ar_name' => 'بنغلاديش', 'country_code' => 'BD', 'currency_code' => 'BDT', 'phone_code' => '+880', 'capital' => 'Dhaka', 'continent' => 'Asia', 'is_popular' => true, 'display_order' => 10],
+            ['name' => 'Malta', 'ar_name' => 'مالطا', 'country_code' => 'MT', 'currency_code' => 'EUR', 'phone_code' => '+356', 'capital' => 'Valletta', 'continent' => 'Europe', 'is_popular' => false, 'display_order' => 11],
+            ['name' => 'New Zealand', 'ar_name' => 'نيوزيلندا', 'country_code' => 'NZ', 'currency_code' => 'NZD', 'phone_code' => '+64', 'capital' => 'Wellington', 'continent' => 'Oceania', 'is_popular' => false, 'display_order' => 12],
+            ['name' => 'France', 'ar_name' => 'فرنسا', 'country_code' => 'FR', 'currency_code' => 'EUR', 'phone_code' => '+33', 'capital' => 'Paris', 'continent' => 'Europe', 'is_popular' => false, 'display_order' => 13],
+            ['name' => 'Switzerland', 'ar_name' => 'سويسرا', 'country_code' => 'CH', 'currency_code' => 'CHF', 'phone_code' => '+41', 'capital' => 'Bern', 'continent' => 'Europe', 'is_popular' => false, 'display_order' => 14],
+            ['name' => 'South Africa', 'ar_name' => 'جنوب أفريقيا', 'country_code' => 'ZA', 'currency_code' => 'ZAR', 'phone_code' => '+27', 'capital' => 'Pretoria', 'continent' => 'Africa', 'is_popular' => false, 'display_order' => 15],
+            ['name' => 'Cyprus', 'ar_name' => 'قبرص', 'country_code' => 'CY', 'currency_code' => 'EUR', 'phone_code' => '+357', 'capital' => 'Nicosia', 'continent' => 'Europe', 'is_popular' => false, 'display_order' => 16],
         ];
 
         foreach ($rows as $row) {

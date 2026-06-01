@@ -47,7 +47,7 @@ function Price({ value, currency, activeCurrency, className = "", size = "md", m
       currency={currency}
       amount={value}
       activeCurrency={activeCurrency}
-      className={`inline-flex items-center gap-1 ${textClass} ${className}`}
+      className={`inline-flex items-center ${textClass} ${className}`}
       iconClassName={iconClassName}
       variant="light"
       muted={muted}

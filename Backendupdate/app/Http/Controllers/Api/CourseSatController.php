@@ -482,11 +482,32 @@ class CourseSatController extends Controller
             ->values()
             ->all();
 
+        $countryCourseCounts = $courses
+            ->filter(fn ($course) => $course->branch?->city?->country_id)
+            ->countBy(fn ($course) => $course->branch->city->country_id);
+
+        $countryBranchCounts = $branches
+            ->filter(fn ($branch) => $branch->city?->country_id)
+            ->countBy(fn ($branch) => $branch->city->country_id);
+
         $countries = $branches
             ->map(fn ($branch) => $branch->city?->country)
             ->filter()
             ->unique('id')
-            ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values()
+            ->sort(function ($a, $b) use ($countryCourseCounts, $countryBranchCounts) {
+                $courseDiff = ($countryCourseCounts[$b->id] ?? 0) <=> ($countryCourseCounts[$a->id] ?? 0);
+                if ($courseDiff !== 0) {
+                    return $courseDiff;
+                }
+
+                $branchDiff = ($countryBranchCounts[$b->id] ?? 0) <=> ($countryBranchCounts[$a->id] ?? 0);
+                if ($branchDiff !== 0) {
+                    return $branchDiff;
+                }
+
+                return strnatcasecmp($a->name, $b->name);
+            })
             ->values()
             ->map(fn ($country) => [
                 'id' => $country->id,
@@ -495,6 +516,8 @@ class CourseSatController extends Controller
                 'slug' => $country->slug,
                 'country_code' => $country->country_code,
                 'flag' => $this->support->toPublicUrl($country->resolveFlagPath()),
+                'course_count' => $countryCourseCounts[$country->id] ?? 0,
+                'branch_count' => $countryBranchCounts[$country->id] ?? 0,
             ])
             ->all();
 

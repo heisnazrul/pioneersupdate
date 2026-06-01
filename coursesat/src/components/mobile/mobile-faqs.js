@@ -1,13 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronDown,
-  faChevronUp,
-  faArrowRight,
   faArrowDown,
-  faArrowUp
+  faArrowLeft,
+  faArrowRight,
+  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { useApi } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
@@ -124,8 +124,6 @@ export default function MobileFaqs() {
 
   if (faqs.length === 0) return null;
 
-  const btnDirClass = isArabic ? "rotate-180" : "";
-
   return (
     <section className="block md:hidden py-10 w-full" style={{ background: BLUE }} dir={direction}>
       <div className="px-4 text-start">
@@ -168,26 +166,19 @@ export default function MobileFaqs() {
           )}
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 flex items-center justify-between">
-          <div className="text-start">
-            <h3 className="text-lg font-bold text-white leading-none">{ctaText}</h3>
-            <p className="mt-1 text-white/80 text-[13px]">{helpText}</p>
-          </div>
+        <div className="mt-8 border-t border-white/10 pt-8 flex flex-col items-center text-center">
+          <h3 className="text-lg font-bold text-white leading-snug">{ctaText}</h3>
+          <p className="mt-2 text-sm text-white/85">{helpText}</p>
 
-          <button
-            type="button"
-            className={`grid h-10 w-10 place-items-center rounded-full bg-white text-[#0072bc] transition duration-200 hover:scale-105 ${btnDirClass}`}
-            aria-label="Contact support"
-            title="Contact support"
+          <Link
+            href={ctaUrl}
+            className="mt-5 grid h-11 w-11 place-items-center rounded-full bg-white text-slate-900 transition duration-200 hover:scale-105"
+            aria-label={helpText}
+            title={helpText}
             style={{ boxShadow: SHADOW }}
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                window.location.href = ctaUrl;
-              }
-            }}
           >
-            <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
-          </button>
+            <FontAwesomeIcon icon={isArabic ? faArrowLeft : faArrowRight} className="text-sm" />
+          </Link>
         </div>
 
       </div>

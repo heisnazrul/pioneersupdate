@@ -117,7 +117,7 @@ function ProgramCard({ program, style, currency = "SAR", isArabic = false, href,
           <CurrencyAmount
             currency={currency}
             amount={priceFromValue}
-            className="inline-flex items-center gap-1 font-bold text-slate-900"
+            className="inline-flex items-center font-bold text-slate-900"
             iconClassName="h-4 w-4"
           />
           <span className="text-slate-500 font-medium">{t("pages.homepage.partners_offers.per_week", "/ week")}</span>

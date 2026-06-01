@@ -1,0 +1,6584 @@
+[
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "G.20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 15.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 390.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 300.0
+      },
+      {
+        "week_category": 20,
+        "weekly_fee": 269.0
+      },
+      {
+        "week_category": 21,
+        "weekly_fee": 260.0
+      }
+    ]
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "G.30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 15.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 420.0
+      },
+      {
+        "week_category": 20,
+        "weekly_fee": 369.0
+      },
+      {
+        "week_category": 21,
+        "weekly_fee": 360.0
+      }
+    ]
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "X.30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 15.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 530.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 475.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 447.5
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 438.33
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 420.0
+      }
+    ]
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "Academic English",
+    "course_name_from_school": "A.30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 393.75
+      },
+      {
+        "week_category": 21,
+        "weekly_fee": 375.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "course_type": "General English",
+    "course_name_from_school": "GE20",
+    "hours_per_week": 16.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 300.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 240.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "course_type": "Intensive English",
+    "course_name_from_school": "GE26",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 335.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 305.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "GE20 + IELTS Exam Prep",
+    "hours_per_week": 16.0,
+    "lessons_per_week": 20,
+    "min_level": "A2",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 290.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 260.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English Fluency GE20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 200.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 180.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Fluency + Conversation GE26",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 265.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 255.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 275.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "GE20 + IELTS Exam Prep",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 30,
+    "min_level": "A2",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 265.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 255.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 275.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Malta",
+    "country": "MT",
+    "course_type": "General English",
+    "course_name_from_school": "General English Fluency GE20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 200.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 180.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 160.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Malta",
+    "country": "MT",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Fluency + Conversation GE26",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 260.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 220.0
+      }
+    ]
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Malta",
+    "country": "MT",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "GE20 + IELTS Exam Prep",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "A2",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 260.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 220.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English 15 hours",
+    "hours_per_week": 15.0,
+    "lessons_per_week": null,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 20.0,
+      "promo_from": "07/11/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 275.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 260.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English 20 hours",
+    "hours_per_week": 20.0,
+    "lessons_per_week": null,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 20.0,
+      "promo_from": "16/09/2025",
+      "promo_to": "01/05/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 330.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "General English + IELTS",
+    "hours_per_week": 20.0,
+    "lessons_per_week": null,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 20.0,
+      "promo_from": "16/09/2025",
+      "promo_to": "01/05/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 370.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 360.0
+      }
+    ]
+  },
+  {
+    "school_en": "Central Language School",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 230.0
+      }
+    ]
+  },
+  {
+    "school_en": "Central Language School",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive English",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 295.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 150.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 140.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 130.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 178.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 165.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 210.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 196.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 182.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 229.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 213.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 198.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 250.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 233.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 217.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 150.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 140.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 130.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 178.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 165.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 210.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 196.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 182.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 229.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 213.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 198.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 250.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 233.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 217.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 150.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 140.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 130.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 178.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 165.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 210.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 196.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 182.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 229.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 213.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 198.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Course",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 250.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 233.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 217.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 150.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 140.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 130.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 178.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 165.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 210.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 196.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 182.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 229.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 213.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 198.0
+      }
+    ]
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 40.0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 250.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 233.0
+      },
+      {
+        "week_category": 11,
+        "weekly_fee": 217.0
+      }
+    ]
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": null,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 65.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 160.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 150.0
+      },
+      {
+        "week_category": 14,
+        "weekly_fee": 140.0
+      },
+      {
+        "week_category": 21,
+        "weekly_fee": 130.0
+      }
+    ]
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Plus",
+    "hours_per_week": 22.5,
+    "lessons_per_week": null,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 65.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 225.0
+      },
+      {
+        "week_category": 14,
+        "weekly_fee": 210.0
+      },
+      {
+        "week_category": 21,
+        "weekly_fee": 195.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 305.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 265.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Intensive",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 385.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 300.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Super Intensive",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 430.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 370.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 315.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Intensive",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 25,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 385.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 300.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Super Intensive",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 430.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 370.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 315.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 290.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 250.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Intensive",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 320.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 280.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Super Intensive",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 305.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Intensive",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 25,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 320.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 280.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Super Intensive",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 305.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 290.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English Intensive",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 430.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 385.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 325.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English Super Intensive",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 460.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Intensive",
+    "hours_per_week": 19.0,
+    "lessons_per_week": 25,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 430.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 385.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 325.0
+      }
+    ]
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Super Intensive",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 80.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 460.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 310.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 24",
+    "hours_per_week": 18.0,
+    "lessons_per_week": 24,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 350.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 355.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 310.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 24",
+    "hours_per_week": 18.0,
+    "lessons_per_week": 24,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 350.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 310.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 24",
+    "hours_per_week": 18.0,
+    "lessons_per_week": 24,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 350.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 370.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 525.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 505.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 485.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 445.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 525.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 505.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 25",
+    "hours_per_week": 20.8,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 605.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 575.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 545.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 505.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 660.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 625.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 545.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 545.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 660.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 625.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 545.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 660.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 625.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 545.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 495.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 475.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 410.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 25",
+    "hours_per_week": 20.8,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 535.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 505.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 495.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 475.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 410.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 25",
+    "hours_per_week": 20.8,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 535.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 505.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 495.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 475.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 410.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 535.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 505.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 515.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 420.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 390.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 420.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 420.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 420.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 420.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 25",
+    "hours_per_week": 20.8,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 460.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 430.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 420.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 390.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 420.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 420.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 25",
+    "hours_per_week": 20.8,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 460.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 430.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B2",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 175.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 470.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 475.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 465.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 0.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 475.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 470.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 465.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 0.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 24",
+    "hours_per_week": 20.0,
+    "lessons_per_week": 24,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 535.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 525.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 510.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 590.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 575.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic English 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 12,
+        "weekly_fee": 590.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 575.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 590.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 575.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "course_type": "TOEFL Exam Preparation",
+    "course_name_from_school": "TOEFL 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 20.0,
+    "registration_admin_fee": 230.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 600.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 595.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 590.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 575.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brisbane",
+    "country": "AU",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 15.0,
+    "registration_admin_fee": 275.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 460.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 410.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brisbane",
+    "country": "AU",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 24",
+    "hours_per_week": 20.0,
+    "lessons_per_week": 24,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 15.0,
+    "registration_admin_fee": 275.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 535.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 520.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 510.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 485.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brisbane",
+    "country": "AU",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 15.0,
+    "registration_admin_fee": 275.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 590.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 575.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 525.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brisbane",
+    "country": "AU",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 15.0,
+    "registration_admin_fee": 275.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 590.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 575.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 525.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Paris",
+    "country": "FR",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 10.0,
+    "registration_admin_fee": 115.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 445.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 355.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Paris",
+    "country": "FR",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive 24",
+    "hours_per_week": 20.0,
+    "lessons_per_week": 24,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 10.0,
+    "registration_admin_fee": 115.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 500.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 465.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 405.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Paris",
+    "country": "FR",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 10.0,
+    "registration_admin_fee": 115.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 565.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 515.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 490.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 465.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Zurich",
+    "country": "CH",
+    "course_type": "General English",
+    "course_name_from_school": "General 20",
+    "hours_per_week": 16.7,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 15.0,
+    "registration_admin_fee": 135.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 525.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 485.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 465.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 410.0
+      }
+    ]
+  },
+  {
+    "school_en": "LSI",
+    "city": "Zurich",
+    "country": "CH",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive 30",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 15.0,
+    "registration_admin_fee": 135.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 695.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 655.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 630.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 580.0
+      }
+    ]
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "course_type": "General English",
+    "course_name_from_school": "ENGLISH AND 21ST CENTURY COMMUNICATION SKILLS",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 18,
+    "material_books_fee": 80.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": "Learner Protection",
+    "mandatory_additional_fee": 40.0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 230.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 220.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 210.0
+      },
+      {
+        "week_category": 19,
+        "weekly_fee": 200.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 190.0
+      }
+    ]
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "course_type": "General English Afternoon",
+    "course_name_from_school": "ENGLISH AND 21ST CENTURY COMMUNICATION SKILLS",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 18,
+    "material_books_fee": 80.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": "Learner Protection",
+    "mandatory_additional_fee": 40.0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 200.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 180.0
+      },
+      {
+        "week_category": 19,
+        "weekly_fee": 170.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 160.0
+      }
+    ]
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Athlone",
+    "country": "IE",
+    "course_type": "General English",
+    "course_name_from_school": "ENGLISH AND 21ST CENTURY COMMUNICATION SKILLS",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 18,
+    "material_books_fee": 80.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": "Learner Protection",
+    "mandatory_additional_fee": 40.0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 190.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 180.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 170.0
+      },
+      {
+        "week_category": 19,
+        "weekly_fee": 160.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 150.0
+      }
+    ]
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Athlone",
+    "country": "IE",
+    "course_type": "General English Afternoon",
+    "course_name_from_school": "ENGLISH AND 21ST CENTURY COMMUNICATION SKILLS",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 18,
+    "material_books_fee": 80.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": "Learner Protection",
+    "mandatory_additional_fee": 40.0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 150.0
+      },
+      {
+        "week_category": 3,
+        "weekly_fee": 140.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 130.0
+      },
+      {
+        "week_category": 19,
+        "weekly_fee": 120.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 110.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 255.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 225.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive English",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 310.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 295.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 280.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "Super-Intensive English",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 35,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 370.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 310.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Exam Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 255.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 225.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 255.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 225.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive English",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 310.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 295.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 280.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "Super-Intensive English",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 35,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 370.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 310.0
+      }
+    ]
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Exam Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 70.0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": {
+      "promotion_percentage": 30.0,
+      "promo_from": "01/01/2026",
+      "promo_to": "31/12/2026"
+    },
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 16,
+        "weekly_fee": 255.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 36,
+        "weekly_fee": 225.0
+      }
+    ]
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English GE",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 350.0
+      },
+      {
+        "week_category": 5,
+        "weekly_fee": 330.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 310.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 280.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 250.0
+      }
+    ]
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive English GE 30",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 60.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 425.0
+      },
+      {
+        "week_category": 5,
+        "weekly_fee": 390.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 365.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 335.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 300.0
+      }
+    ]
+  },
+  {
+    "school_en": "Kings Hall College",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 110.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 260.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 250.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 240.0
+      }
+    ]
+  },
+  {
+    "school_en": "Kings Hall College",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 20.0,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 110.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 320.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 310.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 300.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 290.0
+      }
+    ]
+  },
+  {
+    "school_en": "Kings Hall College",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "Super-Intensive English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 25.0,
+    "lessons_per_week": 35,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 110.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 360.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 350.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 330.0
+      }
+    ]
+  },
+  {
+    "school_en": "Kings Hall College",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Exam Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 18,
+    "material_books_fee": 0,
+    "registration_admin_fee": 110.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 9,
+        "weekly_fee": 260.0
+      },
+      {
+        "week_category": 17,
+        "weekly_fee": 250.0
+      },
+      {
+        "week_category": 25,
+        "weekly_fee": 240.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 382.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 342.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 297.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive English",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 427.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 382.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 327.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 472.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 427.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 377.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Exam Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 382.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 342.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 297.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 257.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 237.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 322.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 262.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 362.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 347.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 307.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 257.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 237.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 347.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 307.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 272.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 392.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 347.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 307.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 452.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 402.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 352.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 352.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 307.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 272.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 257.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 237.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 322.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 262.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 362.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 347.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 307.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 257.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 237.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 257.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 237.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 322.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 262.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 362.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 347.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 307.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 292.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 257.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 237.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 450.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 400.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Vancouver",
+    "country": "CA",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 495.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 440.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 450.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 400.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 495.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 440.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Toronto",
+    "country": "CA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Calgary",
+    "country": "CA",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Calgary",
+    "country": "CA",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 450.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 435.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 400.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Calgary",
+    "country": "CA",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 495.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 480.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 440.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Calgary",
+    "country": "CA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 190.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 400.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 335.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Paris",
+    "country": "FR",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 360.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 315.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 265.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Paris",
+    "country": "FR",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 410.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 360.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 315.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Cape Town",
+    "country": "ZA",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 215.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Cape Town",
+    "country": "ZA",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 295.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 260.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Cape Town",
+    "country": "ZA",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Super Intensive",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 295.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Cape Town",
+    "country": "ZA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 240.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 215.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Cape Town",
+    "country": "ZA",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 380.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 340.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 295.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Limassol",
+    "country": "CY",
+    "course_type": "General English",
+    "course_name_from_school": "Standard",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 275.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 230.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 195.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Limassol",
+    "country": "CY",
+    "course_type": "Semi-Intensive English",
+    "course_name_from_school": "Intensive",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 330.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 265.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 225.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Limassol",
+    "country": "CY",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 275.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 230.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 195.0
+      }
+    ]
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Limassol",
+    "country": "CY",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS Preparation",
+    "hours_per_week": 18.75,
+    "lessons_per_week": 25,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 75.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 330.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 265.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 225.0
+      }
+    ]
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 15,
+    "min_level": "A1",
+    "min_age": 15,
+    "material_books_fee": 0,
+    "registration_admin_fee": 120.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 310.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 280.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 245.0
+      },
+      {
+        "week_category": 40,
+        "weekly_fee": 235.0
+      }
+    ]
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "Intensive English",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 21,
+    "min_level": "A1",
+    "min_age": 15,
+    "material_books_fee": 0,
+    "registration_admin_fee": 120.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 355.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 290.0
+      },
+      {
+        "week_category": 40,
+        "weekly_fee": 280.0
+      }
+    ]
+  },
+  {
+    "school_en": "The Essential English Centre",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 45.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 285.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 275.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 265.0
+      }
+    ]
+  },
+  {
+    "school_en": "The Essential English Centre",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "Intensive English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 60.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 385.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 365.0
+      }
+    ]
+  },
+  {
+    "school_en": "The Essential English Centre",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "General English + IELTS Preparation",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "A2",
+    "min_age": 16,
+    "material_books_fee": 60.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 415.0
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 405.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 395.0
+      }
+    ]
+  },
+  {
+    "school_en": "The Essential English Centre",
+    "city": "Manchester",
+    "country": "UK",
+    "course_type": "Academic English",
+    "course_name_from_school": "Academic Year Programme",
+    "hours_per_week": 22.5,
+    "lessons_per_week": 30,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 60.0,
+    "registration_admin_fee": 50.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 24,
+        "weekly_fee": 395.0
+      }
+    ]
+  },
+  {
+    "school_en": "Suzanne Sparrow Plymouth Language School",
+    "city": "Plymouth",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "General English",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 23,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 390.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 370.5
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 360.75
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 351.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 331.5
+      }
+    ]
+  },
+  {
+    "school_en": "Suzanne Sparrow Plymouth Language School",
+    "city": "Plymouth",
+    "country": "UK",
+    "course_type": "IELTS Exam Preparation",
+    "course_name_from_school": "IELTS",
+    "hours_per_week": 23.0,
+    "lessons_per_week": 23,
+    "min_level": "B1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 390.0
+      },
+      {
+        "week_category": 4,
+        "weekly_fee": 370.5
+      },
+      {
+        "week_category": 8,
+        "weekly_fee": 360.75
+      },
+      {
+        "week_category": 12,
+        "weekly_fee": 351.0
+      },
+      {
+        "week_category": 24,
+        "weekly_fee": 331.5
+      }
+    ]
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "EFL-20 Standered English Course",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 5,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 300.0
+      },
+      {
+        "week_category": 20,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 30,
+        "weekly_fee": 245.0
+      }
+    ]
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "EFL-20 Standered English Course",
+    "hours_per_week": 15.0,
+    "lessons_per_week": 20,
+    "min_level": "A1",
+    "min_age": 18,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 5,
+        "weekly_fee": 325.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 300.0
+      },
+      {
+        "week_category": 20,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 30,
+        "weekly_fee": 245.0
+      }
+    ]
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "EFL-28 Intensive English",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 28,
+    "min_level": "A1",
+    "min_age": 16,
+    "material_books_fee": 0,
+    "registration_admin_fee": 185.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 395.0
+      },
+      {
+        "week_category": 5,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 20,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 30,
+        "weekly_fee": 245.0
+      }
+    ]
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "course_type": "General English",
+    "course_name_from_school": "EFL-28 Intensive English",
+    "hours_per_week": 21.0,
+    "lessons_per_week": 28,
+    "min_level": "A1",
+    "min_age": 18,
+    "material_books_fee": 0,
+    "registration_admin_fee": 95.0,
+    "mandatory_additional_fee_name": null,
+    "mandatory_additional_fee": 0,
+    "promotion": null,
+    "tiers": [
+      {
+        "week_category": 1,
+        "weekly_fee": 395.0
+      },
+      {
+        "week_category": 5,
+        "weekly_fee": 375.0
+      },
+      {
+        "week_category": 13,
+        "weekly_fee": 345.0
+      },
+      {
+        "week_category": 20,
+        "weekly_fee": 270.0
+      },
+      {
+        "week_category": 30,
+        "weekly_fee": 245.0
+      }
+    ]
+  }
+]

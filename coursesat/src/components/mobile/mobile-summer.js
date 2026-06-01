@@ -13,6 +13,7 @@ import { getCoursePrice } from "@/lib/format-currency";
 import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 import { SUMMER_CAMPS_LISTING_URL } from "@/lib/summer-camps";
+import MobileInfiniteCarousel from "@/components/mobile/mobile-infinite-carousel";
 
 const TOKENS = { border: "#E4EDF8", primary: "#1F63AE" };
 
@@ -103,11 +104,11 @@ function ProgramCard({ program, currency = "SAR", isArabic = false, href, t }) {
           <span>{ageWithUnit}</span>
         </div>
 
-        <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-slate-500 min-h-[40px]">
+        <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-slate-500 ">
           {program.description}
         </p>
 
-        <div className="mt-3.5 text-[13px] text-slate-700 flex items-center justify-start gap-1" dir="ltr">
+        <div className="mt-3.5 text-[13px] text-slate-700 flex items-center gap-1" >
           <span className="text-slate-500 font-medium">{isArabic ? "ابتداءً من " : "From "}</span>
           <CurrencyAmount
             currency={currency}
@@ -128,12 +129,14 @@ export default function MobileSummer() {
   const { currency } = useCurrency();
   const isArabic = language === "ar";
 
-  const heading = t("pages.homepage.summer_programs.heading", "Summer Programs");
-  const subheading = t(
-    "pages.homepage.summer_programs.subheading",
-    "Discover the summer programs available this summer"
+  const heading = t(
+    "pages.homepage.summer_programs.mobile_heading",
+    t("pages.homepage.summer_programs.heading", "Summer Programs")
   );
-  const ctaText = t("pages.homepage.summer_programs.view_all", "All programs");
+  const ctaText = t(
+    "pages.homepage.summer_programs.mobile_view_all",
+    t("pages.homepage.summer_programs.view_all", "View all")
+  );
   const ctaUrl = SUMMER_CAMPS_LISTING_URL;
 
   const programs = useMemo(() => {
@@ -159,33 +162,33 @@ export default function MobileSummer() {
   return (
     <section id="summer-programs" className="block md:hidden bg-white py-10 w-full" dir={direction}>
       <div className="flex flex-col px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <h2 className="text-xl font-bold leading-snug text-slate-900 max-w-[55%] text-start">{heading}</h2>
           <Link
             href={ctaUrl}
-            className="flex items-center gap-1 rounded-[8px] bg-[#1F63AE] px-4 py-2 text-sm font-bold !text-white hover:brightness-110 transition-all"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-[#1F63AE]"
           >
-            <span className="pb-0.5">{ctaText}</span>
+            <span>{ctaText}</span>
             <FontAwesomeIcon icon={isArabic ? faChevronLeft : faChevronRight} className="text-xs" />
           </Link>
         </div>
-        {subheading ? <p className="mt-2 text-sm text-slate-500 text-start">{subheading}</p> : null}
       </div>
 
       <div className="mt-6">
-        <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
-          {programs.map((program) => (
+        <MobileInfiniteCarousel
+          items={programs}
+          getItemKey={(program) => program.id}
+          renderItem={(program, _idx, key) => (
             <ProgramCard
-              key={program.id}
+              key={key}
               program={program}
               currency={currency}
               isArabic={isArabic}
               href={SUMMER_CAMPS_LISTING_URL}
               t={t}
             />
-          ))}
-          <div className="shrink-0 w-4 snap-none" />
-        </div>
+          )}
+        />
       </div>
     </section>
   );

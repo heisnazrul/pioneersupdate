@@ -17,6 +17,7 @@ import { useCurrency } from "@/components/providers/currency-provider";
 import { getCoursePrice } from "@/lib/format-currency";
 import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
+import MobileInfiniteCarousel from "@/components/mobile/mobile-infinite-carousel";
 
 const TOKENS = {
   border: "#E4EDF8",
@@ -156,7 +157,7 @@ function InstituteCard({ item, currency = "SAR", isArabic = false, href, t }) {
           <CurrencyAmount
             currency={currency}
             amount={priceNewValue}
-            className="inline-flex items-center gap-1 text-[16px] font-bold text-[#111827]"
+            className="inline-flex items-center text-[16px] font-bold text-[#111827]"
             iconClassName="h-3.5 w-3.5"
           />
           <span className="text-[14px] font-medium text-[#111827]">
@@ -426,52 +427,56 @@ export default function MobileOffers() {
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
 
-        {/* Baseline & Tab Labels — native scrollbar hidden (red area in design) */}
-        <div className="mx-6 relative">
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-transparent mx-2">
+        {/* Tab labels + primary active bar indicator */}
+        <div className="mx-6">
+          <div className="relative mx-2">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px]">
+              <div
+                className="absolute h-full rounded-sm bg-[#0072bc] transition-all duration-300"
+                style={{
+                  width: underlineStyle.width,
+                  left: underlineStyle.left,
+                }}
+              />
+            </div>
+
             <div
-              className="absolute h-full bg-[#0072bc] transition-all duration-300"
-              style={{
-                width: underlineStyle.width,
-                left: underlineStyle.left,
-              }}
-            />
+              ref={tabsScrollRef}
+              className="tabs-scroll-hide flex gap-5 overflow-x-auto overflow-y-hidden pb-2 text-sm font-medium text-slate-500"
+            >
+              {tabs.map((tab) => {
+                const isActive = currentTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    ref={(el) => (tabRefs.current[tab.id] = el)}
+                    onClick={() => activateTab(tab.id)}
+                    className={`whitespace-nowrap transition-colors pb-1.5 ${
+                      isActive ? "text-[#0072bc] font-bold" : "text-slate-500"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          <div
-            ref={tabsScrollRef}
-            className="tabs-scroll-hide flex gap-5 overflow-x-auto overflow-y-hidden pb-2 text-sm font-medium text-slate-500 mx-2"
-          >
-            {tabs.map((tab) => {
-              const isActive = currentTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  ref={(el) => (tabRefs.current[tab.id] = el)}
-                  onClick={() => activateTab(tab.id)}
-                  className={`whitespace-nowrap transition-colors pb-1.5 ${
-                    isActive ? "text-[#0072bc] font-bold" : "text-slate-500"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Tab scroll indicator — white track, gray thumb (Figma) */}
-          <div
-            ref={tabTrackRef}
-            className="relative mx-2 mt-3 h-1.5 w-[calc(100%-1rem)] overflow-hidden rounded-full bg-white"
-          >
+          {/* Secondary scroll — white track, gray thumb (tags overflow) */}
+          <div className="relative mx-2 mt-3">
             <div
-              className="absolute top-0 h-1.5 rounded-full bg-[#B8C4D0] transition-[transform,width] duration-150 ease-out"
-              style={{
-                width: `${tabsThumb.width}px`,
-                transform: `translateX(${tabsThumb.left}px)`,
-              }}
-            />
+              ref={tabTrackRef}
+              className="relative h-1.5 w-full overflow-hidden rounded-full bg-white"
+            >
+              <div
+                className="absolute top-0 h-1.5 rounded-full bg-[#B8C4D0] transition-[transform,width] duration-150 ease-out"
+                style={{
+                  width: `${tabsThumb.width}px`,
+                  transform: `translateX(${tabsThumb.left}px)`,
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -479,20 +484,20 @@ export default function MobileOffers() {
       {/* Swipe Cards Container */}
       <div className="mt-4">
         {filtered.length > 0 ? (
-          <div className="cards-scroll-hide flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-2">
-            {filtered.map((inst) => (
+          <MobileInfiniteCarousel
+            items={filtered}
+            getItemKey={(inst) => `${inst.id}-${inst.tagId ?? currentTab}`}
+            renderItem={(inst, _idx, key) => (
               <InstituteCard
-                key={`${inst.id}-${inst.tagId ?? currentTab}`}
+                key={key}
                 item={inst}
                 currency={currency}
                 isArabic={isArabic}
                 href={inst.school_slug || inst.slug ? `/language-institutes/${inst.school_slug || inst.slug}?course_id=${inst.id}` : undefined}
                 t={t}
               />
-            ))}
-            {/* Peeking trailing card padding */}
-            <div className="shrink-0 w-4 snap-none"></div>
-          </div>
+            )}
+          />
         ) : (
           <div className="py-12 text-center text-slate-500 font-medium">
             {isArabic ? "لا توجد معاهد متاحة حالياً." : "No institutes available."}
@@ -507,17 +512,6 @@ export default function MobileOffers() {
         }
 
         .tabs-scroll-hide::-webkit-scrollbar {
-          display: none;
-          width: 0;
-          height: 0;
-        }
-
-        .cards-scroll-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-
-        .cards-scroll-hide::-webkit-scrollbar {
           display: none;
           width: 0;
           height: 0;

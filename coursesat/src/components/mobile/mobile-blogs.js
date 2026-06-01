@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useApi, getImageUrl } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
+import MobileInfiniteCarousel from "@/components/mobile/mobile-infinite-carousel";
 
 const TOKENS = {
   border: "#E6EBF0",
@@ -73,8 +74,15 @@ export default function MobileBlogs() {
   const { language, direction, t } = useLocale();
   const isArabic = language === "ar";
 
-  const heading = t("pages.homepage.blogs.heading", "المدونات واخر الاخبار");
-  const subheading = t("pages.homepage.blogs.subheading", "ابق علي اطلاع: موجز يومي للقضايا الحاسمة");
+  const heading = t(
+    "pages.homepage.blogs.mobile_heading",
+    t("pages.homepage.blogs.heading", "Blogs & Latest News")
+  );
+  const viewAllLabel = t(
+    "pages.homepage.blogs.mobile_view_all",
+    t("pages.homepage.blogs.view_all", "All articles")
+  );
+  const viewAllUrl = "/articles";
 
   const posts = useMemo(() => {
     const list = data?.blogs ?? [];
@@ -95,27 +103,25 @@ export default function MobileBlogs() {
 
   return (
     <section className="block md:hidden bg-white py-10 w-full" dir={direction}>
-      <div className="text-center px-4">
-        <h2 className="text-2xl font-bold leading-snug text-slate-900">{heading}</h2>
-        <p className="mt-2 text-slate-500 text-[14px]">{subheading}</p>
+      <div className="flex items-center justify-between gap-3 px-4">
+        <h2 className="text-xl font-bold leading-snug text-slate-900 max-w-[55%] text-start">{heading}</h2>
+        <Link
+          href={viewAllUrl}
+          className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-[#1F63AE] transition-colors hover:text-[#135FAE]"
+        >
+          <span>{viewAllLabel}</span>
+          <FontAwesomeIcon icon={isArabic ? faChevronLeft : faChevronRight} className="text-xs" />
+        </Link>
       </div>
 
       <div className="mt-6">
-        <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide py-2">
-          {posts.map((p) => (
-            <BlogCard key={p.id} post={p} isArabic={isArabic} t={t} />
-          ))}
-          <div className="shrink-0 w-4 snap-none" />
-        </div>
-      </div>
-
-      <div className="mt-8 flex justify-center px-4">
-        <Link
-          href="/articles"
-          className="rounded-[8px] bg-[#1F63AE] px-6 py-3 text-sm font-bold !text-white shadow-[0_10px_25px_rgba(31,99,174,0.4)] hover:brightness-110 transition-all w-full text-center max-w-[300px]"
-        >
-          {isArabic ? "عرض كل المقالات" : "View all articles"}
-        </Link>
+        <MobileInfiniteCarousel
+          items={posts}
+          getItemKey={(post) => post.id}
+          renderItem={(post, _idx, key) => (
+            <BlogCard key={key} post={post} isArabic={isArabic} t={t} />
+          )}
+        />
       </div>
     </section>
   );

@@ -323,16 +323,16 @@ export default function InstituteCard({
                         {courseName || courseType || "General English"}
                     </div>
 
-                    <div className="mt-auto flex w-full gap-2 pt-2 text-lg" dir="ltr">
+                    <div className="mt-auto flex w-full gap-2 pt-2 text-lg">
                         <div className="flex items-center gap-1 text-slate-900">
-                            <span className="inline-flex items-center gap-1 text-md font-semibold tracking-tight">
+                            <span className="inline-flex items-center  text-md font-semibold tracking-tight">
                                 <CurrencyAmount currency={currency} amount={priceValue} />
                             </span>
                             <span className="text-sm text-slate-800"> / {isArabic ? "أسبوع" : "week"}</span>
                         </div>
                         <div className="flex items-center gap-2">
                             {oldPriceValue ? (
-                                <span className="inline-flex items-center gap-1 font-normal text-slate-400 line-through">
+                                <span className="inline-flex items-center font-normal text-slate-400 line-through">
                                     <CurrencyAmount currency={currency} amount={oldPriceValue} muted />
                                 </span>
                             ) : null}

@@ -1,10 +1,10 @@
 <!-- Media Picker Modal -->
-<div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" x-cloak>
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden" @click.away="showModal = false">
+<div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" x-cloak @click.self="showModal = false">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden" @click.stop>
         <!-- Modal Header -->
         <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <h3 class="text-lg font-bold text-gray-900 dark:text-white">{{ $title ?? 'Select Image' }}</h3>
-            <button @click="showModal = false" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" @click="showModal = false" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
         </div>
 
         <!-- Modal Body -->
@@ -17,7 +17,7 @@
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         <input type="text" x-model="searchTerm" @input.debounce.300ms="fetchImages()" placeholder="Search images by title..." class="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 bg-gray-50 dark:bg-gray-900 text-sm text-gray-900 dark:text-white">
                     </div>
-                    <button @click="tab = 'upload'" :class="tab === 'upload' ? 'bg-primary-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                    <button type="button" @click="tab = 'upload'" :class="tab === 'upload' ? 'bg-primary-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors">
                         <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Upload New
                     </button>
                 </div>
@@ -53,7 +53,7 @@
                 <div x-show="tab === 'upload'" class="flex-1 flex flex-col items-center justify-center">
                     <div class="w-full max-w-md space-y-4">
                         <div class="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl p-8 text-center hover:border-primary-500 transition-colors relative">
-                            <input type="file" @change="handleFileUpload" class="absolute inset-0 opacity-0 cursor-pointer">
+                            <input type="file" accept="image/*" @change="handleFileUpload($event)" @click.stop class="absolute inset-0 opacity-0 cursor-pointer">
                             <template x-if="!uploadFile">
                                 <div>
                                     <i class="fa-solid fa-cloud-arrow-up text-4xl text-gray-300 mb-2"></i>

@@ -159,7 +159,7 @@ function InstituteCard({ item, style, currency = "SAR", isArabic = false, href, 
           <CurrencyAmount
             currency={currency}
             amount={priceNewValue}
-            className="inline-flex items-center gap-1 text-[18px] font-bold text-[#111827]"
+            className="inline-flex items-center text-[18px] font-bold text-[#111827]"
             iconClassName="h-4 w-4"
           />
           <span className="text-[16px] font-medium text-[#111827]">
@@ -170,7 +170,7 @@ function InstituteCard({ item, style, currency = "SAR", isArabic = false, href, 
             <CurrencyAmount
               currency={currency}
               amount={priceOldValue}
-              className="inline-flex items-center gap-1 text-[16px] text-slate-400 line-through"
+              className="inline-flex items-center text-[16px] text-slate-400 line-through"
               iconClassName="h-4 w-4"
               muted
             />

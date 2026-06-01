@@ -103,7 +103,6 @@ class LanguageOnlineCourseController extends Controller
             'study_time' => ['nullable', 'string', 'max:10'],
             'lessons_per_week' => ['nullable', 'integer', 'min:0'],
             'min_age' => ['nullable', 'integer', 'min:0', 'max:255'],
-            'start_date' => ['nullable', 'string', 'max:10'],
             'fee_type' => ['required', Rule::in(['flat', 'weekly'])],
             'fee_amount' => ['required', 'numeric', 'min:0'],
             'registration_fee' => ['nullable', 'numeric', 'min:0'],

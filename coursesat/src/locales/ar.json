@@ -399,12 +399,16 @@
       },
       "summer_programs": {
         "heading": "البرامج الصيفية",
+        "mobile_heading": "المخيمات الصيفية",
         "subheading": "اكتشف البرامج الصيفية المتاحة هذا الصيف",
-        "view_all": "جميع البرامج"
+        "view_all": "جميع البرامج",
+        "mobile_view_all": "عرض الكل"
       },
       "online_courses": {
         "heading": "الدورات عبر الإنترنت",
-        "view_all": "جميع الدورات"
+        "mobile_heading": "الدراسة عن بعد",
+        "view_all": "جميع الدورات",
+        "mobile_view_all": "جميع الدورات"
       },
       "professional_training": {
         "heading": "التدريب المهني",
@@ -412,15 +416,21 @@
       },
       "reviews": {
         "heading": "آراء طلابنا حول دورات اللغة الإنجليزية",
+        "mobile_heading": "ما يقوله الطلاب عن كورس انجليزي",
+        "mobile_subheading": "نحن فخورون بثقة طلابنا. إليك بعض من تجاربهم التي شاركونا بها بعد انضمامهم لأفضل المعاهد",
         "view_all": "عرض جميع التقييمات"
       },
       "destinations": {
-        "heading": "أفضل الوجهات لدراسة اللغات"
+        "heading": "أفضل الوجهات لدراسة اللغات",
+        "mobile_heading": "أفضل الوجهات لدراسة اللغات",
+        "mobile_view_all": "جميع المعاهد"
       },
       "blogs": {
         "heading": "المدونات واخر الاخبار",
+        "mobile_heading": "المدونات واخر الاخبار",
         "subheading": "ابق علي اطلاع: موجز يومي للقضايا الحاسمة",
-        "view_all": "عرض جميع المقالات"
+        "view_all": "عرض جميع المقالات",
+        "mobile_view_all": "جميع المقالات"
       },
       "faq": {
         "heading": "أسئلة واجوبة",
@@ -989,6 +999,21 @@
       "results": {
         "count_label": "معهد متاح بناءً على اختياراتك",
         "step_label": "الخطوة 1: اختر المعهد المناسب لك من المعاهد المتاحة"
+      },
+      "mobile": {
+        "search_placeholder": "ادخل وجهتك المفضلة ..",
+        "results_title": "معاهد اللغة الانجليزية",
+        "sort_sheet_title": "عرض النتائج حسب",
+        "sort_price": "السعر",
+        "sort_location": "موقع",
+        "sort_features": "الخصائص",
+        "card": {
+          "top_rated": "أعلى تقييم",
+          "view_details": "عرض التفاصيل",
+          "best_price_guarantee": "ضمان أفضل الأسعار",
+          "no_charge_note": "لن يتم خصم اي مبلغ منك بعد",
+          "per_week": "/ للاسبوع"
+        }
       },
       "sidebar": {
         "accommodation": {

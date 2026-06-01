@@ -399,12 +399,16 @@
       },
       "summer_programs": {
         "heading": "Summer Programs",
+        "mobile_heading": "Summer Camps",
         "subheading": "Discover the summer programs available this summer",
-        "view_all": "All programs"
+        "view_all": "All programs",
+        "mobile_view_all": "View all"
       },
       "online_courses": {
         "heading": "Online Courses",
-        "view_all": "All courses"
+        "mobile_heading": "Distance Learning",
+        "view_all": "All courses",
+        "mobile_view_all": "All courses"
       },
       "professional_training": {
         "heading": "Professional Training",
@@ -412,14 +416,20 @@
       },
       "reviews": {
         "heading": "What our students say about their English courses",
+        "mobile_heading": "What students say about Course English",
+        "mobile_subheading": "We're proud of our students' trust. Here are some experiences they shared after joining the best institutes.",
         "view_all": "View all reviews"
       },
       "destinations": {
-        "heading": "Best destinations to study languages"
+        "heading": "Best destinations to study languages",
+        "mobile_heading": "Best destinations to study languages",
+        "mobile_view_all": "All institutes"
       },
       "blogs": {
         "heading": "Blogs & Latest News",
-        "view_all": "View all blogs"
+        "mobile_heading": "Blogs & Latest News",
+        "view_all": "View all blogs",
+        "mobile_view_all": "All articles"
       },
       "faq": {
         "heading": "Questions & Answers",
@@ -988,6 +998,21 @@
       "results": {
         "count_label": "institutes available based on your choice",
         "step_label": "Step 1: Choose the right institute for you"
+      },
+      "mobile": {
+        "search_placeholder": "Enter your preferred destination..",
+        "results_title": "English Language Institutes",
+        "sort_sheet_title": "Show results by",
+        "sort_price": "Price",
+        "sort_location": "Location",
+        "sort_features": "Features",
+        "card": {
+          "top_rated": "Top rated",
+          "view_details": "View details",
+          "best_price_guarantee": "Best price guarantee",
+          "no_charge_note": "You won't be charged yet",
+          "per_week": "/ week"
+        }
       },
       "sidebar": {
         "accommodation": {

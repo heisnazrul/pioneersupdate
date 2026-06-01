@@ -18,5 +18,7 @@
         @php($submitLabel = 'Update Online Course')
         @include('admin.language-online-courses._form')
     </form>
+
+    @include('admin.language-online-courses._media-picker')
 </div>
 @endsection

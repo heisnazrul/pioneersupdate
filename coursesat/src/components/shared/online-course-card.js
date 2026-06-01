@@ -157,15 +157,15 @@ export default function OnlineCourseCard({
           <CurrencyAmount
             currency={currency}
             amount={priceNewValue}
-            className="inline-flex items-center gap-1 font-bold text-slate-900"
+            className="inline-flex items-center font-bold text-slate-900"
             iconClassName="h-4 w-4"
           />
           {priceOldValue ? (
             <CurrencyAmount
               currency={currency}
               amount={priceOldValue}
-              className="inline-flex items-center gap-1 text-slate-400 line-through text-xs ml-1"
-              iconClassName="h-3.5 w-3.5"
+              className="inline-flex items-center text-slate-400 line-through text-xs ml-1"
+              iconClassName="h-4 w-4"
               muted
             />
           ) : null}

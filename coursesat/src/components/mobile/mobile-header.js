@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -261,21 +262,22 @@ export default function MobileHeader() {
           </div>
         </div>
 
-        {menuOpen && (
-          <div className="fixed inset-0 z-50">
-            <button
-              type="button"
-              aria-label={t("pages.coursesat.mobile.close_menu", "Close menu backdrop")}
-              onClick={() => setMenuOpen(false)}
-              className="absolute inset-0 bg-[#0a2f57]/75"
-            />
+        {menuOpen && typeof document !== "undefined"
+          ? createPortal(
+              <div className="fixed inset-0 z-[300]">
+                <button
+                  type="button"
+                  aria-label={t("pages.coursesat.mobile.close_menu", "Close menu backdrop")}
+                  onClick={() => setMenuOpen(false)}
+                  className="absolute inset-0 bg-[#0a2f57]/75"
+                />
 
-            <div
-              ref={panelRef}
-              className={`fixed bottom-0 z-10 flex max-h-[92vh] flex-col rounded-none bg-[#135FAE] text-white shadow-2xl ${
-                isRtl ? "left-14 right-0" : "left-0 right-14"
-              }`}
-            >
+                <div
+                  ref={panelRef}
+                  className={`fixed bottom-0 z-[301] flex max-h-[92vh] flex-col rounded-none bg-[#135FAE] text-white shadow-2xl ${
+                    isRtl ? "left-14 right-0" : "left-0 right-14"
+                  }`}
+                >
               <div
                 className={`flex shrink-0 px-3 py-3 ${
                   isRtl ? "justify-start" : "justify-end"
@@ -407,8 +409,10 @@ export default function MobileHeader() {
               </div>
               </div>
             </div>
-          </div>
-        )}
+              </div>,
+              document.body
+            )
+          : null}
       </header>
       <style jsx>{`
         .chips-scroll {

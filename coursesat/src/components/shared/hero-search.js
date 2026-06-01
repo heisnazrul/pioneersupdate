@@ -1,51 +1,49 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { createPortal } from "react-dom";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { getImageUrl } from "@/lib/api";
 import { getCountryFlagUrl, getLocalCountryFlagPath } from "@/lib/country-flags";
-import { useHeroSearchData } from "@/lib/hero-search-data";
+import { useHeroSearchData, sortSearchCountries } from "@/lib/hero-search-data";
 import { useLocale } from "@/components/providers/locale-provider";
 
-const MAX_VISIBLE_INSTITUTES = 7;
-const INSTITUTE_ROW_SIZE = 4;
+const INITIAL_VISIBLE_COUNT = 7;
+const EXPAND_BY_COUNT = 4;
 
-function buildInstituteGridItems(institutes) {
-  const visible = institutes.slice(0, MAX_VISIBLE_INSTITUTES);
-  const items = [];
-
-  if (visible.length <= INSTITUTE_ROW_SIZE - 1) {
-    visible.forEach((institute) => items.push({ type: "institute", data: institute }));
-    items.push({ type: "other-institutes" });
-    return items;
-  }
-
-  visible.slice(0, INSTITUTE_ROW_SIZE).forEach((institute) => items.push({ type: "institute", data: institute }));
-  items.push({ type: "other-institutes" });
-  visible.slice(INSTITUTE_ROW_SIZE, MAX_VISIBLE_INSTITUTES).forEach((institute) =>
-    items.push({ type: "institute", data: institute })
-  );
-
-  return items;
-}
-
-function HeroSearchOtherCard({ href, label, isArabic, onClose }) {
+function HeroSearchSeeMoreCard({ label, isArabic, onClick }) {
   return (
-    <Link
-      href={href}
-      onClick={onClose}
+    <button
+      type="button"
+      onClick={onClick}
       className="flex min-h-[108px] flex-col items-center justify-center rounded-xl bg-[#F3F6FA] p-4 text-center transition hover:bg-slate-100"
     >
       <span className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#0057B7] text-white">
         <FontAwesomeIcon icon={faArrowLeft} className={isArabic ? "" : "rotate-180"} />
       </span>
       <span className="text-sm font-medium text-slate-700">{label}</span>
-    </Link>
+    </button>
   );
+}
+
+function useExpandableList(items, initialVisible = INITIAL_VISIBLE_COUNT) {
+  const [visibleCount, setVisibleCount] = useState(initialVisible);
+  const itemKey = useMemo(
+    () => items.map((item) => item.id ?? item.slug ?? item.name).join("|"),
+    [items]
+  );
+
+  useEffect(() => {
+    setVisibleCount(initialVisible);
+  }, [itemKey, initialVisible]);
+
+  const visibleItems = items.slice(0, visibleCount);
+  const hasMore = items.length > visibleCount;
+  const showMore = () => setVisibleCount((count) => Math.min(count + EXPAND_BY_COUNT, items.length));
+
+  return { visibleItems, hasMore, showMore };
 }
 
 function HeroSearchDropdownPanel({
@@ -57,9 +55,10 @@ function HeroSearchDropdownPanel({
   handleSelect,
   loading,
   searchTerm,
-  onClose,
 }) {
-  const instituteGridItems = buildInstituteGridItems(filteredInstitutes);
+  const institutes = useExpandableList(filteredInstitutes);
+  const countries = useExpandableList(filteredCountries);
+  const cities = useExpandableList(filteredCities);
 
   return (
     <div className="max-h-[60vh] overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-gray-200">
@@ -67,41 +66,38 @@ function HeroSearchDropdownPanel({
         <section className="mb-8">
           <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Institutes", "أشهر المعاهد")}</h3>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {instituteGridItems.map((item) =>
-              item.type === "other-institutes" ? (
-                <HeroSearchOtherCard
-                  key="other-institutes"
-                  href="/language-institutes"
-                  label={t("Other Institutes", "معاهد أخرى")}
-                  isArabic={isArabic}
-                  onClose={onClose}
-                />
-              ) : (
-                <button
-                  key={item.data.id ?? item.data.slug ?? item.data.name}
-                  type="button"
-                  onClick={() => handleSelect(item.data, "school")}
-                  className="group flex min-h-[108px] min-w-0 flex-col items-center justify-center rounded-xl border border-gray-100 p-4 text-center transition hover:border-blue-200 hover:bg-blue-50"
-                >
-                  <div className="relative mb-3 flex h-10 w-full items-center justify-center opacity-90 group-hover:opacity-100">
-                    {item.data.logo ? (
-                      <img
-                        src={getImageUrl(item.data.logo)}
-                        alt={item.data.name}
-                        className="h-10 w-full object-contain"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <span className="text-xs font-medium text-slate-500 group-hover:text-[#0057B7]">
-                        {isArabic ? item.data.ar_name || item.data.name : item.data.name || item.data.ar_name}
-                      </span>
-                    )}
-                  </div>
-                  <span className="line-clamp-2 text-sm font-medium text-slate-700 group-hover:text-[#0057B7]">
-                    {isArabic ? item.data.ar_name || item.data.name : item.data.name || item.data.ar_name}
-                  </span>
-                </button>
-              )
+            {institutes.visibleItems.map((institute) => (
+              <button
+                key={institute.id ?? institute.slug ?? institute.name}
+                type="button"
+                onClick={() => handleSelect(institute, "school")}
+                className="group flex min-h-[108px] min-w-0 flex-col items-center justify-center rounded-xl border border-gray-100 p-4 text-center transition hover:border-blue-200 hover:bg-blue-50"
+              >
+                <div className="relative mb-3 flex h-10 w-full items-center justify-center opacity-90 group-hover:opacity-100">
+                  {institute.logo ? (
+                    <img
+                      src={getImageUrl(institute.logo)}
+                      alt={institute.name}
+                      className="h-10 w-full object-contain"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="text-xs font-medium text-slate-500 group-hover:text-[#0057B7]">
+                      {isArabic ? institute.ar_name || institute.name : institute.name || institute.ar_name}
+                    </span>
+                  )}
+                </div>
+                <span className="line-clamp-2 text-sm font-medium text-slate-700 group-hover:text-[#0057B7]">
+                  {isArabic ? institute.ar_name || institute.name : institute.name || institute.ar_name}
+                </span>
+              </button>
+            ))}
+            {institutes.hasMore && (
+              <HeroSearchSeeMoreCard
+                label={t("Other Institutes", "معاهد أخرى")}
+                isArabic={isArabic}
+                onClick={institutes.showMore}
+              />
             )}
           </div>
         </section>
@@ -111,7 +107,7 @@ function HeroSearchDropdownPanel({
         <section className="mb-8">
           <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Countries", "أشهر الدول")}</h3>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {filteredCountries.slice(0, 4).map((country) => {
+            {countries.visibleItems.map((country) => {
               const flagSrc = getCountryFlagUrl(country);
               return (
                 <button
@@ -142,12 +138,13 @@ function HeroSearchDropdownPanel({
                 </button>
               );
             })}
-            <HeroSearchOtherCard
-              href="/language-institutes"
-              label={t("Other Countries", "دول أخرى")}
-              isArabic={isArabic}
-              onClose={onClose}
-            />
+            {countries.hasMore && (
+              <HeroSearchSeeMoreCard
+                label={t("Other Countries", "دول أخرى")}
+                isArabic={isArabic}
+                onClick={countries.showMore}
+              />
+            )}
           </div>
         </section>
       )}
@@ -156,7 +153,7 @@ function HeroSearchDropdownPanel({
         <section>
           <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Cities", "أشهر المدن")}</h3>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {filteredCities.slice(0, 4).map((city) => (
+            {cities.visibleItems.map((city) => (
               <button
                 key={city.id ?? `${city.slug}-${city.country_name || ""}`}
                 type="button"
@@ -168,12 +165,13 @@ function HeroSearchDropdownPanel({
                 </span>
               </button>
             ))}
-            <HeroSearchOtherCard
-              href="/language-institutes"
-              label={t("Other Cities", "مدن أخرى")}
-              isArabic={isArabic}
-              onClose={onClose}
-            />
+            {cities.hasMore && (
+              <HeroSearchSeeMoreCard
+                label={t("Other Cities", "مدن أخرى")}
+                isArabic={isArabic}
+                onClick={cities.showMore}
+              />
+            )}
           </div>
         </section>
       )}
@@ -216,7 +214,10 @@ export default function HeroSearch({
   const isRtl = direction === "rtl";
 
   const institutes = searchData?.schools ?? fallback.schools;
-  const countries = searchData?.countries ?? fallback.countries;
+  const countries = useMemo(
+    () => sortSearchCountries(searchData?.countries ?? fallback.countries),
+    [searchData?.countries, fallback.countries]
+  );
   const cities = searchData?.cities ?? fallback.cities;
   const loading = searchData ? false : fallback.loading;
 
@@ -303,7 +304,6 @@ export default function HeroSearch({
     handleSelect,
     loading,
     searchTerm,
-    onClose: () => setIsOpen(false),
   };
 
   const dropdownShellClass =

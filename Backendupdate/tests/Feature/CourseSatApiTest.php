@@ -9,6 +9,7 @@ use App\Models\LanguageSchool;
 use App\Models\LanguageSchoolBranch;
 use App\Models\LanguageSchoolCourse;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 
 class CourseSatApiTest extends TestCase
@@ -17,6 +18,8 @@ class CourseSatApiTest extends TestCase
 
     public function test_coursesat_home_returns_only_active_hero_search_records_with_courses(): void
     {
+        Cache::store(config('api_cache.store', 'api_responses'))->flush();
+
         $country = Country::create([
             'name' => 'United Kingdom',
             'ar_name' => 'المملكة المتحدة',
@@ -183,6 +186,8 @@ class CourseSatApiTest extends TestCase
 
     public function test_coursesat_home_returns_empty_search_data_when_no_qualifying_courses_exist(): void
     {
+        Cache::store(config('api_cache.store', 'api_responses'))->flush();
+
         $response = $this->getJson('/api/coursesat/home');
 
         $response->assertOk()
@@ -196,5 +201,140 @@ class CourseSatApiTest extends TestCase
                     ],
                 ],
             ]);
+    }
+
+    public function test_coursesat_home_orders_countries_by_course_and_branch_count(): void
+    {
+        $highVolumeCountry = Country::create([
+            'name' => 'United Kingdom',
+            'ar_name' => 'المملكة المتحدة',
+            'slug' => 'united-kingdom',
+            'flag' => 'flags/uk.svg',
+            'country_code' => 'GB',
+            'is_active' => true,
+        ]);
+
+        $lowVolumeCountry = Country::create([
+            'name' => 'France',
+            'ar_name' => 'فرنسا',
+            'slug' => 'france',
+            'flag' => 'flags/fr.svg',
+            'country_code' => 'FR',
+            'is_active' => true,
+        ]);
+
+        $ukCity = City::create([
+            'country_id' => $highVolumeCountry->id,
+            'name' => 'London',
+            'ar_name' => 'لندن',
+            'slug' => 'london',
+            'is_active' => true,
+        ]);
+
+        $frCity = City::create([
+            'country_id' => $lowVolumeCountry->id,
+            'name' => 'Paris',
+            'ar_name' => 'باريس',
+            'slug' => 'paris',
+            'is_active' => true,
+        ]);
+
+        $category = LanguageCourseCategory::create([
+            'name_en' => 'General English',
+            'name_ar' => 'الإنجليزية العامة',
+            'slug' => 'general-english',
+            'is_active' => 'yes',
+        ]);
+
+        $ukSchool = LanguageSchool::create([
+            'name_en' => 'UK School',
+            'name_ar' => 'مدرسة بريطانية',
+            'slug' => 'uk-school',
+            'logo_url' => 'schools/uk.png',
+            'status' => 'active',
+        ]);
+
+        $frSchool = LanguageSchool::create([
+            'name_en' => 'FR School',
+            'name_ar' => 'مدرسة فرنسية',
+            'slug' => 'fr-school',
+            'logo_url' => 'schools/fr.png',
+            'status' => 'active',
+        ]);
+
+        $ukBranchOne = LanguageSchoolBranch::create([
+            'school_id' => $ukSchool->id,
+            'city_id' => $ukCity->id,
+            'slug' => 'uk-london-one',
+            'is_active' => 'yes',
+        ]);
+
+        $ukBranchTwo = LanguageSchoolBranch::create([
+            'school_id' => $ukSchool->id,
+            'city_id' => $ukCity->id,
+            'slug' => 'uk-london-two',
+            'is_active' => 'yes',
+        ]);
+
+        $frBranch = LanguageSchoolBranch::create([
+            'school_id' => $frSchool->id,
+            'city_id' => $frCity->id,
+            'slug' => 'fr-paris',
+            'is_active' => 'yes',
+        ]);
+
+        LanguageSchoolCourse::create([
+            'branch_id' => $ukBranchOne->id,
+            'course_category_id' => $category->id,
+            'course_name_from_school' => 'UK Course A',
+            'course_name_from_school_ar' => 'UK Course A',
+            'slug' => 'uk-course-a',
+            'weekly_fee_1' => 150,
+            'is_active' => 'yes',
+        ]);
+
+        LanguageSchoolCourse::create([
+            'branch_id' => $ukBranchOne->id,
+            'course_category_id' => $category->id,
+            'course_name_from_school' => 'UK Course B',
+            'course_name_from_school_ar' => 'UK Course B',
+            'slug' => 'uk-course-b',
+            'weekly_fee_1' => 150,
+            'is_active' => 'yes',
+        ]);
+
+        LanguageSchoolCourse::create([
+            'branch_id' => $ukBranchTwo->id,
+            'course_category_id' => $category->id,
+            'course_name_from_school' => 'UK Course C',
+            'course_name_from_school_ar' => 'UK Course C',
+            'slug' => 'uk-course-c',
+            'weekly_fee_1' => 150,
+            'is_active' => 'yes',
+        ]);
+
+        LanguageSchoolCourse::create([
+            'branch_id' => $frBranch->id,
+            'course_category_id' => $category->id,
+            'course_name_from_school' => 'FR Course',
+            'course_name_from_school_ar' => 'FR Course',
+            'slug' => 'fr-course',
+            'weekly_fee_1' => 150,
+            'is_active' => 'yes',
+        ]);
+
+        $this->assertSame(4, LanguageSchoolCourse::query()->count());
+
+        Cache::store(config('api_cache.store', 'api_responses'))->flush();
+
+        $response = $this->getJson('/api/coursesat/home');
+
+        $response->assertOk()
+            ->assertJsonPath('hero.search_data.countries.0.id', $highVolumeCountry->id)
+            ->assertJsonPath('hero.search_data.countries.0.course_count', 3)
+            ->assertJsonPath('hero.search_data.countries.0.branch_count', 2)
+            ->assertJsonPath('hero.search_data.countries.1.id', $lowVolumeCountry->id)
+            ->assertJsonPath('hero.search_data.countries.1.course_count', 1)
+            ->assertJsonPath('hero.search_data.countries.1.branch_count', 1);
     }
 }

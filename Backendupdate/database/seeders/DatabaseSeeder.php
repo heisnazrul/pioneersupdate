@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             UniversityCourseLevelSeeder::class,
             UniversityCourseSeeder::class,
             DestinationSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }
