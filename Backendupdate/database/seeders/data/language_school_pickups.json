@@ -1,0 +1,891 @@
+[
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Heathrow Airport",
+    "fee": 80.0
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Gatwick Airport",
+    "fee": 260.0
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Stansted Airport",
+    "fee": 340.0
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Luton Airport",
+    "fee": 365.0
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Southampton Airport",
+    "fee": 145.0
+  },
+  {
+    "school_en": "Anglo Continental",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Bournemouth Airport",
+    "fee": 70.0
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "pickup_location": "Airport transfer",
+    "fee": 100.0
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "Liverpool Airport",
+    "fee": 60.0
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 95.0
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Malta",
+    "country": "MT",
+    "pickup_location": "Airport transfer",
+    "fee": 40.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Heathrow Airport",
+    "fee": 260.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Gatwick Airport",
+    "fee": 270.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Stansted Airport",
+    "fee": 320.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Bournemouth Airport",
+    "fee": 40.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Southampton Airport",
+    "fee": 70.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Luton Airport",
+    "fee": 290.0
+  },
+  {
+    "school_en": "Bright School Of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Central London Airport",
+    "fee": 280.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 135.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "London City Airport",
+    "fee": 135.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 195.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 115.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 255.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 255.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 220.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 245.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 145.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 160.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "pickup_location": "New York Airport",
+    "fee": 195.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "pickup_location": "Logan International Airport",
+    "fee": 175.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "pickup_location": "San Diego Airport",
+    "fee": 170.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "pickup_location": "San Francisco Airport",
+    "fee": 155.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "pickup_location": "Vancouver International Airport",
+    "fee": 145.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "pickup_location": "Pearson International Airport",
+    "fee": 150.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Auckland",
+    "country": "NZ",
+    "pickup_location": "Auckland Airport",
+    "fee": 145.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brisbane",
+    "country": "AU",
+    "pickup_location": "Brisbane Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Paris",
+    "country": "FR",
+    "pickup_location": "Charles de Gaulle Airport",
+    "fee": 145.0
+  },
+  {
+    "school_en": "LSI",
+    "city": "Zurich",
+    "country": "CH",
+    "pickup_location": "Zurich Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Manchester",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 110.0
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "Liverpool Airport",
+    "fee": 80.0
+  },
+  {
+    "school_en": "NCG New College Group",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 160.0
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Dublin",
+    "country": "IE",
+    "pickup_location": "Dublin Airport",
+    "fee": 80.0
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Athlone",
+    "country": "IE",
+    "pickup_location": "Private Airport pick-up",
+    "fee": 295.0
+  },
+  {
+    "school_en": "Future Learning Language School",
+    "city": "Athlone",
+    "country": "IE",
+    "pickup_location": "Public Bus from airport to Athlone town centre",
+    "fee": 30.0
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "pickup_location": "Bristol (BRS) Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "pickup_location": "Birmingham (BHX) Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "pickup_location": "London Heathrow (LHR) Airport",
+    "fee": 205.0
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "pickup_location": "London Gatwick (LGW) Airport",
+    "fee": 240.0
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "pickup_location": "Stansted (STN) Airport",
+    "fee": 240.0
+  },
+  {
+    "school_en": "Inlingua",
+    "city": "Cheltenham",
+    "country": "UK",
+    "pickup_location": "Luton (LTN) Airport",
+    "fee": 205.0
+  },
+  {
+    "school_en": "Kings Hall College",
+    "city": "Manchester",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 85.0
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "Southampton Airport",
+    "fee": 79.0
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "London Heathrow Airport",
+    "fee": 173.0
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "London Gatwick Airport",
+    "fee": 188.0
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "St Pancras Airport",
+    "fee": 281.0
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "Bournemouth Airport",
+    "fee": 121.0
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "London Stansted Airport",
+    "fee": 260.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 180.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "London City Airport",
+    "fee": 135.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 215.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 235.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 225.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "St Pancras Airport",
+    "fee": 105.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "Liverpool Airport",
+    "fee": 70.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 120.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "pickup_location": "London Airports",
+    "fee": 525.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 135.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 205.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "London City Airport",
+    "fee": 245.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "St Pancras Airport",
+    "fee": 245.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 255.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 255.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Bournemouth Airport",
+    "fee": 65.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Gatwick Airport",
+    "fee": 230.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Heathrow Airport",
+    "fee": 210.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 265.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London Stansted Airport",
+    "fee": 290.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "pickup_location": "Leeds Bradford Airport",
+    "fee": 100.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 150.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "pickup_location": "Birmingham Airport",
+    "fee": 250.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "pickup_location": "London Airports",
+    "fee": 350.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Vancouver",
+    "country": "CA",
+    "pickup_location": "Vancouver International Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Toronto",
+    "country": "CA",
+    "pickup_location": "Pearson International Airport",
+    "fee": 165.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Calgary",
+    "country": "CA",
+    "pickup_location": "Calgary International Airport",
+    "fee": 150.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Paris",
+    "country": "FR",
+    "pickup_location": "Orly Airport",
+    "fee": 115.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Paris",
+    "country": "FR",
+    "pickup_location": "Charles de Gaulle Airport",
+    "fee": 115.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Paris",
+    "country": "FR",
+    "pickup_location": "Any Paris Train Station",
+    "fee": 90.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Cape Town",
+    "country": "ZA",
+    "pickup_location": "Cape Town International Airport",
+    "fee": 60.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Limassol",
+    "country": "CY",
+    "pickup_location": "Larnaca Airport",
+    "fee": 110.0
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Limassol",
+    "country": "CY",
+    "pickup_location": "Paphos Airport",
+    "fee": 110.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 170.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 190.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 190.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 190.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "London City Airport",
+    "fee": 150.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "pickup_location": "St Pancras Airport",
+    "fee": 125.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 250.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 265.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 155.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 170.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "Cambridge City Airport",
+    "fee": 210.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "St Pancras Airport",
+    "fee": 255.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 250.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 200.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 250.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 270.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "pickup_location": "Cantebury City Airport",
+    "fee": 200.0
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "pickup_location": "St Pancras Airport",
+    "fee": 240.0
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 200.0
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 200.0
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Southampton",
+    "country": "UK",
+    "pickup_location": "Southampton Airport",
+    "fee": 85.0
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 100.0
+  },
+  {
+    "school_en": "Eurospeak Language School",
+    "city": "Reading",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 150.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Bournemouth Airport",
+    "fee": 60.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Southampton Airport",
+    "fee": 120.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Heathrow Airport",
+    "fee": 220.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Gatwick Airport",
+    "fee": 245.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Luton Airport",
+    "fee": 265.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "London City Airport",
+    "fee": 295.0
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "pickup_location": "Stansted Airport",
+    "fee": 295.0
+  },
+  {
+    "school_en": "The Essential English Centre",
+    "city": "Manchester",
+    "country": "UK",
+    "pickup_location": "Manchester Airport",
+    "fee": 70.0
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "London Heathrow Airport",
+    "fee": 205.0
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "London Gatwick Airport",
+    "fee": 250.0
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "London Stansted Airport",
+    "fee": 120.0
+  },
+  {
+    "school_en": "Studio Cambridge",
+    "city": "Cambridge",
+    "country": "UK",
+    "pickup_location": "London Luton Airport",
+    "fee": 150.0
+  }
+]

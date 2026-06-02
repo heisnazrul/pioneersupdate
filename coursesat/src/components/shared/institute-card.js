@@ -9,6 +9,7 @@ import { useCurrency } from "@/components/providers/currency-provider";
 import { getCoursePrice } from "@/lib/format-currency";
 import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { getImageUrl } from "@/lib/api";
+import { getInstituteCountryFlag, getInstituteCountryFlagFallback } from "@/lib/country-flags";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 function stopCardNav(event) {
@@ -86,8 +87,11 @@ export default function InstituteCard({
         : (institute.course_type || institute.course_type_ar);
 
     const location = isArabic
-        ? (institute.country_ar || institute.location_ar || institute.location)
-        : (institute.country_en || institute.location || institute.city);
+        ? (institute.country_ar || institute.country_ar_name || institute.country_name || institute.country)
+        : (institute.country_en || institute.country_name || institute.country || institute.city);
+
+    const flagSrc = getInstituteCountryFlag(institute);
+    const flagFallbackSrc = getInstituteCountryFlagFallback(institute);
 
     const tag = isArabic
         ? (institute.tag_ar || institute.tag)
@@ -280,12 +284,28 @@ export default function InstituteCard({
                 <Link href={detailUrl} className="flex flex-1 flex-col p-4">
                     <div className="mb-3 flex w-full items-center justify-between gap-4">
                         <div className="flex items-center gap-2 whitespace-nowrap text-[13px] font-normal text-slate-600">
-                            {institute.flag && institute.flag.startsWith("http") ? (
-                                <img src={institute.flag} alt="" className="h-5 w-5 rounded-sm object-cover" />
+                            {flagSrc ? (
+                                <img
+                                    src={flagSrc}
+                                    alt=""
+                                    className="h-5 w-5 rounded-sm object-cover"
+                                    onError={(e) => {
+                                        const fallback = flagFallbackSrc;
+                                        if (fallback && e.currentTarget.src !== fallback && !e.currentTarget.src.endsWith(fallback)) {
+                                            e.currentTarget.src = fallback;
+                                        }
+                                    }}
+                                />
+                            ) : flagFallbackSrc ? (
+                                <img
+                                    src={flagFallbackSrc}
+                                    alt=""
+                                    className="h-5 w-5 rounded-sm object-cover"
+                                />
                             ) : (
-                                <span className="text-lg leading-none">{institute.flag || "🇬🇧"}</span>
+                                <span className="text-lg leading-none">🌍</span>
                             )}
-                            <span>{location || (isArabic ? "المملكة المتحدة" : "The United Kingdom")}</span>
+                            <span>{location || ""}</span>
                         </div>
                         <div className="flex items-center gap-1">
                             <div className="flex gap-0.5 text-[#F59E0B]">

@@ -12,6 +12,7 @@ class MealPlanSeeder extends Seeder
         $rows = [
             ['name_en' => 'Halfboard', 'name_ar' => 'نصف إقامة'],
             ['name_en' => 'Fullboard', 'name_ar' => 'إقامة كاملة'],
+            ['name_en' => 'Self Catering', 'name_ar' => 'إقامة ذاتية'],
         ];
 
         foreach ($rows as $row) {

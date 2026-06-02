@@ -43,20 +43,7 @@ class CourseSatController extends Controller
             ->tap(fn (Builder $builder) => $this->applyActiveCourseConstraints($builder))
             ->with($this->languageInstituteCourseRelations());
 
-        if ($request->filled('school_slug')) {
-            $schoolSlug = (string) $request->input('school_slug');
-            $query->whereHas('branch.school', fn (Builder $builder) => $builder->where('slug', $schoolSlug));
-        }
-
-        if ($request->filled('city_slug')) {
-            $citySlug = (string) $request->input('city_slug');
-            $query->whereHas('branch.city', fn (Builder $builder) => $builder->where('slug', $citySlug));
-        }
-
-        if ($request->filled('country_slug')) {
-            $countrySlug = (string) $request->input('country_slug');
-            $query->whereHas('branch.city.country', fn (Builder $builder) => $builder->where('slug', $countrySlug));
-        }
+        $this->applyInstituteSearchFilters($query, $request);
 
         if ($request->filled('course_type')) {
             $courseType = (string) $request->input('course_type');
@@ -535,11 +522,176 @@ class CourseSatController extends Controller
             ])
             ->all();
 
+        $branchItems = $branches
+            ->map(function ($branch) {
+                $school = $branch->school;
+                $city = $branch->city;
+                $country = $city?->country;
+
+                if (! $school || ! $city || ! $country) {
+                    return null;
+                }
+
+                $labelEn = trim("{$school->name_en} - {$city->name}");
+                $labelAr = trim(collect([$school->name_ar, $city->ar_name])->filter()->join(' - '));
+
+                return [
+                    'id' => $branch->id,
+                    'name' => $labelEn,
+                    'ar_name' => $labelAr !== '' ? $labelAr : $labelEn,
+                    'slug' => $branch->slug,
+                    'school_slug' => $school->slug,
+                    'school_name' => $school->name_en,
+                    'school_ar_name' => $school->name_ar,
+                    'city_slug' => $city->slug,
+                    'city_name' => $city->name,
+                    'city_ar_name' => $city->ar_name,
+                    'country_slug' => $country->slug,
+                    'country_name' => $country->name,
+                    'country_ar_name' => $country->ar_name,
+                    'country_code' => $country->country_code,
+                    'flag' => $this->support->toPublicUrl($country->resolveFlagPath()),
+                    'logo' => $this->support->toPublicUrl($school->logo_url),
+                    'search_text' => collect([
+                        $school->name_en,
+                        $school->name_ar,
+                        $city->name,
+                        $city->ar_name,
+                        $country->name,
+                        $country->ar_name,
+                        $branch->slug,
+                        $school->slug,
+                        $city->slug,
+                        $country->slug,
+                    ])->filter()->join(' '),
+                ];
+            })
+            ->filter()
+            ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values()
+            ->all();
+
         return [
             'schools' => $schools,
             'countries' => $countries,
             'cities' => $cities,
+            'branches' => $branchItems,
             'course_types' => $courseTypes,
         ];
+    }
+
+    private function applyInstituteSearchFilters(Builder $query, Request $request): void
+    {
+        $targets = $this->parseSearchTargets($request);
+
+        if ($targets !== []) {
+            $query->where(function (Builder $builder) use ($targets) {
+                foreach ($targets as $target) {
+                    $builder->orWhere(function (Builder $scoped) use ($target) {
+                        match ($target['type']) {
+                            'branch' => $scoped->whereHas(
+                                'branch',
+                                fn (Builder $branchQuery) => $branchQuery->where('slug', $target['slug'])
+                            ),
+                            'school' => $scoped->whereHas(
+                                'branch.school',
+                                fn (Builder $schoolQuery) => $schoolQuery->where('slug', $target['slug'])
+                            ),
+                            'city' => $scoped->whereHas(
+                                'branch.city',
+                                fn (Builder $cityQuery) => $cityQuery->where('slug', $target['slug'])
+                            ),
+                            'country' => $scoped->whereHas(
+                                'branch.city.country',
+                                fn (Builder $countryQuery) => $countryQuery->where('slug', $target['slug'])
+                            ),
+                            'school_country' => $scoped->whereHas(
+                                'branch',
+                                function (Builder $branchQuery) use ($target) {
+                                    $branchQuery
+                                        ->whereHas('school', fn (Builder $schoolQuery) => $schoolQuery->where('slug', $target['school_slug']))
+                                        ->whereHas('city.country', fn (Builder $countryQuery) => $countryQuery->where('slug', $target['country_slug']));
+                                }
+                            ),
+                            default => $scoped->whereRaw("0 = 1"),
+                        };
+                    });
+                }
+            });
+
+            return;
+        }
+
+        if ($request->filled('branch_slug')) {
+            $slugs = $this->parseSlugList((string) $request->input('branch_slug'));
+            $query->whereHas('branch', fn (Builder $builder) => $builder->whereIn('slug', $slugs));
+        }
+
+        if ($request->filled('school_slug')) {
+            $slugs = $this->parseSlugList((string) $request->input('school_slug'));
+            $query->whereHas('branch.school', fn (Builder $builder) => $builder->whereIn('slug', $slugs));
+        }
+
+        if ($request->filled('city_slug')) {
+            $slugs = $this->parseSlugList((string) $request->input('city_slug'));
+            $query->whereHas('branch.city', fn (Builder $builder) => $builder->whereIn('slug', $slugs));
+        }
+
+        if ($request->filled('country_slug')) {
+            $slugs = $this->parseSlugList((string) $request->input('country_slug'));
+            $query->whereHas('branch.city.country', fn (Builder $builder) => $builder->whereIn('slug', $slugs));
+        }
+    }
+
+    /**
+     * @return array<int, array<string, string>>
+     */
+    private function parseSearchTargets(Request $request): array
+    {
+        if (! $request->filled('search_targets')) {
+            return [];
+        }
+
+        $raw = (string) $request->input('search_targets');
+        $targets = [];
+
+        foreach (explode(',', $raw) as $segment) {
+            $segment = trim($segment);
+            if ($segment === '') {
+                continue;
+            }
+
+            if (str_contains($segment, ':')) {
+                [$type, $slug] = array_pad(explode(':', $segment, 2), 2, '');
+                $type = trim($type);
+                $slug = trim($slug);
+
+                if ($type === 'school_country' && str_contains($slug, '|')) {
+                    [$schoolSlug, $countrySlug] = array_pad(explode('|', $slug, 2), 2, '');
+                    if ($schoolSlug !== '' && $countrySlug !== '') {
+                        $targets[] = [
+                            'type' => 'school_country',
+                            'school_slug' => $schoolSlug,
+                            'country_slug' => $countrySlug,
+                        ];
+                    }
+                    continue;
+                }
+
+                if ($type !== '' && $slug !== '') {
+                    $targets[] = ['type' => $type, 'slug' => $slug];
+                }
+            }
+        }
+
+        return $targets;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function parseSlugList(string $value): array
+    {
+        return array_values(array_filter(array_map('trim', explode(',', $value))));
     }
 }

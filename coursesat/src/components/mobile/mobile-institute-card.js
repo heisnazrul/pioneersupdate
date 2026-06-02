@@ -1,6 +1,7 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,11 +13,13 @@ import {
   faCircleInfo,
   faCircleQuestion,
 } from "@fortawesome/free-solid-svg-icons";
+import MobileBestPriceGuaranteeSheet from "@/components/mobile/mobile-best-price-guarantee-sheet";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
 import { getCoursePrice } from "@/lib/format-currency";
 import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { getImageUrl } from "@/lib/api";
+import { getInstituteCountryFlag, getInstituteCountryFlagFallback } from "@/lib/country-flags";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
 
 function stopCardNav(event) {
@@ -69,6 +72,7 @@ export default function MobileInstituteCard({
   const cardCopy = page?.mobile?.card ?? {};
 
   const { isInWishlist, isInCompare, toggleWishlist, toggleCompare } = useCourseEnglishInteractions();
+  const [isBestPriceHintOpen, setIsBestPriceHintOpen] = useState(false);
   const inWishlist = isInWishlist(type, institute.id);
   const inCompare = isInCompare(type, institute.id);
   const compareWeeks = Number(searchParamsOverride?.weeks || institute.weeks_param || 12) || 12;
@@ -103,8 +107,11 @@ export default function MobileInstituteCard({
     : institute.course_type || institute.course_type_ar;
 
   const location = isArabic
-    ? institute.country_ar || institute.location_ar || institute.location
-    : institute.country_en || institute.location || institute.city;
+    ? institute.country_ar || institute.country_ar_name || institute.country_name || institute.country
+    : institute.country_en || institute.country_name || institute.country;
+
+  const flagSrc = getInstituteCountryFlag(institute);
+  const flagFallbackSrc = getInstituteCountryFlagFallback(institute);
 
   const priceValue = getCoursePrice(institute, currency, "new");
   const oldPriceValue = getCoursePrice(institute, currency, "old");
@@ -149,6 +156,11 @@ export default function MobileInstituteCard({
   const handleCompareAction = async (e) => {
     stopCardNav(e);
     await toggleCompare(type, institute.id, compareWeeks);
+  };
+
+  const handleBestPriceHintOpen = (e) => {
+    stopCardNav(e);
+    setIsBestPriceHintOpen(true);
   };
 
   return (
@@ -221,12 +233,28 @@ export default function MobileInstituteCard({
       <div className="px-4 pb-4">
         <div className="mb-3 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-[13px] font-normal text-slate-600">
-            {institute.flag && String(institute.flag).startsWith("http") ? (
-              <img src={institute.flag} alt="" className="h-6 w-6 rounded-full object-cover" />
+            {flagSrc ? (
+              <img
+                src={flagSrc}
+                alt=""
+                className="h-6 w-atuo object-cover"
+                onError={(e) => {
+                  const fallback = flagFallbackSrc;
+                  if (fallback && e.currentTarget.src !== fallback && !e.currentTarget.src.endsWith(fallback)) {
+                    e.currentTarget.src = fallback;
+                  }
+                }}
+              />
+            ) : flagFallbackSrc ? (
+              <img
+                src={flagFallbackSrc}
+                alt=""
+                className="h-6 w-atuo object-cover"
+              />
             ) : (
-              <span className="text-lg leading-none">{institute.flag || "🇬🇧"}</span>
+              <span className="text-lg leading-none">🌍</span>
             )}
-            <span>{location || (isArabic ? "المملكة المتحدة" : "United Kingdom")}</span>
+            <span>{location || cityEn || ""}</span>
           </div>
           <div className="flex gap-0.5 text-[#F59E0B]">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -265,8 +293,23 @@ export default function MobileInstituteCard({
             <Image src="/assets/icons/fire.svg" alt="" width={12} height={12} className="h-3 w-3" />
           </span>
           <span>{bestPriceLabel}</span>
-          <FontAwesomeIcon icon={faCircleQuestion} className="h-4 w-4 shrink-0 text-slate-400" />
+          <button
+            type="button"
+            className="inline-flex shrink-0 items-center justify-center text-slate-400"
+            onClick={handleBestPriceHintOpen}
+            aria-label={
+              cardCopy.best_price_hint_title ||
+              (isArabic ? "ماذا يعني ضمان أفضل الأسعار؟" : "What does best price guarantee mean?")
+            }
+          >
+            <FontAwesomeIcon icon={faCircleQuestion} className="h-4 w-4" />
+          </button>
         </div>
+
+        <MobileBestPriceGuaranteeSheet
+          isOpen={isBestPriceHintOpen}
+          onClose={() => setIsBestPriceHintOpen(false)}
+        />
 
         <div className="mb-3 border-t border-[#E8EEF4]" />
 

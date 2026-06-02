@@ -101,12 +101,16 @@ export function getCurrencyDisplay(currencyCode, activeCurrency) {
   return { type: "code", symbol: code };
 }
 
+const GREEN_ICON_FILTER =
+  "brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(1352%) hue-rotate(122deg) brightness(95%) contrast(90%)";
+
 export function renderCurrencySymbol({
   display,
   currency,
   iconClassName,
   variant,
   muted,
+  accentGreen = false,
 }) {
   if (display.type === "icon") {
     const icon = variant === "dark" ? display.dark : display.light;
@@ -114,7 +118,8 @@ export function renderCurrencySymbol({
       <img
         src={icon}
         alt={currency}
-        className={`${iconClassName}${variant === "light" && !muted ? " invert" : ""}${muted ? " opacity-50" : ""}`}
+        className={`${iconClassName}${variant === "light" && !muted && !accentGreen ? " invert" : ""}${muted ? " opacity-50" : ""}`}
+        style={accentGreen ? { filter: GREEN_ICON_FILTER } : undefined}
       />
     );
   }

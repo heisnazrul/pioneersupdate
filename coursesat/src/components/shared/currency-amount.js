@@ -19,6 +19,8 @@ export function CurrencyAmount({
   language,
   currencyAfter,
   sign = "",
+  signPosition = "start",
+  iconAccent = null,
 }) {
   const { language: localeLanguage } = useLocale();
   const resolvedLanguage = language ?? localeLanguage ?? "en";
@@ -30,8 +32,9 @@ export function CurrencyAmount({
   const display = getCurrencyDisplay(currency, activeCurrency);
   const amountNode = (
     <span>
-      {sign}
+      {signPosition !== "end" ? sign : ""}
       {formatted}
+      {signPosition === "end" ? sign : ""}
     </span>
   );
   const currencyNode = renderCurrencySymbol({
@@ -40,6 +43,7 @@ export function CurrencyAmount({
     iconClassName,
     variant,
     muted,
+    accentGreen: iconAccent === "green",
   });
 
   return (

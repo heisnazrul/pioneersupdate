@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import DesktopInstituteDetails from "@/components/desktop/desktop-institute-details";
-import MobileInstituteDetails from "@/components/mobile/mobile-institute-details";
+import { headers } from "next/headers";
+import { isMobileRequest } from "@/lib/device";
 import DesktopHeader from "@/components/desktop/desktop-header";
 import DesktopFooter from "@/components/desktop/desktop-footer";
 
@@ -14,21 +14,35 @@ function DetailsFallback() {
 
 export default async function InstituteDetailsPage({ params }) {
   const { slug } = await params;
+  const headerStore = await headers();
+  const userAgent = headerStore.get("user-agent") ?? "";
+  const isMobile = isMobileRequest(userAgent);
 
-  return (
-    <main className="min-h-screen bg-white lg:bg-[#F8FAFC]">
-      <div className="hidden md:block">
-        <DesktopHeader />
-        <Suspense fallback={<DetailsFallback />}>
-          <DesktopInstituteDetails slug={slug} />
-        </Suspense>
-        <DesktopFooter />
-      </div>
-      <div className="md:hidden">
+  if (isMobile) {
+    const MobileInstituteDetails = (
+      await import("@/components/mobile/mobile-institute-details")
+    ).default;
+
+    return (
+      <main className="min-h-screen bg-white">
         <Suspense fallback={<DetailsFallback />}>
           <MobileInstituteDetails slug={slug} />
         </Suspense>
-      </div>
+      </main>
+    );
+  }
+
+  const DesktopInstituteDetails = (
+    await import("@/components/desktop/desktop-institute-details")
+  ).default;
+
+  return (
+    <main className="min-h-screen bg-white lg:bg-[#F8FAFC]">
+      <DesktopHeader />
+      <Suspense fallback={<DetailsFallback />}>
+        <DesktopInstituteDetails slug={slug} />
+      </Suspense>
+      <DesktopFooter />
     </main>
   );
 }

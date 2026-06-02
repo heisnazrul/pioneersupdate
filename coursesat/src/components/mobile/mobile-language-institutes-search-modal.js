@@ -4,6 +4,10 @@ import HeroDatePicker from "@/components/shared/hero-date-picker";
 import MobileLanguageInstitutesHeroSearch from "@/components/mobile/mobile-language-institutes-hero-search";
 import MobileHeroDropdown from "@/components/mobile/mobile-hero-dropdown";
 import { useLocale } from "@/components/providers/locale-provider";
+import {
+  buildDestinationLabel,
+  destinationKey,
+} from "@/lib/institute-search-targets";
 
 export default function MobileLanguageInstitutesSearchModal({
   isOpen,
@@ -11,8 +15,9 @@ export default function MobileLanguageInstitutesSearchModal({
   onSearch,
   searchData,
   page,
-  destination,
-  onDestinationChange,
+  destinations = [],
+  onDestinationAdd,
+  onDestinationRemove,
   courseType,
   onCourseTypeChange,
   weeks,
@@ -44,18 +49,42 @@ export default function MobileLanguageInstitutesSearchModal({
 
         <div className="mt-4 space-y-4">
           <div className="relative rounded-2xl border border-[#E1E8F0] px-4 py-3 text-start">
+            {destinations.length > 0 && (
+              <div className="mb-3 flex flex-wrap gap-2">
+                {destinations.map((destination) => {
+                  const key = destinationKey(destination);
+                  return (
+                    <span
+                      key={key}
+                      className="inline-flex items-center gap-2 rounded-full bg-[#EEF4FB] px-3 py-1 text-xs font-medium text-[#0B5DB6]"
+                    >
+                      <span>{buildDestinationLabel(destination, isArabic)}</span>
+                      <button
+                        type="button"
+                        className="text-[#0B5DB6]"
+                        onClick={() => onDestinationRemove?.(key)}
+                        aria-label={isArabic ? "إزالة" : "Remove"}
+                      >
+                        ×
+                      </button>
+                    </span>
+                  );
+                })}
+              </div>
+            )}
             <MobileLanguageInstitutesHeroSearch
               placeholder={
                 page?.hero?.labels?.destination_placeholder ||
-                (isArabic ? "أدخل وجهتك المفضلة" : "Enter your preferred destination")
+                (isArabic ? "ابحث عن معهد، مدينة، أو دولة" : "Search institute, city, or country")
               }
               subPlaceholder={
                 page?.hero?.labels?.destination ||
-                (isArabic ? "الوجهة" : "Destination")
+                (isArabic ? "يمكنك اختيار أكثر من وجهة" : "You can select multiple destinations")
               }
-              value={destination?.name || ""}
+              value=""
               searchData={searchData}
-              onSelect={onDestinationChange}
+              multiSelect
+              onSelect={onDestinationAdd}
             />
           </div>
 

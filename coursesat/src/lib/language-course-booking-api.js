@@ -51,6 +51,47 @@ export async function submitOnlineCourseBooking(payload, token = null) {
   return data;
 }
 
+function buildCourseEnglishBookingUrl(path) {
+  const base = API_BASE.endsWith("/") ? API_BASE.slice(0, -1) : API_BASE;
+  return `${base}/courseenglish/booking${path}`;
+}
+
+export async function sendBookingOtp(phone) {
+  const response = await fetch(buildCourseEnglishBookingUrl("/send-otp"), {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ phone }),
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.message || "Failed to send verification code.");
+  }
+
+  return data;
+}
+
+export async function verifyBookingOtp(phone, otp) {
+  const response = await fetch(buildCourseEnglishBookingUrl("/verify-otp"), {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ phone, otp }),
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.message || "Invalid verification code.");
+  }
+
+  return data;
+}
+
 export async function submitLanguageCourseBooking(payload, token = null) {
   const headers = {
     Accept: "application/json",

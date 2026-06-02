@@ -14,6 +14,7 @@ class BedroomTypeSeeder extends Seeder
             ['name_en' => 'Single Room', 'name_ar' => 'غرفة فردية'],
             ['name_en' => 'Twin Room', 'name_ar' => 'غرفة مزدوجة'],
             ['name_en' => 'Shared Room', 'name_ar' => 'غرفة مشتركة'],
+            ['name_en' => 'Studio', 'name_ar' => 'استوديو'],
         ];
 
         foreach ($rows as $row) {

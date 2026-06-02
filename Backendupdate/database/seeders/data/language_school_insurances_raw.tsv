@@ -1,0 +1,47 @@
+school_name	branch	country	fee_week	admin_fees	is_insurance_mandatory
+Anglo Continental	Bournemouth	UK	0	0	no
+ATLAS Language School	Dublin	IE	0	0	no
+ATLAS Language School	Liverpool	UK	6	0	no
+ATLAS Language School	Malta	MT	10	0	no
+Bright School Of English	Bournemouth 	UK	0		
+LSI	London	UK	14	0	no
+LSI	Brighton	UK	14	0	no
+LSI	Cambridge	UK	14	0	no
+LSI	New York	US	40	0	yes
+LSI	Boston	US	40	0	yes
+LSI	San Diego	US	40	0	yes
+LSI	Berkeley	US	40	0	yes
+LSI	Toronto	CA	40	0	yes
+LSI	Vancouver	CA	40	0	yes
+LSI	Auckland	NZ	0		
+LSI	Brisbane	AU	0		
+LSI	Paris	FR	0		
+LSI	Zurich	CH	0		
+LSI/IH Portsmouth	Portsmouth	UK	0		
+NCG New College Group	Manchester	UK	0	0	no
+NCG New College Group	Liverpool	UK	0	0	no
+Future Learning Language School	Dublin	IE	0	60	yes
+Future Learning Language School	Athlone	IE	0	60	yes
+Inlingua	Cheltenham	UK	0	0	no
+Kings Hall College	Manchester	UK	12	0	no
+Lewis School of English	Southampton	UK	10	0	no
+Bayswater	London	UK	8	0	no
+Bayswater	Liverpool	UK	8	0	no
+Bayswater	Brighton	UK	8	0	no
+Bayswater	Bournemouth	UK	8	0	no
+Bayswater	Leeds	UK	8	0	no
+Bayswater	Vancouver	CA	25	0	no
+Bayswater	Toronto	CA	25	0	no
+Bayswater	Calgary	CA	25	0	no
+Bayswater	Pairs	FR	0	0	no
+Bayswater	Cape Town	ZA	0	0	no
+Bayswater	Limassol	CY	0	0	no
+Stafford House	London	UK	9	0	no
+Stafford House	Cambridge	UK	9	0	no
+Stafford House	Canterbury	UK	9	0	no
+Eurospeak Language School 	Southampton 	UK	0	0	no
+Eurospeak Language School	Reading	UK	0	0	no
+Regent 	London	UK	0	0	no
+Southbourne School of English	Bournemouth	UK	7	5	no
+The Essential English Centre	Manchester 	UK	12	0	yes
+Studio Cambridge	Cambridge	UK	0	0	no

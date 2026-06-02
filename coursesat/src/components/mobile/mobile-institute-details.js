@@ -12,27 +12,41 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import HeroDropdown from "@/components/shared/hero-dropdown";
 import HeroDatePicker from "@/components/shared/hero-date-picker";
+import MobileInstituteDetailsAbout from "@/components/mobile/mobile-institute-details-about";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
 import { useApi } from "@/lib/api";
 import { CurrencyAmount } from "@/components/shared/currency-amount";
 import { buildInstituteBookingUrl, formatInstituteQueryDate } from "@/lib/institute-booking-url";
 import { useCourseEnglishInteractions } from "@/lib/interactions";
+import { applyReferralCode, getStoredReferral } from "@/lib/referral";
+import { getStoredAuthUser } from "@/lib/auth";
+import {
+    computeInstitutePricing,
+    getItemPrice,
+    resolveWeeklyCourseFee,
+} from "@/lib/institute-pricing";
+import { resolveCoursePromotionPercent } from "@/lib/pioneers-discount";
+import { CurrencyIcon, formatPriceAmount } from "@/lib/format-currency";
 
-function priceField(obj, field, currency) {
-    if (!obj) return 0;
-    const gbpKey = field ? `${field}_gbp` : "price_gbp";
-    const sarKey = field ? `${field}_sar` : "price_sar";
-    return currency === "SAR" ? (obj[sarKey] || 0) : (obj[gbpKey] || (obj.price || obj.amount || 0));
-}
-
-function Price({ value, currency, activeCurrency, className = "", size = "md", muted = false, isNegative = false }) {
+function Price({
+    value,
+    currency,
+    activeCurrency,
+    className = "",
+    size = "md",
+    muted = false,
+    isNegative = false,
+    signPosition = "start",
+    accent = null,
+}) {
     const { currencies } = useCurrency();
     const resolvedActiveCurrency = activeCurrency ?? currencies.find((entry) => entry.code === currency);
 
     if (value === null || value === undefined) return null;
     const iconClassName = size === "lg" ? "h-6 w-6" : size === "sm" ? "h-3.5 w-3.5" : "h-[18px] w-[18px]";
     const textClass = size === "lg" ? "text-[24px] font-bold" : size === "sm" ? "text-[14px]" : "text-[14px] font-medium";
+    const accentClass = accent === "green" ? "text-[#10B981]" : isNegative ? "text-green-500" : "";
 
     return (
         <CurrencyAmount
@@ -40,10 +54,72 @@ function Price({ value, currency, activeCurrency, className = "", size = "md", m
             amount={Math.abs(value)}
             activeCurrency={resolvedActiveCurrency}
             sign={isNegative ? "-" : ""}
-            className={`inline-flex items-center  ${textClass} ${isNegative ? "text-green-500" : ""} ${className}`}
+            signPosition={signPosition}
+            iconAccent={accent === "green" ? "green" : null}
+            className={`inline-flex items-center ${textClass} ${accentClass} ${className}`}
             iconClassName={iconClassName}
             muted={muted}
         />
+    );
+}
+
+function FooterPriceDisplay({ value, currency, activeCurrency, variant = "main" }) {
+    const isCompare = variant === "compare";
+    const formatted = formatPriceAmount(value);
+    const iconClass = "h-[18px] w-[18px]";
+
+    if (isCompare) {
+        return (
+            <span className="relative inline-flex items-center gap-0.5 text-[20px] font-medium leading-none tabular-nums text-[#94A3B8] after:pointer-events-none after:absolute after:inset-x-0 after:top-1/2 after:h-px after:-translate-y-1/2 after:bg-[#94A3B8] after:content-['']">
+                <CurrencyIcon
+                    currency={currency}
+                    activeCurrency={activeCurrency}
+                    variant="dark"
+                    className={`${iconClass} shrink-0 opacity-60`}
+                />
+                <span>{formatted}</span>
+            </span>
+        );
+    }
+
+    return (
+        <CurrencyAmount
+            currency={currency}
+            amount={value}
+            activeCurrency={activeCurrency}
+            currencyAfter={false}
+            iconClassName={iconClass}
+            className="inline-flex items-center gap-0.5 text-[20px] font-bold leading-none tabular-nums text-[#102233]"
+        />
+    );
+}
+
+function SummaryRow({ label, children, className = "", isRtl }) {
+    const labelEl = (
+        <span className={`flex-1 font-normal text-[#102233] ${isRtl ? "text-right" : "text-left"}`}>
+            {label}
+        </span>
+    );
+    const priceEl = (
+        <span className={`flex shrink-0 items-center gap-2 tabular-nums font-medium ${className}`}>
+            {children}
+        </span>
+    );
+
+    return (
+        <div className="flex items-center justify-between gap-6" dir="ltr">
+            {isRtl ? (
+                <>
+                    {priceEl}
+                    {labelEl}
+                </>
+            ) : (
+                <>
+                    {labelEl}
+                    {priceEl}
+                </>
+            )}
+        </div>
     );
 }
 
@@ -79,12 +155,22 @@ function featureIcon(feature, idx = 0) {
     return faHouse;
 }
 
+function RadioCircle({ selected, className = "" }) {
+    return (
+        <div
+            className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${selected ? "border-[#0B5DB6]" : "border-[#CBD5E1]"} ${className}`}
+        >
+            {selected && <div className="h-2.5 w-2.5 rounded-full bg-[#0B5DB6]" />}
+        </div>
+    );
+}
+
 export default function MobileInstituteDetails({ slug: slugProp }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { language, t } = useLocale();
     const isArabic = language === "ar";
-    const currency = "GBP";
+    const { currency, activeCurrency } = useCurrency();
 
     const slug = slugProp;
     const apiPath = slug
@@ -108,6 +194,10 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
     const [startDate, setStartDate] = useState(initialStartDate);
     const [accAge, setAccAge] = useState(initialAccAge);
     const [toastMsg, setToastMsg] = useState(null);
+    const [appliedReferral, setAppliedReferral] = useState(null);
+    const [referralCodeInput, setReferralCodeInput] = useState("");
+    const [referralApplying, setReferralApplying] = useState(false);
+    const [referralError, setReferralError] = useState("");
     const { isInWishlist, isInCompare, toggleWishlist, toggleCompare } = useCourseEnglishInteractions();
     const interactionType = "language_courses";
 
@@ -137,6 +227,27 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
         }
     }, [courses, selectedCourseId, initialCourseId]);
 
+    useEffect(() => {
+        if (insurances.length === 0) return;
+        const mandatoryIds = insurances.filter((ins) => ins.is_mandatory).map((ins) => ins.id);
+        if (mandatoryIds.length === 0) return;
+        setSelectedExtras((prev) => {
+            const merged = [...new Set([...prev, ...mandatoryIds])];
+            if (merged.length === prev.length && mandatoryIds.every((id) => prev.includes(id))) {
+                return prev;
+            }
+            return merged;
+        });
+    }, [insurances]);
+
+    useEffect(() => {
+        const stored = getStoredReferral();
+        if (stored?.code) {
+            setAppliedReferral(stored);
+            setReferralCodeInput(stored.code);
+        }
+    }, []);
+
     if (loading && !instituteData) {
         return (
             <div className="flex min-h-[50vh] items-center justify-center">
@@ -157,32 +268,151 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
     }
 
     const regFeeObj = instituteData?.registration_fee;
-    const registrationFee = regFeeObj ? priceField(regFeeObj, "amount", currency) : 50;
-
     const discounts = instituteData?.discounts || [];
     const pioneersDiscounts = instituteData?.pioneers_discounts || [];
-    const bestDiscount = discounts.length > 0 ? Math.max(...discounts.map(d => d.discount_percentage || 0)) : 0;
-    const pioneersDisc = pioneersDiscounts.length > 0 ? pioneersDiscounts[0] : null;
-    const discountPercent = bestDiscount > 0 ? bestDiscount : (pioneersDisc ? 20 : 0);
 
-    const selectedCourse = courses.find(c => c.id === selectedCourseId);
-    const selectedAccommodation = accommodations.find(a => a.id === selectedAccommodationId);
-    const allExtras = [...insurances, ...supplements];
-    const selectedExtrasObjects = allExtras.filter(e => selectedExtras.includes(e.id));
-    const selectedPickup = pickUps.find(p => p.id === selectedPickupId);
+    const selectedCourse = courses.find((c) => c.id === selectedCourseId);
+    const selectedAccommodation = selectedAccommodationId && selectedAccommodationId !== "no-acc"
+        ? accommodations.find((a) => a.id === selectedAccommodationId)
+        : null;
+    const selectedInsurances = insurances.filter(
+        (ins) => ins.is_mandatory || selectedExtras.includes(ins.id),
+    );
+    const selectedSupplements = supplements.filter((supp) => selectedExtras.includes(supp.id));
+    const selectedPickup = pickUps.find((p) => p.id === selectedPickupId);
 
-    const coursePrice = selectedCourse ? priceField(selectedCourse, "price", currency) * weeks : 0;
-    const accPrice = selectedAccommodation ? priceField(selectedAccommodation, "fee_per_week", currency) * weeks : 0;
-    const pickupPrice = selectedPickup ? (priceField(selectedPickup, "price", currency) || 0) : 0;
-    const extrasPrice = selectedExtrasObjects.reduce((sum, e) => sum + (priceField(e, "price", currency) || priceField(e, "amount", currency) || 0), 0);
-    const subtotal = coursePrice + accPrice + pickupPrice + extrasPrice + registrationFee;
-    const discountAmount = discountPercent > 0 ? subtotal * (discountPercent / 100) : 0;
-    const totalPrice = subtotal - discountAmount;
-
-    const getDiscountPrice = (price) => discountPercent > 0 ? price * (1 - discountPercent / 100) : null;
+    const courseDiscountPercent = resolveCoursePromotionPercent(selectedCourseId, discounts, selectedCourse);
+    const referralDiscountPercent = appliedReferral?.discount_percent
+        ? Number(appliedReferral.discount_percent)
+        : 0;
 
     const l = (key) => t(`pages.institute_details.${key}`);
     const loc = (en, ar) => (isArabic && ar) ? ar : en;
+
+    const pricing = computeInstitutePricing({
+        selectedCourse,
+        selectedAccommodation,
+        selectedPickup,
+        selectedInsurances,
+        selectedSupplements,
+        weeks,
+        startDate,
+        accAge,
+        currency,
+        registrationFeeObj: regFeeObj,
+        courseDiscountPercent,
+        referralDiscountPercent,
+        pioneersDiscounts,
+        supplementLabels: {
+            material_books: l("materialBooksFee"),
+            registration: l("registrationFee"),
+            mandatory: l("mandatoryFee"),
+            summer: l("summerSupplement"),
+            winter: l("winterSupplement"),
+            other: l("otherSupplement"),
+            under_18: l("under18Supplement"),
+            insurance: l("step3insurance"),
+            insurance_admin: l("insuranceAdminFee"),
+        },
+    });
+
+    const {
+        weeklyCourseFee,
+        weeklyAccFee,
+        courseTotal: coursePrice,
+        accPrice,
+        accOriginalTotal,
+        accWaived,
+        oneTimeFees,
+        accSupplements,
+        insuranceLines,
+        supplementLines,
+        pickupTotal: pickupPrice,
+        pickupOriginalTotal,
+        pickupWaived,
+        pioneersCashLines,
+        pioneersCashTotal,
+        courseDiscountPercent: appliedCourseDiscountPercent,
+        courseDiscountAmount,
+        referralDiscountPercent: appliedReferralDiscountPercent,
+        referralDiscountAmount,
+        coursePriceAfterReferral,
+        subtotal,
+        total: totalPrice,
+    } = pricing;
+
+    const getCourseDiscountPrice = (price) =>
+        appliedCourseDiscountPercent > 0 ? price * (1 - appliedCourseDiscountPercent / 100) : null;
+
+    const mobileSection = t("pages.institute_details.mobile", {});
+    const chooseCourseTitle =
+        mobileSection?.chooseCourseTitle || (isArabic ? "اختر الدورة" : "Choose course");
+    const accommodationTitle =
+        mobileSection?.accommodationTitle || (isArabic ? "السكن" : "Accommodation");
+    const extrasTitle =
+        mobileSection?.extrasTitle || l("extraOptions");
+    const priceSummaryTitle =
+        t("pages.institute_details.booking.priceSummary") || (isArabic ? "ملخص الرسوم" : "Price summary");
+    const totalDiscountAmount = courseDiscountAmount + referralDiscountAmount + pioneersCashTotal;
+
+    const pickupHeaderTitle = selectedPickup
+        ? loc(selectedPickup.name || selectedPickup.route, selectedPickup.ar_name || selectedPickup.ar_route)
+        : l("step3pickups");
+    const pickupHeaderPrice = selectedPickup
+        ? getItemPrice(selectedPickup, currency, { field: "price", pricesKey: "prices" })
+        : null;
+
+    const handlePickupHeaderToggle = () => {
+        if (selectedPickupId != null) {
+            setSelectedPickupId(null);
+        }
+    };
+
+    const handleApplyReferral = async () => {
+        const code = referralCodeInput.trim();
+        if (!code) {
+            setReferralError(isArabic ? "يرجى إدخال كود الإحالة" : "Please enter a referral code.");
+            return;
+        }
+
+        setReferralApplying(true);
+        setReferralError("");
+
+        try {
+            const authUser = getStoredAuthUser();
+            const data = await applyReferralCode(code);
+
+            if (
+                data.referrer_type === "student"
+                && authUser?.id
+                && Number(data.referrer_user_id) === Number(authUser.id)
+            ) {
+                throw new Error(isArabic ? "لا يمكنك استخدام كود الإحالة الخاص بك" : "You cannot use your own referral code.");
+            }
+
+            const referralEntry = {
+                code: data.referral_code || code.toUpperCase(),
+                referrer_type: data.referrer_type,
+                referrer_name: data.referrer_name,
+                discount_percent: data.discount_percent,
+            };
+            setAppliedReferral(referralEntry);
+            setReferralCodeInput(referralEntry.code);
+            showToast(isArabic ? "تم تطبيق كود الإحالة" : "Referral code applied.");
+        } catch (err) {
+            setReferralError(err.message || (isArabic ? "كود إحالة غير صالح" : "Invalid referral code."));
+        } finally {
+            setReferralApplying(false);
+        }
+    };
+
+    const toggleExtra = (id) => {
+        const insurance = insurances.find((ins) => ins.id === id);
+        if (insurance?.is_mandatory && selectedExtras.includes(id)) return;
+        setSelectedExtras((prev) =>
+            prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+        );
+    };
 
     const handleToggleWishlist = async () => {
         if (!selectedCourseId) return;
@@ -209,8 +439,11 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
     const inWishlist = selectedCourseId ? isInWishlist(interactionType, selectedCourseId) : false;
     const inCompare = selectedCourseId ? isInCompare(interactionType, selectedCourseId) : false;
 
+    const branchDescription = loc(school.description, school.ar_description);
+    const accreditationLogos = school?.accreditations || [];
+
     return (
-        <div className="pb-32 bg-[#F8FAFC]" dir={isArabic ? "rtl" : "ltr"}>
+        <div className="pb-32 bg-white" dir={isArabic ? "rtl" : "ltr"}>
             {toastMsg && (
                 <div className="fixed top-20 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-lg">
                     {toastMsg}
@@ -223,7 +456,7 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                     {school.image && <img src={school.image} alt={loc(school.name, school.ar_name)} className="w-full h-full object-cover" />}
                     
                     {/* Top Actions */}
-                    <div className="absolute top-0 left-0 w-full p-4 flex items-center justify-between z-10 pt-12">
+                    <div className="absolute top-0 left-0 w-full p-4 flex items-center justify-between z-10 pt-12" dir="ltr">
                         <div className="flex items-center gap-3">
                             <button onClick={handleShare} className="h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-700 shadow-sm transition hover:bg-white">
                                 <FontAwesomeIcon icon={faShare} />
@@ -250,7 +483,7 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
 
                     {/* Logo Overlay */}
                     <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20">
-                        <div className="p-2 h-20 w-20 rounded-full border-[4px] border-white bg-white shadow-lg overflow-hidden flex items-center justify-center">
+                        <div className="p-2 h-25 w-25 rounded-full border-[4px] border-white bg-white overflow-hidden flex items-center justify-center">
                             {school.logo ? (
                                 <img src={school.logo} alt="Logo" className="w-full h-full object-contain" />
                             ) : (
@@ -261,7 +494,7 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                 </div>
 
                 {/* Mobile Header Info */}
-                <div className="relative z-10 -mt-8 rounded-t-[30px] bg-white pt-14 px-4 text-center pb-6 shadow-sm border-b border-gray-100">
+                <div className="relative z-10 -mt-14 rounded-t-[30px] bg-white pt-14 px-4 text-center pb-6 ">
                     <h1 className="text-2xl font-semibold text-slate-900 leading-tight mb-4">
                         {isArabic
                             ? `${school.ar_name || school.name} - ${school.city_ar || school.city} - ${school.name}`
@@ -271,51 +504,69 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
 
                     <div className="flex items-center justify-center gap-3 flex-wrap">
                         <div className="flex items-center gap-2 bg-[#F0F7FC] border border-[#DCE6F1] px-4 py-3 rounded-2xl min-w-[140px] justify-center">
+                            {school.flag && <img src={school.flag} width={20} height={14} alt="Flag" className="rounded-sm shrink-0" />}
                             <span className="font-medium text-slate-900 line-clamp-1 text-sm max-w-[150px]">{loc(school.location, (school.city_ar ? `${school.country_ar}, ${school.city_ar}` : null))}</span>
-                            {school.flag && <img src={school.flag} width={20} height={14} alt="Flag" className="rounded-sm" />}
+                            
                         </div>
                         <div className="flex items-center gap-2 bg-[#F0F7FC] border border-[#DCE6F1] px-4 py-3 rounded-2xl min-w-[140px] justify-center">
-                            <span className="font-medium text-slate-900">{school.rating}</span>
-                            <FontAwesomeIcon icon={faStar} className="text-[#F59E0B] text-sm" />
+                            <FontAwesomeIcon icon={faStar} className="text-[#F59E0B] w-4 h-4 shrink-0" />
+                            <span className="font-medium text-slate-900 shrink-0">{school.rating}</span>
+                           
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="px-4 space-y-8">
-                {/* Step 1: Choose Course */}
+                <MobileInstituteDetailsAbout
+                    description={branchDescription}
+                    accreditations={accreditationLogos}
+                    isArabic={isArabic}
+                    aboutLabel={l("aboutInstitute")}
+                    accreditedByLabel={l("accreditedBy")}
+                />
+
+                {/* Choose Course */}
                 <div>
-                    <div className="mb-4">
-                        <h3 className="mb-2 text-2xl font-semibold text-slate-900">{l("step1")}</h3>
-                        <p className="text-sm text-slate-500 mb-4">{l("step1Sub")}</p>
-                        
-                        <div className="flex flex-1 justify-start gap-2">
-                            <div className="w-[48%]">
+                    <div
+                        className="mb-4 flex items-stretch gap-2"
+                        dir={isArabic ? "rtl" : "ltr"}
+                    >
+                        <h3 className="flex shrink-0 items-center text-base font-bold text-slate-900">
+                            {chooseCourseTitle}
+                        </h3>
+                        <div className="flex min-w-0 flex-1 gap-2">
+                            <div className="min-w-0 flex-1 rounded-md border border-[#E1E8F0] px-3 py-2">
                                 <HeroDatePicker
                                     label={l("startDate")}
                                     placeholder={l("selectStart")}
                                     selectedDate={startDate}
                                     onSelect={(date) => setStartDate(date)}
+                                    variant="borderless"
                                 />
                             </div>
-                            <div className="w-[48%]">
+                            <div className="min-w-0 flex-1 rounded-md border border-[#E1E8F0] px-3 py-2">
                                 <HeroDropdown
                                     label={l("numWeeks")}
                                     placeholder={l("selectWeeks")}
                                     scroll
-                                    options={Array.from({ length: 52 }, (_, i) => ({ label: `${i + 1} ${l("weeks")}`, value: i + 1 }))}
+                                    options={Array.from({ length: 52 }, (_, i) => ({
+                                        label: `${i + 1} ${l("weeks")}`,
+                                        value: i + 1,
+                                    }))}
                                     onSelect={(opt) => setWeeks(opt.value)}
                                     selectedValue={weeks}
+                                    variant="borderless"
                                 />
                             </div>
                         </div>
                     </div>
 
-                    <div className="-mx-4 overflow-x-auto px-4 pb-4">
+                    <div className="-mx-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                         <div className="flex gap-3 snap-x snap-mandatory">
                             {courses.map((course) => {
-                                const price = priceField(course, "price", currency);
-                                const discPrice = getDiscountPrice(price);
+                                const price = resolveWeeklyCourseFee(course, weeks, currency);
+                                const discPrice = getCourseDiscountPrice(price);
                                 const isSelected = selectedCourseId === course.id;
                                 return (
                                     <label
@@ -378,16 +629,16 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                                                 {discPrice && (
                                                     <div className="flex flex-col items-start gap-1">
                                                         <span className="rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-medium text-white">
-                                                            -{discountPercent}%
+                                                            -{appliedCourseDiscountPercent}%
                                                         </span>
                                                         <span className="text-sm font-medium text-slate-400 line-through">
-                                                            <Price value={price} currency={currency} size="sm" />
+                                                            <Price value={price} currency={currency} activeCurrency={activeCurrency} size="sm" />
                                                         </span>
                                                     </div>
                                                 )}
                                                 <div className="flex items-end gap-1 flex-1 justify-end">
                                                     <span className="text-xl font-bold text-slate-900">
-                                                        <Price value={discPrice || price} currency={currency} size="lg" />
+                                                        <Price value={discPrice || price} currency={currency} activeCurrency={activeCurrency} size="lg" />
                                                     </span>
                                                     <span className="pb-1 text-sm font-medium text-slate-500">{l("perWeek")}</span>
                                                 </div>
@@ -413,14 +664,13 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                     </div>
                 </div>
 
-                {/* Step 2: Choose Accommodation */}
+                {/* Accommodation */}
                 <div>
-                    <div className={`mb-4 ${isArabic ? "text-right" : "text-left"}`}>
-                        <h3 className="text-2xl font-semibold text-slate-900">{l("step2")}</h3>
-                        <p className="mt-1 text-sm text-slate-500">{l("step2Sub")}</p>
-                    </div>
+                    <h3 className="mb-4 text-start text-base font-bold text-slate-900">
+                        {accommodationTitle}
+                    </h3>
 
-                    <div className="mt-3 grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-3">
                         <button
                             type="button"
                             onClick={() => setSelectedAccommodationId('no-acc')}
@@ -474,12 +724,14 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                         />
                     </div>
 
-                    {accommodations.length > 0 && selectedAccommodationId !== 'no-acc' && (
-                        <div className="mt-4 -mx-4 overflow-x-auto px-4 pb-4">
+                    {accommodations.length > 0 && (
+                        <div className="mt-4 -mx-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                             <div className="flex snap-x snap-mandatory gap-3">
                                 {accommodations.map((acc) => {
-                                    const accPrice = priceField(acc, "fee_per_week", currency);
-                                    const accDiscPrice = getDiscountPrice(accPrice);
+                                    const accWeekly = getItemPrice(acc, currency, {
+                                        field: "fee_per_week",
+                                        pricesKey: "fee_per_week_prices",
+                                    });
                                     const featureList = (Array.isArray(acc.features) ? acc.features : (typeof acc.features === 'string' ? acc.features.split(',') : []))
                                         .filter(Boolean)
                                         .map((feature) => localizeFeature(feature, isArabic));
@@ -525,15 +777,9 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                                             <div className="mt-4 border-t border-[#DCE6F1]" />
 
                                             <div className="mt-4 flex justify-between items-center" dir="ltr">
-                                                {accDiscPrice && (
-                                                    <div className="flex flex-col items-start gap-1">
-                                                        <span className="rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-medium text-white">-{discountPercent}%</span>
-                                                        <span className="text-sm font-medium text-slate-400 line-through"><Price value={accPrice} currency={currency} size="sm" /></span>
-                                                    </div>
-                                                )}
                                                 <div className="flex items-end gap-1 flex-1 justify-end">
                                                     <span className="text-xl font-bold text-slate-900">
-                                                        <Price value={accDiscPrice || accPrice} currency={currency} size="lg" />
+                                                        <Price value={accWeekly} currency={currency} activeCurrency={activeCurrency} size="lg" />
                                                     </span>
                                                     <span className="pb-1 text-sm font-medium text-slate-500">{l("perWeek")}</span>
                                                 </div>
@@ -560,17 +806,377 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                         </div>
                     )}
                 </div>
+
+                {/* Additional options — Figma unified section */}
+                {(pickUps.length > 0 || insurances.length > 0 || supplements.length > 0) && (
+                    <div>
+                        <h3 className="mb-4 text-start text-base font-bold text-[#102233]">
+                            {extrasTitle}
+                        </h3>
+
+                        <div className="space-y-3">
+                            {pickUps.length > 0 && (
+                                <div className="space-y-3">
+                                    <div
+                                        className={`rounded-xl border bg-white p-4 ${selectedPickupId ? "border-[#0B5DB6]" : "border-[#E1E8F0]"}`}
+                                    >
+                                        <div className="flex items-center gap-3" dir="ltr">
+                                            <button
+                                                type="button"
+                                                onClick={handlePickupHeaderToggle}
+                                                className="shrink-0"
+                                                aria-label={l("noPickup")}
+                                            >
+                                                {selectedPickupId ? (
+                                                    <img
+                                                        src="/assets/icons/selected-blue.svg"
+                                                        alt=""
+                                                        className="h-7 w-7"
+                                                    />
+                                                ) : (
+                                                    <RadioCircle selected={false} />
+                                                )}
+                                            </button>
+                                            <div className={`min-w-0 flex-1 ${isArabic ? "text-right" : "text-left"}`}>
+                                                <div className="text-[16px] font-bold text-[#102233]">
+                                                    {pickupHeaderTitle}
+                                                </div>
+                                                {pickupHeaderPrice != null && (
+                                                    <div className="mt-0.5 text-[15px] font-bold text-[#102233]" dir="ltr">
+                                                        <Price value={pickupHeaderPrice} currency={currency} activeCurrency={activeCurrency} size="sm" />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="-mx-4 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                                        <div className="flex snap-x snap-mandatory gap-3">
+                                            {pickUps.map((pickup) => {
+                                                const pPrice = getItemPrice(pickup, currency, { field: "price", pricesKey: "prices" });
+                                                const isSelected = selectedPickupId === pickup.id;
+
+                                                return (
+                                                    <label
+                                                        key={pickup.id}
+                                                        className={`w-[240px] max-w-[72vw] shrink-0 snap-start cursor-pointer rounded-xl border bg-white p-3 transition ${isSelected ? "border-[#0B5DB6]" : "border-[#E1E8F0]"}`}
+                                                        dir="ltr"
+                                                    >
+                                                        <div className="flex items-start gap-2">
+                                                            <RadioCircle selected={isSelected} />
+                                                            <div className={`min-w-0 flex-1 ${isArabic ? "text-right" : "text-left"}`}>
+                                                                <div className="line-clamp-2 text-[14px] font-bold leading-snug text-[#102233]">
+                                                                    {loc(pickup.name || pickup.route, pickup.ar_name || pickup.ar_route)}
+                                                                </div>
+                                                                <div className="mt-1 text-[14px] font-bold text-[#102233]" dir="ltr">
+                                                                    <Price value={pPrice} currency={currency} activeCurrency={activeCurrency} size="sm" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <input
+                                                            type="radio"
+                                                            name="pickup-mobile"
+                                                            className="hidden"
+                                                            value={pickup.id}
+                                                            checked={isSelected}
+                                                            onChange={() => setSelectedPickupId(pickup.id)}
+                                                        />
+                                                    </label>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {insurances.map((ins) => {
+                                const iPrice = getItemPrice(ins, currency, { field: "price", pricesKey: "prices" })
+                                    || getItemPrice(ins, currency, { field: "amount", pricesKey: "prices" });
+                                const isSelected = ins.is_mandatory || selectedExtras.includes(ins.id);
+
+                                return (
+                                    <label
+                                        key={`ins-${ins.id}`}
+                                        className={`flex items-center gap-3 rounded-xl border bg-white p-4 transition ${isSelected ? "border-[#0B5DB6]" : "border-[#E1E8F0]"} ${ins.is_mandatory ? "cursor-default" : "cursor-pointer"}`}
+                                        dir="ltr"
+                                    >
+                                        <RadioCircle selected={isSelected} />
+                                        <div className={`min-w-0 flex-1 ${isArabic ? "text-right" : "text-left"}`}>
+                                            <div className="flex flex-wrap items-center gap-2">
+                                                <span className="text-[16px] font-bold text-[#102233]">
+                                                    {loc(ins.name, ins.ar_name)}
+                                                </span>
+                                                {ins.is_mandatory && (
+                                                    <span className="rounded-md bg-[#0B5DB6] px-2 py-0.5 text-[11px] font-medium text-white">
+                                                        {l("mandatory")}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <div className="mt-0.5 text-[15px] font-bold text-[#102233]" dir="ltr">
+                                                <Price value={iPrice} currency={currency} activeCurrency={activeCurrency} size="sm" />
+                                            </div>
+                                        </div>
+                                        <input
+                                            type="checkbox"
+                                            className="hidden"
+                                            checked={isSelected}
+                                            disabled={ins.is_mandatory}
+                                            onChange={() => toggleExtra(ins.id)}
+                                        />
+                                    </label>
+                                );
+                            })}
+
+                            {supplements.map((supp) => {
+                                const sPrice = getItemPrice(supp, currency, { field: "price", pricesKey: "prices" })
+                                    || getItemPrice(supp, currency, { field: "amount", pricesKey: "prices" });
+                                const isSelected = selectedExtras.includes(supp.id);
+
+                                return (
+                                    <label
+                                        key={`supp-${supp.id}`}
+                                        className={`flex cursor-pointer items-center gap-3 rounded-xl border bg-white p-4 transition ${isSelected ? "border-[#0B5DB6]" : "border-[#E1E8F0]"}`}
+                                        dir="ltr"
+                                    >
+                                        <RadioCircle selected={isSelected} />
+                                        <div className={`min-w-0 flex-1 ${isArabic ? "text-right" : "text-left"}`}>
+                                            <span className="text-[16px] font-bold text-[#102233]">
+                                                {loc(supp.name, supp.ar_name)}
+                                            </span>
+                                            <div className="mt-0.5 text-[15px] font-bold text-[#102233]" dir="ltr">
+                                                <Price value={sPrice} currency={currency} activeCurrency={activeCurrency} size="sm" />
+                                            </div>
+                                        </div>
+                                        <input
+                                            type="checkbox"
+                                            className="hidden"
+                                            checked={isSelected}
+                                            onChange={() => toggleExtra(supp.id)}
+                                        />
+                                    </label>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+
+                <div className="mt-2">
+                    <div className={`mb-3 text-base font-bold text-[#102233] ${isArabic ? "text-right" : "text-left"}`}>
+                        {l("couponQ")}
+                    </div>
+                    <div className="flex items-center rounded-2xl border border-[#E1E8F0] bg-white p-1.5" dir="ltr">
+                        <button
+                            type="button"
+                            onClick={handleApplyReferral}
+                            disabled={referralApplying}
+                            className="shrink-0 rounded-xl bg-[#E8ECF1] px-5 py-2.5 text-[15px] font-medium text-[#475569] transition disabled:opacity-60"
+                        >
+                            {referralApplying ? "..." : l("apply")}
+                        </button>
+                        <input
+                            type="text"
+                            value={referralCodeInput}
+                            onChange={(event) => {
+                                setReferralCodeInput(event.target.value.toUpperCase());
+                                setReferralError("");
+                            }}
+                            placeholder={l("couponCode")}
+                            className={`w-full bg-transparent px-3 py-2.5 text-[15px] outline-none placeholder:text-slate-400 ${isArabic ? "text-right" : "text-left"}`}
+                            dir={isArabic ? "rtl" : "ltr"}
+                        />
+                    </div>
+                    {referralError ? (
+                        <p className={`mt-2 text-sm text-red-600 ${isArabic ? "text-right" : "text-left"}`}>{referralError}</p>
+                    ) : null}
+                    {appliedReferral ? (
+                        <p className={`mt-2 text-xs text-emerald-600 ${isArabic ? "text-right" : "text-left"}`}>
+                            {l("referralApplied")}: {appliedReferral.referrer_name} ({appliedReferral.discount_percent}%)
+                        </p>
+                    ) : null}
+                </div>
+
+                {/* Fee summary */}
+                <div className="mt-6">
+                    <h4 className={`mb-3 text-base font-bold text-[#102233] ${isArabic ? "text-right" : "text-left"}`}>
+                        {priceSummaryTitle}
+                    </h4>
+                    <div className="rounded-3xl border border-gray-100 bg-white p-5 shadow-sm">
+                        <div className="space-y-4 text-[14px] text-[#102233]">
+                            <SummaryRow
+                                isRtl={isArabic}
+                                label={`${selectedCourse ? loc(selectedCourse.name, selectedCourse.ar_name) : l("step1")} (${weeks} ${l("weeks")})`}
+                            >
+                                <Price activeCurrency={activeCurrency} value={coursePrice} currency={currency} size="sm" />
+                            </SummaryRow>
+
+                            {selectedAccommodation && (
+                                <SummaryRow
+                                    isRtl={isArabic}
+                                    label={`${loc(selectedAccommodation.title || selectedAccommodation.name, selectedAccommodation.ar_title || selectedAccommodation.ar_name)} (${weeks} ${l("weeks")})`}
+                                >
+                                    {accWaived && accOriginalTotal > 0 && (
+                                        <span className="text-slate-400 line-through">
+                                            <Price activeCurrency={activeCurrency} value={accOriginalTotal} currency={currency} size="sm" muted />
+                                        </span>
+                                    )}
+                                    <Price activeCurrency={activeCurrency} value={accPrice} currency={currency} size="sm" />
+                                </SummaryRow>
+                            )}
+
+                            {oneTimeFees.map((fee) => (
+                                <SummaryRow
+                                    key={fee.key}
+                                    isRtl={isArabic}
+                                    label={`${fee.label}${fee.waived ? ` (${l("freeWithPioneers")})` : ""}`}
+                                >
+                                    {fee.waived && fee.originalTotal > 0 && (
+                                        <span className="text-slate-400 line-through">
+                                            <Price activeCurrency={activeCurrency} value={fee.originalTotal} currency={currency} size="sm" muted />
+                                        </span>
+                                    )}
+                                    <Price activeCurrency={activeCurrency} value={fee.total} currency={currency} size="sm" />
+                                </SummaryRow>
+                            ))}
+
+                            {accSupplements.map((supp) => (
+                                <SummaryRow
+                                    key={supp.key}
+                                    isRtl={isArabic}
+                                    label={`${supp.label}${supp.perWeek ? ` (${supp.weeks} ${l("weeks")})` : ""}`}
+                                >
+                                    <Price activeCurrency={activeCurrency} value={supp.total} currency={currency} size="sm" />
+                                </SummaryRow>
+                            ))}
+
+                            {(pickupWaived ? pickupOriginalTotal > 0 : pickupPrice > 0) && selectedPickup && (
+                                <SummaryRow
+                                    isRtl={isArabic}
+                                    label={`${loc(selectedPickup.name || selectedPickup.route, selectedPickup.ar_name || selectedPickup.ar_route)}${pickupWaived ? ` (${l("freeWithPioneers")})` : ""}`}
+                                >
+                                    {pickupWaived && pickupOriginalTotal > 0 && (
+                                        <span className="text-slate-400 line-through">
+                                            <Price activeCurrency={activeCurrency} value={pickupOriginalTotal} currency={currency} size="sm" muted />
+                                        </span>
+                                    )}
+                                    <Price activeCurrency={activeCurrency} value={pickupPrice} currency={currency} size="sm" />
+                                </SummaryRow>
+                            )}
+
+                            {insuranceLines.map((line) => (
+                                <SummaryRow
+                                    key={line.key}
+                                    isRtl={isArabic}
+                                    label={`${line.label}${line.perWeek ? ` (${line.weeks} ${l("weeks")})` : ""}${line.waived ? ` (${l("freeWithPioneers")})` : ""}`}
+                                >
+                                    {line.waived && line.originalTotal > 0 && (
+                                        <span className="text-slate-400 line-through">
+                                            <Price activeCurrency={activeCurrency} value={line.originalTotal} currency={currency} size="sm" muted />
+                                        </span>
+                                    )}
+                                    <Price activeCurrency={activeCurrency} value={line.total} currency={currency} size="sm" />
+                                </SummaryRow>
+                            ))}
+
+                            {supplementLines.map((line) => (
+                                <SummaryRow key={line.key} isRtl={isArabic} label={loc(line.label, line.ar_label)}>
+                                    <Price activeCurrency={activeCurrency} value={line.total} currency={currency} size="sm" />
+                                </SummaryRow>
+                            ))}
+
+                            {courseDiscountAmount > 0 && (
+                                <SummaryRow
+                                    isRtl={isArabic}
+                                    className="text-[#10B981]"
+                                    label={`${l("courseDiscount")} (${appliedCourseDiscountPercent}%)`}
+                                >
+                                    <span className="inline-flex items-center gap-0.5 text-[#10B981]">
+                                        <Price
+                                            activeCurrency={activeCurrency}
+                                            value={courseDiscountAmount}
+                                            currency={currency}
+                                            size="sm"
+                                            accent="green"
+                                        />
+                                        <span className="text-[14px] font-medium">-</span>
+                                    </span>
+                                </SummaryRow>
+                            )}
+
+                            {referralDiscountAmount > 0 && (
+                                <SummaryRow
+                                    isRtl={isArabic}
+                                    className="text-[#10B981]"
+                                    label={`${l("referralDiscount")} (${appliedReferral?.referrer_name}) (${appliedReferralDiscountPercent}%)`}
+                                >
+                                    <span className="inline-flex items-center gap-0.5 text-[#10B981]">
+                                        <Price
+                                            activeCurrency={activeCurrency}
+                                            value={referralDiscountAmount}
+                                            currency={currency}
+                                            size="sm"
+                                            accent="green"
+                                        />
+                                        <span className="text-[14px] font-medium">-</span>
+                                    </span>
+                                </SummaryRow>
+                            )}
+
+                            {pioneersCashLines.map((line) => (
+                                <SummaryRow
+                                    key={line.key}
+                                    isRtl={isArabic}
+                                    className="text-[#10B981]"
+                                    label={`${loc(line.label, line.ar_label)}${line.multiplier > 1 ? ` (${line.multiplier}x)` : ""}`}
+                                >
+                                    <span className="inline-flex items-center gap-0.5 text-[#10B981]">
+                                        <Price
+                                            activeCurrency={activeCurrency}
+                                            value={line.total}
+                                            currency={currency}
+                                            size="sm"
+                                            accent="green"
+                                        />
+                                        <span className="text-[14px] font-medium">-</span>
+                                    </span>
+                                </SummaryRow>
+                            ))}
+                        </div>
+
+                        <div className="mt-4 border-t border-gray-100 pt-4">
+                            <div className="flex items-start justify-between gap-4" dir="ltr">
+                                <div className="text-lg font-semibold text-[#102233]">
+                                    {t("pages.institute_details.booking.total") || (isArabic ? "الاجمالي" : "Total")}
+                                </div>
+                                <div className="flex flex-col items-end">
+                                    <div className="flex items-center justify-end gap-2" dir="ltr">
+                                        {totalDiscountAmount > 0 && (
+                                            <FooterPriceDisplay
+                                                variant="compare"
+                                                value={subtotal}
+                                                currency={currency}
+                                                activeCurrency={activeCurrency}
+                                            />
+                                        )}
+                                        <FooterPriceDisplay
+                                            variant="main"
+                                            value={totalPrice}
+                                            currency={currency}
+                                            activeCurrency={activeCurrency}
+                                        />
+                                    </div>
+                                    <p className="mt-1 text-right text-[12px] leading-snug text-[#64748B]">
+                                        {l("totalIncludes")}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             {/* Mobile Bottom Fixed Action Bar */}
-            <div className="fixed bottom-0 left-0 w-full z-30 bg-white px-5 py-4 border-t border-gray-100 shadow-[0_-8px_20px_rgba(0,0,0,0.04)]">
-                <div className="flex items-center justify-between gap-4">
-                    <div className="text-start" dir="ltr">
-                        <div className="text-2xl font-bold text-[#0B5DB6]">
-                            <Price value={totalPrice} currency={currency} size="lg" />
-                        </div>
-                        <div className="mt-1 text-[10px] font-medium text-slate-500 text-right">{l("totalIncludes")}</div>
-                    </div>
+            <div className="fixed bottom-0 left-0 w-full z-30 border-t border-[#E8ECF1] bg-white px-4 py-6">
+                <div className="flex items-center justify-between gap-3" dir="ltr">
                     <Link
                         href={buildInstituteBookingUrl(slug, {
                             courseId: selectedCourseId,
@@ -581,11 +1187,41 @@ export default function MobileInstituteDetails({ slug: slugProp }) {
                             extras: selectedExtras,
                             accAge,
                         })}
-                        className="flex items-center justify-center gap-2 rounded-xl bg-[#0057B7] flex-1 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-transform"
+                        className="flex min-h-[48px] flex-1 items-center justify-center gap-1 rounded-xl bg-[#0057B7] px-2 text-[15px] font-semibold text-white transition-transform active:scale-[0.98]"
                     >
-                        <span>{l("reviewRequest")}</span>
-                        <span className="text-lg">→</span>
+                        {isArabic ? (
+                            <>
+                                <span className="text-[15px] leading-none">←</span>
+                                <span>{l("reviewRequest")}</span>
+                            </>
+                        ) : (
+                            <>
+                                <span>{l("reviewRequest")}</span>
+                                <span className="text-[15px] leading-none">→</span>
+                            </>
+                        )}
                     </Link>
+                    <div className="shrink-0 pl-1">
+                        <div className="flex items-center justify-end gap-2" dir="ltr">
+                            {totalDiscountAmount > 0 && (
+                                <FooterPriceDisplay
+                                    variant="compare"
+                                    value={subtotal}
+                                    currency={currency}
+                                    activeCurrency={activeCurrency}
+                                />
+                            )}
+                            <FooterPriceDisplay
+                                variant="main"
+                                value={totalPrice}
+                                currency={currency}
+                                activeCurrency={activeCurrency}
+                            />
+                        </div>
+                        <p className="mt-1 text-right text-[12px] leading-snug text-[#64748B]">
+                            {l("totalIncludes")}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

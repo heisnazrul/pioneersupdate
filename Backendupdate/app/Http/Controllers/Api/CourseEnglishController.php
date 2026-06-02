@@ -459,14 +459,19 @@ class CourseEnglishController extends Controller
             ->where('is_active', true)
             ->orderBy('weeks')
             ->get()
-            ->map(fn (LanguageSchoolPioneersDiscount $discount) => [
-                'id' => $discount->id,
-                'name' => $discount->name,
-                'ar_name' => $discount->ar_name,
-                'weeks' => $discount->weeks,
-                'discount_amount' => (float) $discount->discount_amount,
-                'discount_full_for' => $discount->discount_full_for,
-            ])
+            ->map(function (LanguageSchoolPioneersDiscount $discount) {
+                $amountPrices = $this->support->buildPriceMap($discount->discount_amount, 'GBP');
+
+                return [
+                    'id' => $discount->id,
+                    'name' => $discount->name,
+                    'ar_name' => $discount->ar_name,
+                    'weeks' => $discount->weeks,
+                    'discount_amount' => (float) $discount->discount_amount,
+                    'discount_amount_prices' => $amountPrices,
+                    'discount_full_for' => $discount->discount_full_for,
+                ];
+            })
             ->values();
 
         return response()->json([

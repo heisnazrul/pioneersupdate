@@ -47,6 +47,11 @@ export function buildInstituteBookingUrl(slug, selections = {}) {
   return `/language-institutes/${encodeURIComponent(slug)}/booking${query ? `?${query}` : ""}`;
 }
 
+export function buildInstituteBookingCheckoutUrl(slug, selections = {}) {
+  const query = buildInstituteSelectionQuery(selections);
+  return `/language-institutes/${encodeURIComponent(slug)}/booking/checkout${query ? `?${query}` : ""}`;
+}
+
 export function readInstituteSelectionFromSearchParams(searchParams) {
   const extrasRaw = searchParams.get("extras");
   return {

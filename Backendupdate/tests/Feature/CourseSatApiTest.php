@@ -197,6 +197,7 @@ class CourseSatApiTest extends TestCase
                         'schools' => [],
                         'countries' => [],
                         'cities' => [],
+                        'branches' => [],
                         'course_types' => [],
                     ],
                 ],

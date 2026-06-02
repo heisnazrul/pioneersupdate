@@ -12,6 +12,14 @@ import SortDropdown from "@/components/shared/sort-dropdown";
 import DesktopHeader from "@/components/desktop/desktop-header";
 import DesktopFooter from "@/components/desktop/desktop-footer";
 import { mapCourseTypeOptions } from "@/lib/hero-search-data";
+import {
+    appendDestination,
+    applyDestinationsToSearchParams,
+    buildDestinationLabel,
+    destinationKey,
+    parseLegacyDestinationParams,
+    removeDestination,
+} from "@/lib/institute-search-targets";
 import { useApi } from "@/lib/api";
 import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
@@ -44,28 +52,14 @@ function LanguageInstitutesHero({ searchData }) {
     const isArabic = language === "ar";
     const page = t("pages.language_institutes", {});
 
-    const [destination, setDestination] = useState(null);
+    const [destinations, setDestinations] = useState([]);
     const [courseType, setCourseType] = useState(null);
     const [weeks, setWeeks] = useState(12);
     const [startDate, setStartDate] = useState(null);
 
     useEffect(() => {
         if (!data) return;
-
-        const schoolSlug = searchParams.get('school_slug');
-        const citySlug = searchParams.get('city_slug');
-        const countrySlug = searchParams.get('country_slug');
-
-        if (schoolSlug) {
-            const match = data.schools?.find(s => s.slug === schoolSlug);
-            if (match) setDestination({ type: 'school', slug: schoolSlug, name: isArabic ? match.ar_name || match.name : match.name });
-        } else if (citySlug) {
-            const match = data.cities?.find(c => c.slug === citySlug);
-            if (match) setDestination({ type: 'city', slug: citySlug, name: isArabic ? match.ar_name || match.name : match.name });
-        } else if (countrySlug) {
-            const match = data.countries?.find(c => c.slug === countrySlug);
-            if (match) setDestination({ type: 'country', slug: countrySlug, name: isArabic ? match.ar_name || match.name : match.name });
-        }
+        setDestinations(parseLegacyDestinationParams(searchParams, data, isArabic));
 
         const typeParam = searchParams.get('course_type');
         if (typeParam) {
@@ -90,12 +84,7 @@ function LanguageInstitutesHero({ searchData }) {
 
     const handleSearch = () => {
         const params = new URLSearchParams();
-
-        if (destination) {
-            if (destination.type === 'school') params.set('school_slug', destination.slug);
-            if (destination.type === 'city') params.set('city_slug', destination.slug);
-            if (destination.type === 'country') params.set('country_slug', destination.slug);
-        }
+        applyDestinationsToSearchParams(params, destinations);
 
         if (courseType) params.set('course_type', courseType);
         if (weeks) params.set('weeks', weeks);
@@ -128,13 +117,35 @@ function LanguageInstitutesHero({ searchData }) {
             <div ref={searchBarRef} className="relative w-full max-w-6xl rounded-2xl bg-white px-4 py-3 shadow-sm overflow-visible">
                 <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between overflow-visible">
                     <div className="relative flex flex-1 flex-col border-b border-gray-100 md:border-b-0 md:border-e md:px-2 text-start overflow-visible">
+                        {destinations.length > 0 && (
+                            <div className="mb-2 flex flex-wrap gap-2 px-2">
+                                {destinations.map((destination) => {
+                                    const key = destinationKey(destination);
+                                    return (
+                                        <span
+                                            key={key}
+                                            className="inline-flex items-center gap-2 rounded-full bg-[#EEF4FB] px-3 py-1 text-xs font-medium text-[#0B5DB6]"
+                                        >
+                                            <span>{buildDestinationLabel(destination, isArabic)}</span>
+                                            <button
+                                                type="button"
+                                                onClick={() => setDestinations((current) => removeDestination(current, key))}
+                                            >
+                                                ×
+                                            </button>
+                                        </span>
+                                    );
+                                })}
+                            </div>
+                        )}
                         <LanguageInstitutesHeroSearch
                             anchorRef={searchBarRef}
                             placeholder={page?.hero?.labels?.destination || (isArabic ? "ادخل وجهتك المفضلة" : "Enter your preferred destination")}
-                            subPlaceholder={page?.hero?.labels?.destination_placeholder || (isArabic ? "ادخل الدولة أو المدينة أو المعهد" : "Enter country, city, or institute")}
-                            value={destination?.name || ""}
+                            subPlaceholder={page?.hero?.labels?.destination_placeholder || (isArabic ? "ابحث عن معهد، مدينة، أو دولة" : "Search institute, city, or country")}
+                            value=""
                             searchData={data}
-                            onSelect={(dest) => setDestination(dest)}
+                            multiSelect
+                            onSelect={(dest) => setDestinations((current) => appendDestination(current, dest))}
                             variant="borderless"
                         />
                     </div>

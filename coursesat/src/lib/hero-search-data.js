@@ -32,6 +32,7 @@ export function useHeroSearchData() {
     schools: searchData?.schools ?? [],
     countries: searchData?.countries ?? [],
     cities: searchData?.cities ?? [],
+    branches: searchData?.branches ?? [],
     courseTypes: searchData?.course_types ?? [],
     loading,
     error,

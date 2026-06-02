@@ -1,0 +1,210 @@
+[
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Liverpool",
+    "country": "UK",
+    "weekly_fee": 6.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "ATLAS Language School",
+    "city": "Malta",
+    "country": "MT",
+    "weekly_fee": 10.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "LSI",
+    "city": "London",
+    "country": "UK",
+    "weekly_fee": 14.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "LSI",
+    "city": "Brighton",
+    "country": "UK",
+    "weekly_fee": 14.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "LSI",
+    "city": "Cambridge",
+    "country": "UK",
+    "weekly_fee": 14.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "LSI",
+    "city": "New York",
+    "country": "US",
+    "weekly_fee": 40.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  },
+  {
+    "school_en": "LSI",
+    "city": "Boston",
+    "country": "US",
+    "weekly_fee": 40.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  },
+  {
+    "school_en": "LSI",
+    "city": "San Diego",
+    "country": "US",
+    "weekly_fee": 40.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  },
+  {
+    "school_en": "LSI",
+    "city": "Berkeley",
+    "country": "US",
+    "weekly_fee": 40.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  },
+  {
+    "school_en": "LSI",
+    "city": "Toronto",
+    "country": "CA",
+    "weekly_fee": 40.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  },
+  {
+    "school_en": "LSI",
+    "city": "Vancouver",
+    "country": "CA",
+    "weekly_fee": 40.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  },
+  {
+    "school_en": "Kings Hall College",
+    "city": "Manchester",
+    "country": "UK",
+    "weekly_fee": 12.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Lewis School of English",
+    "city": "Southampton",
+    "country": "UK",
+    "weekly_fee": 10.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "London",
+    "country": "UK",
+    "weekly_fee": 8.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Liverpool",
+    "country": "UK",
+    "weekly_fee": 8.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Brighton",
+    "country": "UK",
+    "weekly_fee": 8.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Bournemouth",
+    "country": "UK",
+    "weekly_fee": 8.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Leeds",
+    "country": "UK",
+    "weekly_fee": 8.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Vancouver",
+    "country": "CA",
+    "weekly_fee": 25.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Toronto",
+    "country": "CA",
+    "weekly_fee": 25.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Bayswater",
+    "city": "Calgary",
+    "country": "CA",
+    "weekly_fee": 25.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "London",
+    "country": "UK",
+    "weekly_fee": 9.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Cambridge",
+    "country": "UK",
+    "weekly_fee": 9.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Stafford House",
+    "city": "Canterbury",
+    "country": "UK",
+    "weekly_fee": 9.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "Southbourne School of English",
+    "city": "Bournemouth",
+    "country": "UK",
+    "weekly_fee": 7.0,
+    "admin_fee": 5.0,
+    "is_mandatory": "no"
+  },
+  {
+    "school_en": "The Essential English Centre",
+    "city": "Manchester",
+    "country": "UK",
+    "weekly_fee": 12.0,
+    "admin_fee": 0.0,
+    "is_mandatory": "yes"
+  }
+]

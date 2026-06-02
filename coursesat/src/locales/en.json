@@ -114,6 +114,13 @@
       "inCompare": "Already in Compare",
       "aboutInstitute": "About the Institute",
       "accreditations": "Accreditations",
+      "accreditedBy": "Accredited by",
+      "mobile": {
+        "chooseCourseTitle": "Choose course",
+        "accommodationTitle": "Accommodation",
+        "pickupTitle": "Airport pickup",
+        "extrasTitle": "Additional options"
+      },
       "step1": "Step 1: Choose the Suitable Course",
       "step1Sub": "Prices calculated per week",
       "startDate": "Start Date",
@@ -195,6 +202,16 @@
       "booking": {
         "reviewBooking": "Review Booking",
         "reviewConfirm": "Review Booking",
+        "backToEdit": "Back to edit options",
+        "backToReview": "Back to booking review",
+        "progressSaved": "Progress saved automatically",
+        "edit": "Edit",
+        "checkoutSubtitle": "These details will be used to create your account and process your booking",
+        "otpTitle": "Enter verification code",
+        "otpSubtitle": "A 6-digit code was sent to",
+        "otpVerify": "Verify",
+        "otpResend": "Resend code in",
+        "otpResendNow": "Resend code",
         "reviewSubtitle": "Review booking details and contact information before submitting your request",
         "contactDetails": "Contact Details",
         "contactSubtitle": "We will contact you via WhatsApp to confirm details and help you choose the best option",
@@ -624,7 +641,8 @@
       },
       "confirmation": {
         "title": "Your request was sent successfully",
-        "subtitle": "Our team will review your request and contact you via WhatsApp to confirm the details.",
+        "subtitle": "Our team will review your request and contact you via WhatsApp to confirm the details and help you choose the best option before final confirmation.",
+        "whatsapp_message": "Hello,\nI just submitted a booking request on your platform.\n\nReference: #{reference}\n\nI'd love to follow up with you. Thank you! 🙏",
         "booking_no": "Booking #",
         "copy_booking": "Copy booking number",
         "copy": "Copy",
@@ -1010,6 +1028,8 @@
           "top_rated": "Top rated",
           "view_details": "View details",
           "best_price_guarantee": "Best price guarantee",
+          "best_price_hint_title": "What does best price guarantee mean?",
+          "best_price_hint_body": "We are committed to offering the best available prices for courses and institutes on our platform. If you find the same course at the same institute for a lower price on another site, we will review it and offer you the best price possible.",
           "no_charge_note": "You won't be charged yet",
           "per_week": "/ week"
         }

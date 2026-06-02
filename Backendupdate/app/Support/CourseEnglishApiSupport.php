@@ -171,6 +171,8 @@ class CourseEnglishApiSupport
             'country' => $country?->name,
             'country_name' => $country?->name,
             'country_ar_name' => $country?->ar_name,
+            'country_code' => $country?->country_code,
+            'country_slug' => $country?->slug,
             'country_flag' => $this->toPublicUrl($country?->resolveFlagPath()),
             'flag' => $this->toPublicUrl($country?->resolveFlagPath()),
             'logo' => $this->toPublicUrl($school?->logo_url),

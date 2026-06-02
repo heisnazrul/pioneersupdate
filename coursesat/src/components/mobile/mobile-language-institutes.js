@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useCallback, Suspense, useEffect } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +15,12 @@ import { useLocale } from "@/components/providers/locale-provider";
 import { useCurrency } from "@/components/providers/currency-provider";
 import { getCoursePrice } from "@/lib/format-currency";
 import { mapCourseTypeOptions } from "@/lib/hero-search-data";
+import {
+    appendDestination,
+    applyDestinationsToSearchParams,
+    parseLegacyDestinationParams,
+    removeDestination,
+} from "@/lib/institute-search-targets";
 
 const PAGE_SIZE = 12;
 
@@ -59,28 +66,14 @@ function MobileInstituteFilters({ totalCount, onSortChange, searchData }) {
         [isArabic]
     );
 
-    const [destination, setDestination] = useState(null);
+    const [destinations, setDestinations] = useState([]);
     const [courseType, setCourseType] = useState(null);
     const [weeks, setWeeks] = useState(12);
     const [startDate, setStartDate] = useState(null);
 
     useEffect(() => {
         if (!data) return;
-
-        const schoolSlug = searchParams.get('school_slug');
-        const citySlug = searchParams.get('city_slug');
-        const countrySlug = searchParams.get('country_slug');
-
-        if (schoolSlug) {
-            const match = data.schools?.find(s => s.slug === schoolSlug);
-            if (match) setDestination({ type: 'school', slug: schoolSlug, name: isArabic ? match.ar_name || match.name : match.name });
-        } else if (citySlug) {
-            const match = data.cities?.find(c => c.slug === citySlug);
-            if (match) setDestination({ type: 'city', slug: citySlug, name: isArabic ? match.ar_name || match.name : match.name });
-        } else if (countrySlug) {
-            const match = data.countries?.find(c => c.slug === countrySlug);
-            if (match) setDestination({ type: 'country', slug: countrySlug, name: isArabic ? match.ar_name || match.name : match.name });
-        }
+        setDestinations(parseLegacyDestinationParams(searchParams, data, isArabic));
 
         const typeParam = searchParams.get('course_type');
         if (typeParam) {
@@ -107,18 +100,21 @@ function MobileInstituteFilters({ totalCount, onSortChange, searchData }) {
     const handleSearch = () => {
         setIsSearchOpen(false);
         const params = new URLSearchParams();
-
-        if (destination) {
-            if (destination.type === 'school') params.set('school_slug', destination.slug);
-            if (destination.type === 'city') params.set('city_slug', destination.slug);
-            if (destination.type === 'country') params.set('country_slug', destination.slug);
-        }
+        applyDestinationsToSearchParams(params, destinations);
 
         if (courseType) params.set('course_type', courseType);
         if (weeks) params.set('weeks', weeks);
         if (startDate) params.set('start_date', formatLocalDate(startDate));
 
         router.push(`/language-institutes?${params.toString()}`);
+    };
+
+    const handleDestinationAdd = (selection) => {
+        setDestinations((current) => appendDestination(current, selection));
+    };
+
+    const handleDestinationRemove = (key) => {
+        setDestinations((current) => removeDestination(current, key));
     };
 
     const searchPlaceholder =
@@ -140,19 +136,18 @@ function MobileInstituteFilters({ totalCount, onSortChange, searchData }) {
             <div className={`flex items-center gap-2 ${isArabic ? "flex-row-reverse" : ""}`}>
                 <button
                     type="button"
-                    className="flex flex-1 items-center rounded-full border border-[#D8E0EA] bg-white px-4 py-3.5 text-start"
+                    className="flex flex-1 items-center rounded-md border border-[#D8E0EA] bg-white px-4 py-3.5 text-start"
                     onClick={() => setIsSearchOpen(true)}
                 >
                     <span className="text-sm text-slate-500">{searchPlaceholder}</span>
                 </button>
-                <button
-                    type="button"
+                <Link
+                    href="/"
                     className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-900"
-                    onClick={() => setIsSearchOpen(true)}
-                    aria-label={t("layouts.common.search", isArabic ? "بحث" : "Search")}
+                    aria-label={t("layouts.common.back_home", isArabic ? "العودة للرئيسية" : "Back to home")}
                 >
                     <FontAwesomeIcon icon={faArrowRight} className="h-5 w-5" />
-                </button>
+                </Link>
             </div>
 
             <div className="mt-4 flex items-center justify-between gap-3">
@@ -175,8 +170,9 @@ function MobileInstituteFilters({ totalCount, onSortChange, searchData }) {
                 onSearch={handleSearch}
                 searchData={data}
                 page={page}
-                destination={destination}
-                onDestinationChange={setDestination}
+                destinations={destinations}
+                onDestinationAdd={handleDestinationAdd}
+                onDestinationRemove={handleDestinationRemove}
                 courseType={courseType}
                 onCourseTypeChange={setCourseType}
                 weeks={weeks}
@@ -295,9 +291,9 @@ function MobileLanguageInstitutesInner() {
     const noMatchHint = isArabic ? "جرب تعديل خيارات الفلترة أو الترتيب" : "Try adjusting the filters or sort options";
 
     return (
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col bg-white">
             <MobileHeader />
-            <main className="flex-1 bg-[#F0F7FC] pb-24">
+            <main className="flex-1 bg-white pb-24">
                 <div className="px-4 pt-4">
                     <MobileInstituteFilters
                         totalCount={processedCourses.length}

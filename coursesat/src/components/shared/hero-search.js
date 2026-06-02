@@ -8,6 +8,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { getImageUrl } from "@/lib/api";
 import { getCountryFlagUrl, getLocalCountryFlagPath } from "@/lib/country-flags";
 import { useHeroSearchData, sortSearchCountries } from "@/lib/hero-search-data";
+import { filterAndRankSearchItems } from "@/lib/hero-search-fuzzy";
 import { useLocale } from "@/components/providers/locale-provider";
 
 const INITIAL_VISIBLE_COUNT = 7;
@@ -49,6 +50,7 @@ function useExpandableList(items, initialVisible = INITIAL_VISIBLE_COUNT) {
 function HeroSearchDropdownPanel({
   isArabic,
   t,
+  filteredBranches,
   filteredInstitutes,
   filteredCountries,
   filteredCities,
@@ -56,12 +58,68 @@ function HeroSearchDropdownPanel({
   loading,
   searchTerm,
 }) {
+  const branches = useExpandableList(filteredBranches);
   const institutes = useExpandableList(filteredInstitutes);
   const countries = useExpandableList(filteredCountries);
   const cities = useExpandableList(filteredCities);
 
+  const hasResults =
+    filteredBranches.length > 0 ||
+    filteredInstitutes.length > 0 ||
+    filteredCountries.length > 0 ||
+    filteredCities.length > 0;
+
   return (
     <div className="max-h-[60vh] overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-gray-200">
+      {filteredBranches.length > 0 && (
+        <section className="mb-8">
+          <h3 className="mb-4 text-lg font-medium text-slate-900">
+            {t("Institute Branches", "فروع المعاهد")}
+          </h3>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {branches.visibleItems.map((branch) => {
+              const flagSrc = getCountryFlagUrl(branch);
+              return (
+                <button
+                  key={branch.id ?? branch.slug ?? branch.name}
+                  type="button"
+                  onClick={() => handleSelect(branch, "branch")}
+                  className="flex min-h-[52px] items-center gap-3 rounded-xl border border-gray-100 px-4 py-3 text-start transition hover:border-blue-200 hover:bg-blue-50"
+                  dir="ltr"
+                >
+                  {flagSrc ? (
+                    <img
+                      src={flagSrc}
+                      alt=""
+                      className="h-6 w-6 shrink-0 rounded-full object-cover"
+                      loading="lazy"
+                      onError={(e) => {
+                        const fallback = getLocalCountryFlagPath(branch);
+                        if (fallback && !e.currentTarget.src.endsWith(fallback)) {
+                          e.currentTarget.src = fallback;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <span className="text-lg">🌍</span>
+                  )}
+                  <span className={`min-w-0 flex-1 text-sm font-medium text-slate-800 ${isArabic ? "text-right" : "text-left"}`}>
+                    {isArabic ? branch.ar_name || branch.name : branch.name || branch.ar_name}
+                  </span>
+                </button>
+              );
+            })}
+            {branches.hasMore && (
+              <HeroSearchSeeMoreCard
+                label={t("More Branches", "فروع أخرى")}
+                isArabic={isArabic}
+                onClick={branches.showMore}
+              />
+            )}
+          </div>
+        </section>
+      )}
+
       {filteredInstitutes.length > 0 && (
         <section className="mb-8">
           <h3 className="mb-4 text-lg font-medium text-slate-900">{t("Popular Institutes", "أشهر المعاهد")}</h3>
@@ -163,6 +221,11 @@ function HeroSearchDropdownPanel({
                 <span className="text-sm font-medium text-slate-800">
                   {isArabic ? city.ar_name || city.name : city.name || city.ar_name}
                 </span>
+                {(city.country_name || city.country_ar_name) && (
+                  <span className="mt-0.5 text-xs text-slate-500">
+                    {isArabic ? city.country_ar_name || city.country_name : city.country_name || city.country_ar_name}
+                  </span>
+                )}
               </button>
             ))}
             {cities.hasMore && (
@@ -180,12 +243,9 @@ function HeroSearchDropdownPanel({
         <div className="text-center py-8 text-slate-500">{t("Loading...", "جاري التحميل...")}</div>
       )}
 
-      {!loading &&
-        filteredInstitutes.length === 0 &&
-        filteredCountries.length === 0 &&
-        filteredCities.length === 0 && (
+      {!loading && !hasResults && (
           <div className="text-center py-8 text-slate-500">
-            No results found for &quot;{searchTerm}&quot;
+            {t(`No results found for "${searchTerm}"`, `لا توجد نتائج لـ "${searchTerm}"`)}
           </div>
         )}
     </div>
@@ -198,6 +258,7 @@ export default function HeroSearch({
   value = "",
   searchData = null,
   onSelect,
+  multiSelect = false,
   variant = "default",
   wideDropdown = false,
   dropdownWidthRatio = 1,
@@ -219,6 +280,7 @@ export default function HeroSearch({
     [searchData?.countries, fallback.countries]
   );
   const cities = searchData?.cities ?? fallback.cities;
+  const branches = searchData?.branches ?? fallback.branches ?? [];
   const loading = searchData ? false : fallback.loading;
 
   useEffect(() => {
@@ -272,24 +334,26 @@ export default function HeroSearch({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const filterItems = (items) => {
-    if (!searchTerm) return items;
-    const lowerTerm = searchTerm.toLowerCase();
-    return items.filter(
-      (item) =>
-        item.name?.toLowerCase().includes(lowerTerm) ||
-        (item.ar_name && item.ar_name.toLowerCase().includes(lowerTerm))
-    );
-  };
+  const filterList = (items, extraFieldsBuilder = null) =>
+    filterAndRankSearchItems(items, searchTerm, extraFieldsBuilder);
 
-  const filteredInstitutes = filterItems(institutes);
-  const filteredCountries = filterItems(countries);
-  const filteredCities = filterItems(cities);
+  const filteredBranches = filterList(branches);
+  const filteredInstitutes = filterList(institutes, (school) => [
+    ...(searchData?.cities ?? [])
+      .filter((city) => school.city_ids?.includes(city.id))
+      .flatMap((city) => [city.name, city.ar_name, city.country_name, city.country_ar_name]),
+  ]);
+  const filteredCountries = filterList(countries);
+  const filteredCities = filterList(cities, (city) => [city.country_name, city.country_ar_name]);
 
   const handleSelect = (item, type) => {
     const displayValue = isArabic ? item.ar_name || item.name : item.name || item.ar_name;
-    setSearchTerm(displayValue || "");
-    setIsOpen(false);
+    if (!multiSelect) {
+      setSearchTerm(displayValue || "");
+      setIsOpen(false);
+    } else {
+      setSearchTerm("");
+    }
     onSelect?.({ type, slug: item.slug, name: displayValue, ...item });
   };
 
@@ -298,6 +362,7 @@ export default function HeroSearch({
   const panelProps = {
     isArabic,
     t,
+    filteredBranches,
     filteredInstitutes,
     filteredCountries,
     filteredCities,
